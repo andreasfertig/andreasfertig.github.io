@@ -60,11 +60,11 @@
 <p>Take this piece of code for example:</p>
 <p>```C++ class Base { };</p>
 <p>class Derived : public Base { };</p>
-<p>int <a class="el" href="CMakeCCompilerId_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a> { Derived d; Base&amp; b = d; } ```</p>
+<p>int <a class="el" href="Insights_8cpp.html#a217dbf8b442f20279ea00b898af96f52">main()</a> { Derived d; Base&amp; b = d; } ```</p>
 <p>Nothing special and of course it compiles. This is the compilers view on it:</p>
 <p>```C++ class Base { /* public: inline constexpr Base() noexcept; /* public: inline ~Base(); /* public: inline constexpr Base(const Base &amp;); /* public: inline constexpr Base(Base &amp;&amp;); };</p>
 <p>class Derived : public Base { /* public: inline constexpr Derived() noexcept; /* public: inline constexpr Derived(const Derived &amp;); /* public: inline constexpr Derived(Derived &amp;&amp;); };</p>
-<p>int <a class="el" href="CMakeCCompilerId_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>{ Derived d; Base&amp; b = static_cast&lt;Base&amp;&gt;(d); } ```</p>
+<p>int <a class="el" href="Insights_8cpp.html#a217dbf8b442f20279ea00b898af96f52">main()</a>{ Derived d; Base&amp; b = static_cast&lt;Base&amp;&gt;(d); } ```</p>
 <p>You can see all the compiler provided functions. Also the downcast from <code>Derived</code> to <code>Base</code>.</p>
 <p>I do not claim to get all the things right. This is just the initial version of insights I consider good enough to hand it to the public. Keep also in mind that is solely based on clang and it's understanding of the AST.</p>
 <h2>Why</h2>
