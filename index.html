@@ -101,6 +101,16 @@ $(function() {
 <div class="fragment"><div class="line">./scripts/getinclude.py </div><div class="line">-isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1 -isystem/usr/local/include -isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include -isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -isystem/usr/include </div></div><!-- fragment --><p>The script can be used together with C++ Insights:</p>
 <p>``<code> insights &lt;YOUR_CPP_FILE&gt; -- -std=c++17</code>./scripts/getinclude.py<code> </code>``</p>
 <p>There is also another github project which sets up a docker container with the latest C++ Insights version in it: <a href="https://github.com/andreasfertig/cppinsights-docker">C++ Insights - Docker</a></p>
+<h2>Compatibility</h2>
+<p>Currently the most recent stable version is clang is supported as well as the current development branch.</p>
+<h2>ToDo's</h2>
+<ul>
+<li>Catch insights crashes and provide easy issue reporting including error output.</li>
+<li>Short links (public database?)</li>
+<li>Time tests to see performance changes</li>
+<li>Provide easy local installation (via docker)</li>
+<li>short links</li>
+</ul>
 <h2>Get Involved</h2>
 <ul>
 <li>Report bugs/issues by submitting a <a href="https://github.com/andreasfertig/cppinsights/issues">Github issue</a>.</li>
