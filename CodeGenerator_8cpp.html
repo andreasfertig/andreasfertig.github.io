@@ -47,10 +47,12 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="CodeGenerator_8h_source.html">CodeGenerator.h</a>&quot;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
 <code>#include &quot;<a class="el" href="ClangCompat_8h_source.html">ClangCompat.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="DPrint_8h_source.html">DPrint.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="InsightsBase_8h_source.html">InsightsBase.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="InsightsMatchers_8h_source.html">InsightsMatchers.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="InsightsOnce_8h_source.html">InsightsOnce.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="InsightsStrCat_8h_source.html">InsightsStrCat.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="NumberIterator_8h_source.html">NumberIterator.h</a>&quot;</code><br />
 <code>#include &quot;clang/Frontend/CompilerInstance.h&quot;</code><br />
@@ -60,19 +62,20 @@ Include dependency graph for CodeGenerator.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="CodeGenerator_8cpp__incl.png" border="0" usemap="#CodeGenerator_8cpp" alt=""/></div>
 <map name="CodeGenerator_8cpp" id="CodeGenerator_8cpp">
-<area shape="rect" id="node2" href="CodeGenerator_8h.html" title="CodeGenerator.h" alt="" coords="824,80,955,107"/>
-<area shape="rect" id="node8" href="ClangCompat_8h.html" title="ClangCompat.h" alt="" coords="149,162,272,189"/>
-<area shape="rect" id="node18" href="InsightsStrCat_8h.html" title="InsightsStrCat.h" alt="" coords="1276,244,1401,271"/>
-<area shape="rect" id="node20" href="CodeGeneratorTypes_8h.html" title="CodeGeneratorTypes.h" alt="" coords="1062,162,1231,189"/>
-<area shape="rect" id="node21" href="DPrint_8h.html" title="DPrint.h" alt="" coords="1764,80,1839,107"/>
-<area shape="rect" id="node22" href="InsightsBase_8h.html" title="InsightsBase.h" alt="" coords="1569,80,1687,107"/>
-<area shape="rect" id="node24" href="InsightsMatchers_8h.html" title="InsightsMatchers.h" alt="" coords="339,80,483,107"/>
-<area shape="rect" id="node25" href="NumberIterator_8h.html" title="NumberIterator.h" alt="" coords="1967,80,2100,107"/>
-<area shape="rect" id="node11" href="InsightsHelpers_8h.html" title="InsightsHelpers.h" alt="" coords="793,244,927,271"/>
-<area shape="rect" id="node14" href="InsightsStrongTypes_8h.html" title="InsightsStrongTypes.h" alt="" coords="823,326,987,353"/>
-<area shape="rect" id="node15" href="InsightsStaticStrings_8h.html" title="InsightsStaticStrings.h" alt="" coords="550,162,717,189"/>
-<area shape="rect" id="node16" href="OutputFormatHelper_8h.html" title="OutputFormatHelper.h" alt="" coords="1255,162,1422,189"/>
-<area shape="rect" id="node19" href="StackList_8h.html" title="StackList.h" alt="" coords="843,162,936,189"/>
+<area shape="rect" id="node2" href="CodeGenerator_8h.html" title="CodeGenerator.h" alt="" coords="882,80,1012,107"/>
+<area shape="rect" id="node8" href="ClangCompat_8h.html" title="ClangCompat.h" alt="" coords="1624,162,1747,189"/>
+<area shape="rect" id="node18" href="InsightsOnce_8h.html" title="InsightsOnce.h" alt="" coords="153,244,272,271"/>
+<area shape="rect" id="node19" href="InsightsStrCat_8h.html" title="InsightsStrCat.h" alt="" coords="394,244,519,271"/>
+<area shape="rect" id="node21" href="CodeGeneratorTypes_8h.html" title="CodeGeneratorTypes.h" alt="" coords="1278,162,1448,189"/>
+<area shape="rect" id="node23" href="DPrint_8h.html" title="DPrint.h" alt="" coords="56,80,131,107"/>
+<area shape="rect" id="node24" href="InsightsBase_8h.html" title="InsightsBase.h" alt="" coords="263,80,380,107"/>
+<area shape="rect" id="node26" href="InsightsMatchers_8h.html" title="InsightsMatchers.h" alt="" coords="1407,80,1551,107"/>
+<area shape="rect" id="node27" href="NumberIterator_8h.html" title="NumberIterator.h" alt="" coords="1735,80,1868,107"/>
+<area shape="rect" id="node11" href="InsightsHelpers_8h.html" title="InsightsHelpers.h" alt="" coords="774,244,909,271"/>
+<area shape="rect" id="node14" href="InsightsStrongTypes_8h.html" title="InsightsStrongTypes.h" alt="" coords="752,326,916,353"/>
+<area shape="rect" id="node15" href="InsightsStaticStrings_8h.html" title="InsightsStaticStrings.h" alt="" coords="985,162,1152,189"/>
+<area shape="rect" id="node16" href="OutputFormatHelper_8h.html" title="OutputFormatHelper.h" alt="" coords="524,162,690,189"/>
+<area shape="rect" id="node20" href="StackList_8h.html" title="StackList.h" alt="" coords="816,162,910,189"/>
 </map>
 </div>
 </div>
@@ -131,9 +134,6 @@ Functions</h2></td></tr>
 <tr class="separator:a3d409f839356b0a651f2fbf35257cb50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac75d0c3f49728606fbeec113ae6306d1"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ac75d0c3f49728606fbeec113ae6306d1">clang::insights::getValueOfValueInit</a> (const QualType &amp;t)</td></tr>
 <tr class="separator:ac75d0c3f49728606fbeec113ae6306d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef9ea05a7579748b03df6ed7b1cc571e"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#aef9ea05a7579748b03df6ed7b1cc571e">clang::insights::GetCaptureTypeNameAsParameter</a> (const QualType &amp;t, const std::string &amp;varName)</td></tr>
-<tr class="memdesc:aef9ea05a7579748b03df6ed7b1cc571e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a correct type for an array.  <a href="namespaceclang_1_1insights.html#aef9ea05a7579748b03df6ed7b1cc571e">More...</a><br /></td></tr>
-<tr class="separator:aef9ea05a7579748b03df6ed7b1cc571e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a0c90d52f0bebd6541367a8b3cb627a63"></a>
@@ -162,7 +162,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="CodeGenerator_8cpp_source.html#l02274">clang::insights::CodeGenerator::GetBuiltinTypeSuffix()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="CodeGenerator_8cpp_source.html#l02422">clang::insights::CodeGenerator::GetBuiltinTypeSuffix()</a>.</p>
 
 </div>
 </div>
@@ -212,9 +212,9 @@ Functions</h2></td></tr>
 
 <p>Convenience macro to create a LambdaScopeHandler on the stack. </p>
 
-<p class="definition">Definition at line <a class="el" href="CodeGenerator_8cpp_source.html#l00019">19</a> of file <a class="el" href="CodeGenerator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CodeGenerator_8cpp_source.html#l00021">21</a> of file <a class="el" href="CodeGenerator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="CodeGenerator_8cpp_source.html#l00628">clang::insights::GetQualifiers()</a>, <a class="el" href="CodeGenerator_8cpp_source.html#l01019">clang::insights::CodeGenerator::HandleCompoundStmt()</a>, <a class="el" href="CodeGenerator_8cpp_source.html#l01828">clang::insights::CodeGenerator::ParseDeclContext()</a>, and <a class="el" href="CodeGenerator_8cpp_source.html#l00089">clang::insights::CodeGenerator::LambdaScopeHandler::~LambdaScopeHandler()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="CodeGenerator_8cpp_source.html#l00618">clang::insights::GetQualifiers()</a>, <a class="el" href="CodeGenerator_8cpp_source.html#l01018">clang::insights::CodeGenerator::HandleCompoundStmt()</a>, <a class="el" href="CodeGenerator_8cpp_source.html#l01873">clang::insights::CodeGenerator::ParseDeclContext()</a>, and <a class="el" href="CodeGenerator_8cpp_source.html#l00091">clang::insights::CodeGenerator::LambdaScopeHandler::~LambdaScopeHandler()</a>.</p>
 
 </div>
 </div>
