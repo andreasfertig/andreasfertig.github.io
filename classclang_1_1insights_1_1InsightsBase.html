@@ -60,9 +60,8 @@ Inheritance diagram for clang::insights::InsightsBase:</div>
 <area shape="rect" id="node3" href="classclang_1_1insights_1_1CompilerGeneratedHandler.html" title="Show which special members the compiler generates for a certain class. " alt="" coords="278,71,461,112"/>
 <area shape="rect" id="node4" href="classclang_1_1insights_1_1FunctionDeclHandler.html" title="Match function decls. " alt="" coords="280,136,459,177"/>
 <area shape="rect" id="node5" href="classclang_1_1insights_1_1GlobalVariableHandler.html" title="Show the result of a static_assert. " alt="" coords="260,201,479,243"/>
-<area shape="rect" id="node6" href="classclang_1_1insights_1_1ImplicitCastHandler.html" title="Show implicit casts. " alt="" coords="283,267,456,308"/>
-<area shape="rect" id="node7" href="classclang_1_1insights_1_1StaticAssertHandler.html" title="Show the result of a static_assert. " alt="" coords="268,332,471,373"/>
-<area shape="rect" id="node8" href="classclang_1_1insights_1_1TemplateHandler.html" title="Reveal the resulting code of an instantiated template. " alt="" coords="277,397,461,439"/>
+<area shape="rect" id="node6" href="classclang_1_1insights_1_1StaticAssertHandler.html" title="Show the result of a static_assert. " alt="" coords="268,267,471,308"/>
+<area shape="rect" id="node7" href="classclang_1_1insights_1_1TemplateHandler.html" title="Reveal the resulting code of an instantiated template. " alt="" coords="277,332,461,373"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -77,8 +76,6 @@ Collaboration diagram for clang::insights::InsightsBase:</div>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a606f6c4d4ef255a0e6b5ae3700a64028"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1InsightsBase.html#a606f6c4d4ef255a0e6b5ae3700a64028">InsightsBase</a> (Rewriter &amp;rewriter)</td></tr>
 <tr class="separator:a606f6c4d4ef255a0e6b5ae3700a64028"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fcee452c318319eac972dee8a57527a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1InsightsBase.html#a2fcee452c318319eac972dee8a57527a">SkipIfAlreadySeen</a> (const Stmt *stmt)</td></tr>
-<tr class="separator:a2fcee452c318319eac972dee8a57527a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a403194ca8523e761510c0c7e249d7771"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1InsightsBase.html#a403194ca8523e761510c0c7e249d7771">InsertIndentedText</a> (SourceLocation loc, <a class="el" href="classclang_1_1insights_1_1OutputFormatHelper.html">OutputFormatHelper</a> &amp;outputFormatHelper)</td></tr>
 <tr class="separator:a403194ca8523e761510c0c7e249d7771"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -117,7 +114,7 @@ Protected Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="InsightsBase_8h_source.html#l00027">27</a> of file <a class="el" href="InsightsBase_8h_source.html">InsightsBase.h</a>.</p>
 
-<p class="reference">References <a class="el" href="InsightsBase_8cpp_source.html#l00028">InsertIndentedText()</a>, and <a class="el" href="InsightsBase_8cpp_source.html#l00014">SkipIfAlreadySeen()</a>.</p>
+<p class="reference">References <a class="el" href="InsightsBase_8cpp_source.html#l00014">InsertIndentedText()</a>.</p>
 
 </div>
 </div>
@@ -156,43 +153,11 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="InsightsBase_8cpp_source.html#l00028">28</a> of file <a class="el" href="InsightsBase_8cpp_source.html">InsightsBase.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="InsightsBase_8cpp_source.html#l00014">14</a> of file <a class="el" href="InsightsBase_8cpp_source.html">InsightsBase.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="OutputFormatHelper_8h_source.html#l00068">clang::insights::OutputFormatHelper::GetString()</a>, and <a class="el" href="InsightsBase_8h_source.html#l00025">mRewrite</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="InsightsBase_8h_source.html#l00027">InsightsBase()</a>, <a class="el" href="FunctionDeclHandler_8cpp_source.html#l00058">clang::insights::FunctionDeclHandler::run()</a>, <a class="el" href="TemplateHandler_8cpp_source.html#l00113">clang::insights::TemplateHandler::run()</a>, and <a class="el" href="CompilerGeneratedHandler_8cpp_source.html#l00036">clang::insights::CompilerGeneratedHandler::run()</a>.</p>
-
-</div>
-</div>
-<a id="a2fcee452c318319eac972dee8a57527a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2fcee452c318319eac972dee8a57527a">&#9670;&nbsp;</a></span>SkipIfAlreadySeen()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool clang::insights::InsightsBase::SkipIfAlreadySeen </td>
-          <td>(</td>
-          <td class="paramtype">const Stmt *&#160;</td>
-          <td class="paramname"><em>stmt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="InsightsBase_8cpp_source.html#l00014">14</a> of file <a class="el" href="InsightsBase_8cpp_source.html">InsightsBase.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="DPrint_8h_source.html#l00072">clang::insights::DPrint()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="InsightsBase_8h_source.html#l00027">InsightsBase()</a>.</p>
 
 </div>
 </div>
@@ -219,7 +184,7 @@ Protected Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="InsightsBase_8h_source.html#l00025">25</a> of file <a class="el" href="InsightsBase_8h_source.html">InsightsBase.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="InsightsBase_8cpp_source.html#l00028">InsertIndentedText()</a>, <a class="el" href="GlobalVariableHandler_8cpp_source.html#l00046">clang::insights::GlobalVariableHandler::run()</a>, <a class="el" href="StaticAssertHandler_8cpp_source.html#l00033">clang::insights::StaticAssertHandler::run()</a>, <a class="el" href="FunctionDeclHandler_8cpp_source.html#l00058">clang::insights::FunctionDeclHandler::run()</a>, <a class="el" href="TemplateHandler_8cpp_source.html#l00113">clang::insights::TemplateHandler::run()</a>, <a class="el" href="ImplicitCastHandler_8cpp_source.html#l00044">clang::insights::ImplicitCastHandler::run()</a>, and <a class="el" href="AutoStmtHandler_8cpp_source.html#l00051">clang::insights::AutoStmtHandler::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="InsightsBase_8cpp_source.html#l00014">InsertIndentedText()</a>, <a class="el" href="GlobalVariableHandler_8cpp_source.html#l00046">clang::insights::GlobalVariableHandler::run()</a>, <a class="el" href="StaticAssertHandler_8cpp_source.html#l00033">clang::insights::StaticAssertHandler::run()</a>, <a class="el" href="FunctionDeclHandler_8cpp_source.html#l00058">clang::insights::FunctionDeclHandler::run()</a>, <a class="el" href="TemplateHandler_8cpp_source.html#l00113">clang::insights::TemplateHandler::run()</a>, and <a class="el" href="AutoStmtHandler_8cpp_source.html#l00051">clang::insights::AutoStmtHandler::run()</a>.</p>
 
 </div>
 </div>
