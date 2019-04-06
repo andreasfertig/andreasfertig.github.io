@@ -49,7 +49,8 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &quot;<a class="el" href="CodeGenerator_8h_source.html">/home/builder/CodeGenerator.h</a>&quot;</code></p>
+<p>Handling specialties for decomposition declarations.  
+ <a href="classclang_1_1insights_1_1StructuredBindingsCodeGenerator.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for clang::insights::StructuredBindingsCodeGenerator:</div>
 <div class="dyncontent">
@@ -72,10 +73,13 @@ Collaboration diagram for clang::insights::StructuredBindingsCodeGenerator:</div
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa95d4bca250f8ff5795a3bd4f295f8d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1StructuredBindingsCodeGenerator.html#aa95d4bca250f8ff5795a3bd4f295f8d6">StructuredBindingsCodeGenerator</a> (<a class="el" href="classclang_1_1insights_1_1OutputFormatHelper.html">OutputFormatHelper</a> &amp;_outputFormatHelper, const std::string &amp;varName)</td></tr>
-<tr class="separator:aa95d4bca250f8ff5795a3bd4f295f8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25c5be05129e82830be92f866626eacb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1StructuredBindingsCodeGenerator.html#a25c5be05129e82830be92f866626eacb">StructuredBindingsCodeGenerator</a> (<a class="el" href="classclang_1_1insights_1_1OutputFormatHelper.html">OutputFormatHelper</a> &amp;_outputFormatHelper, std::string &amp;&amp;varName)</td></tr>
+<tr class="separator:a25c5be05129e82830be92f866626eacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f5cc9c93b508b9df23dd1b9437efb18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1StructuredBindingsCodeGenerator.html#a5f5cc9c93b508b9df23dd1b9437efb18">InsertArg</a> (const DeclRefExpr *stmt) override</td></tr>
 <tr class="separator:a5f5cc9c93b508b9df23dd1b9437efb18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23ec554d450e40e3953a177b13410f4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1StructuredBindingsCodeGenerator.html#a23ec554d450e40e3953a177b13410f4d">InsertDecompositionBindings</a> (const DecompositionDecl &amp;decompositionDeclStmt)</td></tr>
+<tr class="memdesc:a23ec554d450e40e3953a177b13410f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts the bindings of a decompositions declaration.  <a href="#a23ec554d450e40e3953a177b13410f4d">More...</a><br /></td></tr>
+<tr class="separator:a23ec554d450e40e3953a177b13410f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classclang_1_1insights_1_1CodeGenerator"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classclang_1_1insights_1_1CodeGenerator')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classclang_1_1insights_1_1CodeGenerator.html">clang::insights::CodeGenerator</a></td></tr>
 <tr class="memitem:aeb7d982a2cc136715452d2a1d64ef32d inherit pub_methods_classclang_1_1insights_1_1CodeGenerator"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1CodeGenerator.html#aeb7d982a2cc136715452d2a1d64ef32d">CodeGenerator</a> (<a class="el" href="classclang_1_1insights_1_1OutputFormatHelper.html">OutputFormatHelper</a> &amp;_outputFormatHelper)</td></tr>
 <tr class="separator:aeb7d982a2cc136715452d2a1d64ef32d inherit pub_methods_classclang_1_1insights_1_1CodeGenerator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,11 +207,13 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a64e632a0204d480d0e44222a5fe65ea1 inherit pro_static_attribs_classclang_1_1insights_1_1CodeGenerator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="CodeGenerator_8h_source.html#l00249">249</a> of file <a class="el" href="CodeGenerator_8h_source.html">CodeGenerator.h</a>.</p>
+<div class="textblock"><p>Handling specialties for decomposition declarations. </p>
+<p>Decompositions declarations have no name. This class stores the made up name and returns it each time the anonymous declaration is asked for a name. </p>
+
+<p class="definition">Definition at line <a class="el" href="CodeGenerator_8cpp_source.html#l00087">87</a> of file <a class="el" href="CodeGenerator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aa95d4bca250f8ff5795a3bd4f295f8d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa95d4bca250f8ff5795a3bd4f295f8d6">&#9670;&nbsp;</a></span>StructuredBindingsCodeGenerator()</h2>
+<a id="a25c5be05129e82830be92f866626eacb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25c5be05129e82830be92f866626eacb">&#9670;&nbsp;</a></span>StructuredBindingsCodeGenerator()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -224,7 +230,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramtype">std::string &amp;&amp;&#160;</td>
           <td class="paramname"><em>varName</em>&#160;</td>
         </tr>
         <tr>
@@ -240,9 +246,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CodeGenerator_8h_source.html#l00254">254</a> of file <a class="el" href="CodeGenerator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CodeGenerator_8cpp_source.html#l00092">92</a> of file <a class="el" href="CodeGenerator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="CodeGenerator_8cpp_source.html#l02298">clang::insights::CodeGenerator::InsertArg()</a>.</p>
+<p class="reference">References <a class="el" href="CodeGenerator_8cpp_source.html#l00079">clang::insights::ArrayInitCodeGenerator::InsertArg()</a>, and <a class="el" href="CodeGenerator_8cpp_source.html#l02209">clang::insights::CodeGenerator::InsertArg()</a>.</p>
 
 </div>
 </div>
@@ -271,14 +277,37 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="CodeGenerator_8cpp_source.html#l02835">2835</a> of file <a class="el" href="CodeGenerator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="CodeGenerator_8cpp_source.html#l02804">2804</a> of file <a class="el" href="CodeGenerator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="OutputFormatHelper_8h_source.html#l00071">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="InsightsStrCat_8h_source.html#l00030">clang::insights::BeginsWith()</a>, <a class="el" href="InsightsStrCat_8h_source.html#l00020">clang::insights::EndsWith()</a>, <a class="el" href="InsightsHelpers_8cpp_source.html#l00352">clang::insights::GetName()</a>, <a class="el" href="CodeGenerator_8cpp_source.html#l02393">clang::insights::CodeGenerator::InsertTemplateArgs()</a>, and <a class="el" href="CodeGenerator_8h_source.html#l00034">clang::insights::CodeGenerator::mOutputFormatHelper</a>.</p>
+<p class="reference">References <a class="el" href="OutputFormatHelper_8h_source.html#l00071">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="InsightsStrCat_8h_source.html#l00030">clang::insights::BeginsWith()</a>, <a class="el" href="InsightsStrCat_8h_source.html#l00020">clang::insights::EndsWith()</a>, <a class="el" href="InsightsHelpers_8cpp_source.html#l00352">clang::insights::GetName()</a>, <a class="el" href="CodeGenerator_8cpp_source.html#l02304">clang::insights::CodeGenerator::InsertTemplateArgs()</a>, and <a class="el" href="CodeGenerator_8h_source.html#l00034">clang::insights::CodeGenerator::mOutputFormatHelper</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="CodeGenerator_8h_source.html">CodeGenerator.h</a></li>
+<a id="a23ec554d450e40e3953a177b13410f4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23ec554d450e40e3953a177b13410f4d">&#9670;&nbsp;</a></span>InsertDecompositionBindings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clang::insights::StructuredBindingsCodeGenerator::InsertDecompositionBindings </td>
+          <td>(</td>
+          <td class="paramtype">const DecompositionDecl &amp;&#160;</td>
+          <td class="paramname"><em>decompositionDeclStmt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts the bindings of a decompositions declaration. </p>
+
+<p class="definition">Definition at line <a class="el" href="CodeGenerator_8cpp_source.html#l02758">2758</a> of file <a class="el" href="CodeGenerator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="OutputFormatHelper_8h_source.html#l00071">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="OutputFormatHelper_8h_source.html#l00144">clang::insights::OutputFormatHelper::AppendSemiNewLine()</a>, <a class="el" href="DPrint_8h_source.html#l00072">clang::insights::DPrint()</a>, <a class="el" href="InsightsHelpers_8cpp_source.html#l00352">clang::insights::GetName()</a>, <a class="el" href="CodeGenerator_8cpp_source.html#l02209">clang::insights::CodeGenerator::InsertArg()</a>, <a class="el" href="CodeGenerator_8cpp_source.html#l02746">clang::insights::IsReference()</a>, <a class="el" href="CodeGenerator_8h_source.html#l00034">clang::insights::CodeGenerator::mOutputFormatHelper</a>, and <a class="el" href="DPrint_8h_source.html#l00134">TODO</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="CodeGenerator_8cpp_source.html">CodeGenerator.cpp</a></li>
 </ul>
 </div><!-- contents -->
