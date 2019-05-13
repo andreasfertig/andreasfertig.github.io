@@ -200,6 +200,7 @@ $(function() {
 , <a class="el" href="classclang_1_1insights_1_1CodeGenerator.html#a197dbd903d92a812483bbc3a61308819">clang::insights::CodeGenerator</a>
 , <a class="el" href="classclang_1_1insights_1_1LambdaCodeGenerator.html#ab1186f14eededb9a5af7c35226ae29da">clang::insights::LambdaCodeGenerator</a>
 , <a class="el" href="classclang_1_1insights_1_1StructuredBindingsCodeGenerator.html#a5f5cc9c93b508b9df23dd1b9437efb18">clang::insights::StructuredBindingsCodeGenerator</a>
+, <a class="el" href="classclang_1_1insights_1_1UsingCodeGenerator.html#ad3db5e22bed277df2a0b287c15070494">clang::insights::UsingCodeGenerator</a>
 </li>
 <li>InsertArgWithParensIfNeeded()
 : <a class="el" href="classclang_1_1insights_1_1CodeGenerator.html#aa6ebf2937b9fdf01a4ebee5c3378b482">clang::insights::CodeGenerator</a>
@@ -214,6 +215,9 @@ $(function() {
 <li>InsertCurlysIfRequired()
 : <a class="el" href="classclang_1_1insights_1_1CodeGenerator.html#ac8f9eb67a9174114d07ab46ec7dcbf18">clang::insights::CodeGenerator</a>
 </li>
+<li>InsertCXXMethodDecl()
+: <a class="el" href="classclang_1_1insights_1_1CodeGenerator.html#a68bc97ebd475eff02fc3593536320e48">clang::insights::CodeGenerator</a>
+</li>
 <li>InsertDecompositionBindings()
 : <a class="el" href="classclang_1_1insights_1_1StructuredBindingsCodeGenerator.html#a23ec554d450e40e3953a177b13410f4d">clang::insights::StructuredBindingsCodeGenerator</a>
 </li>
@@ -226,6 +230,10 @@ $(function() {
 <li>InsertLambdaStaticInvoker()
 : <a class="el" href="classclang_1_1insights_1_1CodeGenerator.html#a8013adc599546aee5f8eb7a5076ac6bf">clang::insights::CodeGenerator</a>
 </li>
+<li>InsertNamespace()
+: <a class="el" href="classclang_1_1insights_1_1CodeGenerator.html#a87c33fb1568dce53343737c957c222ef">clang::insights::CodeGenerator</a>
+, <a class="el" href="classclang_1_1insights_1_1UsingCodeGenerator.html#a0aec05db30f982a3ca9d59979e01258c">clang::insights::UsingCodeGenerator</a>
+</li>
 <li>InsertSemi()
 : <a class="el" href="classclang_1_1insights_1_1CodeGenerator.html#a72a5180899ea7c4b931234a59282dbe2">clang::insights::CodeGenerator</a>
 , <a class="el" href="classclang_1_1insights_1_1MultiStmtDeclCodeGenerator.html#a04749c2f6078d6f1a5182481f5bf028a">clang::insights::MultiStmtDeclCodeGenerator</a>
@@ -237,7 +245,7 @@ $(function() {
 : <a class="el" href="classclang_1_1insights_1_1CodeGenerator.html#abaa71307c044bb3463136ffb62fa9be4">clang::insights::CodeGenerator</a>
 </li>
 <li>InsertTemplateArgs()
-: <a class="el" href="classclang_1_1insights_1_1CodeGenerator.html#af078fa5b3551c5bfd18d8465eb8d66e9">clang::insights::CodeGenerator</a>
+: <a class="el" href="classclang_1_1insights_1_1CodeGenerator.html#a43720b8c3b7f0e750b804c04fa6ba29a">clang::insights::CodeGenerator</a>
 </li>
 <li>InsertTemplateGuardBegin()
 : <a class="el" href="classclang_1_1insights_1_1CodeGenerator.html#a824f9e577a3322f38b87333a2f4a7c00">clang::insights::CodeGenerator</a>
@@ -301,7 +309,7 @@ $(function() {
 , <a class="el" href="classStackList_1_1StackListIterator.html#a135dc42f2227cb8b9ae3ce2f0c46ed02">StackList&lt; T &gt;::StackListIterator</a>
 </li>
 <li>OutputFormatHelper()
-: <a class="el" href="classclang_1_1insights_1_1OutputFormatHelper.html#ae7ecc6d2d6bd7441b26f281c893e6088">clang::insights::OutputFormatHelper</a>
+: <a class="el" href="classclang_1_1insights_1_1OutputFormatHelper.html#a6df67078ddf14e9328a7cd3fbc832b7e">clang::insights::OutputFormatHelper</a>
 </li>
 </ul>
 
@@ -347,8 +355,8 @@ $(function() {
 : <a class="el" href="classclang_1_1insights_1_1StaticAssertHandler.html#a2429fcaed4649ed5f5f50eacd308292a">clang::insights::StaticAssertHandler</a>
 </li>
 <li>STRONG_BOOL()
-: <a class="el" href="classclang_1_1insights_1_1CodeGenerator.html#add5ae173683170ab47bcef39e3ca079c">clang::insights::CodeGenerator</a>
-, <a class="el" href="classclang_1_1insights_1_1OutputFormatHelper.html#a77e4a36ac5a544e13f7e9e44d07e5731">clang::insights::OutputFormatHelper</a>
+: <a class="el" href="classclang_1_1insights_1_1CodeGenerator.html#a66aca8e08c6e59076ac250a64a8ce884">clang::insights::CodeGenerator</a>
+, <a class="el" href="classclang_1_1insights_1_1OutputFormatHelper.html#a88a35a513af877382cc5084609b8b2eb">clang::insights::OutputFormatHelper</a>
 </li>
 <li>StructuredBindingsCodeGenerator()
 : <a class="el" href="classclang_1_1insights_1_1StructuredBindingsCodeGenerator.html#a25c5be05129e82830be92f866626eacb">clang::insights::StructuredBindingsCodeGenerator</a>
@@ -359,6 +367,13 @@ $(function() {
 <h3><a id="index_t"></a>- t -</h3><ul>
 <li>TemplateHandler()
 : <a class="el" href="classclang_1_1insights_1_1TemplateHandler.html#a17f7f711866c3919c9f67b157ec891e3">clang::insights::TemplateHandler</a>
+</li>
+</ul>
+
+
+<h3><a id="index_u"></a>- u -</h3><ul>
+<li>UsingCodeGenerator()
+: <a class="el" href="classclang_1_1insights_1_1UsingCodeGenerator.html#a743bc6ae37488da3bce9e82d9faa1577">clang::insights::UsingCodeGenerator</a>
 </li>
 </ul>
 
