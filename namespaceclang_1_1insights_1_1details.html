@@ -68,12 +68,12 @@ Functions</h2></td></tr>
 <tr class="separator:ae62bf3ba8b5b2356ab6e3600f7f5b991"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bf1eac046aa03b428b8137ddaae8527"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a2bf1eac046aa03b428b8137ddaae8527">GetScope</a> (const DeclContext *declCtx)</td></tr>
 <tr class="separator:a2bf1eac046aa03b428b8137ddaae8527"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66277b64eae12a6ffc34e0ead2285092"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a66277b64eae12a6ffc34e0ead2285092">GetNameInternal</a> (const QualType &amp;t, const Unqualified unqualified)</td></tr>
-<tr class="separator:a66277b64eae12a6ffc34e0ead2285092"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5aebb6b0df24f03773fe766106ba1973"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a5aebb6b0df24f03773fe766106ba1973">GetNameInternal</a> (const QualType &amp;t, const Unqualified unqualified, const SupressScope supressScope=SupressScope::No)</td></tr>
+<tr class="separator:a5aebb6b0df24f03773fe766106ba1973"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f04e2deadb3cdf5e7a68d03543e17bb"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a1f04e2deadb3cdf5e7a68d03543e17bb">IsDecltypeType</a> (const QualType &amp;t)</td></tr>
 <tr class="separator:a1f04e2deadb3cdf5e7a68d03543e17bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af46c2d0363c457dfa5731e05ce9746f1"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#af46c2d0363c457dfa5731e05ce9746f1">GetName</a> (const QualType &amp;t, const Unqualified unqualified=Unqualified::No)</td></tr>
-<tr class="separator:af46c2d0363c457dfa5731e05ce9746f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0618b476df6a1ad8845866828c9e46ed"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a0618b476df6a1ad8845866828c9e46ed">GetName</a> (const QualType &amp;t, const Unqualified unqualified=Unqualified::No, const SupressScope supressScope=SupressScope::No)</td></tr>
+<tr class="separator:a0618b476df6a1ad8845866828c9e46ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af96b67764dacfb738d6b9e774842f92b"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
 <tr class="memitem:af96b67764dacfb738d6b9e774842f92b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#af96b67764dacfb738d6b9e774842f92b">StrCat</a> (std::string &amp;ret, T &amp;&amp;t, Args &amp;&amp;... args)</td></tr>
 <tr class="separator:af96b67764dacfb738d6b9e774842f92b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,8 +123,8 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="af46c2d0363c457dfa5731e05ce9746f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af46c2d0363c457dfa5731e05ce9746f1">&#9670;&nbsp;</a></span>GetName()</h2>
+<a id="a0618b476df6a1ad8845866828c9e46ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0618b476df6a1ad8845866828c9e46ed">&#9670;&nbsp;</a></span>GetName()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,7 +142,13 @@ template&lt;typename... Args&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const Unqualified&#160;</td>
-          <td class="paramname"><em>unqualified</em> = <code>Unqualified::No</code>&#160;</td>
+          <td class="paramname"><em>unqualified</em> = <code>Unqualified::No</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const SupressScope&#160;</td>
+          <td class="paramname"><em>supressScope</em> = <code>SupressScope::No</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -157,16 +163,16 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="InsightsHelpers_8cpp_source.html#l00364">364</a> of file <a class="el" href="InsightsHelpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="InsightsHelpers_8cpp_source.html#l00382">382</a> of file <a class="el" href="InsightsHelpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="InsightsHelpers_8cpp_source.html#l00171">clang::insights::GetDesugarType()</a>, <a class="el" href="InsightsHelpers_8cpp_source.html#l00251">GetNameInternal()</a>, and <a class="el" href="InsightsHelpers_8cpp_source.html#l00352">IsDecltypeType()</a>.</p>
+<p class="reference">References <a class="el" href="InsightsHelpers_8cpp_source.html#l00188">clang::insights::GetDesugarType()</a>, <a class="el" href="InsightsHelpers_8cpp_source.html#l00269">GetNameInternal()</a>, and <a class="el" href="InsightsHelpers_8cpp_source.html#l00370">IsDecltypeType()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="InsightsHelpers_8cpp_source.html#l00407">clang::insights::GetName()</a>, and <a class="el" href="InsightsHelpers_8cpp_source.html#l00428">clang::insights::GetTypeNameAsParameter()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="InsightsHelpers_8cpp_source.html#l00427">clang::insights::GetName()</a>, <a class="el" href="InsightsHelpers_8cpp_source.html#l00454">clang::insights::GetTypeNameAsParameter()</a>, and <a class="el" href="InsightsHelpers_8cpp_source.html#l00433">clang::insights::GetUnqualifiedScopelessName()</a>.</p>
 
 </div>
 </div>
-<a id="a66277b64eae12a6ffc34e0ead2285092"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66277b64eae12a6ffc34e0ead2285092">&#9670;&nbsp;</a></span>GetNameInternal()</h2>
+<a id="a5aebb6b0df24f03773fe766106ba1973"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aebb6b0df24f03773fe766106ba1973">&#9670;&nbsp;</a></span>GetNameInternal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,7 +190,13 @@ template&lt;typename... Args&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const Unqualified&#160;</td>
-          <td class="paramname"><em>unqualified</em>&#160;</td>
+          <td class="paramname"><em>unqualified</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const SupressScope&#160;</td>
+          <td class="paramname"><em>supressScope</em> = <code>SupressScope::No</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -199,11 +211,11 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="InsightsHelpers_8cpp_source.html#l00251">251</a> of file <a class="el" href="InsightsHelpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="InsightsHelpers_8cpp_source.html#l00269">269</a> of file <a class="el" href="InsightsHelpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="OutputFormatHelper_8h_source.html#l00075">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="InsightsHelpers_8cpp_source.html#l00049">clang::insights::GetAsCPPStyleString()</a>, <a class="el" href="InsightsHelpers_8cpp_source.html#l00147">clang::insights::GetLambdaName()</a>, <a class="el" href="InsightsHelpers_8cpp_source.html#l00229">GetScope()</a>, and <a class="el" href="CodeGenerator_8cpp_source.html#l02625">clang::insights::CodeGenerator::InsertTemplateArgs()</a>.</p>
+<p class="reference">References <a class="el" href="OutputFormatHelper_8h_source.html#l00075">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="InsightsHelpers_8cpp_source.html#l00062">clang::insights::GetAsCPPStyleString()</a>, <a class="el" href="InsightsHelpers_8cpp_source.html#l00164">clang::insights::GetLambdaName()</a>, <a class="el" href="InsightsHelpers_8cpp_source.html#l00246">GetScope()</a>, and <a class="el" href="CodeGenerator_8cpp_source.html#l02650">clang::insights::CodeGenerator::InsertTemplateArgs()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="InsightsHelpers_8cpp_source.html#l00364">GetName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="InsightsHelpers_8cpp_source.html#l00382">GetName()</a>.</p>
 
 </div>
 </div>
@@ -231,11 +243,11 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="InsightsHelpers_8cpp_source.html#l00219">219</a> of file <a class="el" href="InsightsHelpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="InsightsHelpers_8cpp_source.html#l00236">236</a> of file <a class="el" href="InsightsHelpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="namespaceclang_1_1insights.html#a09168e71698ef9ff44d1a76108667fab">clang::insights::InsightsPrintingPolicy</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="InsightsHelpers_8cpp_source.html#l00387">clang::insights::GetName()</a>, and <a class="el" href="InsightsHelpers_8cpp_source.html#l00229">GetScope()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="InsightsHelpers_8cpp_source.html#l00407">clang::insights::GetName()</a>, and <a class="el" href="InsightsHelpers_8cpp_source.html#l00246">GetScope()</a>.</p>
 
 </div>
 </div>
@@ -263,11 +275,11 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="InsightsHelpers_8cpp_source.html#l00229">229</a> of file <a class="el" href="InsightsHelpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="InsightsHelpers_8cpp_source.html#l00246">246</a> of file <a class="el" href="InsightsHelpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="InsightsHelpers_8cpp_source.html#l00219">GetQualifiedName()</a>.</p>
+<p class="reference">References <a class="el" href="InsightsHelpers_8cpp_source.html#l00236">GetQualifiedName()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="InsightsHelpers_8cpp_source.html#l00577">clang::insights::GetName()</a>, and <a class="el" href="InsightsHelpers_8cpp_source.html#l00251">GetNameInternal()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="InsightsHelpers_8cpp_source.html#l00603">clang::insights::GetName()</a>, and <a class="el" href="InsightsHelpers_8cpp_source.html#l00269">GetNameInternal()</a>.</p>
 
 </div>
 </div>
@@ -295,9 +307,9 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="InsightsHelpers_8cpp_source.html#l00352">352</a> of file <a class="el" href="InsightsHelpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="InsightsHelpers_8cpp_source.html#l00370">370</a> of file <a class="el" href="InsightsHelpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="InsightsHelpers_8cpp_source.html#l00364">GetName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="InsightsHelpers_8cpp_source.html#l00382">GetName()</a>.</p>
 
 </div>
 </div>
