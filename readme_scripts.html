@@ -38,7 +38,30 @@ $(function() {
 <div class="title">C++ Insights - scripts </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>This folder mostly hosts scripts for Travis CI builds. </p>
+<div class="textblock"><p>This folder mostly hosts scripts for <a target="_blank" href="https://travis-ci.org/">Travis CI</a> builds, with a few exceptions:</p>
+<h2>docker-shell.sh</h2>
+<p>For local build you can use <code>docker-shell.sh</code>. It uses a pre-built Docker image from DockerHub <a target="_blank" href="https://cloud.docker.com/repository/docker/andreasfertig/cppinsights-builder-gitpod">andreasfertig/cppinsights-builder-gitpod</a>. This is also the same image which is used by <a target="_blank" href="https://www.gitpod.io">GitPod</a> and a addition to the <a target="_blank" href="https://cloud.docker.com/repository/docker/andreasfertig/cppinsights-builder">cppinsights-builder</a> image which is used by <a target="_blank" href="https://travis-ci.org/">Travis CI</a> for the continuous integration builds. If you execute the script from within the <code>script</code> folder it automatically mounts the C++ Insights repo in the Docker to <code>/workspace/cppinsights</code>. You also need to specify a build folder which is inside the container mounted to <code>/workspace/build</code>.</p>
+<p>The script can be invoked with two different modes:</p><ul>
+<li><code>shell</code> launches a <code>bash</code> in the Docker container. This allows to use <code>gdb</code> for example.</li>
+<li><code>compile</code> does a complete C++ Insights build. When using compile you can provide two additional arguments.<ul>
+<li>A string with CMake flags used to configure the build</li>
+<li>and optional target to invoke. For example, <code>coverage</code> to run a code coverage build.</li>
+</ul>
+</li>
+</ul>
+<p>Some examples command line looks like this:</p>
+<div class="fragment"><div class="line">cd scripts</div><div class="line">./docker-shell.sh /home/username/build/docker_insights compile &quot;-DINSIGHTS_STATIC=Yes -DINSIGHTS_COVERAGE=Yes -DDEBUG=Yes&quot; coverage</div></div><!-- fragment --><p>it triggers a CMake build with code coverage turned on and used as the <code>ninja</code> target.</p>
+<div class="fragment"><div class="line">cd scripts</div><div class="line">./docker-shell.sh /home/username/build/docker_insights shell</div></div><!-- fragment --><p>Opens a shell into the Docker container.</p>
+<h3>CMake and Docker</h3>
+<p>There are some CMake target which use Docker and the <code>docker-shell.sh</code> script. The results can be found in the binary folder you supplied plus <code>docker_build</code>,</p>
+<ul>
+<li><code>docker-build</code> to run a build in Docker.</li>
+<li><code>docker-build-run</code> gives you a shell in Docker (same as invoking <code>docker-shell.sh</code> with <code>shell</code>).</li>
+<li><code>docker-tests</code> to run the tests in Docker</li>
+<li><code>docker-coverage</code> to run a code coverage build in Docker.</li>
+</ul>
+<h2><code><a class="el" href="getinclude_8py.html">getinclude.py</a></code></h2>
+<p>Helps for some corner cases to get the default includes from a compiler. </p>
 </div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.11-->
 <!-- start footer part -->
