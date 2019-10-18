@@ -117,6 +117,8 @@ Functions</h2></td></tr>
 <tr class="separator:aa494750a6c50c0367d64b1b707c883e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f22d5dc584cd4802310a102ef016f24"><td class="memItemLeft" align="right" valign="top">static llvm::cl::opt&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_8cpp.html#a4f22d5dc584cd4802310a102ef016f24">gStdinMode</a> (&quot;stdin&quot;, llvm::cl::desc(&quot;Override source file's content (in the overlaying\ &quot;virtual file system) with input from&lt; stdin &gt; and run\&quot; &quot;the tool on the new content with the compilation\&quot; &quot;options of the source file. This mode is currently\&quot; &quot;used for editor integration.&quot;), llvm::cl::init(false), llvm::cl::cat(<a class="el" href="_insights_8cpp.html#aa494750a6c50c0367d64b1b707c883e3">gInsightCategory</a>))</td></tr>
 <tr class="separator:a4f22d5dc584cd4802310a102ef016f24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63464a9c7841f3fd09bd5fad2c415d4a"><td class="memItemLeft" align="right" valign="top">static llvm::cl::opt&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_8cpp.html#a63464a9c7841f3fd09bd5fad2c415d4a">gUseLibCpp</a> (&quot;use-libc++&quot;, llvm::cl::desc(&quot;Use libc++.&quot;), llvm::cl::init(false), llvm::cl::cat(<a class="el" href="_insights_8cpp.html#aa494750a6c50c0367d64b1b707c883e3">gInsightCategory</a>))</td></tr>
+<tr class="separator:a63464a9c7841f3fd09bd5fad2c415d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafee6416d899f87b994fca717181a03e"><td class="memItemLeft" align="right" valign="top">const ASTContext &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_8cpp.html#aafee6416d899f87b994fca717181a03e">GetGlobalAST</a> ()</td></tr>
 <tr class="memdesc:aafee6416d899f87b994fca717181a03e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get access to the ASTContext.  <a href="#aafee6416d899f87b994fca717181a03e">More...</a><br /></td></tr>
 <tr class="separator:aafee6416d899f87b994fca717181a03e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,7 +175,7 @@ Variables</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line"><span class="keyword">static</span> llvm::cl::opt&lt;bool, true&gt; g##name(option,                                                                   \</div><div class="line">                                             llvm::cl::desc(description),                                              \</div><div class="line">                                             llvm::cl::NotHidden,                                                      \</div><div class="line">                                             llvm::cl::location(<a class="code" href="_insights_8cpp.html#a94807dbb47cca18c1f57972e0c117317">gInsightsOptions</a>.name),                                \</div><div class="line">                                             llvm::cl::init(deflt),                                                    \</div><div class="line">                                             llvm::cl::cat(<a class="code" href="_insights_8cpp.html#aa494750a6c50c0367d64b1b707c883e3">gInsightCategory</a>));</div><div class="ttc" id="_insights_8cpp_html_a94807dbb47cca18c1f57972e0c117317"><div class="ttname"><a href="_insights_8cpp.html#a94807dbb47cca18c1f57972e0c117317">gInsightsOptions</a></div><div class="ttdeci">static InsightsOptions gInsightsOptions</div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00044">Insights.cpp:44</a></div></div>
 <div class="ttc" id="_insights_8cpp_html_aa494750a6c50c0367d64b1b707c883e3"><div class="ttname"><a href="_insights_8cpp.html#aa494750a6c50c0367d64b1b707c883e3">gInsightCategory</a></div><div class="ttdeci">static llvm::cl::OptionCategory gInsightCategory(&quot;Insights&quot;)</div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00066">66</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00070">70</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
 </div>
 </div>
@@ -195,9 +197,9 @@ Variables</h2></td></tr>
 
 <p>Get access to the ASTContext. </p>
 
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00079">79</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00083">83</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00078">gAST</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00082">gAST</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01192">clang::insights::CodeGenerator::HandleCompoundStmt()</a>.</p>
 
@@ -222,7 +224,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00047">47</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp.html#aa494750a6c50c0367d64b1b707c883e3">gInsightCategory()</a>, <a class="el" href="_insights_8cpp_source.html#l00044">gInsightsOptions</a>, and <a class="el" href="_insights_8cpp.html#a4f22d5dc584cd4802310a102ef016f24">gStdinMode()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp.html#aa494750a6c50c0367d64b1b707c883e3">gInsightCategory()</a>, <a class="el" href="_insights_8cpp_source.html#l00044">gInsightsOptions</a>, <a class="el" href="_insights_8cpp.html#a4f22d5dc584cd4802310a102ef016f24">gStdinMode()</a>, and <a class="el" href="_insights_8cpp.html#a63464a9c7841f3fd09bd5fad2c415d4a">gUseLibCpp()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01192">clang::insights::CodeGenerator::HandleCompoundStmt()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l00800">clang::insights::CodeGenerator::InsertTemplateParameters()</a>.</p>
 
@@ -252,7 +254,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00047">GetInsightsOptions()</a>, and <a class="el" href="_insights_8cpp_source.html#l00171">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00047">GetInsightsOptions()</a>, and <a class="el" href="_insights_8cpp_source.html#l00175">main()</a>.</p>
 
 </div>
 </div>
@@ -302,7 +304,57 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00047">GetInsightsOptions()</a>, and <a class="el" href="_insights_8cpp_source.html#l00171">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00047">GetInsightsOptions()</a>, and <a class="el" href="_insights_8cpp_source.html#l00175">main()</a>.</p>
+
+</div>
+</div>
+<a id="a63464a9c7841f3fd09bd5fad2c415d4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63464a9c7841f3fd09bd5fad2c415d4a">&#9670;&nbsp;</a></span>gUseLibCpp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static llvm::cl::opt&lt;bool&gt; gUseLibCpp </td>
+          <td>(</td>
+          <td class="paramtype">&quot;use-libc++&quot;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">llvm::cl::desc(&quot;Use libc++.&quot;)&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">llvm::cl::init(false)&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">llvm::cl::cat(<a class="el" href="_insights_8cpp.html#aa494750a6c50c0367d64b1b707c883e3">gInsightCategory</a>)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00047">GetInsightsOptions()</a>, and <a class="el" href="_insights_8cpp_source.html#l00175">main()</a>.</p>
 
 </div>
 </div>
@@ -332,9 +384,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00171">171</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00175">175</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_d_print_8h_source.html#l00082">clang::insights::Error()</a>, <a class="el" href="_insights_8cpp.html#aa494750a6c50c0367d64b1b707c883e3">gInsightCategory()</a>, <a class="el" href="_insights_8cpp.html#a4f22d5dc584cd4802310a102ef016f24">gStdinMode()</a>, and <a class="el" href="_insights_8cpp_source.html#l00157">PrintVersion()</a>.</p>
+<p class="reference">References <a class="el" href="_d_print_8h_source.html#l00082">clang::insights::Error()</a>, <a class="el" href="_insights_8cpp.html#aa494750a6c50c0367d64b1b707c883e3">gInsightCategory()</a>, <a class="el" href="_insights_8cpp.html#a4f22d5dc584cd4802310a102ef016f24">gStdinMode()</a>, <a class="el" href="_insights_8cpp.html#a63464a9c7841f3fd09bd5fad2c415d4a">gUseLibCpp()</a>, and <a class="el" href="_insights_8cpp_source.html#l00161">PrintVersion()</a>.</p>
 
 </div>
 </div>
@@ -362,9 +414,9 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00157">157</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00161">161</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00171">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00175">main()</a>.</p>
 
 </div>
 </div>
@@ -389,9 +441,9 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00078">78</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00082">82</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00079">GetGlobalAST()</a>, and <a class="el" href="_insights_8cpp_source.html#l00100">CppInsightASTConsumer::HandleTranslationUnit()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00083">GetGlobalAST()</a>, and <a class="el" href="_insights_8cpp_source.html#l00104">CppInsightASTConsumer::HandleTranslationUnit()</a>.</p>
 
 </div>
 </div>
