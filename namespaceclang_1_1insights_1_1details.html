@@ -78,9 +78,9 @@ Functions</h2></td></tr>
 <tr class="separator:a1f04e2deadb3cdf5e7a68d03543e17bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0618b476df6a1ad8845866828c9e46ed"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a0618b476df6a1ad8845866828c9e46ed">GetName</a> (const QualType &amp;t, const Unqualified unqualified=Unqualified::No, const SupressScope supressScope=SupressScope::No)</td></tr>
 <tr class="separator:a0618b476df6a1ad8845866828c9e46ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af96b67764dacfb738d6b9e774842f92b"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
-<tr class="memitem:af96b67764dacfb738d6b9e774842f92b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#af96b67764dacfb738d6b9e774842f92b">StrCat</a> (std::string &amp;ret, T &amp;&amp;t, Args &amp;&amp;... args)</td></tr>
-<tr class="separator:af96b67764dacfb738d6b9e774842f92b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a8f318cbcf2950768b908193a7e5232"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:a1a8f318cbcf2950768b908193a7e5232"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a1a8f318cbcf2950768b908193a7e5232">StrCat</a> (std::string &amp;ret, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a1a8f318cbcf2950768b908193a7e5232"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="af93cd723d12f5354e35d10108e9abf19"></a>
@@ -393,7 +393,7 @@ template&lt;typename... Args&gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="_d_print_8h_source.html#l00036">36</a> of file <a class="el" href="_d_print_8h_source.html">DPrint.h</a>.</p>
 
-<p class="reference">References <a class="el" href="_d_print_8h_source.html#l00018">Normalize()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00039">clang::insights::ToString()</a>.</p>
+<p class="reference">References <a class="el" href="_d_print_8h_source.html#l00018">Normalize()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00040">clang::insights::ToString()</a>.</p>
 
 </div>
 </div>
@@ -457,25 +457,19 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="af96b67764dacfb738d6b9e774842f92b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af96b67764dacfb738d6b9e774842f92b">&#9670;&nbsp;</a></span>StrCat()</h2>
+<a id="a1a8f318cbcf2950768b908193a7e5232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a8f318cbcf2950768b908193a7e5232">&#9670;&nbsp;</a></span>StrCat()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename... Args&gt; </div>
+template&lt;typename... Args&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void clang::insights::details::StrCat </td>
           <td>(</td>
           <td class="paramtype">std::string &amp;&#160;</td>
           <td class="paramname"><em>ret</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T &amp;&amp;&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -491,11 +485,11 @@ template&lt;typename T , typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_str_cat_8h_source.html#l00096">96</a> of file <a class="el" href="_insights_str_cat_8h_source.html">InsightsStrCat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_str_cat_8h_source.html#l00087">87</a> of file <a class="el" href="_insights_str_cat_8h_source.html">InsightsStrCat.h</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_str_cat_8h_source.html#l00045">clang::insights::Normalize()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_str_cat_8h_source.html#l00075">clang::insights::Normalize()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_output_format_helper_8h_source.html#l00081">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="_output_format_helper_8h_source.html#l00097">clang::insights::OutputFormatHelper::AppendNewLine()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00108">clang::insights::StrCat()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_output_format_helper_8h_source.html#l00081">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="_output_format_helper_8h_source.html#l00097">clang::insights::OutputFormatHelper::AppendNewLine()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00095">clang::insights::StrCat()</a>.</p>
 
 </div>
 </div>
