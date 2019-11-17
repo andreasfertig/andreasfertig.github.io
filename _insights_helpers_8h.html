@@ -50,12 +50,14 @@ $(function() {
 <code>#include &quot;clang/Lex/Lexer.h&quot;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &quot;<a class="el" href="_insights_strong_types_8h_source.html">InsightsStrongTypes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_stack_list_8h_source.html">StackList.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for InsightsHelpers.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_insights_helpers_8h__incl.png" border="0" usemap="#_insights_helpers_8h" alt=""/></div>
 <map name="_insights_helpers_8h" id="_insights_helpers_8h">
 <area shape="rect" id="node8" href="_insights_strong_types_8h.html" title="InsightsStrongTypes.h" alt="" coords="1107,87,1271,114"/>
+<area shape="rect" id="node9" href="_stack_list_8h.html" title="StackList.h" alt="" coords="1296,87,1389,114"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -79,6 +81,12 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclang_1_1insights_1_1_scope_helper.html">clang::insights::ScopeHelper</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Track the scope we are currently in to build a properly scoped variable.  <a href="structclang_1_1insights_1_1_scope_helper.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_scope_handler.html">clang::insights::ScopeHandler</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classclang_1_1insights_1_1_scope_handler.html" title="The ScopeHandler tracks the current scope. ">ScopeHandler</a> tracks the current scope.  <a href="classclang_1_1insights_1_1_scope_handler.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_string_stream.html">clang::insights::StringStream</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specialization for <code>::llvm::raw_string_ostream</code> with an internal <code>std::string</code> buffer.  <a href="classclang_1_1insights_1_1_string_stream.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -92,17 +100,16 @@ Namespaces</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a9a7d08ff042b24899e10c2be6b26e505"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_helpers_8h.html#a9a7d08ff042b24899e10c2be6b26e505">SKIP_MACRO_LOCATION</a>(...)</td></tr>
 <tr class="separator:a9a7d08ff042b24899e10c2be6b26e505"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c3f2ef6cff218daef6fad4313c8979"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_helpers_8h.html#a90c3f2ef6cff218daef6fad4313c8979">SCOPE_HELPER</a>(d)&#160;&#160;&#160;ScopeHandler _scopeHandler { d }</td></tr>
+<tr class="memdesc:a90c3f2ef6cff218daef6fad4313c8979"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper to create a <code>ScopeHandler</code> on the stack which adds the current <code>Decl</code> to it and removes it once the scope is left.  <a href="#a90c3f2ef6cff218daef6fad4313c8979">More...</a><br /></td></tr>
+<tr class="separator:a90c3f2ef6cff218daef6fad4313c8979"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6b112f9b391ebe9c916e6a314193b2d1"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a6b112f9b391ebe9c916e6a314193b2d1">clang::insights::IsNewLine</a> (const char c)</td></tr>
 <tr class="separator:a6b112f9b391ebe9c916e6a314193b2d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85e33edcac09ff33b4eae9b423d3b353"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a85e33edcac09ff33b4eae9b423d3b353">clang::insights::ReplaceDash</a> (std::string &amp;&amp;str)</td></tr>
-<tr class="separator:a85e33edcac09ff33b4eae9b423d3b353"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf8552ddba4ae4970774b48323d56ed8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#acf8552ddba4ae4970774b48323d56ed8">clang::insights::BuildInternalVarName</a> (const std::string &amp;varName)</td></tr>
 <tr class="separator:acf8552ddba4ae4970774b48323d56ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af290c98d2be107a8692fca8364cb0db3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#af290c98d2be107a8692fca8364cb0db3">clang::insights::BuildInternalVarName</a> (const std::string &amp;varName, const SourceLocation &amp;loc, const SourceManager &amp;sm)</td></tr>
-<tr class="separator:af290c98d2be107a8692fca8364cb0db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a935847215e8fab9485de0e8b0aaabe2c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a935847215e8fab9485de0e8b0aaabe2c">clang::insights::STRONG_BOOL</a> (RequireSemi)</td></tr>
 <tr class="separator:a935847215e8fab9485de0e8b0aaabe2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a675cd82dc2017b1c8f79938a45b467be"><td class="memItemLeft" align="right" valign="top">SourceLocation&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a675cd82dc2017b1c8f79938a45b467be">clang::insights::FindLocationAfterSemi</a> (const SourceLocation loc, const ast_matchers::MatchFinder::MatchResult &amp;result, RequireSemi requireSemi)</td></tr>
@@ -125,8 +132,8 @@ Functions</h2></td></tr>
 <tr class="separator:a9e8d3acbd89e27b93821e1e911037539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a179218c47c6fdaa7789e5a0567caa8d5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a179218c47c6fdaa7789e5a0567caa8d5">clang::insights::BuildRetTypeName</a> (const Decl &amp;decl)</td></tr>
 <tr class="separator:a179218c47c6fdaa7789e5a0567caa8d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a101470ec9d113ff2bd324adcebec458b"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a101470ec9d113ff2bd324adcebec458b">clang::insights::Contains</a> (const std::string &amp;source, const std::string search)</td></tr>
-<tr class="separator:a101470ec9d113ff2bd324adcebec458b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1c2d870c7b3f1d784eaa06b85ed4e35"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#af1c2d870c7b3f1d784eaa06b85ed4e35">clang::insights::Contains</a> (const std::string &amp;source, const std::string &amp;search)</td></tr>
+<tr class="separator:af1c2d870c7b3f1d784eaa06b85ed4e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa349b23c621fdbf41b73c19b566085aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#aa349b23c621fdbf41b73c19b566085aa">clang::insights::InsertBefore</a> (std::string &amp;source, const std::string &amp;find, const std::string &amp;replace)</td></tr>
 <tr class="separator:aa349b23c621fdbf41b73c19b566085aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae28c0889482aa827614dc0c16aea1eee"><td class="memItemLeft" align="right" valign="top">static const SourceManager &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ae28c0889482aa827614dc0c16aea1eee">clang::insights::GetSM</a> (const ast_matchers::MatchFinder::MatchResult &amp;Result)</td></tr>
@@ -139,14 +146,14 @@ Functions</h2></td></tr>
 <tr class="separator:a6e9f617af6ab91b13141dc886b820f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66eae2504fa0b47c954ec8800917954f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a66eae2504fa0b47c954ec8800917954f">clang::insights::IsTrivialStaticClassVarDecl</a> (const VarDecl &amp;varDecl)</td></tr>
 <tr class="separator:a66eae2504fa0b47c954ec8800917954f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39d289954999e16251b6f9749a1cb670"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a39d289954999e16251b6f9749a1cb670">clang::insights::GetPlainName</a> (const DeclRefExpr &amp;DRE)</td></tr>
-<tr class="separator:a39d289954999e16251b6f9749a1cb670"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25a262ecf4b73d03805e810f0e629cc4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a25a262ecf4b73d03805e810f0e629cc4">clang::insights::GetPlainName</a> (const DeclRefExpr &amp;DRE)</td></tr>
+<tr class="separator:a25a262ecf4b73d03805e810f0e629cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa844d9a8142d05091eb9a50bb131f00"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#afa844d9a8142d05091eb9a50bb131f00">clang::insights::GetName</a> (const DeclRefExpr &amp;declRefExpr)</td></tr>
 <tr class="separator:afa844d9a8142d05091eb9a50bb131f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a751459ee892ceed7c0a4092e4da46758"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a751459ee892ceed7c0a4092e4da46758">clang::insights::GetName</a> (const VarDecl &amp;VD)</td></tr>
 <tr class="separator:a751459ee892ceed7c0a4092e4da46758"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0c0120ca7e03d6163e90d404b5c53ec"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ad0c0120ca7e03d6163e90d404b5c53ec">clang::insights::GetName</a> (const NamedDecl &amp;ND)</td></tr>
-<tr class="separator:ad0c0120ca7e03d6163e90d404b5c53ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31328e39391e305efa2a1b5da3116d82"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a31328e39391e305efa2a1b5da3116d82">clang::insights::GetName</a> (const NamedDecl &amp;nd)</td></tr>
+<tr class="separator:a31328e39391e305efa2a1b5da3116d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f542e4bdb2ff04d57f8bc013e71fc3e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a7f542e4bdb2ff04d57f8bc013e71fc3e">clang::insights::GetNameAsFunctionPointer</a> (const QualType &amp;t)</td></tr>
 <tr class="separator:a7f542e4bdb2ff04d57f8bc013e71fc3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a092bf8da7f2b98d426f5973c5b36076b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a092bf8da7f2b98d426f5973c5b36076b">clang::insights::GetLambdaName</a> (const CXXRecordDecl &amp;lambda)</td></tr>
@@ -155,8 +162,6 @@ Functions</h2></td></tr>
 <tr class="separator:a10013979f6d81b701b903be40aca7d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ceeca80354b780f4bd8f66f66fdce60"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a4ceeca80354b780f4bd8f66f66fdce60">clang::insights::GetName</a> (const CXXRecordDecl &amp;RD)</td></tr>
 <tr class="separator:a4ceeca80354b780f4bd8f66f66fdce60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a019eba024388e6cb36716381f3fd0bb7"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a019eba024388e6cb36716381f3fd0bb7">clang::insights::GetName</a> (const CXXMethodDecl &amp;RD)</td></tr>
-<tr class="separator:a019eba024388e6cb36716381f3fd0bb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1054e2f7ea91e1f9baeb6490fbbaee0"><td class="memItemLeft" align="right" valign="top">const QualType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ac1054e2f7ea91e1f9baeb6490fbbaee0">clang::insights::GetDesugarType</a> (const QualType &amp;QT)</td></tr>
 <tr class="memdesc:ac1054e2f7ea91e1f9baeb6490fbbaee0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove decltype from a QualType, if possible.  <a href="namespaceclang_1_1insights.html#ac1054e2f7ea91e1f9baeb6490fbbaee0">More...</a><br /></td></tr>
 <tr class="separator:ac1054e2f7ea91e1f9baeb6490fbbaee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,6 +175,10 @@ Functions</h2></td></tr>
 <tr class="separator:a7b19d1838019fc52398b25d46b03ecec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a748dc5ff36da9c24a63d817ea7af1d9b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a748dc5ff36da9c24a63d817ea7af1d9b">clang::insights::GetTypeNameAsParameter</a> (const QualType &amp;t, const std::string &amp;varName, const Unqualified unqualified)</td></tr>
 <tr class="separator:a748dc5ff36da9c24a63d817ea7af1d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9db660755331ba35fe3c14f1e5437883"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a9db660755331ba35fe3c14f1e5437883">clang::insights::GetNestedName</a> (const NestedNameSpecifier *nns)</td></tr>
+<tr class="separator:a9db660755331ba35fe3c14f1e5437883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22363ab24df3c0f695c75f60847637c0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a22363ab24df3c0f695c75f60847637c0">clang::insights::GetDeclContext</a> (const DeclContext *ctx)</td></tr>
+<tr class="separator:a22363ab24df3c0f695c75f60847637c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4f192293b224224eeee869b81de81ee"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ad4f192293b224224eeee869b81de81ee">clang::insights::EvaluateAsFloat</a> (const FloatingLiteral &amp;expr)</td></tr>
 <tr class="separator:ad4f192293b224224eeee869b81de81ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2462861f5a18888426e9349bb16e9bd2"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a2462861f5a18888426e9349bb16e9bd2">clang::insights::GetNoExcept</a> (const FunctionDecl &amp;decl)</td></tr>
@@ -183,6 +192,30 @@ Functions</h2></td></tr>
 <tr class="separator:ae0257ddca9e4207781a6f7a13bc793fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a90c3f2ef6cff218daef6fad4313c8979"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c3f2ef6cff218daef6fad4313c8979">&#9670;&nbsp;</a></span>SCOPE_HELPER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SCOPE_HELPER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">d</td><td>)</td>
+          <td>&#160;&#160;&#160;ScopeHandler _scopeHandler { d }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helper to create a <code>ScopeHandler</code> on the stack which adds the current <code>Decl</code> to it and removes it once the scope is left. </p>
+
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00261">261</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l02053">clang::insights::CodeGenerator::InsertCXXMethodDecl()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l02280">clang::insights::CodeGenerator::ParseDeclContext()</a>.</p>
+
+</div>
+</div>
 <a id="a9a7d08ff042b24899e10c2be6b26e505"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9a7d08ff042b24899e10c2be6b26e505">&#9670;&nbsp;</a></span>SKIP_MACRO_LOCATION</h2>
 
@@ -198,10 +231,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">{                                                                                                                  \</div><div class="line">        const <span class="keywordtype">bool</span> isMacro{<a class="code" href="namespaceclang_1_1insights.html#a63fdbcbbc175ed910c564f3d7280f299">IsMacroLocation</a>(__VA_ARGS__) || <a class="code" href="namespaceclang_1_1insights.html#a9e8d3acbd89e27b93821e1e911037539">IsInvalidLocation</a>(__VA_ARGS__)};                            \</div><div class="line">        if(isMacro) {                                                                                                  \</div><div class="line">            return;                                                                                                    \</div><div class="line">        } <span class="keywordflow">else</span> {                                                                                                       \</div><div class="line">        }                                                                                                              \</div><div class="line">    }</div><div class="ttc" id="namespaceclang_1_1insights_html_a63fdbcbbc175ed910c564f3d7280f299"><div class="ttname"><a href="namespaceclang_1_1insights.html#a63fdbcbbc175ed910c564f3d7280f299">clang::insights::IsMacroLocation</a></div><div class="ttdeci">static bool IsMacroLocation(const T &amp;t, Args... args)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_helpers_8h_source.html#l00060">InsightsHelpers.h:60</a></div></div>
-<div class="ttc" id="namespaceclang_1_1insights_html_a9e8d3acbd89e27b93821e1e911037539"><div class="ttname"><a href="namespaceclang_1_1insights.html#a9e8d3acbd89e27b93821e1e911037539">clang::insights::IsInvalidLocation</a></div><div class="ttdeci">static bool IsInvalidLocation(const T &amp;t, Args... args)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_helpers_8h_source.html#l00079">InsightsHelpers.h:79</a></div></div>
+<b>Value:</b><div class="fragment"><div class="line">{                                                                                                                  \</div><div class="line">        const <span class="keywordtype">bool</span> isMacro{<a class="code" href="namespaceclang_1_1insights.html#a63fdbcbbc175ed910c564f3d7280f299">IsMacroLocation</a>(__VA_ARGS__) || <a class="code" href="namespaceclang_1_1insights.html#a9e8d3acbd89e27b93821e1e911037539">IsInvalidLocation</a>(__VA_ARGS__)};                            \</div><div class="line">        if(isMacro) {                                                                                                  \</div><div class="line">            return;                                                                                                    \</div><div class="line">        } <span class="keywordflow">else</span> {                                                                                                       \</div><div class="line">        }                                                                                                              \</div><div class="line">    }</div><div class="ttc" id="namespaceclang_1_1insights_html_a63fdbcbbc175ed910c564f3d7280f299"><div class="ttname"><a href="namespaceclang_1_1insights.html#a63fdbcbbc175ed910c564f3d7280f299">clang::insights::IsMacroLocation</a></div><div class="ttdeci">static bool IsMacroLocation(const T &amp;t, Args... args)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_helpers_8h_source.html#l00059">InsightsHelpers.h:59</a></div></div>
+<div class="ttc" id="namespaceclang_1_1insights_html_a9e8d3acbd89e27b93821e1e911037539"><div class="ttname"><a href="namespaceclang_1_1insights.html#a9e8d3acbd89e27b93821e1e911037539">clang::insights::IsInvalidLocation</a></div><div class="ttdeci">static bool IsInvalidLocation(const T &amp;t, Args... args)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_helpers_8h_source.html#l00078">InsightsHelpers.h:78</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00088">88</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00087">87</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
 
 </div>
 </div>

@@ -65,8 +65,8 @@ Collaboration diagram for clang::insights::CppInsightsPrintingPolicy:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a818b3b37de5cc380f24540cf746ea1ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclang_1_1insights_1_1_cpp_insights_printing_policy.html#a818b3b37de5cc380f24540cf746ea1ac">CppInsightsPrintingPolicy</a> (const Unqualified unqualified, const SupressScope supressScope)</td></tr>
-<tr class="separator:a818b3b37de5cc380f24540cf746ea1ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5e648662348a7a7495ec2d060db4587"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclang_1_1insights_1_1_cpp_insights_printing_policy.html#ad5e648662348a7a7495ec2d060db4587">CppInsightsPrintingPolicy</a> (const Unqualified unqualified, const InsightsSuppressScope supressScope)</td></tr>
+<tr class="separator:ad5e648662348a7a7495ec2d060db4587"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfcd61c6fca4e2884417033d8a0e2ccd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclang_1_1insights_1_1_cpp_insights_printing_policy.html#abfcd61c6fca4e2884417033d8a0e2ccd">CppInsightsPrintingPolicy</a> ()</td></tr>
 <tr class="separator:abfcd61c6fca4e2884417033d8a0e2ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -74,13 +74,15 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a11fd21a3f97e13f666b43e04929a5c18"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclang_1_1insights_1_1_cpp_insights_printing_policy.html#a11fd21a3f97e13f666b43e04929a5c18">CppInsightsUnqualified</a>: 1</td></tr>
 <tr class="separator:a11fd21a3f97e13f666b43e04929a5c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e6c3510fc9f1c222acb9f9ae71b0822"><td class="memItemLeft" align="right" valign="top">InsightsSuppressScope&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclang_1_1insights_1_1_cpp_insights_printing_policy.html#a1e6c3510fc9f1c222acb9f9ae71b0822">CppInsightsSuppressScope</a></td></tr>
+<tr class="separator:a1e6c3510fc9f1c222acb9f9ae71b0822"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00020">20</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00093">93</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a818b3b37de5cc380f24540cf746ea1ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a818b3b37de5cc380f24540cf746ea1ac">&#9670;&nbsp;</a></span>CppInsightsPrintingPolicy() <span class="overload">[1/2]</span></h2>
+<a id="ad5e648662348a7a7495ec2d060db4587"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5e648662348a7a7495ec2d060db4587">&#9670;&nbsp;</a></span>CppInsightsPrintingPolicy() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -97,7 +99,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const SupressScope&#160;</td>
+          <td class="paramtype">const InsightsSuppressScope&#160;</td>
           <td class="paramname"><em>supressScope</em>&#160;</td>
         </tr>
         <tr>
@@ -113,9 +115,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00024">24</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00022">CppInsightsUnqualified</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00098">98</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -142,11 +142,27 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00037">37</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00111">111</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a1e6c3510fc9f1c222acb9f9ae71b0822"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e6c3510fc9f1c222acb9f9ae71b0822">&#9670;&nbsp;</a></span>CppInsightsSuppressScope</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">InsightsSuppressScope clang::insights::CppInsightsPrintingPolicy::CppInsightsSuppressScope</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00096">96</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a11fd21a3f97e13f666b43e04929a5c18"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a11fd21a3f97e13f666b43e04929a5c18">&#9670;&nbsp;</a></span>CppInsightsUnqualified</h2>
 
@@ -159,9 +175,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00022">22</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00024">CppInsightsPrintingPolicy()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00095">95</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
 </div>
 </div>
