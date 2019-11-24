@@ -46,7 +46,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>A helper object which returns a boolen value just once and toggles it after the first query.  
+<p>A helper object which returns a boolean value just once and toggles it after the first query.  
  <a href="classclang_1_1insights_1_1_once.html#details">More...</a></p>
 
 <p><code>#include &quot;<a class="el" href="_insights_once_8h_source.html">/home/builder/InsightsOnce.h</a>&quot;</code></p>
@@ -64,7 +64,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><h3>template&lt;bool VALUE&gt;<br />
 class clang::insights::Once&lt; VALUE &gt;</h3>
 
-<p>A helper object which returns a boolen value just once and toggles it after the first query. </p>
+<p>A helper object which returns a boolean value just once and toggles it after the first query. </p>
 <p>This allows to simplify code like this: </p><div class="fragment"><div class="line"><span class="keywordtype">bool</span> first{<span class="keyword">true</span>};</div><div class="line"><span class="keywordflow">for</span>(... : ...) {</div><div class="line">  <span class="keywordflow">if</span>(first) {</div><div class="line">     first = <span class="keyword">false</span>;</div><div class="line">     ...</div><div class="line">  } <span class="keywordflow">else</span> {</div><div class="line">    ...</div><div class="line"> }</div></div><!-- fragment --><p>into this: </p><div class="fragment"><div class="line"><a class="code" href="namespaceclang_1_1insights.html#ab2d50150611cc1fe458a99770231b20d">OnceTrue</a> first{};</div><div class="line"><span class="keywordflow">for</span>(... : ...) {</div><div class="line">  <span class="keywordflow">if</span>(first) {</div><div class="line">     ...</div><div class="line">  } <span class="keywordflow">else</span> {</div><div class="line">    ...</div><div class="line"> }</div></div><!-- fragment --> 
 <p class="definition">Definition at line <a class="el" href="_insights_once_8h_source.html#l00031">31</a> of file <a class="el" href="_insights_once_8h_source.html">InsightsOnce.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>

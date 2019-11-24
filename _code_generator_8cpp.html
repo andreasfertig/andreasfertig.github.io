@@ -130,6 +130,8 @@ Functions</h2></td></tr>
 <tr class="separator:ab4401426703e4885a6ac91c76cb7b884"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80cd796a7ecd6481cb0346b914544621"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a80cd796a7ecd6481cb0346b914544621">clang::insights::GetCastName</a> (const CastKind castKind)</td></tr>
 <tr class="separator:a80cd796a7ecd6481cb0346b914544621"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92d16b778ef58a55f35229276220d1b8"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a92d16b778ef58a55f35229276220d1b8">clang::insights::GetClassOrStructTagName</a> (const TagDecl &amp;decl)</td></tr>
+<tr class="separator:a92d16b778ef58a55f35229276220d1b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a76fff9233ab4179a1a2bd656edef83"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a4a76fff9233ab4179a1a2bd656edef83"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a4a76fff9233ab4179a1a2bd656edef83">clang::insights::AddStmt</a> (std::vector&lt; Stmt *&gt; &amp;v, const T &amp;stmt)</td></tr>
 <tr class="separator:a4a76fff9233ab4179a1a2bd656edef83"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,8 +153,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a3d409f839356b0a651f2fbf35257cb50"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
 <tr class="memitem:a3d409f839356b0a651f2fbf35257cb50"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a3d409f839356b0a651f2fbf35257cb50">clang::insights::IsStmtRequieringSemi</a> (const Stmt *stmt)</td></tr>
 <tr class="separator:a3d409f839356b0a651f2fbf35257cb50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10029168cb60a7bea78e6bfbe4b46c26"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a10029168cb60a7bea78e6bfbe4b46c26">clang::insights::GetValueOfValueInit</a> (const QualType &amp;t)</td></tr>
-<tr class="separator:a10029168cb60a7bea78e6bfbe4b46c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a946ed035154135f2361a58e32add72"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a8a946ed035154135f2361a58e32add72">clang::insights::IsReference</a> (const QualType &amp;type)</td></tr>
 <tr class="separator:a8a946ed035154135f2361a58e32add72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a889dff4cf5c8b1e4ebf4050eb6adfc6e"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a889dff4cf5c8b1e4ebf4050eb6adfc6e">clang::insights::IsReference</a> (const ValueDecl &amp;valDecl)</td></tr>
@@ -213,7 +213,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03024">clang::insights::CodeGenerator::GetBuiltinTypeSuffix()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l02956">clang::insights::CodeGenerator::GetBuiltinTypeSuffix()</a>.</p>
 
 </div>
 </div>
@@ -265,7 +265,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00025">25</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l00714">clang::insights::FormatVarTemplateSpecializationDecl()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01374">clang::insights::CodeGenerator::HandleCompoundStmt()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01999">clang::insights::CodeGenerator::InsertCXXMethodHeader()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00342">clang::insights::CodeGenerator::InsertNamespace()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00933">clang::insights::CodeGenerator::InsertTemplateParameters()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l02280">clang::insights::CodeGenerator::ParseDeclContext()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01035">clang::insights::CodeGenerator::FillConstantArray()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00727">clang::insights::FormatVarTemplateSpecializationDecl()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01384">clang::insights::CodeGenerator::HandleCompoundStmt()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01982">clang::insights::CodeGenerator::InsertCXXMethodHeader()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00355">clang::insights::CodeGenerator::InsertNamespace()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l02263">clang::insights::CodeGenerator::ParseDeclContext()</a>.</p>
 
 </div>
 </div>

@@ -62,12 +62,12 @@ Collaboration diagram for clang::insights::MultiStmtDeclCodeGenerator:</div>
 <div class="dyncontent">
 <div class="center"><img src="classclang_1_1insights_1_1_multi_stmt_decl_code_generator__coll__graph.png" border="0" usemap="#clang_1_1insights_1_1_multi_stmt_decl_code_generator_coll__map" alt="Collaboration graph"/></div>
 <map name="clang_1_1insights_1_1_multi_stmt_decl_code_generator_coll__map" id="clang_1_1insights_1_1_multi_stmt_decl_code_generator_coll__map">
-<area shape="rect" id="node2" href="classclang_1_1insights_1_1_code_generator.html" title="More or less the heart of C++ Insights. " alt="" coords="485,157,708,184"/>
-<area shape="rect" id="node4" href="class_stack_list.html" title="StackList is a container for a list which elements exist only on the stack. " alt="" coords="67,56,186,83"/>
-<area shape="rect" id="node5" href="class_stack_list.html" title="StackList\&lt; class LambdaHelper \&gt;" alt="" coords="5,107,248,133"/>
-<area shape="rect" id="node8" href="classclang_1_1insights_1_1_output_format_helper.html" title="The C++ Insights formatter. " alt="" coords="19,259,234,301"/>
-<area shape="rect" id="node10" href="classclang_1_1insights_1_1_once.html" title="clang::insights::Once\l\&lt; false \&gt;" alt="" coords="518,209,675,250"/>
-<area shape="rect" id="node11" href="classclang_1_1insights_1_1_once.html" title="clang::insights::Once\l\&lt; true \&gt;" alt="" coords="518,274,675,315"/>
+<area shape="rect" id="node2" href="classclang_1_1insights_1_1_code_generator.html" title="More or less the heart of C++ Insights. " alt="" coords="485,199,708,225"/>
+<area shape="rect" id="node4" href="class_stack_list.html" title="StackList is a container for a list which elements exist only on the stack. " alt="" coords="67,67,186,93"/>
+<area shape="rect" id="node5" href="class_stack_list.html" title="StackList\&lt; class LambdaHelper \&gt;" alt="" coords="5,117,248,144"/>
+<area shape="rect" id="node9" href="classclang_1_1insights_1_1_output_format_helper.html" title="The C++ Insights formatter. " alt="" coords="19,323,234,365"/>
+<area shape="rect" id="node11" href="classclang_1_1insights_1_1_once.html" title="clang::insights::Once\l\&lt; false \&gt;" alt="" coords="518,250,675,291"/>
+<area shape="rect" id="node12" href="classclang_1_1insights_1_1_once.html" title="clang::insights::Once\l\&lt; true \&gt;" alt="" coords="518,315,675,357"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -86,8 +86,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a197dbd903d92a812483bbc3a61308819 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d493c636c3e6ff838ad21df00e0c5a9 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a0d493c636c3e6ff838ad21df00e0c5a9">InsertArg</a> (const Stmt *stmt)</td></tr>
 <tr class="separator:a0d493c636c3e6ff838ad21df00e0c5a9 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a961de88c98c7050a3e3cb977024dedbf inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a961de88c98c7050a3e3cb977024dedbf">InsertTemplateArgs</a> (const DeclRefExpr &amp;stmt)</td></tr>
-<tr class="separator:a961de88c98c7050a3e3cb977024dedbf inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49231fedf06558ad88ecb22f766b9207 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a49231fedf06558ad88ecb22f766b9207 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a49231fedf06558ad88ecb22f766b9207">InsertTemplateArgs</a> (const T &amp;t) -&gt; decltype((void) t.template_arguments(), void())</td></tr>
+<tr class="separator:a49231fedf06558ad88ecb22f766b9207 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95cc7e62cafbc3897cf5fc8e8b518108 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a95cc7e62cafbc3897cf5fc8e8b518108 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a95cc7e62cafbc3897cf5fc8e8b518108">InsertTemplateArgs</a> (const T &amp;t) -&gt; decltype((void) t.asArray(), void())</td></tr>
+<tr class="separator:a95cc7e62cafbc3897cf5fc8e8b518108 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d572fdd6f1f6c42018e6736ccba0235 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a3d572fdd6f1f6c42018e6736ccba0235">InsertTemplateArgs</a> (const ClassTemplateSpecializationDecl &amp;clsTemplateSpe)</td></tr>
 <tr class="separator:a3d572fdd6f1f6c42018e6736ccba0235 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af078fa5b3551c5bfd18d8465eb8d66e9 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#af078fa5b3551c5bfd18d8465eb8d66e9">InsertTemplateArgs</a> (const FunctionDecl &amp;FD)</td></tr>
@@ -97,8 +101,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2e18c8308bd7824aa6f33e8e1b108d8f inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a2e18c8308bd7824aa6f33e8e1b108d8f">InsertAccessModifierAndNameWithReturnType</a> (const FunctionDecl &amp;decl, const SkipAccess skipAccess=SkipAccess::No, const CXXConstructorDecl *cxxInheritedCtorDecl=nullptr)</td></tr>
 <tr class="memdesc:a2e18c8308bd7824aa6f33e8e1b108d8f inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert the code for a FunctionDecl.  <a href="classclang_1_1insights_1_1_code_generator.html#a2e18c8308bd7824aa6f33e8e1b108d8f">More...</a><br /></td></tr>
 <tr class="separator:a2e18c8308bd7824aa6f33e8e1b108d8f inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70f79181e2f17298b7297c97fa9a9713 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a70f79181e2f17298b7297c97fa9a9713">InsertTemplateArgs</a> (const ArrayRef&lt; TemplateArgument &gt; &amp;array)</td></tr>
-<tr class="separator:a70f79181e2f17298b7297c97fa9a9713 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae674799b4ec0e98dea80ab140e339c27 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae674799b4ec0e98dea80ab140e339c27 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#ae674799b4ec0e98dea80ab140e339c27">InsertTemplateArgs</a> (const ArrayRef&lt; T &gt; &amp;array)</td></tr>
+<tr class="separator:ae674799b4ec0e98dea80ab140e339c27 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -127,10 +132,10 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:aa6ebf2937b9fdf01a4ebee5c3378b482 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc86c1e88c8dfc43064d5d43c30fbd78 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#abc86c1e88c8dfc43064d5d43c30fbd78">InsertSuffix</a> (const QualType &amp;type)</td></tr>
 <tr class="separator:abc86c1e88c8dfc43064d5d43c30fbd78 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43720b8c3b7f0e750b804c04fa6ba29a inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a43720b8c3b7f0e750b804c04fa6ba29a">InsertTemplateArgs</a> (const ArrayRef&lt; TemplateArgumentLoc &gt; &amp;array)</td></tr>
-<tr class="separator:a43720b8c3b7f0e750b804c04fa6ba29a inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abaa71307c044bb3463136ffb62fa9be4 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#abaa71307c044bb3463136ffb62fa9be4">InsertTemplateArg</a> (const TemplateArgument &amp;arg)</td></tr>
 <tr class="separator:abaa71307c044bb3463136ffb62fa9be4 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1751fe5971dbabfe7449048945985c4a inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a1751fe5971dbabfe7449048945985c4a">InsertTemplateArg</a> (const TemplateArgumentLoc &amp;arg)</td></tr>
+<tr class="separator:a1751fe5971dbabfe7449048945985c4a inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8013adc599546aee5f8eb7a5076ac6bf inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a8013adc599546aee5f8eb7a5076ac6bf">InsertLambdaStaticInvoker</a> (const CXXMethodDecl *cxxMethodDecl)</td></tr>
 <tr class="separator:a8013adc599546aee5f8eb7a5076ac6bf inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2e07fd55912d74974c1a6b75f0c7a63 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#ac2e07fd55912d74974c1a6b75f0c7a63">InsertTemplateParameters</a> (const TemplateParameterList &amp;list)</td></tr>
@@ -230,13 +235,19 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a021f27e98f974bea270ea373cc3905f9 inherit pro_static_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5f1ac1b48f9ebad3272a92fe1dde418 inherit pro_static_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#ad5f1ac1b48f9ebad3272a92fe1dde418">GetBuiltinTypeSuffix</a> (const BuiltinType::Kind &amp;kind)</td></tr>
 <tr class="separator:ad5f1ac1b48f9ebad3272a92fe1dde418 inherit pro_static_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a152e972b88e20c9eda82e8d6b4889362 inherit pro_static_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a152e972b88e20c9eda82e8d6b4889362">FillConstantArray</a> (const ConstantArrayType *ct, const std::string &amp;value, const uint64_t startAt)</td></tr>
+<tr class="separator:a152e972b88e20c9eda82e8d6b4889362 inherit pro_static_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b08d4e6c213d547c79248ca33a15fd1 inherit pro_static_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a5b08d4e6c213d547c79248ca33a15fd1">GetValueOfValueInit</a> (const QualType &amp;t)</td></tr>
+<tr class="separator:a5b08d4e6c213d547c79248ca33a15fd1 inherit pro_static_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_static_attribs_classclang_1_1insights_1_1_code_generator"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_classclang_1_1insights_1_1_code_generator')"><img src="closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="classclang_1_1insights_1_1_code_generator.html">clang::insights::CodeGenerator</a></td></tr>
 <tr class="memitem:a64e632a0204d480d0e44222a5fe65ea1 inherit pro_static_attribs_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a64e632a0204d480d0e44222a5fe65ea1">mHaveLocalStatic</a></td></tr>
 <tr class="separator:a64e632a0204d480d0e44222a5fe65ea1 inherit pro_static_attribs_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabb0e5f09c4cfd96b2442907432eb572 inherit pro_static_attribs_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#aabb0e5f09c4cfd96b2442907432eb572">MAX_FILL_VALUES_FOR_ARRAYS</a></td></tr>
+<tr class="separator:aabb0e5f09c4cfd96b2442907432eb572 inherit pro_static_attribs_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00290">290</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00325">325</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af2ff4180f49102409cfbf3f2964e03ac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af2ff4180f49102409cfbf3f2964e03ac">&#9670;&nbsp;</a></span>~MultiStmtDeclCodeGenerator()</h2>
@@ -261,9 +272,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00296">296</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00331">331</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
-<p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00075">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="_code_generator_8cpp_source.html#l02762">clang::insights::CodeGenerator::InsertArg()</a>, and <a class="el" href="_code_generator_8h_source.html#l00032">clang::insights::CodeGenerator::mOutputFormatHelper</a>.</p>
+<p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00075">clang::insights::OutputFormatHelper::Append()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l02731">clang::insights::CodeGenerator::InsertArg()</a>.</p>
 
 </div>
 </div>
@@ -293,7 +304,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classclang_1_1insights_1_1_code_generator.html#a84ede41f1fb2a3aeb965c3908e24185c">clang::insights::CodeGenerator</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00306">306</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00341">341</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -322,7 +333,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classclang_1_1insights_1_1_code_generator.html#a72a5180899ea7c4b931234a59282dbe2">clang::insights::CodeGenerator</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00307">307</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00342">342</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -352,7 +363,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classclang_1_1insights_1_1_code_generator.html#a2bc34daf3d79e1ee3c47f90ce334f27e">clang::insights::CodeGenerator</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00305">305</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00340">340</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -379,7 +390,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Insert the <code>VarDecl</code> only once. </p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00302">302</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00337">337</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -403,7 +414,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00301">301</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00336">336</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
