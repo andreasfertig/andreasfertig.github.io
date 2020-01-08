@@ -46,6 +46,7 @@ $(function() {
 <code>#include &quot;clang/ASTMatchers/ASTMatchFinder.h&quot;</code><br />
 <code>#include &quot;clang/ASTMatchers/ASTMatchers.h&quot;</code><br />
 <code>#include &quot;clang/Rewrite/Core/Rewriter.h&quot;</code><br />
+<code>#include &quot;llvm/ADT/APInt.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_clang_compat_8h_source.html">ClangCompat.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_insights_static_strings_8h_source.html">InsightsStaticStrings.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_insights_strong_types_8h_source.html">InsightsStrongTypes.h</a>&quot;</code><br />
@@ -57,14 +58,14 @@ Include dependency graph for CodeGenerator.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_code_generator_8h__incl.png" border="0" usemap="#_code_generator_8h" alt=""/></div>
 <map name="_code_generator_8h" id="_code_generator_8h">
-<area shape="rect" id="node6" href="_clang_compat_8h.html" title="ClangCompat.h" alt="" coords="882,87,1005,114"/>
-<area shape="rect" id="node9" href="_insights_static_strings_8h.html" title="InsightsStaticStrings.h" alt="" coords="1029,87,1196,114"/>
-<area shape="rect" id="node10" href="_insights_strong_types_8h.html" title="InsightsStrongTypes.h" alt="" coords="1152,169,1316,196"/>
-<area shape="rect" id="node11" href="_output_format_helper_8h.html" title="OutputFormatHelper.h" alt="" coords="1272,87,1439,114"/>
-<area shape="rect" id="node18" href="_stack_list_8h.html" title="StackList.h" alt="" coords="1463,87,1557,114"/>
-<area shape="rect" id="node19" href="_code_generator_types_8h.html" title="CodeGeneratorTypes.h" alt="" coords="1581,87,1751,114"/>
-<area shape="rect" id="node13" href="_insights_once_8h.html" title="InsightsOnce.h" alt="" coords="1392,169,1511,196"/>
-<area shape="rect" id="node14" href="_insights_str_cat_8h.html" title="InsightsStrCat.h" alt="" coords="1535,169,1661,196"/>
+<area shape="rect" id="node7" href="_clang_compat_8h.html" title="ClangCompat.h" alt="" coords="1039,87,1162,114"/>
+<area shape="rect" id="node10" href="_insights_static_strings_8h.html" title="InsightsStaticStrings.h" alt="" coords="1187,87,1353,114"/>
+<area shape="rect" id="node11" href="_insights_strong_types_8h.html" title="InsightsStrongTypes.h" alt="" coords="1309,169,1473,196"/>
+<area shape="rect" id="node12" href="_output_format_helper_8h.html" title="OutputFormatHelper.h" alt="" coords="1429,87,1596,114"/>
+<area shape="rect" id="node19" href="_stack_list_8h.html" title="StackList.h" alt="" coords="1621,87,1714,114"/>
+<area shape="rect" id="node20" href="_code_generator_types_8h.html" title="CodeGeneratorTypes.h" alt="" coords="1739,87,1908,114"/>
+<area shape="rect" id="node14" href="_insights_once_8h.html" title="InsightsOnce.h" alt="" coords="1549,169,1668,196"/>
+<area shape="rect" id="node15" href="_insights_str_cat_8h.html" title="InsightsStrCat.h" alt="" coords="1693,169,1818,196"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -132,7 +133,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00114">114</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00115">115</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -152,7 +153,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00116">116</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00117">117</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -172,7 +173,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00118">118</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00119">119</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -192,7 +193,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00119">119</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00120">120</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
