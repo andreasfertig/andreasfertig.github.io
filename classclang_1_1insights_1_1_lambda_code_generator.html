@@ -61,10 +61,10 @@ Collaboration diagram for clang::insights::LambdaCodeGenerator:</div>
 <div class="dyncontent">
 <div class="center"><img src="classclang_1_1insights_1_1_lambda_code_generator__coll__graph.png" border="0" usemap="#clang_1_1insights_1_1_lambda_code_generator_coll__map" alt="Collaboration graph"/></div>
 <map name="clang_1_1insights_1_1_lambda_code_generator_coll__map" id="clang_1_1insights_1_1_lambda_code_generator_coll__map">
-<area shape="rect" id="node2" href="classclang_1_1insights_1_1_code_generator.html" title="More or less the heart of C++ Insights. " alt="" coords="497,256,720,283"/>
-<area shape="rect" id="node4" href="class_stack_list.html" title="StackList is a container for a list which elements exist only on the stack. " alt="" coords="67,120,186,147"/>
-<area shape="rect" id="node5" href="class_stack_list.html" title="StackList\&lt; class LambdaHelper \&gt;" alt="" coords="5,171,248,197"/>
-<area shape="rect" id="node10" href="classclang_1_1insights_1_1_output_format_helper.html" title="The C++ Insights formatter. " alt="" coords="19,383,234,425"/>
+<area shape="rect" id="node2" href="classclang_1_1insights_1_1_code_generator.html" title="More or less the heart of C++ Insights. " alt="" coords="497,264,720,291"/>
+<area shape="rect" id="node4" href="class_stack_list.html" title="StackList is a container for a list which elements exist only on the stack. " alt="" coords="67,121,186,148"/>
+<area shape="rect" id="node5" href="class_stack_list.html" title="StackList\&lt; class LambdaHelper \&gt;" alt="" coords="5,172,248,199"/>
+<area shape="rect" id="node10" href="classclang_1_1insights_1_1_output_format_helper.html" title="The C++ Insights formatter. " alt="" coords="19,399,234,441"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -234,6 +234,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a342f4e7f9450bd6de78626e0a9e4a6a6 inherit pro_attribs_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4753af10f54f038f4521736af1ed3355 inherit pro_attribs_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">llvm::Optional&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a4753af10f54f038f4521736af1ed3355">mCurrentPos</a> {}</td></tr>
 <tr class="separator:a4753af10f54f038f4521736af1ed3355 inherit pro_attribs_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af65bbc2aafbf67e6c359f99de02f282c inherit pro_attribs_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">llvm::Optional&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#af65bbc2aafbf67e6c359f99de02f282c">mCurrentReturnPos</a> {}</td></tr>
+<tr class="separator:af65bbc2aafbf67e6c359f99de02f282c inherit pro_attribs_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4651ac9c1597ff82e84ad501b146e3b0 inherit pro_attribs_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">llvm::Optional&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a4651ac9c1597ff82e84ad501b146e3b0">mCurrentFieldPos</a> {}</td></tr>
 <tr class="separator:a4651ac9c1597ff82e84ad501b146e3b0 inherit pro_attribs_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ff079ea66a3e22548b15f72718b73e2 inherit pro_attribs_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classclang_1_1insights_1_1_output_format_helper.html">OutputFormatHelper</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a4ff079ea66a3e22548b15f72718b73e2">mOutputFormatHelperOutside</a></td></tr>
@@ -247,7 +249,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00312">312</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00314">314</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab1186f14eededb9a5af7c35226ae29da"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab1186f14eededb9a5af7c35226ae29da">&#9670;&nbsp;</a></span>InsertArg()</h2>
@@ -273,7 +275,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l03363">3363</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l03367">3367</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00075">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="_d_print_8h_source.html#l00072">clang::insights::DPrint()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00316">clang::insights::GetDesugarType()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00869">clang::insights::GetName()</a>, and <a class="el" href="_code_generator_8h_source.html#l00033">clang::insights::CodeGenerator::mOutputFormatHelper</a>.</p>
 
@@ -292,7 +294,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00320">320</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00322">322</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
