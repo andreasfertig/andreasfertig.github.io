@@ -76,10 +76,6 @@ Functions</h2></td></tr>
 <tr class="separator:a3d8d6edfbe3b655f215e44fcc161941e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6250485944c474b32f5ed65134de3a0"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#af6250485944c474b32f5ed65134de3a0">GetScope</a> (const DeclContext *declCtx, const RemoveCurrentScope removeCurrentScope=RemoveCurrentScope::Yes)</td></tr>
 <tr class="separator:af6250485944c474b32f5ed65134de3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d55fc0fca65556b130bb4a7d001320a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a3d55fc0fca65556b130bb4a7d001320a">GetNameInternal</a> (const QualType &amp;t, const <a class="el" href="structclang_1_1insights_1_1_cpp_insights_printing_policy.html">CppInsightsPrintingPolicy</a> &amp;printingPolicy)</td></tr>
-<tr class="separator:a3d55fc0fca65556b130bb4a7d001320a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f04e2deadb3cdf5e7a68d03543e17bb"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a1f04e2deadb3cdf5e7a68d03543e17bb">IsDecltypeType</a> (const QualType &amp;t)</td></tr>
-<tr class="separator:a1f04e2deadb3cdf5e7a68d03543e17bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd3903ff595ca3ebf29ce02aa1758a69"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#abd3903ff595ca3ebf29ce02aa1758a69">GetName</a> (const QualType &amp;t, const Unqualified unqualified=Unqualified::No, const InsightsSuppressScope supressScope=InsightsSuppressScope::No)</td></tr>
 <tr class="separator:abd3903ff595ca3ebf29ce02aa1758a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a050656f748e0d2d3fb4950999f7ec87a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a050656f748e0d2d3fb4950999f7ec87a">ConvertToBoolString</a> (bool b)</td></tr>
@@ -126,7 +122,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00119">119</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00908">clang::insights::GetUnqualifiedScopelessName()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00906">clang::insights::GetUnqualifiedScopelessName()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00157">clang::insights::GetNestedName()</a>.</p>
 
@@ -248,53 +244,11 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00825">825</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00824">824</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00316">clang::insights::GetDesugarType()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00800">GetNameInternal()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00813">IsDecltypeType()</a>, and <a class="el" href="namespaceclang_1_1insights.html#a4b606a588102e4fecc58980544d68574">clang::insights::STRONG_BOOL()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00187">clang::insights::GetAsCPPStyleString()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00799">clang::insights::details::SimpleTypePrinter::GetTypeString()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00055">clang::insights::ScopeHandler::RemoveCurrentScope()</a>, and <a class="el" href="namespaceclang_1_1insights.html#a4b606a588102e4fecc58980544d68574">clang::insights::STRONG_BOOL()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00902">clang::insights::GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00935">clang::insights::GetTypeNameAsParameter()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00908">clang::insights::GetUnqualifiedScopelessName()</a>.</p>
-
-</div>
-</div>
-<a id="a3d55fc0fca65556b130bb4a7d001320a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d55fc0fca65556b130bb4a7d001320a">&#9670;&nbsp;</a></span>GetNameInternal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static std::string clang::insights::details::GetNameInternal </td>
-          <td>(</td>
-          <td class="paramtype">const QualType &amp;&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structclang_1_1insights_1_1_cpp_insights_printing_policy.html">CppInsightsPrintingPolicy</a> &amp;&#160;</td>
-          <td class="paramname"><em>printingPolicy</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00800">800</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00187">clang::insights::GetAsCPPStyleString()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00055">clang::insights::ScopeHandler::RemoveCurrentScope()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00825">GetName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00900">clang::insights::GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00933">clang::insights::GetTypeNameAsParameter()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00906">clang::insights::GetUnqualifiedScopelessName()</a>.</p>
 
 </div>
 </div>
@@ -337,7 +291,7 @@ template&lt;typename... Args&gt; </div>
 
 <p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00363">clang::insights::GetDeclContext()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00055">clang::insights::ScopeHandler::RemoveCurrentScope()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00883">clang::insights::GetName()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00438">GetScope()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00881">clang::insights::GetName()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00438">GetScope()</a>.</p>
 
 </div>
 </div>
@@ -379,37 +333,7 @@ template&lt;typename... Args&gt; </div>
 
 <p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00423">GetQualifiedName()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00869">clang::insights::GetName()</a>.</p>
-
-</div>
-</div>
-<a id="a1f04e2deadb3cdf5e7a68d03543e17bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f04e2deadb3cdf5e7a68d03543e17bb">&#9670;&nbsp;</a></span>IsDecltypeType()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static bool clang::insights::details::IsDecltypeType </td>
-          <td>(</td>
-          <td class="paramtype">const QualType &amp;&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00813">813</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00825">GetName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00867">clang::insights::GetName()</a>.</p>
 
 </div>
 </div>
