@@ -344,6 +344,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a708da17310887e0439840e8e5ef7bb4d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classclang_1_1insights_1_1_output_format_helper.html">OutputFormatHelper</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a708da17310887e0439840e8e5ef7bb4d">InsertInstantiatedTemplate</a> (const Decl *decl)</td></tr>
 <tr class="memdesc:a708da17310887e0439840e8e5ef7bb4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert the instantiated template with the resulting code.  <a href="#a708da17310887e0439840e8e5ef7bb4d">More...</a><br /></td></tr>
 <tr class="separator:a708da17310887e0439840e8e5ef7bb4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfc17f61973028c72d56d1f26ec16b05"><td class="memItemLeft" align="right" valign="top">static SourceLocation&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#abfc17f61973028c72d56d1f26ec16b05">FindLocationAfterRBrace</a> (const SourceLocation loc, const ast_matchers::MatchFinder::MatchResult &amp;result, const bool mustHaveSemi)</td></tr>
+<tr class="separator:abfc17f61973028c72d56d1f26ec16b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -1038,6 +1040,54 @@ template&lt;typename... Args&gt; </div>
 
 </div>
 </div>
+<a id="abfc17f61973028c72d56d1f26ec16b05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfc17f61973028c72d56d1f26ec16b05">&#9670;&nbsp;</a></span>FindLocationAfterRBrace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static SourceLocation clang::insights::FindLocationAfterRBrace </td>
+          <td>(</td>
+          <td class="paramtype">const SourceLocation&#160;</td>
+          <td class="paramname"><em>loc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ast_matchers::MatchFinder::MatchResult &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>mustHaveSemi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_template_handler_8cpp_source.html#l00090">90</a> of file <a class="el" href="_template_handler_8cpp_source.html">TemplateHandler.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00213">FindLocationAfterSemi()</a>, and <a class="el" href="_insights_helpers_8h_source.html#l00106">GetSM()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_template_handler_8cpp_source.html#l00108">clang::insights::TemplateHandler::run()</a>.</p>
+
+</div>
+</div>
 <a id="a675cd82dc2017b1c8f79938a45b467be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a675cd82dc2017b1c8f79938a45b467be">&#9670;&nbsp;</a></span>FindLocationAfterSemi()</h2>
 
@@ -1074,7 +1124,7 @@ template&lt;typename... Args&gt; </div>
 
 <p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00207">GetLangOpts()</a>, and <a class="el" href="_insights_helpers_8h_source.html#l00106">GetSM()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00243">GetSourceRangeAfterSemi()</a>, <a class="el" href="_insights_helpers_8h_source.html#l00026">IsNewLine()</a>, and <a class="el" href="_template_handler_8cpp_source.html#l00087">clang::insights::TemplateHandler::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_template_handler_8cpp_source.html#l00090">FindLocationAfterRBrace()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00243">GetSourceRangeAfterSemi()</a>, <a class="el" href="_insights_helpers_8h_source.html#l00026">IsNewLine()</a>, and <a class="el" href="_template_handler_8cpp_source.html#l00108">clang::insights::TemplateHandler::run()</a>.</p>
 
 </div>
 </div>
@@ -1480,7 +1530,7 @@ template&lt;typename T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="_clang_compat_8h_source.html#l00047">47</a> of file <a class="el" href="_clang_compat_8h_source.html">ClangCompat.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_template_handler_8cpp_source.html#l00087">clang::insights::TemplateHandler::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_template_handler_8cpp_source.html#l00108">clang::insights::TemplateHandler::run()</a>.</p>
 
 </div>
 </div>
@@ -1894,7 +1944,7 @@ template&lt;typename T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00106">106</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00213">FindLocationAfterSemi()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00727">FormatVarTemplateSpecializationDecl()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01158">GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00243">GetSourceRangeAfterSemi()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00862">clang::insights::CodeGenerator::InsertTemplateGuardBegin()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00291">MakeLineColumnName()</a>, <a class="el" href="_code_generator_8cpp_source.html#l02309">clang::insights::CodeGenerator::ParseDeclContext()</a>, and <a class="el" href="_function_decl_handler_8cpp_source.html#l00054">clang::insights::FunctionDeclHandler::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_template_handler_8cpp_source.html#l00090">FindLocationAfterRBrace()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00213">FindLocationAfterSemi()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00727">FormatVarTemplateSpecializationDecl()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01158">GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00243">GetSourceRangeAfterSemi()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00862">clang::insights::CodeGenerator::InsertTemplateGuardBegin()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00291">MakeLineColumnName()</a>, <a class="el" href="_code_generator_8cpp_source.html#l02309">clang::insights::CodeGenerator::ParseDeclContext()</a>, and <a class="el" href="_function_decl_handler_8cpp_source.html#l00054">clang::insights::FunctionDeclHandler::run()</a>.</p>
 
 </div>
 </div>
@@ -2412,7 +2462,7 @@ template&lt;typename QT , typename SUB_T &gt; </div>
 
 <p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00089">clang::insights::OutputFormatHelper::AppendNewLine()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l02835">clang::insights::CodeGenerator::InsertArg()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_template_handler_8cpp_source.html#l00087">clang::insights::TemplateHandler::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_template_handler_8cpp_source.html#l00108">clang::insights::TemplateHandler::run()</a>.</p>
 
 </div>
 </div>
