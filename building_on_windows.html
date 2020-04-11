@@ -43,11 +43,7 @@ $(function() {
 <tr>
 <th>Name </th><th>Version </th><th>Actual compiler </th><th>Version </th><th>CMake command  </th></tr>
 <tr>
-<td>Visual Studio 2017 </td><td>15.9.3 </td><td>cl.exe </td><td>19.16.27031.1 </td><td>-G "Visual Studio 15 2017" -A x64 </td></tr>
-<tr>
 <td>Visual Studio 2019 </td><td>16.1.3 </td><td>cl.exe </td><td>19.21.27702.2 </td><td>-G "Visual Studio 16 2019" -A x64 </td></tr>
-<tr>
-<td>Clang (VS 2017) </td><td>15.9.3 </td><td>clang-cl.exe </td><td>8.0.0 </td><td>-G "Visual Studio 15 2017" -A x64 -T LLVM </td></tr>
 <tr>
 <td>Clang (VS 2019) </td><td>16.1.3 </td><td>clang-cl.exe </td><td>8.0.0 </td><td>-G "Visual Studio 16 2019" -A x64 -T LLVM </td></tr>
 </table>
@@ -73,7 +69,7 @@ $(function() {
 <li>cppinsights sources are in <code>C:\dev\cppinsights</code> and</li>
 <li>LLVM/Clang built and installed into <code>C:\Programs\LLVM_local2</code> (see step above)</li>
 </ul>
-<div class="fragment"><div class="line">cd C:\dev\cppinsights\</div><div class="line">mkdir build</div><div class="line">cd build</div><div class="line">set path=%path%;C:\Programs\LLVM_local2\bin</div><div class="line">cmake -G &quot;Visual Studio 15 2017 Win64&quot; -T LLVM ..</div><div class="line">cmake --build . --config Release --target insights</div></div><!-- fragment --><p>Instead of "Visual Studio 15 2017" generator with Clang, you can choose whatever works for you. See "Tested with (supported compilers)", <em>CMake command</em> column above.</p>
+<div class="fragment"><div class="line">cd C:\dev\cppinsights\</div><div class="line">mkdir build</div><div class="line">cd build</div><div class="line">set path=%path%;C:\Programs\LLVM_local2\bin</div><div class="line">cmake -G &quot;Visual Studio 16 2019&quot; -A x64 -T LLVM_v142 ..</div><div class="line">cmake --build . --config Release --target insights</div></div><!-- fragment --><p>Instead of "Visual Studio 16 2019" generator with Clang, you can choose whatever works for you. See "Tested with (supported compilers)", <em>CMake command</em> column above.</p>
 <p>Also, instead of building from command line, you can open <code>build/cpp-insights.sln</code> and have fun with VS. </p>
 </div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.11-->
