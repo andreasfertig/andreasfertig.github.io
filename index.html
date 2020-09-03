@@ -73,6 +73,10 @@ cpp insights logo</div></div>
 <p>C++ Insights can be build inside the clang-source tree or outside.</p>
 <h3>Building on Windows</h3>
 <p>See <a class="el" href="_readme___windows_8md.html">Readme_Windows.md</a></p>
+<h3>Building on Arch Linux</h3>
+<p>To build with <code>extra/clang</code> use the following extra flags: <code>-DINSIGHTS_USE_SYSTEM_INCLUDES=off -DCLANG_LINK_CLANG_DYLIB=on -DLLVM_LINK_LLVM_DYLIB=on</code></p>
+<p>See <a target="_blank" href="https://github.com/andreasfertig/cppinsights/issues/186">https://github.com/andreasfertig/cppinsights/issues/186</a> for an explanation of why <code>INSIGHTS_USE_SYSTEM_INCLUDES</code> needs to be turned off.</p>
+<p><code>extra/clang</code> and <code>extra/llvm</code> provide <code>/usr/lib/{libclangAST.so,libLLVM*.a,libLLVM.so}</code>. <code>libclangAST.so</code> needs <code>libLLVM.so</code> and there would be a conflict if <code>libLLVM*.a</code> (instead of <code>libLLVM.so</code>) are linked. See <a target="_blank" href="https://bugs.archlinux.org/task/60512">https://bugs.archlinux.org/task/60512</a></p>
 <h3>Building outside clang</h3>
 <p>You need to have a clang installation in the search path.</p>
 <div class="fragment"><div class="line">git clone https://github.com/andreasfertig/cppinsights.git</div><div class="line">mkdir build &amp;&amp; cd build</div><div class="line">cmake -G&quot;Ninja&quot; ../cppinsights</div><div class="line">ninja</div></div><!-- fragment --><p> The resulting binary (insights) can be found in the build-folder.</p>
