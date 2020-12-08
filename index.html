@@ -43,7 +43,7 @@ $(function() {
 <div class="caption">
 cpp insights logo</div></div>
 <h1>C++ Insights - See your source code with the eyes of a compiler.</h1>
-<p><a target="_blank" href="https://opensource.org/licenses/MIT"></a> <a target="_blank" href="https://github.com/andreasfertig/cppinsights/releases"></a> <a target="_blank" href="https://travis-ci.org/andreasfertig/cppinsights"></a> <a target="_blank" href="https://codecov.io/gh/andreasfertig/cppinsights"></a> <a target="_blank" href="https://cppinsights.io"></a> <a target="_blank" href="https://docs.cppinsights.io"></a> <a target="_blank" href="https://www.patreon.com/cppinsights"></a></p>
+<p><a target="_blank" href="https://opensource.org/licenses/MIT"></a> <a target="_blank" href="https://github.com/andreasfertig/cppinsights/releases"></a> <a target="_blank" href="https://github.com/andreasfertig/cppinsights/actions/"></a> <a target="_blank" href="https://codecov.io/gh/andreasfertig/cppinsights"></a> <a target="_blank" href="https://cppinsights.io"></a> <a target="_blank" href="https://docs.cppinsights.io"></a> <a target="_blank" href="https://www.patreon.com/cppinsights"></a></p>
 <p><a target="_blank" href="https://gitpod.io#https://github.com/andreasfertig/cppinsights"></a></p>
 <h2>Contents</h2>
 <ul>
@@ -105,7 +105,7 @@ cpp insights logo</div></div>
 <p>Using C++ Insights is fairly simple:</p>
 <div class="fragment"><div class="line">insights &lt;YOUR_CPP_FILE&gt; -- -std=c++17</div></div><!-- fragment --><p>Things get complicated when it comes to the system include paths. There are path hard-coded in the binary which seem to come from the compiler C++ Insights was build with. To help with that check out <a href="scripts/getinclude.py">scripts/getinclude.py</a>. It tries to collect the system include paths from the compiler. Without an option it uses <code>g++</code>, you can also pass another compiler as a first argument.</p>
 <p>Here is an example:</p>
-<div class="fragment"><div class="line">./scripts/getinclude.py </div><div class="line">-isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1 -isystem/usr/local/include -isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include -isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -isystem/usr/include </div></div><!-- fragment --><p>The script can be used together with C++ Insights:</p>
+<div class="fragment"><div class="line">./scripts/getinclude.py</div><div class="line">-isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1 -isystem/usr/local/include -isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include -isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -isystem/usr/include</div></div><!-- fragment --><p>The script can be used together with C++ Insights:</p>
 <p>``<code> insights &lt;YOUR_CPP_FILE&gt; -- -std=c++17</code>./scripts/getinclude.py<code> </code>``</p>
 <p>There is also another GitHub project which sets up a docker container with the latest C++ Insights version in it: <a target="_blank" href="https://github.com/andreasfertig/cppinsights-docker">C++ Insights - Docker</a></p>
 <h2>Compatibility</h2>
