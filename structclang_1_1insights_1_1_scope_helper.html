@@ -90,7 +90,7 @@ Public Attributes</h2></td></tr>
 <p>The AST only knows about absolute scopes (namespace, struct, class), as once a declaration is parsed it is either in a scope or not. Each request to give me the namespace automatically leads to the entire scope the item is in. This makes it hard to have constructs like this:</p><div class="fragment"><div class="line"> <span class="keyword">struct </span>One</div><div class="line"> {</div><div class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> o{};</div><div class="line"></div><div class="line">    <span class="keyword">struct </span>Two</div><div class="line">    {</div><div class="line">        <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> d = o;</div><div class="line">    };</div><div class="line"></div><div class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> a = Two::d;</div><div class="line">};</div></div><!-- fragment --><p>Here the initializer of <code>a</code> is in the scope <code>One::Two::d</code>. At this point the qualification <code>Two::d</code> is enought.</p>
 <p><code><a class="el" href="structclang_1_1insights_1_1_scope_helper.html" title="Track the scope we are currently in to build a properly scoped variable. ">ScopeHelper</a></code> tracks whether we are currently in a class or namespace and simply remove the path we already in from the scope. </p>
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00233">233</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00245">245</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0b8e68f1b20573c150b1da24dcdac6c6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0b8e68f1b20573c150b1da24dcdac6c6">&#9670;&nbsp;</a></span>ScopeHelper()</h2>
@@ -116,7 +116,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00235">235</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00247">247</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -135,7 +135,7 @@ Public Attributes</h2></td></tr>
 
 <p>Length of the scope as it was <em>before</em> this declaration was appended. </p>
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00240">240</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00252">252</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
 
 </div>
 </div>
