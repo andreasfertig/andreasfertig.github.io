@@ -126,6 +126,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a84ede41f1fb2a3aeb965c3908e24185c inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72a5180899ea7c4b931234a59282dbe2 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a72a5180899ea7c4b931234a59282dbe2">InsertSemi</a> ()</td></tr>
 <tr class="separator:a72a5180899ea7c4b931234a59282dbe2 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af631642fd860d2a2118f06f354c72d50 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#af631642fd860d2a2118f06f354c72d50">ShowXValueCasts</a> () const</td></tr>
+<tr class="memdesc:af631642fd860d2a2118f06f354c72d50 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show casts to xvalues independent from the show all casts option.  <a href="classclang_1_1insights_1_1_code_generator.html#af631642fd860d2a2118f06f354c72d50">More...</a><br /></td></tr>
+<tr class="separator:af631642fd860d2a2118f06f354c72d50 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a698cc6c9c04e8dbc7d18e96cb16cd8af inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a698cc6c9c04e8dbc7d18e96cb16cd8af">HandleTemplateParameterPack</a> (const ArrayRef&lt; TemplateArgument &gt; &amp;args)</td></tr>
 <tr class="separator:a698cc6c9c04e8dbc7d18e96cb16cd8af inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b5951511d25eccb16a15dfddf5353c9 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a0b5951511d25eccb16a15dfddf5353c9">HandleCompoundStmt</a> (const CompoundStmt *stmt)</td></tr>
@@ -285,7 +288,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Handle using statements which pull functions ore members from a base class into the class. </p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00123">123</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00127">127</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a743bc6ae37488da3bce9e82d9faa1577"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a743bc6ae37488da3bce9e82d9faa1577">&#9670;&nbsp;</a></span>UsingCodeGenerator()</h2>
@@ -311,9 +314,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00126">126</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00130">130</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_code_generator_8cpp_source.html#l03092">clang::insights::CodeGenerator::InsertArg()</a>.</p>
+<p class="reference">References <a class="el" href="_code_generator_8cpp_source.html#l03152">clang::insights::CodeGenerator::InsertArg()</a>.</p>
 
 </div>
 </div>
@@ -342,11 +345,11 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00132">132</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00136">136</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00075">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="_code_generator_8cpp_source.html#l02191">clang::insights::CodeGenerator::InsertCXXMethodDecl()</a>, and <a class="el" href="_code_generator_8h_source.html#l00033">clang::insights::CodeGenerator::mOutputFormatHelper</a>.</p>
+<p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00075">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="_code_generator_8cpp_source.html#l02253">clang::insights::CodeGenerator::InsertCXXMethodDecl()</a>, and <a class="el" href="_code_generator_8h_source.html#l00033">clang::insights::CodeGenerator::mOutputFormatHelper</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l02412">clang::insights::CodeGenerator::ParseDeclContext()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l02474">clang::insights::CodeGenerator::ParseDeclContext()</a>.</p>
 
 </div>
 </div>
@@ -374,9 +377,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00139">139</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00143">143</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00075">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03092">clang::insights::CodeGenerator::InsertArg()</a>, and <a class="el" href="_code_generator_8h_source.html#l00033">clang::insights::CodeGenerator::mOutputFormatHelper</a>.</p>
+<p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00075">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03152">clang::insights::CodeGenerator::InsertArg()</a>, and <a class="el" href="_code_generator_8h_source.html#l00033">clang::insights::CodeGenerator::mOutputFormatHelper</a>.</p>
 
 </div>
 </div>
@@ -404,7 +407,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00146">146</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00150">150</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
 </div>
 </div>
@@ -432,7 +435,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00149">149</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00153">153</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
 </div>
 </div>
@@ -461,7 +464,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classclang_1_1insights_1_1_code_generator.html#a87c33fb1568dce53343737c957c222ef">clang::insights::CodeGenerator</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00152">152</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00156">156</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
 </div>
 </div>
