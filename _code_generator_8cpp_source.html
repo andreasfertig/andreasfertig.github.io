@@ -1524,7 +1524,7 @@ $(function() {
 <div class="line"><a name="l01483"></a><span class="lineno"> 1483</span>&#160;        }</div>
 <div class="line"><a name="l01484"></a><span class="lineno"> 1484</span>&#160;    };</div>
 <div class="line"><a name="l01485"></a><span class="lineno"> 1485</span>&#160; </div>
-<div class="line"><a name="l01486"></a><span class="lineno"> 1486</span>&#160;    <span class="keywordflow">if</span>(not isMatchingCast(castKind, hideImplicitCasts, <a class="code" href="classclang_1_1insights_1_1_code_generator.html#af631642fd860d2a2118f06f354c72d50">ShowXValueCasts</a>())) {</div>
+<div class="line"><a name="l01486"></a><span class="lineno"> 1486</span>&#160;    <span class="keywordflow">if</span>(not isMatchingCast(castKind, hideImplicitCasts, stmt-&gt;isXValue() || <a class="code" href="classclang_1_1insights_1_1_code_generator.html#af631642fd860d2a2118f06f354c72d50">ShowXValueCasts</a>())) {</div>
 <div class="line"><a name="l01487"></a><span class="lineno"> 1487</span>&#160;        <a class="code" href="classclang_1_1insights_1_1_code_generator.html#a197dbd903d92a812483bbc3a61308819">InsertArg</a>(subExpr);</div>
 <div class="line"><a name="l01488"></a><span class="lineno"> 1488</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(isa&lt;IntegerLiteral&gt;(subExpr) &amp;&amp; hideImplicitCasts) {</div>
 <div class="line"><a name="l01489"></a><span class="lineno"> 1489</span>&#160;        <a class="code" href="classclang_1_1insights_1_1_code_generator.html#a197dbd903d92a812483bbc3a61308819">InsertArg</a>(stmt-&gt;IgnoreCasts());</div>
