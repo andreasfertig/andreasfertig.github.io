@@ -258,8 +258,8 @@ Functions</h2></td></tr>
 <tr class="separator:ab9fe08298ceb29810512438ce167a798"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e9f617af6ab91b13141dc886b820f44"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a6e9f617af6ab91b13141dc886b820f44">GetNameAsWritten</a> (const QualType &amp;t)</td></tr>
 <tr class="separator:a6e9f617af6ab91b13141dc886b820f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22363ab24df3c0f695c75f60847637c0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a22363ab24df3c0f695c75f60847637c0">GetDeclContext</a> (const DeclContext *ctx)</td></tr>
-<tr class="separator:a22363ab24df3c0f695c75f60847637c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7d7636f55874e99e4353eb610654940"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ab7d7636f55874e99e4353eb610654940">GetDeclContext</a> (const DeclContext *ctx, WithTemplateParameters withTemplateParameters)</td></tr>
+<tr class="separator:ab7d7636f55874e99e4353eb610654940"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8aa34a486d1bf4246526875ad3bcb697"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a8aa34a486d1bf4246526875ad3bcb697">STRONG_BOOL</a> (UseLexicalParent)</td></tr>
 <tr class="separator:a8aa34a486d1bf4246526875ad3bcb697"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1130cda5ac5ec51dd075ccc328c1167b"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a1130cda5ac5ec51dd075ccc328c1167b">NeedsNamespace</a> (const Decl &amp;decl, UseLexicalParent useLexicalParent)</td></tr>
@@ -343,6 +343,8 @@ Functions</h2></td></tr>
 <tr class="separator:ab18a40ad059794c9b5548229e2514ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d0ac7fb3716e2ce4f328cd6ec918c93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a7d0ac7fb3716e2ce4f328cd6ec918c93">STRONG_BOOL</a> (Unqualified)</td></tr>
 <tr class="separator:a7d0ac7fb3716e2ce4f328cd6ec918c93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9a462c43b5570b9e4eaaa9188ce2bfe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ae9a462c43b5570b9e4eaaa9188ce2bfe">STRONG_BOOL</a> (WithTemplateParameters)</td></tr>
+<tr class="separator:ae9a462c43b5570b9e4eaaa9188ce2bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0257ddca9e4207781a6f7a13bc793fb"><td class="memTemplParams" colspan="2">template&lt;typename T , typename TFunc &gt; </td></tr>
 <tr class="memitem:ae0257ddca9e4207781a6f7a13bc793fb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ae0257ddca9e4207781a6f7a13bc793fb">for_each</a> (T start, T end, TFunc &amp;&amp;func)</td></tr>
 <tr class="separator:ae0257ddca9e4207781a6f7a13bc793fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -491,7 +493,7 @@ template&lt;class T &gt; </div>
 
 <p class="reference">References <a class="el" href="_code_generator_8cpp_source.html#l00031">AccessToString()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l00053">AccessToStringWithColon()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03524">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l00053">AccessToStringWithColon()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03543">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>.</p>
 
 </div>
 </div>
@@ -641,11 +643,11 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01050">1050</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01072">1072</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00077">clang::insights::OutputFormatHelper::Append()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l01341">clang::insights::StringStream::Print()</a>.</p>
+<p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00077">clang::insights::OutputFormatHelper::Append()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l01363">clang::insights::StringStream::Print()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01085">clang::insights::CodeGenerator::InsertTemplateParameters()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01104">clang::insights::CodeGenerator::InsertTemplateParameters()</a>.</p>
 
 </div>
 </div>
@@ -697,7 +699,7 @@ template&lt;typename T &gt; </div>
 
 <p class="reference">References <a class="el" href="_insights_str_cat_8h_source.html#l00093">StrCat()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00188">BuildInternalVarName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01170">GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01154">GetTemplateParameterPackArgumentName()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03321">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00188">BuildInternalVarName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01192">GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01176">GetTemplateParameterPackArgumentName()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03340">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>.</p>
 
 </div>
 </div>
@@ -767,7 +769,7 @@ template&lt;typename T &gt; </div>
 
 <p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00280">MakeLineColumnName()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03524">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03543">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>.</p>
 
 </div>
 </div>
@@ -807,7 +809,7 @@ template&lt;typename T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00091">91</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01240">GetName()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00971">GetTypeNameAsParameter()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01262">GetName()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00993">GetTypeNameAsParameter()</a>.</p>
 
 </div>
 </div>
@@ -854,7 +856,7 @@ template&lt;typename... Args&gt; </div>
 
 <p class="reference">References <a class="el" href="_d_print_8h_source.html#l00056">clang::insights::details::FPrintf()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03882">clang::insights::LambdaCodeGenerator::InsertArg()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03204">clang::insights::CodeGenerator::InsertArg()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03901">clang::insights::LambdaCodeGenerator::InsertArg()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03223">clang::insights::CodeGenerator::InsertArg()</a>.</p>
 
 </div>
 </div>
@@ -932,7 +934,7 @@ template&lt;typename... Args&gt; </div>
 
 <p class="reference">References <a class="el" href="_d_print_8h_source.html#l00056">clang::insights::details::FPrintf()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_d_print_8h_source.html#l00103">Error()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01279">GetNoExcept()</a>, <a class="el" href="_code_generator_8cpp_source.html#l02024">clang::insights::CodeGenerator::GetValueOfValueInit()</a>, <a class="el" href="_insights_8cpp_source.html#l00185">main()</a>, and <a class="el" href="_d_print_8cpp_source.html#l00033">ToDo()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_d_print_8h_source.html#l00103">Error()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01301">GetNoExcept()</a>, <a class="el" href="_code_generator_8cpp_source.html#l02043">clang::insights::CodeGenerator::GetValueOfValueInit()</a>, <a class="el" href="_insights_8cpp_source.html#l00185">main()</a>, and <a class="el" href="_d_print_8cpp_source.html#l00033">ToDo()</a>.</p>
 
 </div>
 </div>
@@ -1072,9 +1074,9 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01269">1269</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01291">1291</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01279">GetNoExcept()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01301">GetNoExcept()</a>.</p>
 
 </div>
 </div>
@@ -1122,9 +1124,9 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01214">1214</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01236">1236</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01240">GetName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01262">GetName()</a>.</p>
 
 </div>
 </div>
@@ -1250,9 +1252,9 @@ template&lt;typename T , typename TFunc &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00216">216</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00219">219</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01183">clang::insights::CodeGenerator::FillConstantArray()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01202">clang::insights::CodeGenerator::FillConstantArray()</a>.</p>
 
 </div>
 </div>
@@ -1324,7 +1326,7 @@ template&lt;typename T , typename TFunc &gt; </div>
 
 <p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00280">MakeLineColumnName()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00914">GetName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00936">GetName()</a>.</p>
 
 </div>
 </div>
@@ -1364,7 +1366,7 @@ template&lt;typename T , typename TFunc &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00175">175</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00857">clang::insights::details::GetName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00879">clang::insights::details::GetName()</a>.</p>
 
 </div>
 </div>
@@ -1396,7 +1398,7 @@ template&lt;typename T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="_clang_compat_8h_source.html#l00033">33</a> of file <a class="el" href="_clang_compat_8h_source.html">ClangCompat.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01240">GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00280">MakeLineColumnName()</a>, and <a class="el" href="_function_decl_handler_8cpp_source.html#l00054">clang::insights::FunctionDeclHandler::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01262">GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00280">MakeLineColumnName()</a>, and <a class="el" href="_function_decl_handler_8cpp_source.html#l00054">clang::insights::FunctionDeclHandler::run()</a>.</p>
 
 </div>
 </div>
@@ -1456,7 +1458,7 @@ template&lt;typename T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00059">59</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8h_source.html#l00339">clang::insights::is&lt; T &gt;::any_of()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00106">kwReinterpretCast</a>, and <a class="el" href="_insights_static_strings_8h_source.html#l00107">kwStaticCast</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8h_source.html#l00342">clang::insights::is&lt; T &gt;::any_of()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00106">kwReinterpretCast</a>, and <a class="el" href="_insights_static_strings_8h_source.html#l00107">kwStaticCast</a>.</p>
 
 </div>
 </div>
@@ -1476,16 +1478,16 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01313">1313</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01335">1335</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="_insights_static_strings_8h_source.html#l00172">kwSpaceConst</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03524">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03543">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>.</p>
 
 </div>
 </div>
-<a id="a22363ab24df3c0f695c75f60847637c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22363ab24df3c0f695c75f60847637c0">&#9670;&nbsp;</a></span>GetDeclContext()</h2>
+<a id="ab7d7636f55874e99e4353eb610654940"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7d7636f55874e99e4353eb610654940">&#9670;&nbsp;</a></span>GetDeclContext()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1494,17 +1496,27 @@ template&lt;typename T &gt; </div>
           <td class="memname">std::string clang::insights::GetDeclContext </td>
           <td>(</td>
           <td class="paramtype">const DeclContext *&#160;</td>
-          <td class="paramname"><em>ctx</em></td><td>)</td>
+          <td class="paramname"><em>ctx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">WithTemplateParameters&#160;</td>
+          <td class="paramname"><em>withTemplateParameters</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00365">365</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00077">clang::insights::OutputFormatHelper::Append()</a>, and <a class="el" href="_code_generator_8h_source.html#l00134">clang::insights::CodeGenerator::InsertTemplateArgs()</a>.</p>
+<p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00077">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="_code_generator_8h_source.html#l00225">clang::insights::CodeGenerator::ForEachArg()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00922">GetName()</a>, and <a class="el" href="_code_generator_8h_source.html#l00134">clang::insights::CodeGenerator::InsertTemplateArgs()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00425">clang::insights::details::GetQualifiedName()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l02473">clang::insights::CodeGenerator::ParseDeclContext()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00447">clang::insights::details::GetQualifiedName()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l02492">clang::insights::CodeGenerator::ParseDeclContext()</a>.</p>
 
 </div>
 </div>
@@ -1536,7 +1548,7 @@ template&lt;typename T &gt; </div>
 
 <p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00314">GetDesugarType()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03524">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03543">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>.</p>
 
 </div>
 </div>
@@ -1560,7 +1572,7 @@ template&lt;typename T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00314">314</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8h_source.html#l00185">GetDesugarReturnType()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00938">GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00957">HasTypeWithSubType()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03882">clang::insights::LambdaCodeGenerator::InsertArg()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01254">clang::insights::CodeGenerator::InsertConstructorExpr()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03802">IsReference()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8h_source.html#l00185">GetDesugarReturnType()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00960">GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00979">HasTypeWithSubType()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03901">clang::insights::LambdaCodeGenerator::InsertArg()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01273">clang::insights::CodeGenerator::InsertConstructorExpr()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03821">IsReference()</a>.</p>
 
 </div>
 </div>
@@ -1580,7 +1592,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01325">1325</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01347">1347</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="_insights_static_strings_8h_source.html#l00142">kwClassSpace</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00144">kwEnumSpace</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00143">kwStructSpace</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00164">kwTypeNameSpace</a>, and <a class="el" href="_insights_static_strings_8h_source.html#l00145">kwUnionSpace</a>.</p>
 
@@ -1637,9 +1649,9 @@ template&lt;typename T &gt; </div>
 <p>Get the evaluated APValue from a <code>VarDecl</code> </p>
 <p>Returns <code>nullptr</code> is the <code>VarDecl</code> is not evaluatable. </p>
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01081">1081</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01103">1103</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01096">IsEvaluatable()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01118">IsEvaluatable()</a>.</p>
 
 </div>
 </div>
@@ -1680,7 +1692,7 @@ template&lt;typename T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00546">546</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00900">GetName()</a>, and <a class="el" href="_insights_static_strings_8h_source.html#l00129">kwInternalThis</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00922">GetName()</a>, and <a class="el" href="_insights_static_strings_8h_source.html#l00129">kwInternalThis</a>.</p>
 
 </div>
 </div>
@@ -1704,7 +1716,7 @@ template&lt;typename T &gt; </div>
 
 <p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00280">MakeLineColumnName()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8h_source.html#l00152">GetLambdaName()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00914">GetName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8h_source.html#l00152">GetLambdaName()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00936">GetName()</a>.</p>
 
 </div>
 </div>
@@ -1764,7 +1776,7 @@ template&lt;typename T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00196">196</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00202">FindLocationAfterSemi()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03321">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00202">FindLocationAfterSemi()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03340">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>.</p>
 
 </div>
 </div>
@@ -1812,9 +1824,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00914">914</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00936">936</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00300">GetAnonymStructOrUnionName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00293">GetLambdaName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00163">GetNestedName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00425">clang::insights::details::GetQualifiedName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00878">NeedsNamespace()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00056">clang::insights::ScopeHandler::RemoveCurrentScope()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00300">GetAnonymStructOrUnionName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00293">GetLambdaName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00163">GetNestedName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00447">clang::insights::details::GetQualifiedName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00900">NeedsNamespace()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00056">clang::insights::ScopeHandler::RemoveCurrentScope()</a>.</p>
 
 </div>
 </div>
@@ -1834,9 +1846,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01170">1170</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01192">1192</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00181">BuildInternalVarName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00900">GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00087">GetPlainName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00425">clang::insights::details::GetQualifiedName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00440">clang::insights::details::GetScope()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01154">GetTemplateParameterPackArgumentName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00348">GetVarDeclFromDeclRefExpr()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01071">IsTrivialStaticClassVarDecl()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00106">kwReinterpretCast</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00878">NeedsNamespace()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00056">clang::insights::ScopeHandler::RemoveCurrentScope()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00093">StrCat()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00181">BuildInternalVarName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00922">GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00087">GetPlainName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00447">clang::insights::details::GetQualifiedName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00462">clang::insights::details::GetScope()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01176">GetTemplateParameterPackArgumentName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00348">GetVarDeclFromDeclRefExpr()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01093">IsTrivialStaticClassVarDecl()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00106">kwReinterpretCast</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00900">NeedsNamespace()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00056">clang::insights::ScopeHandler::RemoveCurrentScope()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00093">StrCat()</a>.</p>
 
 </div>
 </div>
@@ -1856,11 +1868,11 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00900">900</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00922">922</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00440">clang::insights::details::GetScope()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00878">NeedsNamespace()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00056">clang::insights::ScopeHandler::RemoveCurrentScope()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00462">clang::insights::details::GetScope()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00900">NeedsNamespace()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00056">clang::insights::ScopeHandler::RemoveCurrentScope()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_output_format_helper_8cpp_source.html#l00023">clang::insights::OutputFormatHelper::AppendParameterList()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03225">clang::insights::CodeGenerator::FormatCast()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00546">GetFieldDeclNameForLambda()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01170">GetName()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03321">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03524">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03821">clang::insights::StructuredBindingsCodeGenerator::InsertArg()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03882">clang::insights::LambdaCodeGenerator::InsertArg()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01254">clang::insights::CodeGenerator::InsertConstructorExpr()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03289">clang::insights::CodeGenerator::InsertTemplateArg()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01085">clang::insights::CodeGenerator::InsertTemplateParameters()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00022">clang::insights::ScopeHandler::ScopeHandler()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_output_format_helper_8cpp_source.html#l00023">clang::insights::OutputFormatHelper::AppendParameterList()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03244">clang::insights::CodeGenerator::FormatCast()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00365">GetDeclContext()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00546">GetFieldDeclNameForLambda()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01192">GetName()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03340">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03543">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03840">clang::insights::StructuredBindingsCodeGenerator::InsertArg()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03901">clang::insights::LambdaCodeGenerator::InsertArg()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01273">clang::insights::CodeGenerator::InsertConstructorExpr()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03308">clang::insights::CodeGenerator::InsertTemplateArg()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01104">clang::insights::CodeGenerator::InsertTemplateParameters()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00022">clang::insights::ScopeHandler::ScopeHandler()</a>.</p>
 
 </div>
 </div>
@@ -1890,9 +1902,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00938">938</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00960">960</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00314">GetDesugarType()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00857">clang::insights::details::GetName()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00314">GetDesugarType()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00879">clang::insights::details::GetName()</a>.</p>
 
 </div>
 </div>
@@ -1912,9 +1924,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01240">1240</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01262">1262</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00181">BuildInternalVarName()</a>, <a class="el" href="_insights_helpers_8h_source.html#l00091">Contains()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01214">FindDeclRef()</a>, <a class="el" href="_clang_compat_8h_source.html#l00033">GetBeginLoc()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00087">GetPlainName()</a>, <a class="el" href="_insights_helpers_8h_source.html#l00100">GetSM()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01154">GetTemplateParameterPackArgumentName()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00112">kwOperator</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00056">clang::insights::ScopeHandler::RemoveCurrentScope()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00181">BuildInternalVarName()</a>, <a class="el" href="_insights_helpers_8h_source.html#l00091">Contains()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01236">FindDeclRef()</a>, <a class="el" href="_clang_compat_8h_source.html#l00033">GetBeginLoc()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00087">GetPlainName()</a>, <a class="el" href="_insights_helpers_8h_source.html#l00100">GetSM()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01176">GetTemplateParameterPackArgumentName()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00112">kwOperator</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00056">clang::insights::ScopeHandler::RemoveCurrentScope()</a>.</p>
 
 </div>
 </div>
@@ -1978,7 +1990,7 @@ template&lt;typename T &gt; </div>
 
 <p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00125">clang::insights::details::BuildNamespace()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00914">GetName()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00368">clang::insights::CodeGenerator::InsertNamespace()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l00358">clang::insights::CodeGenerator::InsertQualifierAndName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00936">GetName()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00368">clang::insights::CodeGenerator::InsertNamespace()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l00358">clang::insights::CodeGenerator::InsertQualifierAndName()</a>.</p>
 
 </div>
 </div>
@@ -1998,11 +2010,11 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01279">1279</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01301">1301</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_str_cat_8h_source.html#l00022">clang::insights::details::ConvertToBoolString()</a>, <a class="el" href="_d_print_8h_source.html#l00082">Error()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01269">EvaluateAsBoolenCondition()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00171">kwSpaceNoexcept</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00093">StrCat()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_str_cat_8h_source.html#l00022">clang::insights::details::ConvertToBoolString()</a>, <a class="el" href="_d_print_8h_source.html#l00082">Error()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01291">EvaluateAsBoolenCondition()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00171">kwSpaceNoexcept</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00093">StrCat()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03524">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03543">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>.</p>
 
 </div>
 </div>
@@ -2026,7 +2038,7 @@ template&lt;typename T &gt; </div>
 
 <p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00056">clang::insights::ScopeHandler::RemoveCurrentScope()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01170">GetName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01192">GetName()</a>.</p>
 
 </div>
 </div>
@@ -2058,7 +2070,7 @@ template&lt;typename T &gt; </div>
 
 <p class="reference">References <a class="el" href="_code_generator_8cpp_source.html#l00736">GetStorageClassAsStringWithSpace()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00139">kwConstExprSpace</a>, and <a class="el" href="_insights_static_strings_8h_source.html#l00147">kwInlineSpace</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03821">clang::insights::StructuredBindingsCodeGenerator::InsertArg()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03840">clang::insights::StructuredBindingsCodeGenerator::InsertArg()</a>.</p>
 
 </div>
 </div>
@@ -2088,7 +2100,7 @@ template&lt;typename T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00100">100</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_template_handler_8cpp_source.html#l00083">FindLocationAfterRBrace()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00202">FindLocationAfterSemi()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01240">GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00232">GetSourceRangeAfterSemi()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00965">clang::insights::CodeGenerator::InsertTemplateGuardBegin()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00280">MakeLineColumnName()</a>, <a class="el" href="_function_decl_handler_8cpp_source.html#l00054">clang::insights::FunctionDeclHandler::run()</a>, and <a class="el" href="_global_variable_handler_8cpp_source.html#l00063">clang::insights::GlobalVariableHandler::run()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_template_handler_8cpp_source.html#l00083">FindLocationAfterRBrace()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00202">FindLocationAfterSemi()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01262">GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00232">GetSourceRangeAfterSemi()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00984">clang::insights::CodeGenerator::InsertTemplateGuardBegin()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00280">MakeLineColumnName()</a>, <a class="el" href="_function_decl_handler_8cpp_source.html#l00054">clang::insights::FunctionDeclHandler::run()</a>, and <a class="el" href="_global_variable_handler_8cpp_source.html#l00063">clang::insights::GlobalVariableHandler::run()</a>.</p>
 
 </div>
 </div>
@@ -2218,7 +2230,7 @@ template&lt;typename T &gt; </div>
 
 <p class="reference">References <a class="el" href="_code_generator_8cpp_source.html#l00726">GetStorageClassAsString()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l00748">GetQualifiers()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03524">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l00748">GetQualifiers()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03543">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>.</p>
 
 </div>
 </div>
@@ -2246,9 +2258,9 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01117">1117</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01139">1139</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01154">GetTemplateParameterPackArgumentName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01176">GetTemplateParameterPackArgumentName()</a>.</p>
 
 </div>
 </div>
@@ -2318,11 +2330,11 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01154">1154</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01176">1176</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00181">BuildInternalVarName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01117">GetSubstTemplateTypeParmType()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00093">StrCat()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00181">BuildInternalVarName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01139">GetSubstTemplateTypeParmType()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00093">StrCat()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01170">GetName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01192">GetName()</a>.</p>
 
 </div>
 </div>
@@ -2378,11 +2390,11 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l01072">1072</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l01091">1091</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l01341">clang::insights::StringStream::Print()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l01363">clang::insights::StringStream::Print()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01085">clang::insights::CodeGenerator::InsertTemplateParameters()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01104">clang::insights::CodeGenerator::InsertTemplateParameters()</a>.</p>
 
 </div>
 </div>
@@ -2418,11 +2430,11 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00971">971</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00993">993</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8h_source.html#l00091">Contains()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00857">clang::insights::details::GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00270">InsertAfter()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00260">InsertBefore()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00093">StrCat()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8h_source.html#l00091">Contains()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00879">clang::insights::details::GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00270">InsertAfter()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00260">InsertBefore()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00093">StrCat()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_output_format_helper_8cpp_source.html#l00023">clang::insights::OutputFormatHelper::AppendParameterList()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03524">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03821">clang::insights::StructuredBindingsCodeGenerator::InsertArg()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_output_format_helper_8cpp_source.html#l00023">clang::insights::OutputFormatHelper::AppendParameterList()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03543">clang::insights::CodeGenerator::InsertAccessModifierAndNameWithReturnType()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03840">clang::insights::StructuredBindingsCodeGenerator::InsertArg()</a>.</p>
 
 </div>
 </div>
@@ -2442,9 +2454,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00950">950</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00972">972</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00944">GetUnqualifiedScopelessName()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00966">GetUnqualifiedScopelessName()</a>.</p>
 
 </div>
 </div>
@@ -2482,11 +2494,11 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00944">944</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00966">966</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00857">clang::insights::details::GetName()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00879">clang::insights::details::GetName()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00125">clang::insights::details::BuildNamespace()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00950">GetUnqualifiedScopelessName()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l02192">clang::insights::CodeGenerator::InsertCXXMethodHeader()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00125">clang::insights::details::BuildNamespace()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00972">GetUnqualifiedScopelessName()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l02211">clang::insights::CodeGenerator::InsertCXXMethodHeader()</a>.</p>
 
 </div>
 </div>
@@ -2516,7 +2528,7 @@ template&lt;typename T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00348">348</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01170">GetName()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l01071">IsTrivialStaticClassVarDecl()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01192">GetName()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l01093">IsTrivialStaticClassVarDecl()</a>.</p>
 
 </div>
 </div>
@@ -2546,7 +2558,7 @@ template&lt;typename QT , typename SUB_T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00957">957</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00979">979</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00314">GetDesugarType()</a>.</p>
 
@@ -2594,7 +2606,7 @@ template&lt;typename QT , typename SUB_T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00270">270</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00971">GetTypeNameAsParameter()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00993">GetTypeNameAsParameter()</a>.</p>
 
 </div>
 </div>
@@ -2632,7 +2644,7 @@ template&lt;typename QT , typename SUB_T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00260">260</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00971">GetTypeNameAsParameter()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00993">GetTypeNameAsParameter()</a>.</p>
 
 </div>
 </div>
@@ -2664,7 +2676,7 @@ template&lt;typename QT , typename SUB_T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="_template_handler_8cpp_source.html#l00030">30</a> of file <a class="el" href="_template_handler_8cpp_source.html">TemplateHandler.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00093">clang::insights::OutputFormatHelper::AppendNewLine()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03188">clang::insights::CodeGenerator::InsertArg()</a>.</p>
+<p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00093">clang::insights::OutputFormatHelper::AppendNewLine()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l03207">clang::insights::CodeGenerator::InsertArg()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_template_handler_8cpp_source.html#l00101">clang::insights::TemplateHandler::run()</a>.</p>
 
@@ -2712,11 +2724,11 @@ template&lt;typename QT , typename SUB_T &gt; </div>
 
 <p>Inserts the instantiation point of a template. </p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00951">951</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00970">970</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00093">clang::insights::OutputFormatHelper::AppendNewLine()</a>, and <a class="el" href="_insights_static_strings_8h_source.html#l00178">kwSpaceCCommentEnd</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l00965">clang::insights::CodeGenerator::InsertTemplateGuardBegin()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l00984">clang::insights::CodeGenerator::InsertTemplateGuardBegin()</a>.</p>
 
 </div>
 </div>
@@ -2792,11 +2804,11 @@ template&lt;typename T &gt; </div>
 <p>Check whether a <code>VarDecl</code>s initialization can be done a compile-time. </p>
 <p>This method checks, whether a <code>VarDecl</code> is initialized by a constant expression. </p>
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01096">1096</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01118">1118</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l01081">GetEvaluatedValue()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l01103">GetEvaluatedValue()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01102">IsTrivialStaticClassVarDecl()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01124">IsTrivialStaticClassVarDecl()</a>.</p>
 
 </div>
 </div>
@@ -3028,11 +3040,11 @@ template&lt;typename T , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l03802">3802</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l03821">3821</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00314">GetDesugarType()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03808">IsReference()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03827">IsReference()</a>.</p>
 
 </div>
 </div>
@@ -3060,9 +3072,9 @@ template&lt;typename T , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l03808">3808</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l03827">3827</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_code_generator_8cpp_source.html#l03802">IsReference()</a>.</p>
+<p class="reference">References <a class="el" href="_code_generator_8cpp_source.html#l03821">IsReference()</a>.</p>
 
 </div>
 </div>
@@ -3092,7 +3104,7 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l01571">1571</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l01590">1590</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
 </div>
 </div>
@@ -3120,11 +3132,11 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01071">1071</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01093">1093</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00348">GetVarDeclFromDeclRefExpr()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01170">GetName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01192">GetName()</a>.</p>
 
 </div>
 </div>
@@ -3144,9 +3156,9 @@ template&lt;typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01102">1102</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l01124">1124</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l01096">IsEvaluatable()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l01118">IsEvaluatable()</a>.</p>
 
 </div>
 </div>
@@ -3226,9 +3238,9 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00878">878</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00900">900</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00900">GetName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00922">GetName()</a>.</p>
 
 </div>
 </div>
@@ -3374,12 +3386,12 @@ template&lt;typename... Args&gt; </div>
 
 <p class="reference">References <a class="el" href="_insights_str_cat_8h_source.html#l00085">clang::insights::details::StrCat()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00181">BuildInternalVarName()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03225">clang::insights::CodeGenerator::FormatCast()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01170">GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01279">GetNoExcept()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01154">GetTemplateParameterPackArgumentName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00971">GetTypeNameAsParameter()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03321">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00280">MakeLineColumnName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00181">BuildInternalVarName()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03244">clang::insights::CodeGenerator::FormatCast()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01192">GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01301">GetNoExcept()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01176">GetTemplateParameterPackArgumentName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00993">GetTypeNameAsParameter()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03340">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00280">MakeLineColumnName()</a>.</p>
 
 </div>
 </div>
 <a id="a4b606a588102e4fecc58980544d68574"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b606a588102e4fecc58980544d68574">&#9670;&nbsp;</a></span>STRONG_BOOL() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b606a588102e4fecc58980544d68574">&#9670;&nbsp;</a></span>STRONG_BOOL() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3397,7 +3409,7 @@ template&lt;typename... Args&gt; </div>
 </div>
 </div>
 <a id="a935847215e8fab9485de0e8b0aaabe2c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a935847215e8fab9485de0e8b0aaabe2c">&#9670;&nbsp;</a></span>STRONG_BOOL() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a935847215e8fab9485de0e8b0aaabe2c">&#9670;&nbsp;</a></span>STRONG_BOOL() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3415,7 +3427,7 @@ template&lt;typename... Args&gt; </div>
 </div>
 </div>
 <a id="a7d0ac7fb3716e2ce4f328cd6ec918c93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d0ac7fb3716e2ce4f328cd6ec918c93">&#9670;&nbsp;</a></span>STRONG_BOOL() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d0ac7fb3716e2ce4f328cd6ec918c93">&#9670;&nbsp;</a></span>STRONG_BOOL() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3433,7 +3445,7 @@ template&lt;typename... Args&gt; </div>
 </div>
 </div>
 <a id="a8aa34a486d1bf4246526875ad3bcb697"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8aa34a486d1bf4246526875ad3bcb697">&#9670;&nbsp;</a></span>STRONG_BOOL() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8aa34a486d1bf4246526875ad3bcb697">&#9670;&nbsp;</a></span>STRONG_BOOL() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3442,6 +3454,24 @@ template&lt;typename... Args&gt; </div>
           <td class="memname">clang::insights::STRONG_BOOL </td>
           <td>(</td>
           <td class="paramtype">UseLexicalParent&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae9a462c43b5570b9e4eaaa9188ce2bfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9a462c43b5570b9e4eaaa9188ce2bfe">&#9670;&nbsp;</a></span>STRONG_BOOL() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">clang::insights::STRONG_BOOL </td>
+          <td>(</td>
+          <td class="paramtype">WithTemplateParameters&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
