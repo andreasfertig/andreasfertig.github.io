@@ -152,148 +152,155 @@ $(function() {
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="comment">// Check whether we had static local variables which we transformed. Then for the placement-new we need to</span></div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="comment">// include the header &lt;new&gt;.</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span>(CodeGenerator::NeedToInsertNewHeader() || CodeGenerator::NeedToInsertExceptionHeader()) {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; sm         = context.getSourceManager();</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; mainFileId = sm.getMainFileID();</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>  loc        = sm.translateFileLineCol(sm.getFileEntryForID(mainFileId), 1, 1);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keywordflow">if</span>(CodeGenerator::NeedToInsertNewHeader()) {</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                mRewriter.InsertText(</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                    loc,</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                    <span class="stringliteral">&quot;#include &lt;new&gt; // for thread-safe static&#39;s placement new\n#include &lt;stdint.h&gt; // for &quot;</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                    <span class="stringliteral">&quot;uint64_t under Linux/GCC\n&quot;</span>sv);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                mRewriter.InsertText(loc, <span class="stringliteral">&quot;#include &lt;exception&gt; // for noexcept transformation\n&quot;</span>sv);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    MatchFinder           mMatcher;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_record_decl_handler.html">RecordDeclHandler</a>     mRecordDeclHandler;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_static_assert_handler.html">StaticAssertHandler</a>   mStaticAssertHandler;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_template_handler.html">TemplateHandler</a>       mTemplateHandler;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_global_variable_handler.html">GlobalVariableHandler</a> mGlobalVariableHandler;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_function_decl_handler.html">FunctionDeclHandler</a>   mFunctionDeclHandler;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    Rewriter&amp;             mRewriter;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;};</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html">  141</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_cpp_insight_frontend_action.html">CppInsightFrontendAction</a> final : <span class="keyword">public</span> <a class="code" href="class_a_s_t_frontend_action.html">ASTFrontendAction</a></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;{</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html#a0aa779e3d1b82c598a99445b987ef948">  144</a></span>&#160;    <a class="code" href="class_cpp_insight_frontend_action.html#a0aa779e3d1b82c598a99445b987ef948">CppInsightFrontendAction</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html#a522c660ac54a92bcb01b4f20b3abe4e7">  145</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_cpp_insight_frontend_action.html#a522c660ac54a92bcb01b4f20b3abe4e7">EndSourceFileAction</a>()<span class="keyword"> override</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        mRewriter.getEditBuffer(mRewriter.getSourceMgr().getMainFileID()).write(llvm::outs());</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    }</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html#a309dc1a86c9fa6b3558041a778210d9b">  150</a></span>&#160;    std::unique_ptr&lt;ASTConsumer&gt; <a class="code" href="class_cpp_insight_frontend_action.html#a309dc1a86c9fa6b3558041a778210d9b">CreateASTConsumer</a>(CompilerInstance&amp; CI, StringRef <span class="comment">/*file*/</span>)<span class="keyword"> override</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        mRewriter.setSourceMgr(CI.getSourceManager(), CI.getLangOpts());</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">return</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="preprocessor">#if IS_CLANG_NEWER_THAN(9)</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            std</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            llvm</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            ::make_unique&lt;CppInsightASTConsumer&gt;(mRewriter);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    }</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    Rewriter mRewriter;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;};</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="preprocessor">#include &quot;clang/Basic/Version.h&quot;</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span>(CodeGenerator::NeedToInsertNewHeader() || CodeGenerator::NeedToInsertExceptionHeader() ||</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;           CodeGenerator::NeedToInsertUtilityHeader()) {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; sm         = context.getSourceManager();</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; mainFileId = sm.getMainFileID();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span>  loc        = sm.translateFileLineCol(sm.getFileEntryForID(mainFileId), 1, 1);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">if</span>(CodeGenerator::NeedToInsertNewHeader()) {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                mRewriter.InsertText(</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                    loc,</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                    <span class="stringliteral">&quot;#include &lt;new&gt; // for thread-safe static&#39;s placement new\n#include &lt;stdint.h&gt; // for &quot;</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                    <span class="stringliteral">&quot;uint64_t under Linux/GCC\n&quot;</span>sv);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keywordflow">if</span>(CodeGenerator::NeedToInsertExceptionHeader()) {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                mRewriter.InsertText(loc, <span class="stringliteral">&quot;#include &lt;exception&gt; // for noexcept transformation\n&quot;</span>sv);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">if</span>(CodeGenerator::NeedToInsertUtilityHeader()) {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                mRewriter.InsertText(loc, <span class="stringliteral">&quot;#include &lt;utility&gt; // std::move\n&quot;</span>sv);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            }</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    MatchFinder           mMatcher;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_record_decl_handler.html">RecordDeclHandler</a>     mRecordDeclHandler;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_static_assert_handler.html">StaticAssertHandler</a>   mStaticAssertHandler;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_template_handler.html">TemplateHandler</a>       mTemplateHandler;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_global_variable_handler.html">GlobalVariableHandler</a> mGlobalVariableHandler;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_function_decl_handler.html">FunctionDeclHandler</a>   mFunctionDeclHandler;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    Rewriter&amp;             mRewriter;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;};</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html">  148</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_cpp_insight_frontend_action.html">CppInsightFrontendAction</a> final : <span class="keyword">public</span> <a class="code" href="class_a_s_t_frontend_action.html">ASTFrontendAction</a></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;{</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html#a0aa779e3d1b82c598a99445b987ef948">  151</a></span>&#160;    <a class="code" href="class_cpp_insight_frontend_action.html#a0aa779e3d1b82c598a99445b987ef948">CppInsightFrontendAction</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html#a522c660ac54a92bcb01b4f20b3abe4e7">  152</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_cpp_insight_frontend_action.html#a522c660ac54a92bcb01b4f20b3abe4e7">EndSourceFileAction</a>()<span class="keyword"> override</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        mRewriter.getEditBuffer(mRewriter.getSourceMgr().getMainFileID()).write(llvm::outs());</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    }</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html#a309dc1a86c9fa6b3558041a778210d9b">  157</a></span>&#160;    std::unique_ptr&lt;ASTConsumer&gt; <a class="code" href="class_cpp_insight_frontend_action.html#a309dc1a86c9fa6b3558041a778210d9b">CreateASTConsumer</a>(CompilerInstance&amp; CI, StringRef <span class="comment">/*file*/</span>)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        mRewriter.setSourceMgr(CI.getSourceManager(), CI.getLangOpts());</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor">#if IS_CLANG_NEWER_THAN(9)</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            std</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            llvm</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            ::make_unique&lt;CppInsightASTConsumer&gt;(mRewriter);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    }</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">  171</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">PrintVersion</a>(raw_ostream&amp; ostream)</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;{</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    ostream &lt;&lt; <span class="stringliteral">&quot;cpp-insights &quot;</span> &lt;&lt; INSIGHTS_VERSION &lt;&lt; <span class="stringliteral">&quot; https://cppinsights.io (&quot;</span> &lt;&lt; GIT_REPO_URL &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            &lt;&lt; GIT_COMMIT_HASH &lt;&lt; <span class="stringliteral">&quot;)&quot;</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor">#ifdef INSIGHTS_DEBUG</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    ostream &lt;&lt; <span class="stringliteral">&quot;  Build with debug enabled\n&quot;</span>;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    ostream &lt;&lt; <span class="stringliteral">&quot;  LLVM  Revision: &quot;</span> &lt;&lt; clang::getLLVMRevision() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    ostream &lt;&lt; <span class="stringliteral">&quot;  Clang Revision: &quot;</span> &lt;&lt; clang::getClangFullCPPVersion() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;}</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a217dbf8b442f20279ea00b898af96f52">  185</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_insights_8cpp.html#a217dbf8b442f20279ea00b898af96f52">main</a>(<span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span>** argv)</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;{</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    llvm::sys::PrintStackTraceOnErrorSignal(argv[0]);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    llvm::cl::HideUnrelatedOptions(<a class="code" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a>);</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    llvm::cl::SetVersionPrinter(&amp;<a class="code" href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">PrintVersion</a>);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">#if IS_CLANG_NEWER_THAN(12)</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="comment">// XXX handle errors?</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keyword">auto</span>                 opExpected = CommonOptionsParser::create(argc, argv, <a class="code" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a>);</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    CommonOptionsParser&amp; op         = opExpected.get();</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    CommonOptionsParser op(argc, argv, <a class="code" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a>);</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    ClangTool tool(op.getCompilations(), op.getSourcePathList());</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    llvm::StringRef sourceFilePath = op.getSourcePathList().front();</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="comment">// In STDINMode, we override the file content with the &lt;stdin&gt; input.</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="comment">// Since `tool.mapVirtualFile` takes `StringRef`, we define `Code` outside of</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="comment">// the if-block so that `Code` is not released after the if-block.</span></div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    std::unique_ptr&lt;llvm::MemoryBuffer&gt; inMemoryCode{};</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="_insights_8cpp.html#a1166616965b18bcd1c28a435e6ac6c83">gStdinMode</a>) {</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        assert(op.getSourcePathList().size() == 1 &amp;&amp; <span class="stringliteral">&quot;Expect exactly one file path in STDINMode.&quot;</span>);</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        llvm::ErrorOr&lt;std::unique_ptr&lt;llvm::MemoryBuffer&gt;&gt; codeOrErr = llvm::MemoryBuffer::getSTDIN();</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="keywordflow">if</span>(<span class="keyword">const</span> std::error_code errorCode = codeOrErr.getError()) {</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            llvm::errs() &lt;&lt; errorCode.message() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            <span class="keywordflow">return</span> 1;</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        }</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        inMemoryCode = std::move(codeOrErr.get());</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">if</span>(inMemoryCode-&gt;getBufferSize() == 0) {</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            <a class="code" href="namespaceclang_1_1insights.html#aef49f3648ba294e3e09dbbe6d943a74d">Error</a>(<span class="stringliteral">&quot;empty file\n&quot;</span>);</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            <span class="keywordflow">return</span> 1;  <span class="comment">// Skip empty files.</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        }</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        tool.mapVirtualFile(sourceFilePath, inMemoryCode-&gt;getBuffer());</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    }</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keyword">auto</span> prependArgument = [&amp;](<span class="keyword">auto</span> arg) {</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        tool.appendArgumentsAdjuster(getInsertArgumentAdjuster(arg, ArgumentInsertPosition::BEGIN));</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    };</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    Rewriter mRewriter;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;};</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">#include &quot;clang/Basic/Version.h&quot;</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">  178</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">PrintVersion</a>(raw_ostream&amp; ostream)</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;{</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    ostream &lt;&lt; <span class="stringliteral">&quot;cpp-insights &quot;</span> &lt;&lt; INSIGHTS_VERSION &lt;&lt; <span class="stringliteral">&quot; https://cppinsights.io (&quot;</span> &lt;&lt; GIT_REPO_URL &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            &lt;&lt; GIT_COMMIT_HASH &lt;&lt; <span class="stringliteral">&quot;)&quot;</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor">#ifdef INSIGHTS_DEBUG</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    ostream &lt;&lt; <span class="stringliteral">&quot;  Build with debug enabled\n&quot;</span>;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    ostream &lt;&lt; <span class="stringliteral">&quot;  LLVM  Revision: &quot;</span> &lt;&lt; clang::getLLVMRevision() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    ostream &lt;&lt; <span class="stringliteral">&quot;  Clang Revision: &quot;</span> &lt;&lt; clang::getClangFullCPPVersion() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;}</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a217dbf8b442f20279ea00b898af96f52">  192</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="_insights_8cpp.html#a217dbf8b442f20279ea00b898af96f52">main</a>(<span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span>** argv)</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;{</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    llvm::sys::PrintStackTraceOnErrorSignal(argv[0]);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    llvm::cl::HideUnrelatedOptions(<a class="code" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a>);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    llvm::cl::SetVersionPrinter(&amp;<a class="code" href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">PrintVersion</a>);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor">#if IS_CLANG_NEWER_THAN(12)</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="comment">// XXX handle errors?</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keyword">auto</span>                 opExpected = CommonOptionsParser::create(argc, argv, <a class="code" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a>);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    CommonOptionsParser&amp; op         = opExpected.get();</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    CommonOptionsParser op(argc, argv, <a class="code" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a>);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    ClangTool tool(op.getCompilations(), op.getSourcePathList());</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    llvm::StringRef sourceFilePath = op.getSourcePathList().front();</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="comment">// In STDINMode, we override the file content with the &lt;stdin&gt; input.</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="comment">// Since `tool.mapVirtualFile` takes `StringRef`, we define `Code` outside of</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="comment">// the if-block so that `Code` is not released after the if-block.</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    std::unique_ptr&lt;llvm::MemoryBuffer&gt; inMemoryCode{};</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="_insights_8cpp.html#a1166616965b18bcd1c28a435e6ac6c83">gStdinMode</a>) {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        assert(op.getSourcePathList().size() == 1 &amp;&amp; <span class="stringliteral">&quot;Expect exactly one file path in STDINMode.&quot;</span>);</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        llvm::ErrorOr&lt;std::unique_ptr&lt;llvm::MemoryBuffer&gt;&gt; codeOrErr = llvm::MemoryBuffer::getSTDIN();</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="keywordflow">if</span>(<span class="keyword">const</span> std::error_code errorCode = codeOrErr.getError()) {</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            llvm::errs() &lt;&lt; errorCode.message() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        }</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        inMemoryCode = std::move(codeOrErr.get());</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">if</span>(inMemoryCode-&gt;getBufferSize() == 0) {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            <a class="code" href="namespaceclang_1_1insights.html#aef49f3648ba294e3e09dbbe6d943a74d">Error</a>(<span class="stringliteral">&quot;empty file\n&quot;</span>);</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            <span class="keywordflow">return</span> 1;  <span class="comment">// Skip empty files.</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        }</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="comment">// Special handling to spare users to figure out what include paths to add.</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="comment">// For some reason, Clang on Apple seems to require an additional hint for the C++ headers.</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="preprocessor">#ifdef __APPLE__</span></div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <a class="code" href="_insights_8cpp.html#ad9abeaa3b6e8cbfd73dd238b1efbd154">gUseLibCpp</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __APPLE__ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        tool.mapVirtualFile(sourceFilePath, inMemoryCode-&gt;getBuffer());</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    }</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keyword">auto</span> prependArgument = [&amp;](<span class="keyword">auto</span> arg) {</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        tool.appendArgumentsAdjuster(getInsertArgumentAdjuster(arg, ArgumentInsertPosition::BEGIN));</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    };</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="_insights_8cpp.html#ad9abeaa3b6e8cbfd73dd238b1efbd154">gUseLibCpp</a>) {</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        prependArgument(INSIGHTS_LLVM_INCLUDE_DIR);</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        prependArgument(<span class="stringliteral">&quot;-stdlib=libc++&quot;</span>);</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    }</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    prependArgument(INSIGHTS_CLANG_RESOURCE_INCLUDE_DIR);</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    prependArgument(INSIGHTS_CLANG_RESOURCE_DIR);</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordflow">return</span> tool.run(newFrontendActionFactory&lt;CppInsightFrontendAction&gt;().get());</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;}</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="comment">// Special handling to spare users to figure out what include paths to add.</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="comment">// For some reason, Clang on Apple seems to require an additional hint for the C++ headers.</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="preprocessor">#ifdef __APPLE__</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <a class="code" href="_insights_8cpp.html#ad9abeaa3b6e8cbfd73dd238b1efbd154">gUseLibCpp</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __APPLE__ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="_insights_8cpp.html#ad9abeaa3b6e8cbfd73dd238b1efbd154">gUseLibCpp</a>) {</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        prependArgument(INSIGHTS_LLVM_INCLUDE_DIR);</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        prependArgument(<span class="stringliteral">&quot;-stdlib=libc++&quot;</span>);</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    }</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    prependArgument(INSIGHTS_CLANG_RESOURCE_INCLUDE_DIR);</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    prependArgument(INSIGHTS_CLANG_RESOURCE_DIR);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordflow">return</span> tool.run(newFrontendActionFactory&lt;CppInsightFrontendAction&gt;().get());</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;}</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="ttc" id="a_code_generator_8h_html"><div class="ttname"><a href="_code_generator_8h.html">CodeGenerator.h</a></div></div>
 <div class="ttc" id="a_d_print_8h_html"><div class="ttname"><a href="_d_print_8h.html">DPrint.h</a></div></div>
 <div class="ttc" id="a_function_decl_handler_8h_html"><div class="ttname"><a href="_function_decl_handler_8h.html">FunctionDeclHandler.h</a></div></div>
 <div class="ttc" id="a_global_variable_handler_8h_html"><div class="ttname"><a href="_global_variable_handler_8h.html">GlobalVariableHandler.h</a></div></div>
 <div class="ttc" id="a_insights_8cpp_html_a1166616965b18bcd1c28a435e6ac6c83"><div class="ttname"><a href="_insights_8cpp.html#a1166616965b18bcd1c28a435e6ac6c83">gStdinMode</a></div><div class="ttdeci">static llvm::cl::opt&lt; bool &gt; gStdinMode(&quot;stdin&quot;, llvm::cl::desc(&quot;Override source file's content (in the overlaying\n&quot; &quot;virtual file system) with input from &lt;stdin&gt; and run\n&quot; &quot;the tool on the new content with the compilation\n&quot; &quot;options of the source file. This mode is currently\n&quot; &quot;used for editor integration.&quot;sv), llvm::cl::init(false), llvm::cl::cat(gInsightCategory))</div></div>
-<div class="ttc" id="a_insights_8cpp_html_a217dbf8b442f20279ea00b898af96f52"><div class="ttname"><a href="_insights_8cpp.html#a217dbf8b442f20279ea00b898af96f52">main</a></div><div class="ttdeci">int main(int argc, const char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00185">Insights.cpp:185</a></div></div>
+<div class="ttc" id="a_insights_8cpp_html_a217dbf8b442f20279ea00b898af96f52"><div class="ttname"><a href="_insights_8cpp.html#a217dbf8b442f20279ea00b898af96f52">main</a></div><div class="ttdeci">int main(int argc, const char **argv)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00192">Insights.cpp:192</a></div></div>
 <div class="ttc" id="a_insights_8cpp_html_a237d39563de56bf4a3f45ef0bd68d038"><div class="ttname"><a href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a></div><div class="ttdeci">static llvm::cl::OptionCategory gInsightCategory(&quot;Insights&quot;sv)</div></div>
 <div class="ttc" id="a_insights_8cpp_html_a873648e2b11ba9164e749d4977592e49"><div class="ttname"><a href="_insights_8cpp.html#a873648e2b11ba9164e749d4977592e49">gAST</a></div><div class="ttdeci">static const ASTContext * gAST</div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00085">Insights.cpp:85</a></div></div>
 <div class="ttc" id="a_insights_8cpp_html_a887ea93e65791cb6c977e9f4a81d6bd3"><div class="ttname"><a href="_insights_8cpp.html#a887ea93e65791cb6c977e9f4a81d6bd3">gInsightEduCategory</a></div><div class="ttdeci">static llvm::cl::OptionCategory gInsightEduCategory(&quot;Insights- Educational&quot;sv, &quot;This transformations are only for education purposes. The resulting code most likely does not compile.&quot;sv)</div></div>
 <div class="ttc" id="a_insights_8cpp_html_a94807dbb47cca18c1f57972e0c117317"><div class="ttname"><a href="_insights_8cpp.html#a94807dbb47cca18c1f57972e0c117317">gInsightsOptions</a></div><div class="ttdeci">static InsightsOptions gInsightsOptions</div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00042">Insights.cpp:42</a></div></div>
-<div class="ttc" id="a_insights_8cpp_html_a9e893556f2e1b3c7759876211821ce4a"><div class="ttname"><a href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">PrintVersion</a></div><div class="ttdeci">static void PrintVersion(raw_ostream &amp;ostream)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00171">Insights.cpp:171</a></div></div>
+<div class="ttc" id="a_insights_8cpp_html_a9e893556f2e1b3c7759876211821ce4a"><div class="ttname"><a href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">PrintVersion</a></div><div class="ttdeci">static void PrintVersion(raw_ostream &amp;ostream)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00178">Insights.cpp:178</a></div></div>
 <div class="ttc" id="a_insights_8cpp_html_aafee6416d899f87b994fca717181a03e"><div class="ttname"><a href="_insights_8cpp.html#aafee6416d899f87b994fca717181a03e">GetGlobalAST</a></div><div class="ttdeci">const ASTContext &amp; GetGlobalAST()</div><div class="ttdoc">Get access to the ASTContext.</div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00086">Insights.cpp:86</a></div></div>
 <div class="ttc" id="a_insights_8cpp_html_abd920556d8acde1899d69c8926a138b8"><div class="ttname"><a href="_insights_8cpp.html#abd920556d8acde1899d69c8926a138b8">GetInsightsOptions</a></div><div class="ttdeci">const InsightsOptions &amp; GetInsightsOptions()</div><div class="ttdoc">Get the global C++ Insights options.</div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00045">Insights.cpp:45</a></div></div>
 <div class="ttc" id="a_insights_8cpp_html_ad9abeaa3b6e8cbfd73dd238b1efbd154"><div class="ttname"><a href="_insights_8cpp.html#ad9abeaa3b6e8cbfd73dd238b1efbd154">gUseLibCpp</a></div><div class="ttdeci">static llvm::cl::opt&lt; bool &gt; gUseLibCpp(&quot;use-libc++&quot;, llvm::cl::desc(&quot;Use libc++.&quot;sv), llvm::cl::init(false), llvm::cl::cat(gInsightCategory))</div></div>
@@ -306,10 +313,10 @@ $(function() {
 <div class="ttc" id="aclass_cpp_insight_a_s_t_consumer_html"><div class="ttname"><a href="class_cpp_insight_a_s_t_consumer.html">CppInsightASTConsumer</a></div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00092">Insights.cpp:93</a></div></div>
 <div class="ttc" id="aclass_cpp_insight_a_s_t_consumer_html_a73b9df83419f4ce751f5b87dfea7e353"><div class="ttname"><a href="class_cpp_insight_a_s_t_consumer.html#a73b9df83419f4ce751f5b87dfea7e353">CppInsightASTConsumer::CppInsightASTConsumer</a></div><div class="ttdeci">CppInsightASTConsumer(Rewriter &amp;rewriter)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00095">Insights.cpp:95</a></div></div>
 <div class="ttc" id="aclass_cpp_insight_a_s_t_consumer_html_ad64dcd8af6d6ac4a7f81fb5211baa11b"><div class="ttname"><a href="class_cpp_insight_a_s_t_consumer.html#ad64dcd8af6d6ac4a7f81fb5211baa11b">CppInsightASTConsumer::HandleTranslationUnit</a></div><div class="ttdeci">void HandleTranslationUnit(ASTContext &amp;context) override</div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00107">Insights.cpp:107</a></div></div>
-<div class="ttc" id="aclass_cpp_insight_frontend_action_html"><div class="ttname"><a href="class_cpp_insight_frontend_action.html">CppInsightFrontendAction</a></div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00141">Insights.cpp:142</a></div></div>
+<div class="ttc" id="aclass_cpp_insight_frontend_action_html"><div class="ttname"><a href="class_cpp_insight_frontend_action.html">CppInsightFrontendAction</a></div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00148">Insights.cpp:149</a></div></div>
 <div class="ttc" id="aclass_cpp_insight_frontend_action_html_a0aa779e3d1b82c598a99445b987ef948"><div class="ttname"><a href="class_cpp_insight_frontend_action.html#a0aa779e3d1b82c598a99445b987ef948">CppInsightFrontendAction::CppInsightFrontendAction</a></div><div class="ttdeci">CppInsightFrontendAction()=default</div></div>
-<div class="ttc" id="aclass_cpp_insight_frontend_action_html_a309dc1a86c9fa6b3558041a778210d9b"><div class="ttname"><a href="class_cpp_insight_frontend_action.html#a309dc1a86c9fa6b3558041a778210d9b">CppInsightFrontendAction::CreateASTConsumer</a></div><div class="ttdeci">std::unique_ptr&lt; ASTConsumer &gt; CreateASTConsumer(CompilerInstance &amp;CI, StringRef) override</div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00150">Insights.cpp:150</a></div></div>
-<div class="ttc" id="aclass_cpp_insight_frontend_action_html_a522c660ac54a92bcb01b4f20b3abe4e7"><div class="ttname"><a href="class_cpp_insight_frontend_action.html#a522c660ac54a92bcb01b4f20b3abe4e7">CppInsightFrontendAction::EndSourceFileAction</a></div><div class="ttdeci">void EndSourceFileAction() override</div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00145">Insights.cpp:145</a></div></div>
+<div class="ttc" id="aclass_cpp_insight_frontend_action_html_a309dc1a86c9fa6b3558041a778210d9b"><div class="ttname"><a href="class_cpp_insight_frontend_action.html#a309dc1a86c9fa6b3558041a778210d9b">CppInsightFrontendAction::CreateASTConsumer</a></div><div class="ttdeci">std::unique_ptr&lt; ASTConsumer &gt; CreateASTConsumer(CompilerInstance &amp;CI, StringRef) override</div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00157">Insights.cpp:157</a></div></div>
+<div class="ttc" id="aclass_cpp_insight_frontend_action_html_a522c660ac54a92bcb01b4f20b3abe4e7"><div class="ttname"><a href="class_cpp_insight_frontend_action.html#a522c660ac54a92bcb01b4f20b3abe4e7">CppInsightFrontendAction::EndSourceFileAction</a></div><div class="ttdeci">void EndSourceFileAction() override</div><div class="ttdef"><b>Definition:</b> <a href="_insights_8cpp_source.html#l00152">Insights.cpp:152</a></div></div>
 <div class="ttc" id="aclassclang_1_1insights_1_1_function_decl_handler_html"><div class="ttname"><a href="classclang_1_1insights_1_1_function_decl_handler.html">clang::insights::FunctionDeclHandler</a></div><div class="ttdoc">Match function decls.</div><div class="ttdef"><b>Definition:</b> <a href="_function_decl_handler_8h_source.html#l00023">FunctionDeclHandler.h:24</a></div></div>
 <div class="ttc" id="aclassclang_1_1insights_1_1_global_variable_handler_html"><div class="ttname"><a href="classclang_1_1insights_1_1_global_variable_handler.html">clang::insights::GlobalVariableHandler</a></div><div class="ttdoc">Replace global variables to show e.g. implicit conversions.</div><div class="ttdef"><b>Definition:</b> <a href="_global_variable_handler_8h_source.html#l00021">GlobalVariableHandler.h:22</a></div></div>
 <div class="ttc" id="aclassclang_1_1insights_1_1_record_decl_handler_html"><div class="ttname"><a href="classclang_1_1insights_1_1_record_decl_handler.html">clang::insights::RecordDeclHandler</a></div><div class="ttdoc">Show a struct or class with the special members the compiler generates.</div><div class="ttdef"><b>Definition:</b> <a href="_record_decl_handler_8h_source.html#l00025">RecordDeclHandler.h:26</a></div></div>
