@@ -57,86 +57,91 @@ $(function() {
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">#------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespaceprepare-release.html#a6530dc89f4483a22d97c41212b9bd2b1">   14</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespaceprepare-release.html#a6530dc89f4483a22d97c41212b9bd2b1">main</a>():</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    oldClangDevel  = <span class="stringliteral">&#39;9&#39;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    newClangDevel = <span class="stringliteral">&#39;13&#39;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    oldClangStable = <span class="stringliteral">&#39;10&#39;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    newClangStable = <span class="stringliteral">&#39;12&#39;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    oldInsightsVersion = <span class="stringliteral">&#39;0.6&#39;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    newInsightsVersion = <span class="stringliteral">&#39;0.7&#39;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    versionH = open(<span class="stringliteral">&#39;version.h.in&#39;</span>, <span class="stringliteral">&#39;r&#39;</span>).read()</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    oldClangStable = <span class="stringliteral">&#39;12&#39;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    newClangStable = <span class="stringliteral">&#39;13&#39;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    newInsightsVersion = <span class="stringliteral">&#39;0.8&#39;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    oldInsightsVersion = re.search(<span class="stringliteral">&#39;INSIGHTS_VERSION\s+&quot;(.*?)&quot;&#39;</span>, versionH, re.DOTALL | re.MULTILINE).group(1)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    print(<span class="stringliteral">&#39;Preparing a new release:&#39;</span>)</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    print(<span class="stringliteral">&#39; Current Clang development : %s&#39;</span> %(oldClangDevel))</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    print(<span class="stringliteral">&#39; New Clang development     : %s&#39;</span> %(newClangDevel))</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    print(<span class="stringliteral">&#39; Current Clang stable      : %s&#39;</span> %(oldClangStable))</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    print(<span class="stringliteral">&#39; New Clang stable          : %s&#39;</span> %(newClangStable))</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    print(<span class="stringliteral">&#39; Current Insights version  : %s&#39;</span> %(oldInsightsVersion))</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    print(<span class="stringliteral">&#39; New Insights version      : %s&#39;</span> %(newInsightsVersion))</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    print(<span class="stringliteral">&#39;  - Updating .github/workflows/ci.yml&#39;</span>)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    travis = open(<span class="stringliteral">&#39;.github/workflows/ci.yml&#39;</span>, <span class="stringliteral">&#39;r&#39;</span>).read()</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    print(<span class="stringliteral">&#39;Preparing a new release:&#39;</span>)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    print(<span class="stringliteral">&#39; Current Clang stable      : %s&#39;</span> %(oldClangStable))</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    print(<span class="stringliteral">&#39; New Clang stable          : %s&#39;</span> %(newClangStable))</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    print(<span class="stringliteral">&#39; Current Insights version  : %s&#39;</span> %(oldInsightsVersion))</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    print(<span class="stringliteral">&#39; New Insights version      : %s&#39;</span> %(newInsightsVersion))</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    print(<span class="stringliteral">&#39;  - Updating .github/workflows/ci.yml&#39;</span>)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    travis = open(<span class="stringliteral">&#39;.github/workflows/ci.yml&#39;</span>, <span class="stringliteral">&#39;r&#39;</span>).read()</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    regEx = re.compile(<span class="stringliteral">&#39;[clang|llvm]-([0-9]+)&#39;</span>)</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    regEx = re.compile(<span class="stringliteral">&#39;[clang|llvm]-([0-9]+)&#39;</span>)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">#    regEx = re.compile(&#39;llvm-([0-9]+)&#39;, re.MULTILINE)</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    travis = re.sub(<span class="stringliteral">&#39;(clang|llvm|clang\+\+|llvm-config|llvm-toolchain-bionic|clang-format|clang-tidy|llvm-toolchain-trusty)(-%s)&#39;</span> %(oldClangDevel), <span class="stringliteral">&#39;\\1-%s&#39;</span> %(newClangDevel) , travis)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    travis = re.sub(<span class="stringliteral">&#39;(clang|llvm|clang\+\+|llvm-config|llvm-toolchain-bionic|clang-format|clang-tidy|llvm-toolchain-trusty)(-%s)&#39;</span> %(oldClangStable), <span class="stringliteral">&#39;\\1-%s&#39;</span> %(newClangStable) , travis)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    travis = re.sub(<span class="stringliteral">&#39;(clang|Clang|llvm|LLVM) (%s)&#39;</span> %(oldClangStable), <span class="stringliteral">&#39;\\1 %s&#39;</span> %(newClangStable) , travis)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    travis = re.sub(<span class="stringliteral">r&quot;(LLVM_VERSION=)(&#39;%s)&quot;</span> %(oldClangStable), <span class="stringliteral">r&quot;\1&#39;%s&quot;</span> %(newClangStable) , travis)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    travis = re.sub(<span class="stringliteral">r&quot;(LLVM_VERSION:)\s*(%s.0.0)&quot;</span> %(oldClangStable), <span class="stringliteral">r&quot;\1 %s.0.0&quot;</span> %(newClangStable) , travis)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    travis = re.sub(<span class="stringliteral">r&#39;(llvm_version:\s*)(&quot;%s)(.0.0&quot;,)&#39;</span> %(oldClangStable), <span class="stringliteral">&#39;\\1&quot;%s.0.0&quot;,&#39;</span> %(newClangStable), travis)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    travis = re.sub(<span class="stringliteral">r&quot;clang(%s)0&quot;</span> %(oldClangStable), <span class="stringliteral">r&quot;clang%s0&quot;</span> %(newClangStable) , travis)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    travis = re.sub(<span class="stringliteral">r&quot;(llvm-toolchain-xenial)-(%s)&quot;</span> %(oldClangStable), <span class="stringliteral">r&quot;\1-%s&quot;</span> %(newClangStable) , travis)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    travis = re.sub(<span class="stringliteral">r&quot;(./llvm.sh) (%s)&quot;</span> %(oldClangStable), <span class="stringliteral">r&quot;\1 %s&quot;</span> %(newClangStable) , travis)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">#    travis = re.sub(&#39;([clang|llvm])(-[0-9]+)&#39;, r&#39;\1-%s&#39; %(newClangDevel) , travis)</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">#    print regEx.sub(travis, r&#39;\1&#39;, newClangDevel)</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">#    m = regEx.findall(travis)</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">#    print(travis)</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    open(<span class="stringliteral">&#39;.github/workflows/ci.yml&#39;</span>, <span class="stringliteral">&#39;w&#39;</span>).write(travis)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    travis = re.sub(<span class="stringliteral">&#39;(clang|llvm|clang\+\+|llvm-config|llvm-toolchain-bionic|clang-format|clang-tidy|llvm-toolchain-trusty)(-%s)&#39;</span> %(oldClangStable), <span class="stringliteral">&#39;\\1-%s&#39;</span> %(newClangStable) , travis)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    travis = re.sub(<span class="stringliteral">&#39;(clang|Clang|llvm|LLVM) (%s)&#39;</span> %(oldClangStable), <span class="stringliteral">&#39;\\1 %s&#39;</span> %(newClangStable) , travis)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    travis = re.sub(<span class="stringliteral">r&quot;(LLVM_VERSION=)(&#39;%s)&quot;</span> %(oldClangStable), <span class="stringliteral">r&quot;\1&#39;%s&quot;</span> %(newClangStable) , travis)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    travis = re.sub(<span class="stringliteral">r&quot;(LLVM_VERSION:)\s*(%s.0.0)&quot;</span> %(oldClangStable), <span class="stringliteral">r&quot;\1 %s.0.0&quot;</span> %(newClangStable) , travis)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    travis = re.sub(<span class="stringliteral">r&#39;(llvm_version:\s*)(&quot;%s)(.0.0&quot;,)&#39;</span> %(oldClangStable), <span class="stringliteral">&#39;\\1&quot;%s.0.0&quot;,&#39;</span> %(newClangStable), travis)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    travis = re.sub(<span class="stringliteral">r&quot;clang(%s)0&quot;</span> %(oldClangStable), <span class="stringliteral">r&quot;clang%s0&quot;</span> %(newClangStable) , travis)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    travis = re.sub(<span class="stringliteral">r&quot;(llvm-toolchain-xenial)-(%s)&quot;</span> %(oldClangStable), <span class="stringliteral">r&quot;\1-%s&quot;</span> %(newClangStable) , travis)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    travis = re.sub(<span class="stringliteral">r&quot;(./llvm.sh) (%s)&quot;</span> %(oldClangStable), <span class="stringliteral">r&quot;\1 %s&quot;</span> %(newClangStable) , travis)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">#    print(travis)</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    open(<span class="stringliteral">&#39;.github/workflows/ci.yml&#39;</span>, <span class="stringliteral">&#39;w&#39;</span>).write(travis)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    print(<span class="stringliteral">&#39;  - Updating CMakeLists.txt&#39;</span>)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    cmake = open(<span class="stringliteral">&#39;CMakeLists.txt&#39;</span>, <span class="stringliteral">&#39;r&#39;</span>).read()</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    cmake = re.sub(<span class="stringliteral">&#39;(set\&zwj;(INSIGHTS_MIN_LLVM_MAJOR_VERSION)( %s)\&zwj;)&#39;</span> %(oldClangStable), <span class="stringliteral">&#39;\\1 %s)&#39;</span> %(newClangStable) , cmake)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    open(<span class="stringliteral">&#39;CMakeLists.txt&#39;</span>, <span class="stringliteral">&#39;w&#39;</span>).write(cmake)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    print(<span class="stringliteral">&#39;  - Updating CMakeLists.txt&#39;</span>)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    cmake = open(<span class="stringliteral">&#39;CMakeLists.txt&#39;</span>, <span class="stringliteral">&#39;r&#39;</span>).read()</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    cmake = re.sub(<span class="stringliteral">&#39;(set\&zwj;(INSIGHTS_MIN_LLVM_MAJOR_VERSION)( %s)\&zwj;)&#39;</span> %(oldClangStable), <span class="stringliteral">&#39;\\1 %s)&#39;</span> %(newClangStable) , cmake)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    open(<span class="stringliteral">&#39;CMakeLists.txt&#39;</span>, <span class="stringliteral">&#39;w&#39;</span>).write(cmake)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    print(<span class="stringliteral">&#39;  - Updating version.h %s -&gt; %s&#39;</span> %(oldInsightsVersion, newInsightsVersion))</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    version = open(<span class="stringliteral">&#39;version.h.in&#39;</span>, <span class="stringliteral">&#39;r&#39;</span>).read()</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    version = re.sub(<span class="stringliteral">&#39;(INSIGHTS_VERSION )&quot;(.*)&quot;&#39;</span>, <span class="stringliteral">&#39;\\1&quot;%s&quot;&#39;</span> %(newInsightsVersion) , version)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    open(<span class="stringliteral">&#39;version.h.in&#39;</span>, <span class="stringliteral">&#39;w&#39;</span>).write(version)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    print(<span class="stringliteral">&#39;  - Updating version.h %s -&gt; %s&#39;</span> %(oldInsightsVersion, newInsightsVersion))</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    version = open(<span class="stringliteral">&#39;version.h.in&#39;</span>, <span class="stringliteral">&#39;r&#39;</span>).read()</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    version = re.sub(<span class="stringliteral">&#39;(INSIGHTS_VERSION )&quot;(.*)&quot;&#39;</span>, <span class="stringliteral">&#39;\\1&quot;%s&quot;&#39;</span> %(newInsightsVersion) , version)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    open(<span class="stringliteral">&#39;version.h.in&#39;</span>, <span class="stringliteral">&#39;w&#39;</span>).write(version)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    print(<span class="stringliteral">&#39;  - Generating CHANGELOG.md&#39;</span>)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    os.system(<span class="stringliteral">&#39;gren changelog --override --username=andreasfertig --repo=cppinsights %s...continous&#39;</span> %(oldInsightsVersion))</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    cmd = [<span class="stringliteral">&#39;gren&#39;</span>, <span class="stringliteral">&#39;changelog&#39;</span>, <span class="stringliteral">&#39;--override&#39;</span>, <span class="stringliteral">&#39;--username=andreasfertig&#39;</span>, <span class="stringliteral">&#39;--repo=cppinsights&#39;</span>, <span class="stringliteral">&#39;%s...continous&#39;</span> %(oldInsightsVersion)]</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    stdout, stderr = p.communicate()</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    print(<span class="stringliteral">&#39;  - Generating CHANGELOG.md&#39;</span>)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">#    os.system(&#39;gren changelog --override --username=andreasfertig --repo=cppinsights %s...continous&#39; %(oldInsightsVersion))</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    cmd = [<span class="stringliteral">&#39;gren&#39;</span>, <span class="stringliteral">&#39;changelog&#39;</span>, <span class="stringliteral">&#39;--override&#39;</span>, <span class="stringliteral">&#39;--username=andreasfertig&#39;</span>, <span class="stringliteral">&#39;--repo=cppinsights&#39;</span>, <span class="stringliteral">&#39;%s...continous&#39;</span> %(oldInsightsVersion)]</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    stdout, stderr = p.communicate()</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">if</span> 0 != p.returncode:</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        print(<span class="stringliteral">&#39;FAILED&#39;</span>)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> 1</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    changeLog = open(<span class="stringliteral">&#39;CHANGELOG.md&#39;</span>, <span class="stringliteral">&#39;r&#39;</span>).read()</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    changeLog = re.sub(<span class="stringliteral">&#39;(## Continuous build.*?---)\n&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, changeLog, flags=re.DOTALL)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    open(<span class="stringliteral">&#39;CHANGELOG.md&#39;</span>, <span class="stringliteral">&#39;w&#39;</span>).write(changeLog)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    print(<span class="stringliteral">&#39;  - Tagging v_%s&#39;</span> %(newInsightsVersion))</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">if</span> 0 != p.returncode:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        print(<span class="stringliteral">&#39;ERR: gren failed&#39;</span>)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        print(stderr)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> 1</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    changeLog = open(<span class="stringliteral">&#39;CHANGELOG.md&#39;</span>, <span class="stringliteral">&#39;r&#39;</span>).read()</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    changeLog = re.sub(<span class="stringliteral">&#39;(## Continuous build.*?---)\n&#39;</span>, <span class="stringliteral">&#39;&#39;</span>, changeLog, flags=re.DOTALL)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    open(<span class="stringliteral">&#39;CHANGELOG.md&#39;</span>, <span class="stringliteral">&#39;w&#39;</span>).write(changeLog)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    gitTag = <span class="stringliteral">&#39;v_%s&#39;</span> %(oldInsightsVersion)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    print(<span class="stringliteral">&#39;  - Tagging %s&#39;</span> %(gitTag))</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">#cmd = [&#39;git&#39;, &#39;tag&#39;, &#39;-a&#39;, &#39;-m&#39;, gitTag, gitTag, &#39;main&#39;]</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    cmd = [<span class="stringliteral">&#39;git&#39;</span>, <span class="stringliteral">&#39;tag&#39;</span>, gitTag, <span class="stringliteral">&#39;main&#39;</span>]</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    stdout, stderr = p.communicate()</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    cppInsightsDockerBaseFile = <span class="stringliteral">&#39;../cppinsights-docker-base/Dockerfile&#39;</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    print(<span class="stringliteral">&#39;  - Updating cppinsights-docker-base (%s)&#39;</span> %(cppInsightsDockerBaseFile))</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    dockerFile = open(cppInsightsDockerBaseFile, <span class="stringliteral">&#39;r&#39;</span>).read()</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    dockerFile = re.sub(<span class="stringliteral">&#39;(ENV\s+CLANG_VERSION=)([0-9]+)&#39;</span>, <span class="stringliteral">r&#39;\g&lt;1&gt;%s&#39;</span> %(newClangStable), dockerFile)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    open(cppInsightsDockerBaseFile, <span class="stringliteral">&#39;w&#39;</span>).write(dockerFile)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">#------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span> 0 != p.returncode:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        print(<span class="stringliteral">&#39;ERR: git tag failed!&#39;</span>)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        print(stderr)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">return</span> 1</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    cppInsightsDockerBaseFile = <span class="stringliteral">&#39;../cppinsights-docker-base/Dockerfile&#39;</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    print(<span class="stringliteral">&#39;  - Updating cppinsights-docker-base (%s)&#39;</span> %(cppInsightsDockerBaseFile))</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<a class="code" href="namespaceprepare-release.html#a6530dc89f4483a22d97c41212b9bd2b1">main</a>()</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">#------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    dockerFile = open(cppInsightsDockerBaseFile, <span class="stringliteral">&#39;r&#39;</span>).read()</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    dockerFile = re.sub(<span class="stringliteral">&#39;(ENV\s+CLANG_VERSION=)([0-9]+)&#39;</span>, <span class="stringliteral">r&#39;\g&lt;1&gt;%s&#39;</span> %(newClangStable), dockerFile)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    open(cppInsightsDockerBaseFile, <span class="stringliteral">&#39;w&#39;</span>).write(dockerFile)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">#------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<a class="code" href="namespaceprepare-release.html#a6530dc89f4483a22d97c41212b9bd2b1">main</a>()</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">#------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
 <div class="ttc" id="anamespaceprepare-release_html_a6530dc89f4483a22d97c41212b9bd2b1"><div class="ttname"><a href="namespaceprepare-release.html#a6530dc89f4483a22d97c41212b9bd2b1">prepare-release.main</a></div><div class="ttdeci">def main()</div><div class="ttdef"><b>Definition:</b> <a href="prepare-release_8py_source.html#l00014">prepare-release.py:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.11-->
