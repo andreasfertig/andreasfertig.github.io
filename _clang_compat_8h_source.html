@@ -70,44 +70,17 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">// inline constexpr bool IsClangNewerThan8 = IsClangNewerThan&lt;8&gt;::value;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#ac3573aa2cbea658f1f2cb25ec555e94e">   33</a></span>&#160;<span class="keyword">auto</span> <span class="keyword">inline</span> <a class="code" href="namespaceclang_1_1insights.html#ac3573aa2cbea658f1f2cb25ec555e94e">GetBeginLoc</a>(<span class="keyword">const</span> T&amp; decl)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">return</span> decl.getBeginLoc();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#aa927452bb548a4c4861d8ad4ab65a722">   40</a></span>&#160;<span class="keyword">auto</span> <span class="keyword">inline</span> <a class="code" href="namespaceclang_1_1insights.html#ac3573aa2cbea658f1f2cb25ec555e94e">GetBeginLoc</a>(<span class="keyword">const</span> T* decl)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">return</span> decl-&gt;getBeginLoc();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#a8fdbbbccab6a582927dcd6953f47a5e2">   47</a></span>&#160;<span class="keyword">auto</span> <span class="keyword">inline</span> <a class="code" href="namespaceclang_1_1insights.html#a8fdbbbccab6a582927dcd6953f47a5e2">GetEndLoc</a>(<span class="keyword">const</span> T* decl)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span> decl-&gt;getEndLoc();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#a085ef3b6d18ad49e48c546a74efb6fc5">   53</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span>* <a class="code" href="namespaceclang_1_1insights.html#a085ef3b6d18ad49e48c546a74efb6fc5">GetTemporary</a>(<span class="keyword">const</span> MaterializeTemporaryExpr* stmt)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#if IS_CLANG_NEWER_THAN(9)</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> stmt-&gt;getSubExpr();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> stmt-&gt;getTemporary();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}  <span class="comment">// namespace clang::insights</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* INSIGHTS_CLANG_COMPAT_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#a085ef3b6d18ad49e48c546a74efb6fc5">   32</a></span>&#160;<span class="keyword">inline</span> <span class="keyword">auto</span>* <a class="code" href="namespaceclang_1_1insights.html#a085ef3b6d18ad49e48c546a74efb6fc5">GetTemporary</a>(<span class="keyword">const</span> MaterializeTemporaryExpr* stmt)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> stmt-&gt;getSubExpr();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}  <span class="comment">// namespace clang::insights</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* INSIGHTS_CLANG_COMPAT_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="anamespaceclang_1_1insights_html"><div class="ttname"><a href="namespaceclang_1_1insights.html">clang::insights</a></div><div class="ttdef"><b>Definition:</b> <a href="_clang_compat_8h_source.html#l00019">ClangCompat.h:19</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_html_a085ef3b6d18ad49e48c546a74efb6fc5"><div class="ttname"><a href="namespaceclang_1_1insights.html#a085ef3b6d18ad49e48c546a74efb6fc5">clang::insights::GetTemporary</a></div><div class="ttdeci">auto * GetTemporary(const MaterializeTemporaryExpr *stmt)</div><div class="ttdef"><b>Definition:</b> <a href="_clang_compat_8h_source.html#l00053">ClangCompat.h:53</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_html_a8fdbbbccab6a582927dcd6953f47a5e2"><div class="ttname"><a href="namespaceclang_1_1insights.html#a8fdbbbccab6a582927dcd6953f47a5e2">clang::insights::GetEndLoc</a></div><div class="ttdeci">auto GetEndLoc(const T *decl)</div><div class="ttdef"><b>Definition:</b> <a href="_clang_compat_8h_source.html#l00047">ClangCompat.h:47</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_html_ac3573aa2cbea658f1f2cb25ec555e94e"><div class="ttname"><a href="namespaceclang_1_1insights.html#ac3573aa2cbea658f1f2cb25ec555e94e">clang::insights::GetBeginLoc</a></div><div class="ttdeci">auto GetBeginLoc(const T &amp;decl)</div><div class="ttdef"><b>Definition:</b> <a href="_clang_compat_8h_source.html#l00033">ClangCompat.h:33</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_html_a085ef3b6d18ad49e48c546a74efb6fc5"><div class="ttname"><a href="namespaceclang_1_1insights.html#a085ef3b6d18ad49e48c546a74efb6fc5">clang::insights::GetTemporary</a></div><div class="ttdeci">auto * GetTemporary(const MaterializeTemporaryExpr *stmt)</div><div class="ttdef"><b>Definition:</b> <a href="_clang_compat_8h_source.html#l00032">ClangCompat.h:32</a></div></div>
 <div class="ttc" id="astructclang_1_1insights_1_1_is_clang_newer_than_html"><div class="ttname"><a href="structclang_1_1insights_1_1_is_clang_newer_than.html">clang::insights::IsClangNewerThan</a></div><div class="ttdef"><b>Definition:</b> <a href="_clang_compat_8h_source.html#l00022">ClangCompat.h:23</a></div></div>
 <div class="ttc" id="astructclang_1_1insights_1_1_is_clang_newer_than_html_a13f8bafe37b7e0f70fe480d08f5f7ebd"><div class="ttname"><a href="structclang_1_1insights_1_1_is_clang_newer_than.html#a13f8bafe37b7e0f70fe480d08f5f7ebd">clang::insights::IsClangNewerThan::value</a></div><div class="ttdeci">constexpr static bool value</div><div class="ttdef"><b>Definition:</b> <a href="_clang_compat_8h_source.html#l00025">ClangCompat.h:25</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
