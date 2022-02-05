@@ -60,7 +60,11 @@ $(function() {
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="_insights_utility_8h.html#adea30c1555bf6f7d2175e48acf59b288">   19</a></span>&#160;<span class="keyword">using</span> <a class="code" href="_insights_utility_8h.html#adea30c1555bf6f7d2175e48acf59b288">void_func_ref</a> = llvm::function_ref&lt;void()&gt;;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* INSIGHTS_UTILITY_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="_insights_utility_8h.html#adbd9023489e9f1015b1d2d8ca86c292c">   23</a></span>&#160;concept <a class="code" href="_insights_utility_8h.html#adbd9023489e9f1015b1d2d8ca86c292c">same_as_any_of</a> = (std::same_as&lt;T, Ts&gt; || ...);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* INSIGHTS_UTILITY_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="a_insights_utility_8h_html_adbd9023489e9f1015b1d2d8ca86c292c"><div class="ttname"><a href="_insights_utility_8h.html#adbd9023489e9f1015b1d2d8ca86c292c">same_as_any_of</a></div><div class="ttdeci">concept same_as_any_of</div><div class="ttdef"><b>Definition:</b> <a href="_insights_utility_8h_source.html#l00023">InsightsUtility.h:23</a></div></div>
 <div class="ttc" id="a_insights_utility_8h_html_adea30c1555bf6f7d2175e48acf59b288"><div class="ttname"><a href="_insights_utility_8h.html#adea30c1555bf6f7d2175e48acf59b288">void_func_ref</a></div><div class="ttdeci">llvm::function_ref&lt; void()&gt; void_func_ref</div><div class="ttdef"><b>Definition:</b> <a href="_insights_utility_8h_source.html#l00019">InsightsUtility.h:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.11-->
