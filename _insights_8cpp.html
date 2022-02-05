@@ -155,6 +155,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aafee6416d899f87b994fca717181a03e"><td class="memItemLeft" align="right" valign="top">const ASTContext &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_8cpp.html#aafee6416d899f87b994fca717181a03e">GetGlobalAST</a> ()</td></tr>
 <tr class="memdesc:aafee6416d899f87b994fca717181a03e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get access to the ASTContext.  <a href="_insights_8cpp.html#aafee6416d899f87b994fca717181a03e">More...</a><br /></td></tr>
 <tr class="separator:aafee6416d899f87b994fca717181a03e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c177b519bed3b498229e907490e947f"><td class="memItemLeft" align="right" valign="top">const CompilerInstance &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_8cpp.html#a6c177b519bed3b498229e907490e947f">GetGlobalCI</a> ()</td></tr>
+<tr class="memdesc:a6c177b519bed3b498229e907490e947f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get access to the CompilerInstance.  <a href="_insights_8cpp.html#a6c177b519bed3b498229e907490e947f">More...</a><br /></td></tr>
+<tr class="separator:a6c177b519bed3b498229e907490e947f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e893556f2e1b3c7759876211821ce4a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">PrintVersion</a> (raw_ostream &amp;ostream)</td></tr>
 <tr class="separator:a9e893556f2e1b3c7759876211821ce4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a217dbf8b442f20279ea00b898af96f52"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_8cpp.html#a217dbf8b442f20279ea00b898af96f52">main</a> (int argc, const char **argv)</td></tr>
@@ -166,6 +169,8 @@ Variables</h2></td></tr>
 <tr class="separator:a94807dbb47cca18c1f57972e0c117317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a873648e2b11ba9164e749d4977592e49"><td class="memItemLeft" align="right" valign="top">static const ASTContext *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_8cpp.html#a873648e2b11ba9164e749d4977592e49">gAST</a> {}</td></tr>
 <tr class="separator:a873648e2b11ba9164e749d4977592e49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8c03bb5b78fa9d5dea6ca193b2a7d32"><td class="memItemLeft" align="right" valign="top">static const CompilerInstance *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_8cpp.html#ad8c03bb5b78fa9d5dea6ca193b2a7d32">gCI</a> {}</td></tr>
+<tr class="separator:ad8c03bb5b78fa9d5dea6ca193b2a7d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a07b047289e685e00d2fc834165a402e7"></a>
@@ -247,6 +252,29 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a6c177b519bed3b498229e907490e947f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c177b519bed3b498229e907490e947f">&#9670;&nbsp;</a></span>GetGlobalCI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const CompilerInstance&amp; GetGlobalCI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get access to the CompilerInstance. </p>
+
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00093">93</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00092">gCI</a>.</p>
+
+</div>
+</div>
 <a id="abd920556d8acde1899d69c8926a138b8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abd920556d8acde1899d69c8926a138b8">&#9670;&nbsp;</a></span>GetInsightsOptions()</h2>
 
@@ -294,7 +322,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00184">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00192">main()</a>.</p>
 
 </div>
 </div>
@@ -380,7 +408,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00184">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00192">main()</a>.</p>
 
 </div>
 </div>
@@ -430,7 +458,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00184">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00192">main()</a>.</p>
 
 </div>
 </div>
@@ -460,9 +488,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00184">184</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00192">192</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_d_print_8h_source.html#l00078">clang::insights::Error()</a>, <a class="el" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory()</a>, <a class="el" href="_insights_8cpp.html#a1166616965b18bcd1c28a435e6ac6c83">gStdinMode()</a>, <a class="el" href="_insights_8cpp.html#ad9abeaa3b6e8cbfd73dd238b1efbd154">gUseLibCpp()</a>, and <a class="el" href="_insights_8cpp_source.html#l00170">PrintVersion()</a>.</p>
+<p class="reference">References <a class="el" href="_d_print_8h_source.html#l00078">clang::insights::Error()</a>, <a class="el" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory()</a>, <a class="el" href="_insights_8cpp.html#a1166616965b18bcd1c28a435e6ac6c83">gStdinMode()</a>, <a class="el" href="_insights_8cpp.html#ad9abeaa3b6e8cbfd73dd238b1efbd154">gUseLibCpp()</a>, and <a class="el" href="_insights_8cpp_source.html#l00178">PrintVersion()</a>.</p>
 
 </div>
 </div>
@@ -490,9 +518,9 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00170">170</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00178">178</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00184">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00192">main()</a>.</p>
 
 </div>
 </div>
@@ -519,7 +547,33 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00085">85</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00086">GetGlobalAST()</a>, and <a class="el" href="_insights_8cpp_source.html#l00107">CppInsightASTConsumer::HandleTranslationUnit()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00086">GetGlobalAST()</a>, and <a class="el" href="_insights_8cpp_source.html#l00114">CppInsightASTConsumer::HandleTranslationUnit()</a>.</p>
+
+</div>
+</div>
+<a id="ad8c03bb5b78fa9d5dea6ca193b2a7d32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8c03bb5b78fa9d5dea6ca193b2a7d32">&#9670;&nbsp;</a></span>gCI</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const CompilerInstance* gCI {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00092">92</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00164">CppInsightFrontendAction::CreateASTConsumer()</a>, and <a class="el" href="_insights_8cpp_source.html#l00093">GetGlobalCI()</a>.</p>
 
 </div>
 </div>
