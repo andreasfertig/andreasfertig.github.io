@@ -1419,23 +1419,30 @@ $(function() {
 <div class="line"><a name="l01378"></a><span class="lineno"> 1378</span>&#160; </div>
 <div class="line"><a name="l01379"></a><span class="lineno"><a class="line" href="classclang_1_1insights_1_1_string_stream.html#a9ad9a41400593bb307717e6dd530b0d6"> 1379</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classclang_1_1insights_1_1_string_stream.html#a253271ae3385f5a2f1533e2a3cca7ed0">StringStream::Print</a>(<span class="keyword">const</span> TemplateSpecializationType&amp; arg)</div>
 <div class="line"><a name="l01380"></a><span class="lineno"> 1380</span>&#160;{</div>
-<div class="line"><a name="l01381"></a><span class="lineno"> 1381</span>&#160;    arg.getTemplateName().print(*<span class="keyword">this</span>, <a class="code" href="structclang_1_1insights_1_1_cpp_insights_printing_policy.html">CppInsightsPrintingPolicy</a>{}, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l01382"></a><span class="lineno"> 1382</span>&#160;}</div>
-<div class="line"><a name="l01383"></a><span class="lineno"> 1383</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l01384"></a><span class="lineno"> 1384</span>&#160; </div>
-<div class="line"><a name="l01385"></a><span class="lineno"><a class="line" href="classclang_1_1insights_1_1_string_stream.html#aa3ebd45f23b785370e19a16761fdb67c"> 1385</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classclang_1_1insights_1_1_string_stream.html#a253271ae3385f5a2f1533e2a3cca7ed0">StringStream::Print</a>(<span class="keyword">const</span> TypeConstraint&amp; arg)</div>
-<div class="line"><a name="l01386"></a><span class="lineno"> 1386</span>&#160;{</div>
-<div class="line"><a name="l01387"></a><span class="lineno"> 1387</span>&#160;    arg.print(*<span class="keyword">this</span>, <a class="code" href="structclang_1_1insights_1_1_cpp_insights_printing_policy.html">CppInsightsPrintingPolicy</a>{});</div>
-<div class="line"><a name="l01388"></a><span class="lineno"> 1388</span>&#160;}</div>
-<div class="line"><a name="l01389"></a><span class="lineno"> 1389</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l01390"></a><span class="lineno"> 1390</span>&#160; </div>
-<div class="line"><a name="l01391"></a><span class="lineno"><a class="line" href="classclang_1_1insights_1_1_string_stream.html#afbdc80d1c7dd8da33666553107777477"> 1391</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classclang_1_1insights_1_1_string_stream.html#a253271ae3385f5a2f1533e2a3cca7ed0">StringStream::Print</a>(<span class="keyword">const</span> StringLiteral&amp; arg)</div>
-<div class="line"><a name="l01392"></a><span class="lineno"> 1392</span>&#160;{</div>
-<div class="line"><a name="l01393"></a><span class="lineno"> 1393</span>&#160;    arg.outputString(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l01394"></a><span class="lineno"> 1394</span>&#160;}</div>
-<div class="line"><a name="l01395"></a><span class="lineno"> 1395</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l01396"></a><span class="lineno"> 1396</span>&#160; </div>
-<div class="line"><a name="l01397"></a><span class="lineno"> 1397</span>&#160;}  <span class="comment">// namespace clang::insights</span></div>
+<div class="line"><a name="l01381"></a><span class="lineno"> 1381</span>&#160;    arg.getTemplateName().print(*<span class="keyword">this</span>,</div>
+<div class="line"><a name="l01382"></a><span class="lineno"> 1382</span>&#160;                                <a class="code" href="structclang_1_1insights_1_1_cpp_insights_printing_policy.html">CppInsightsPrintingPolicy</a>{},</div>
+<div class="line"><a name="l01383"></a><span class="lineno"> 1383</span>&#160;<span class="preprocessor">#if IS_CLANG_NEWER_THAN(13)</span></div>
+<div class="line"><a name="l01384"></a><span class="lineno"> 1384</span>&#160;                                TemplateName::Qualified::AsWritten</div>
+<div class="line"><a name="l01385"></a><span class="lineno"> 1385</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l01386"></a><span class="lineno"> 1386</span>&#160;                                <span class="keyword">true</span></div>
+<div class="line"><a name="l01387"></a><span class="lineno"> 1387</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l01388"></a><span class="lineno"> 1388</span>&#160;    );</div>
+<div class="line"><a name="l01389"></a><span class="lineno"> 1389</span>&#160;}</div>
+<div class="line"><a name="l01390"></a><span class="lineno"> 1390</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l01391"></a><span class="lineno"> 1391</span>&#160; </div>
+<div class="line"><a name="l01392"></a><span class="lineno"><a class="line" href="classclang_1_1insights_1_1_string_stream.html#aa3ebd45f23b785370e19a16761fdb67c"> 1392</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classclang_1_1insights_1_1_string_stream.html#a253271ae3385f5a2f1533e2a3cca7ed0">StringStream::Print</a>(<span class="keyword">const</span> TypeConstraint&amp; arg)</div>
+<div class="line"><a name="l01393"></a><span class="lineno"> 1393</span>&#160;{</div>
+<div class="line"><a name="l01394"></a><span class="lineno"> 1394</span>&#160;    arg.print(*<span class="keyword">this</span>, <a class="code" href="structclang_1_1insights_1_1_cpp_insights_printing_policy.html">CppInsightsPrintingPolicy</a>{});</div>
+<div class="line"><a name="l01395"></a><span class="lineno"> 1395</span>&#160;}</div>
+<div class="line"><a name="l01396"></a><span class="lineno"> 1396</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l01397"></a><span class="lineno"> 1397</span>&#160; </div>
+<div class="line"><a name="l01398"></a><span class="lineno"><a class="line" href="classclang_1_1insights_1_1_string_stream.html#afbdc80d1c7dd8da33666553107777477"> 1398</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classclang_1_1insights_1_1_string_stream.html#a253271ae3385f5a2f1533e2a3cca7ed0">StringStream::Print</a>(<span class="keyword">const</span> StringLiteral&amp; arg)</div>
+<div class="line"><a name="l01399"></a><span class="lineno"> 1399</span>&#160;{</div>
+<div class="line"><a name="l01400"></a><span class="lineno"> 1400</span>&#160;    arg.outputString(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l01401"></a><span class="lineno"> 1401</span>&#160;}</div>
+<div class="line"><a name="l01402"></a><span class="lineno"> 1402</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l01403"></a><span class="lineno"> 1403</span>&#160; </div>
+<div class="line"><a name="l01404"></a><span class="lineno"> 1404</span>&#160;}  <span class="comment">// namespace clang::insights</span></div>
 <div class="ttc" id="a_clang_compat_8h_html"><div class="ttname"><a href="_clang_compat_8h.html">ClangCompat.h</a></div></div>
 <div class="ttc" id="a_code_generator_8h_html"><div class="ttname"><a href="_code_generator_8h.html">CodeGenerator.h</a></div></div>
 <div class="ttc" id="a_d_print_8h_html"><div class="ttname"><a href="_d_print_8h.html">DPrint.h</a></div></div>
