@@ -193,6 +193,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a4cda212f125b16ea1a941b0f4537b03c inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68bc97ebd475eff02fc3593536320e48 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a68bc97ebd475eff02fc3593536320e48">InsertCXXMethodDecl</a> (const CXXMethodDecl *stmt, SkipBody skipBody)</td></tr>
 <tr class="separator:a68bc97ebd475eff02fc3593536320e48 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca640109c1fc6a7e8edb1fa8fbf73b63 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#aca640109c1fc6a7e8edb1fa8fbf73b63">InsertMethodBody</a> (const FunctionDecl *stmt)</td></tr>
+<tr class="separator:aca640109c1fc6a7e8edb1fa8fbf73b63 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa62f1719f76a081caa353cca3d3eeb23 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aa62f1719f76a081caa353cca3d3eeb23 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#aa62f1719f76a081caa353cca3d3eeb23">InsertConstructorExpr</a> (const T *stmt)</td></tr>
 <tr class="memdesc:aa62f1719f76a081caa353cca3d3eeb23 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generalized function to insert either a <code>CXXConstructExpr</code> or <code>CXXUnresolvedConstructExpr</code>.  <a href="classclang_1_1insights_1_1_code_generator.html#aa62f1719f76a081caa353cca3d3eeb23">More...</a><br /></td></tr>
@@ -385,9 +387,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l03979">3979</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l03983">3983</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00068">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="_output_format_helper_8h_source.html#l00147">clang::insights::OutputFormatHelper::AppendSemiNewLine()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00931">clang::insights::GetName()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00783">clang::insights::GetQualifiers()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01002">clang::insights::GetTypeNameAsParameter()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00132">hlpAssing</a>, <a class="el" href="_code_generator_8cpp_source.html#l03359">InsertArg()</a>, and <a class="el" href="_code_generator_8h_source.html#l00034">clang::insights::CodeGenerator::mOutputFormatHelper</a>.</p>
+<p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00068">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="_output_format_helper_8h_source.html#l00147">clang::insights::OutputFormatHelper::AppendSemiNewLine()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00931">clang::insights::GetName()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00783">clang::insights::GetQualifiers()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01002">clang::insights::GetTypeNameAsParameter()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00132">hlpAssing</a>, <a class="el" href="_code_generator_8cpp_source.html#l03363">InsertArg()</a>, and <a class="el" href="_code_generator_8h_source.html#l00034">clang::insights::CodeGenerator::mOutputFormatHelper</a>.</p>
 
 </div>
 </div>
@@ -405,7 +407,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00131">131</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03979">InsertArg()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l04020">InsertDecompositionBindings()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l03983">InsertArg()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l04024">InsertDecompositionBindings()</a>.</p>
 
 </div>
 </div>
@@ -433,7 +435,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l04028">4028</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l04032">4032</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00068">clang::insights::OutputFormatHelper::Append()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00931">clang::insights::GetName()</a>, <a class="el" href="_code_generator_8h_source.html#l00135">clang::insights::CodeGenerator::InsertTemplateArgs()</a>, and <a class="el" href="_code_generator_8h_source.html#l00034">clang::insights::CodeGenerator::mOutputFormatHelper</a>.</p>
 
@@ -473,9 +475,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Inserts the bindings of a decompositions declaration. </p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l04020">4020</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l04024">4024</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_code_generator_8cpp_source.html#l03359">InsertArg()</a>.</p>
+<p class="reference">References <a class="el" href="_code_generator_8cpp_source.html#l03363">InsertArg()</a>.</p>
 
 </div>
 </div>
