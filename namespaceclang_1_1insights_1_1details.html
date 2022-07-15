@@ -67,8 +67,8 @@ Functions</h2></td></tr>
 <tr class="separator:a97148b2cfc59b80195b4e38f259333bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47ab1d12bf12fa594dff3fd854723e37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a47ab1d12bf12fa594dff3fd854723e37">FPrintf</a> (const char *fmt, const auto &amp;... args)</td></tr>
 <tr class="separator:a47ab1d12bf12fa594dff3fd854723e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d2b34d366afa739b4ca322be1d1f554"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a3d2b34d366afa739b4ca322be1d1f554">BuildNamespace</a> (std::string &amp;fullNamespace, const NestedNameSpecifier *stmt)</td></tr>
-<tr class="separator:a3d2b34d366afa739b4ca322be1d1f554"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c85f34596642f5c4e7abf1d67b7fb7b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a5c85f34596642f5c4e7abf1d67b7fb7b">BuildNamespace</a> (std::string &amp;fullNamespace, const NestedNameSpecifier *stmt, const IgnoreNamespace ignoreNamespace)</td></tr>
+<tr class="separator:a5c85f34596642f5c4e7abf1d67b7fb7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fac84090ff964c62d976f7ad1b1a10e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a5fac84090ff964c62d976f7ad1b1a10e">STRONG_BOOL</a> (RemoveCurrentScope)</td></tr>
 <tr class="separator:a5fac84090ff964c62d976f7ad1b1a10e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d8d6edfbe3b655f215e44fcc161941e"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a3d8d6edfbe3b655f215e44fcc161941e">GetQualifiedName</a> (const NamedDecl &amp;decl, const RemoveCurrentScope removeCurrentScope=RemoveCurrentScope::Yes)</td></tr>
@@ -84,8 +84,8 @@ Functions</h2></td></tr>
 <tr class="separator:a4f20ce25552dc9e90883a87651c72fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a3d2b34d366afa739b4ca322be1d1f554"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d2b34d366afa739b4ca322be1d1f554">&#9670;&nbsp;</a></span>BuildNamespace()</h2>
+<a id="a5c85f34596642f5c4e7abf1d67b7fb7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c85f34596642f5c4e7abf1d67b7fb7b">&#9670;&nbsp;</a></span>BuildNamespace()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -103,7 +103,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const NestedNameSpecifier *&#160;</td>
-          <td class="paramname"><em>stmt</em>&#160;</td>
+          <td class="paramname"><em>stmt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const IgnoreNamespace&#160;</td>
+          <td class="paramname"><em>ignoreNamespace</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -118,11 +124,11 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00126">126</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00127">127</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00979">clang::insights::GetUnqualifiedScopelessName()</a>, and <a class="el" href="_insights_static_strings_8h_source.html#l00156">kwTemplateSpace</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00984">clang::insights::GetUnqualifiedScopelessName()</a>, and <a class="el" href="_insights_static_strings_8h_source.html#l00156">kwTemplateSpace</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00164">clang::insights::GetNestedName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00165">clang::insights::GetNestedName()</a>.</p>
 
 </div>
 </div>
@@ -154,7 +160,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_insights_str_cat_8h_source.html#l00025">25</a> of file <a class="el" href="_insights_str_cat_8h_source.html">InsightsStrCat.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01342">clang::insights::GetNoExcept()</a>, <a class="el" href="_insights_str_cat_8h_source.html#l00071">clang::insights::Normalize()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00032">clang::insights::ToString()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l01347">clang::insights::GetNoExcept()</a>, <a class="el" href="_insights_str_cat_8h_source.html#l00071">clang::insights::Normalize()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00032">clang::insights::ToString()</a>.</p>
 
 </div>
 </div>
@@ -240,11 +246,11 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00892">892</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00897">897</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00176">clang::insights::GetAsCPPStyleString()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00861">clang::insights::details::SimpleTypePrinter::GetTypeString()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00057">clang::insights::ScopeHandler::RemoveCurrentScope()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00177">clang::insights::GetAsCPPStyleString()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00866">clang::insights::details::SimpleTypePrinter::GetTypeString()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00057">clang::insights::ScopeHandler::RemoveCurrentScope()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00973">clang::insights::GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01006">clang::insights::GetTypeNameAsParameter()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00979">clang::insights::GetUnqualifiedScopelessName()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00765">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00437">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00978">clang::insights::GetName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01011">clang::insights::GetTypeNameAsParameter()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00984">clang::insights::GetUnqualifiedScopelessName()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00765">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00437">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>.</p>
 
 </div>
 </div>
@@ -283,11 +289,11 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>!&lt; In some cases we need to keep the scope for a while, so don't remove the scope we are in right now. </p>
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00451">451</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00452">452</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00369">clang::insights::GetDeclContext()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00057">clang::insights::ScopeHandler::RemoveCurrentScope()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00370">clang::insights::GetDeclContext()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00057">clang::insights::ScopeHandler::RemoveCurrentScope()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00949">clang::insights::GetName()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00466">GetScope()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00954">clang::insights::GetName()</a>, and <a class="el" href="_insights_helpers_8cpp_source.html#l00467">GetScope()</a>.</p>
 
 </div>
 </div>
@@ -325,11 +331,11 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00466">466</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00467">467</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00451">GetQualifiedName()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00452">GetQualifiedName()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00935">clang::insights::GetName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00940">clang::insights::GetName()</a>.</p>
 
 </div>
 </div>
