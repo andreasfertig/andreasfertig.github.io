@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>C++ Insights: Contents</title>
+<title>C++ Insights: C++ Insights Limitations</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -36,36 +36,19 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Contents </div>  </div>
+<div class="title">C++ Insights Limitations </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_docs_Contents"></a> Welcome to the C++ Insights project. Here you find some additional information about how to use C++ Insights, limitations, examples or how to contribute.</p>
-<p>In case, you don't know, you can try out C++ Insights online at <a target="_blank" href="https://cppinsights.io">cppinsights.io</a>. The source code can be found on <a target="_blank" href="https://github.com">GitHub</a> at <a target="_blank" href="https://github.com/andreasfertig/cppinsights">github.com/andreasfertig/cppinsights</a>.</p>
-<h1><a class="anchor" id="autotoc_md11"></a>
-Resources</h1>
+<div class="textblock"><p><a class="anchor" id="md_docs_Limitations"></a> While the goal is to produce valid and correct code, in some instances, this is not possible. The two main reasons are:</p>
 <ul>
-<li><a class="el" href="code_of_conduct.html">Code of Conduct</a></li>
-<li><a class="el" href="contributing.html">Contributing to C++ Insights </a></li>
-<li><a class="el" href="command_line_options.html">C++ Insights Command Line Options</a></li>
-<li><a class="el" href="external_information_sources.html">External Information Sources</a></li>
-<li><a class="el" href="todo.html">ToDo</a></li>
-<li><a class="el" href="tests.html">Tests</a></li>
-<li><a class="el" href="examples.html">Examples</a></li>
-<li>Getting Started</li>
-<li><a class="el" href="docker_containers_overview.html">Docker Containers Overview</a></li>
-<li><a class="el" href="limitations.html">Limitations</a></li>
+<li>because the compiler can do things we users can't.</li>
+<li>because the correct way is hard to implement.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md12"></a>
-Readme's</h1>
-<ul>
-<li><a class="el" href="readme_docs.html">Readme Docs</a></li>
-<li><a class="el" href="readme_scripts.html">Readme Scripts</a></li>
-</ul>
-<h1><a class="anchor" id="autotoc_md13"></a>
-Transformations</h1>
-<ul>
-<li><a class="el" href="transformations-coroutines.html">Coroutines</a> </li>
-</ul>
+<p>This page documents known limitations where the resulting transformation is inaccurate in terms of the standard.</p>
+<h1><a class="anchor" id="autotoc_md14"></a>
+Point of instantiation of templates</h1>
+<p>As <a target="_blank" href="https://github.com/andreasfertig/cppinsights/issues/472">#472</a> notes correctly, the point of instantiation of templates is not at the precise location as the standard describes it in <a target="_blank" href="https://eel.is/c++draft/temp.point">temp.point</a>.</p>
+<p>The implementation in C++ Insights is that all implicit instantiations are placed directly after the primary template. This is the easiest way implementation-wise. The standard requires that such an instantiation is placed after the namespace declaration of the POI. Implementing this in C++ Insights would require knowledge about the line where a template was instantiated and the end of its enclosing namespace. While technically, this information is present in the form of <code>SourceLocation</code>, the traversal of the AST, and the straightforward text-dumping of the nodes does not allow sorting at this point. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- HTML footer for doxygen 1.8.11-->
