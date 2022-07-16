@@ -40,7 +40,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_scripts_Readme"></a> This folder mostly hosts scripts for <a target="_blank" href="https://travis-ci.org/">Travis CI</a> builds, with a few exceptions:</p>
-<h1><a class="anchor" id="autotoc_md40"></a>
+<h1><a class="anchor" id="autotoc_md43"></a>
 docker-shell.sh</h1>
 <p>For local build you can use <code>docker-shell.sh</code>. It uses a pre-built Docker image from DockerHub <a target="_blank" href="https://cloud.docker.com/repository/docker/andreasfertig/cppinsights-builder-gitpod">andreasfertig/cppinsights-builder-gitpod</a>. This is also the same image which is used by <a target="_blank" href="https://www.gitpod.io">GitPod</a> and a addition to the <a target="_blank" href="https://cloud.docker.com/repository/docker/andreasfertig/cppinsights-builder">cppinsights-builder</a> image which is used by <a target="_blank" href="https://travis-ci.org/">Travis CI</a> for the continuous integration builds. If you execute the script from within the <code>script</code> folder it automatically mounts the C++ Insights repo in the Docker to <code>/workspace/cppinsights</code>. You also need to specify a build folder which is inside the container mounted to <code>/workspace/build</code>.</p>
 <p>The script can be invoked with two different modes:</p><ul>
@@ -58,7 +58,7 @@ docker-shell.sh</h1>
 <div class="fragment"><div class="line">cd scripts</div>
 <div class="line">./docker-shell.sh /home/username/build/docker_insights shell</div>
 </div><!-- fragment --><p>Opens a shell into the Docker container.</p>
-<h2><a class="anchor" id="autotoc_md41"></a>
+<h2><a class="anchor" id="autotoc_md44"></a>
 CMake and Docker</h2>
 <p>There are some CMake target which use Docker and the <code>docker-shell.sh</code> script. The results can be found in the binary folder you supplied plus <code>docker_build</code>,</p>
 <ul>
@@ -67,7 +67,7 @@ CMake and Docker</h2>
 <li><code>docker-tests</code> to run the tests in Docker</li>
 <li><code>docker-coverage</code> to run a code coverage build in Docker.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md42"></a>
+<h1><a class="anchor" id="autotoc_md45"></a>
 &lt;tt&gt;getinclude.py&lt;/tt&gt;</h1>
 <p>Helps for some corner cases to get the default includes from a compiler. </p>
 </div></div><!-- contents -->

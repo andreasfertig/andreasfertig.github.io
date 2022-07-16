@@ -63,8 +63,8 @@ $(function() {
 <div class="line">    </div>
 <div class="line"><span class="preprocessor">    #ifdef INSIGHTS_USE_TEMPLATE</span></div>
 <div class="line">    <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line">    <span class="keyword">inline</span> <span class="comment">/*constexpr */</span> <span class="keywordtype">int</span> operator()(<span class="keywordtype">int</span> x)<span class="keyword"> const</span></div>
-<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">    <span class="keyword">inline</span> <span class="comment">/*constexpr */</span> <span class="keywordtype">int</span> operator()&lt;<span class="keywordtype">int</span>&gt;(<span class="keywordtype">int</span> x) <span class="keyword">const</span></div>
+<div class="line">    {</div>
 <div class="line">      <span class="keywordflow">return</span> x * x;</div>
 <div class="line">    }</div>
 <div class="line"><span class="preprocessor">    #endif</span></div>
@@ -72,17 +72,17 @@ $(function() {
 <div class="line">    </div>
 <div class="line"><span class="preprocessor">    #ifdef INSIGHTS_USE_TEMPLATE</span></div>
 <div class="line">    <span class="keyword">template</span>&lt;&gt;</div>
-<div class="line">    <span class="keyword">inline</span> <span class="comment">/*constexpr */</span> <span class="keywordtype">double</span> operator()(<span class="keywordtype">double</span> x)<span class="keyword"> const</span></div>
-<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">    <span class="keyword">inline</span> <span class="comment">/*constexpr */</span> <span class="keywordtype">double</span> operator()&lt;<span class="keywordtype">double</span>&gt;(<span class="keywordtype">double</span> x) <span class="keyword">const</span></div>
+<div class="line">    {</div>
 <div class="line">      <span class="keywordflow">return</span> x * x;</div>
 <div class="line">    }</div>
 <div class="line"><span class="preprocessor">    #endif</span></div>
 <div class="line">    </div>
 <div class="line">    <span class="keyword">private</span>: </div>
 <div class="line">    <span class="keyword">template</span>&lt;<span class="keyword">class</span> type_parameter_0_0&gt;</div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">auto</span> __invoke(type_parameter_0_0 x)</div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">inline</span> <span class="comment">/*constexpr */</span> <span class="keyword">auto</span> __invoke(type_parameter_0_0 x)</div>
 <div class="line">    {</div>
-<div class="line">      <span class="keywordflow">return</span> x * x;</div>
+<div class="line">      <span class="keywordflow">return</span> __lambda_4_14{}.operator()&lt;type_parameter_0_0&gt;(x);</div>
 <div class="line">    }</div>
 <div class="line">    </div>
 <div class="line">  };</div>

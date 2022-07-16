@@ -57,15 +57,15 @@ $(function() {
 <div class="line">    }</div>
 <div class="line">    </div>
 <div class="line">    <span class="keyword">using</span> retType_3_28 = int (*)(int, char);</div>
-<div class="line">    <span class="keyword">inline</span> <span class="comment">/*constexpr */</span> <span class="keyword">operator</span> retType_3_28 () const noexcept</div>
+<div class="line">    <span class="keyword">inline</span> constexpr <span class="keyword">operator</span> retType_3_28 () const noexcept</div>
 <div class="line">    {</div>
 <div class="line">      <span class="keywordflow">return</span> __invoke;</div>
 <div class="line">    }</div>
 <div class="line">    </div>
 <div class="line">    <span class="keyword">private</span>: </div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">int</span> __invoke(<span class="keywordtype">int</span> a, <span class="keywordtype">char</span> b)</div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">inline</span> <span class="comment">/*constexpr */</span> <span class="keywordtype">int</span> __invoke(<span class="keywordtype">int</span> a, <span class="keywordtype">char</span> b)</div>
 <div class="line">    {</div>
-<div class="line">      <span class="keywordflow">return</span> a + <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(b);</div>
+<div class="line">      <span class="keywordflow">return</span> __lambda_3_28{}.operator()(a, b);</div>
 <div class="line">    }</div>
 <div class="line">    </div>
 <div class="line">    </div>

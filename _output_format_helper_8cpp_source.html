@@ -87,53 +87,58 @@ $(function() {
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <a class="code" href="classclang_1_1insights_1_1_output_format_helper.html#a60b57e56992be76173c655ac665cb345">Append</a>(<a class="code" href="namespaceclang_1_1insights.html#ae670e1040066f23e9f2d67541871a497">GetTypeNameAsParameter</a>(type, name));</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <a class="code" href="classclang_1_1insights_1_1_output_format_helper.html#a60b57e56992be76173c655ac665cb345">Append</a>(name);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    });</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classclang_1_1insights_1_1_output_format_helper.html#aa50171d2c367098fd3f8b32ffeb4a78c">   54</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classclang_1_1insights_1_1_output_format_helper.html#aa50171d2c367098fd3f8b32ffeb4a78c">OutputFormatHelper::CloseScope</a>(<span class="keyword">const</span> NoNewLineBefore newLineBefore)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span>(NoNewLineBefore::No == newLineBefore) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        NewLine();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    RemoveIndent();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_output_format_helper.html#a60b57e56992be76173c655ac665cb345">Append</a>(<span class="charliteral">&#39;}&#39;</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">if</span>(isa&lt;PackExpansionType&gt;(p-&gt;getType())) {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                <a class="code" href="classclang_1_1insights_1_1_output_format_helper.html#a60b57e56992be76173c655ac665cb345">Append</a>(<a class="code" href="_insights_static_strings_8h.html#a90ed45ff5709c7d630cf2b5f7b3ebcf0">kwElipsis</a>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    });</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classclang_1_1insights_1_1_output_format_helper.html#aa50171d2c367098fd3f8b32ffeb4a78c">   58</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classclang_1_1insights_1_1_output_format_helper.html#aa50171d2c367098fd3f8b32ffeb4a78c">OutputFormatHelper::CloseScope</a>(<span class="keyword">const</span> NoNewLineBefore newLineBefore)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">if</span>(NoNewLineBefore::No == newLineBefore) {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        NewLine();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_output_format_helper.html#a044bd3a29e1a59ec19f4030b5faaf6c6">DecreaseIndent</a>();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    RemoveIndent();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_output_format_helper.html#a60b57e56992be76173c655ac665cb345">Append</a>(<span class="charliteral">&#39;}&#39;</span>);</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">void</span> OutputFormatHelper::RemoveIndent()</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">/* After a newline we are already indented by one level to much. Try to decrease it. */</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span>(0 != mDefaultIndent) {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">// go the string backwards and find the first non-whitespace character</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> res = std::find_if(</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            std::rbegin(mOutput), std::rbegin(mOutput) + SCOPE_INDENT, [](<span class="keyword">const</span> <span class="keywordtype">char</span>&amp; c) { <span class="keywordflow">return</span> <span class="charliteral">&#39; &#39;</span> != c; });</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="comment">// check if the string did end with at least one whitespace</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">if</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; end = std::rbegin(mOutput); res != end) {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="comment">// remove the whitespaces at the end of the string</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            mOutput.resize(mOutput.size() - std::distance(end, res));</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}  <span class="comment">// namespace clang::insights</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_output_format_helper.html#a044bd3a29e1a59ec19f4030b5faaf6c6">DecreaseIndent</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">void</span> OutputFormatHelper::RemoveIndent()</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">/* After a newline we are already indented by one level to much. Try to decrease it. */</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span>(0 != mDefaultIndent) {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="comment">// go the string backwards and find the first non-whitespace character</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> res = std::find_if(</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            std::rbegin(mOutput), std::rbegin(mOutput) + SCOPE_INDENT, [](<span class="keyword">const</span> <span class="keywordtype">char</span>&amp; c) { <span class="keywordflow">return</span> <span class="charliteral">&#39; &#39;</span> != c; });</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">// check if the string did end with at least one whitespace</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; end = std::rbegin(mOutput); res != end) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="comment">// remove the whitespaces at the end of the string</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            mOutput.resize(mOutput.size() - std::distance(end, res));</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}  <span class="comment">// namespace clang::insights</span></div>
 <div class="ttc" id="a_code_generator_8h_html"><div class="ttname"><a href="_code_generator_8h.html">CodeGenerator.h</a></div></div>
 <div class="ttc" id="a_insights_helpers_8h_html"><div class="ttname"><a href="_insights_helpers_8h.html">InsightsHelpers.h</a></div></div>
+<div class="ttc" id="a_insights_static_strings_8h_html_a90ed45ff5709c7d630cf2b5f7b3ebcf0"><div class="ttname"><a href="_insights_static_strings_8h.html#a90ed45ff5709c7d630cf2b5f7b3ebcf0">kwElipsis</a></div><div class="ttdeci">constexpr std::string_view kwElipsis</div><div class="ttdef"><b>Definition:</b> <a href="_insights_static_strings_8h_source.html#l00127">InsightsStaticStrings.h:127</a></div></div>
 <div class="ttc" id="a_output_format_helper_8h_html"><div class="ttname"><a href="_output_format_helper_8h.html">OutputFormatHelper.h</a></div></div>
 <div class="ttc" id="aclassclang_1_1insights_1_1_code_generator_html"><div class="ttname"><a href="classclang_1_1insights_1_1_code_generator.html">clang::insights::CodeGenerator</a></div><div class="ttdoc">More or less the heart of C++ Insights.</div><div class="ttdef"><b>Definition:</b> <a href="_code_generator_8h_source.html#l00058">CodeGenerator.h:59</a></div></div>
-<div class="ttc" id="aclassclang_1_1insights_1_1_code_generator_html_a394606f042d38c3fad722edb452a342f"><div class="ttname"><a href="classclang_1_1insights_1_1_code_generator.html#a394606f042d38c3fad722edb452a342f">clang::insights::CodeGenerator::InsertAttributes</a></div><div class="ttdeci">void InsertAttributes(const Decl::attr_range &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="_code_generator_8cpp_source.html#l02795">CodeGenerator.cpp:2795</a></div></div>
+<div class="ttc" id="aclassclang_1_1insights_1_1_code_generator_html_a394606f042d38c3fad722edb452a342f"><div class="ttname"><a href="classclang_1_1insights_1_1_code_generator.html#a394606f042d38c3fad722edb452a342f">clang::insights::CodeGenerator::InsertAttributes</a></div><div class="ttdeci">void InsertAttributes(const Decl::attr_range &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="_code_generator_8cpp_source.html#l02833">CodeGenerator.cpp:2833</a></div></div>
 <div class="ttc" id="aclassclang_1_1insights_1_1_output_format_helper_html_a044bd3a29e1a59ec19f4030b5faaf6c6"><div class="ttname"><a href="classclang_1_1insights_1_1_output_format_helper.html#a044bd3a29e1a59ec19f4030b5faaf6c6">clang::insights::OutputFormatHelper::DecreaseIndent</a></div><div class="ttdeci">void DecreaseIndent()</div><div class="ttdoc">Decrease the current indention by SCOPE_INDENT.</div><div class="ttdef"><b>Definition:</b> <a href="_output_format_helper_8h_source.html#l00137">OutputFormatHelper.h:137</a></div></div>
 <div class="ttc" id="aclassclang_1_1insights_1_1_output_format_helper_html_a1c7a9b9a4c05ca9bcfa9f81bb06b9895"><div class="ttname"><a href="classclang_1_1insights_1_1_output_format_helper.html#a1c7a9b9a4c05ca9bcfa9f81bb06b9895">clang::insights::OutputFormatHelper::ForEachArg</a></div><div class="ttdeci">void ForEachArg(const auto &amp;arguments, auto &amp;&amp;lambda)</div><div class="ttdoc">Append a argument list to the buffer.</div><div class="ttdef"><b>Definition:</b> <a href="_output_format_helper_8h_source.html#l00198">OutputFormatHelper.h:198</a></div></div>
 <div class="ttc" id="aclassclang_1_1insights_1_1_output_format_helper_html_a1e7c1075705b94016a6f2ee3c777d8e4"><div class="ttname"><a href="classclang_1_1insights_1_1_output_format_helper.html#a1e7c1075705b94016a6f2ee3c777d8e4">clang::insights::OutputFormatHelper::AppendParameterList</a></div><div class="ttdeci">void AppendParameterList(const ArrayRef&lt; ParmVarDecl * &gt; parameters, const NameOnly nameOnly=NameOnly::No, const GenMissingParamName genMissingParamName=GenMissingParamName::No)</div><div class="ttdoc">Append a ParamVarDecl array.</div><div class="ttdef"><b>Definition:</b> <a href="_output_format_helper_8cpp_source.html#l00023">OutputFormatHelper.cpp:23</a></div></div>
 <div class="ttc" id="aclassclang_1_1insights_1_1_output_format_helper_html_a60b57e56992be76173c655ac665cb345"><div class="ttname"><a href="classclang_1_1insights_1_1_output_format_helper.html#a60b57e56992be76173c655ac665cb345">clang::insights::OutputFormatHelper::Append</a></div><div class="ttdeci">void Append(const char c)</div><div class="ttdoc">Append a single character.</div><div class="ttdef"><b>Definition:</b> <a href="_output_format_helper_8h_source.html#l00068">OutputFormatHelper.h:68</a></div></div>
-<div class="ttc" id="aclassclang_1_1insights_1_1_output_format_helper_html_aa50171d2c367098fd3f8b32ffeb4a78c"><div class="ttname"><a href="classclang_1_1insights_1_1_output_format_helper.html#aa50171d2c367098fd3f8b32ffeb4a78c">clang::insights::OutputFormatHelper::CloseScope</a></div><div class="ttdeci">void CloseScope(const NoNewLineBefore newLineBefore=NoNewLineBefore::No)</div><div class="ttdoc">Close a scope by inserting a '}'.</div><div class="ttdef"><b>Definition:</b> <a href="_output_format_helper_8cpp_source.html#l00054">OutputFormatHelper.cpp:54</a></div></div>
+<div class="ttc" id="aclassclang_1_1insights_1_1_output_format_helper_html_aa50171d2c367098fd3f8b32ffeb4a78c"><div class="ttname"><a href="classclang_1_1insights_1_1_output_format_helper.html#aa50171d2c367098fd3f8b32ffeb4a78c">clang::insights::OutputFormatHelper::CloseScope</a></div><div class="ttdeci">void CloseScope(const NoNewLineBefore newLineBefore=NoNewLineBefore::No)</div><div class="ttdoc">Close a scope by inserting a '}'.</div><div class="ttdef"><b>Definition:</b> <a href="_output_format_helper_8cpp_source.html#l00058">OutputFormatHelper.cpp:58</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_html"><div class="ttname"><a href="namespaceclang_1_1insights.html">clang::insights</a></div><div class="ttdef"><b>Definition:</b> <a href="_clang_compat_8h_source.html#l00022">ClangCompat.h:22</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_html_a31328e39391e305efa2a1b5da3116d82"><div class="ttname"><a href="namespaceclang_1_1insights.html#a31328e39391e305efa2a1b5da3116d82">clang::insights::GetName</a></div><div class="ttdeci">std::string GetName(const NamedDecl &amp;nd)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_helpers_8cpp_source.html#l00940">InsightsHelpers.cpp:940</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_html_a5921c944577bc3922f6c770e41a367f8"><div class="ttname"><a href="namespaceclang_1_1insights.html#a5921c944577bc3922f6c770e41a367f8">clang::insights::BuildInternalVarName</a></div><div class="ttdeci">std::string BuildInternalVarName(const std::string_view &amp;varName)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_helpers_8cpp_source.html#l00183">InsightsHelpers.cpp:183</a></div></div>
