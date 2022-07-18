@@ -43,13 +43,13 @@ $(function() {
 <p>The documentation can be created with <code>cmake</code>:</p>
 <div class="fragment"><div class="line">cmake --build . --target doc</div>
 </div><!-- fragment --><p>There are some pre- and post-processing steps involved.</p>
-<h2><a class="anchor" id="autotoc_md18"></a>
+<h2><a class="anchor" id="autotoc_md20"></a>
 Pre-processing</h2>
 <ol type="1">
 <li><code><a class="el" href="_option_documentation_generator_8cpp.html">OptionDocumentationGenerator.cpp</a></code> is compiled and executed. It parses <code>InsightsOptions.def</code> to generate a list of all C++ Insights options including the help text and the default. For each option there must be a example C++ file in <code>examples</code>. This file is included in help.</li>
 <li><code><a class="el" href="_option_documentation_generator_8py.html">OptionDocumentationGenerator.py</a></code> uses the previously generated markdown files and execute the C++ Insights binary for each sample source file and includes the transformation result in the help file as well.</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="autotoc_md21"></a>
 Post-processing</h2>
 <p>Post-processing is done by <code><a class="el" href="post_process_doxygen_8py.html">postProcessDoxygen.py</a></code>:</p>
 <ol type="1">
