@@ -46,6 +46,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>&quot;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;optional&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &quot;<a class="el" href="_clang_compat_8h_source.html">ClangCompat.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_d_print_8h_source.html">DPrint.h</a>&quot;</code><br />
@@ -67,48 +68,52 @@ Include dependency graph for CodeGenerator.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_code_generator_8cpp__incl.png" border="0" usemap="#a_code_generator_8cpp" alt=""/></div>
 <map name="a_code_generator_8cpp" id="a_code_generator_8cpp">
-<area shape="rect" title=" " alt="" coords="2303,5,2449,32"/>
-<area shape="rect" href="_code_generator_8h.html" title=" " alt="" coords="1247,80,1377,107"/>
-<area shape="rect" href="_clang_compat_8h.html" title=" " alt="" coords="169,333,292,360"/>
-<area shape="rect" href="_insights_once_8h.html" title=" " alt="" coords="2157,251,2275,278"/>
-<area shape="rect" href="_insights_str_cat_8h.html" title=" " alt="" coords="1983,251,2108,278"/>
-<area shape="rect" title=" " alt="" coords="2181,333,2358,360"/>
-<area shape="rect" href="_code_generator_types_8h.html" title=" " alt="" coords="1929,162,2098,189"/>
-<area shape="rect" title=" " alt="" coords="2373,80,2459,107"/>
-<area shape="rect" title=" " alt="" coords="2483,80,2546,107"/>
-<area shape="rect" href="_d_print_8h.html" title=" " alt="" coords="2123,162,2197,189"/>
-<area shape="rect" href="_insights_8h.html" title=" " alt="" coords="2571,80,2656,107"/>
-<area shape="rect" href="_insights_base_8h.html" title=" " alt="" coords="2680,80,2797,107"/>
-<area shape="rect" href="_insights_helpers_8h.html" title=" " alt="" coords="763,162,898,189"/>
-<area shape="rect" href="_insights_matchers_8h.html" title=" " alt="" coords="598,80,743,107"/>
-<area shape="rect" href="_number_iterator_8h.html" title=" " alt="" coords="2821,80,2955,107"/>
-<area shape="rect" title=" " alt="" coords="2979,80,3170,107"/>
-<area shape="rect" title=" " alt="" coords="3195,80,3443,107"/>
-<area shape="rect" title=" " alt="" coords="3467,80,3618,107"/>
-<area shape="rect" title=" " alt="" coords="3643,80,3792,107"/>
-<area shape="rect" title=" " alt="" coords="1063,251,1241,278"/>
-<area shape="rect" title=" " alt="" coords="563,244,778,285"/>
-<area shape="rect" title=" " alt="" coords="293,251,539,278"/>
-<area shape="rect" title=" " alt="" coords="922,155,1067,196"/>
-<area shape="rect" title=" " alt="" coords="1091,162,1223,189"/>
-<area shape="rect" href="_insights_static_strings_8h.html" title=" " alt="" coords="1547,162,1714,189"/>
-<area shape="rect" href="_insights_strong_types_8h.html" title=" " alt="" coords="1383,251,1547,278"/>
-<area shape="rect" href="_insights_utility_8h.html" title=" " alt="" coords="1400,162,1523,189"/>
-<area shape="rect" href="_output_format_helper_8h.html" title=" " alt="" coords="1738,162,1905,189"/>
-<area shape="rect" href="_stack_list_8h.html" title=" " alt="" coords="1265,251,1359,278"/>
-<area shape="rect" title=" " alt="" coords="5,408,165,435"/>
-<area shape="rect" title=" " alt="" coords="189,408,272,435"/>
-<area shape="rect" title=" " alt="" coords="297,408,455,435"/>
-<area shape="rect" title=" " alt="" coords="1810,251,1907,278"/>
-<area shape="rect" title=" " alt="" coords="1572,251,1735,278"/>
-<area shape="rect" title=" " alt="" coords="1915,333,1975,360"/>
-<area shape="rect" title=" " alt="" coords="1103,333,1230,360"/>
-<area shape="rect" title=" " alt="" coords="1448,333,1507,360"/>
-<area shape="rect" title=" " alt="" coords="1999,333,2091,360"/>
-<area shape="rect" title=" " alt="" coords="2531,162,2679,189"/>
-<area shape="rect" title=" " alt="" coords="2703,162,2774,189"/>
-<area shape="rect" title=" " alt="" coords="2798,162,2922,189"/>
-<area shape="rect" title=" " alt="" coords="802,251,937,278"/>
+<area shape="rect" title=" " alt="" coords="2814,5,2961,32"/>
+<area shape="rect" href="_code_generator_8h.html" title=" " alt="" coords="1739,80,1870,107"/>
+<area shape="rect" href="_clang_compat_8h.html" title=" " alt="" coords="419,333,542,360"/>
+<area shape="rect" href="_insights_once_8h.html" title=" " alt="" coords="2523,251,2641,278"/>
+<area shape="rect" href="_insights_str_cat_8h.html" title=" " alt="" coords="1645,251,1770,278"/>
+<area shape="rect" title=" " alt="" coords="2383,333,2560,360"/>
+<area shape="rect" href="_code_generator_types_8h.html" title=" " alt="" coords="2549,162,2719,189"/>
+<area shape="rect" title=" " alt="" coords="2845,80,2930,107"/>
+<area shape="rect" title=" " alt="" coords="2954,80,3029,107"/>
+<area shape="rect" title=" " alt="" coords="3053,80,3116,107"/>
+<area shape="rect" href="_d_print_8h.html" title=" " alt="" coords="1343,162,1418,189"/>
+<area shape="rect" href="_insights_8h.html" title=" " alt="" coords="3141,80,3226,107"/>
+<area shape="rect" href="_insights_base_8h.html" title=" " alt="" coords="3250,80,3367,107"/>
+<area shape="rect" href="_insights_helpers_8h.html" title=" " alt="" coords="732,162,867,189"/>
+<area shape="rect" href="_insights_matchers_8h.html" title=" " alt="" coords="837,80,983,107"/>
+<area shape="rect" href="_number_iterator_8h.html" title=" " alt="" coords="3391,80,3525,107"/>
+<area shape="rect" title=" " alt="" coords="3549,80,3740,107"/>
+<area shape="rect" title=" " alt="" coords="3765,80,4013,107"/>
+<area shape="rect" title=" " alt="" coords="4037,80,4188,107"/>
+<area shape="rect" title=" " alt="" coords="4213,80,4362,107"/>
+<area shape="rect" title=" " alt="" coords="1275,251,1452,278"/>
+<area shape="rect" title=" " alt="" coords="1036,244,1251,285"/>
+<area shape="rect" title=" " alt="" coords="765,251,1012,278"/>
+<area shape="rect" title=" " alt="" coords="2224,155,2369,196"/>
+<area shape="rect" title=" " alt="" coords="2393,162,2525,189"/>
+<area shape="rect" href="_insights_static_strings_8h.html" title=" " alt="" coords="2033,162,2200,189"/>
+<area shape="rect" href="_insights_strong_types_8h.html" title=" " alt="" coords="2032,251,2196,278"/>
+<area shape="rect" href="_insights_utility_8h.html" title=" " alt="" coords="1645,162,1767,189"/>
+<area shape="rect" href="_output_format_helper_8h.html" title=" " alt="" coords="1843,162,2009,189"/>
+<area shape="rect" href="_stack_list_8h.html" title=" " alt="" coords="1477,251,1570,278"/>
+<area shape="rect" title=" " alt="" coords="255,408,415,435"/>
+<area shape="rect" title=" " alt="" coords="439,408,522,435"/>
+<area shape="rect" title=" " alt="" coords="547,408,705,435"/>
+<area shape="rect" title=" " alt="" coords="2272,251,2369,278"/>
+<area shape="rect" title=" " alt="" coords="1794,251,1957,278"/>
+<area shape="rect" title=" " alt="" coords="1964,333,2024,360"/>
+<area shape="rect" title=" " alt="" coords="1121,333,1248,360"/>
+<area shape="rect" title=" " alt="" coords="843,333,902,360"/>
+<area shape="rect" title=" " alt="" coords="1661,333,1753,360"/>
+<area shape="rect" title=" " alt="" coords="3101,162,3249,189"/>
+<area shape="rect" title=" " alt="" coords="3273,162,3344,189"/>
+<area shape="rect" title=" " alt="" coords="3368,162,3492,189"/>
+<area shape="rect" title=" " alt="" coords="46,251,278,278"/>
+<area shape="rect" title=" " alt="" coords="303,251,437,278"/>
+<area shape="rect" title=" " alt="" coords="461,251,548,278"/>
+<area shape="rect" title=" " alt="" coords="572,251,640,278"/>
 </map>
 </div>
 </div>
@@ -142,6 +147,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a65492da4a86499f89fea48a5573ce10e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_code_generator_8cpp.html#a65492da4a86499f89fea48a5573ce10e">LAMBDA_SCOPE_HELPER</a>(type)&#160;&#160;&#160;    LambdaScopeHandler lambdaScopeHandler{mLambdaStack, mOutputFormatHelper, LambdaCallerType::type};</td></tr>
 <tr class="memdesc:a65492da4a86499f89fea48a5573ce10e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convenience macro to create a LambdaScopeHandler on the stack.  <a href="_code_generator_8cpp.html#a65492da4a86499f89fea48a5573ce10e">More...</a><br /></td></tr>
 <tr class="separator:a65492da4a86499f89fea48a5573ce10e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afda57cf03a07c66a3803858ad0562df5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_code_generator_8cpp.html#afda57cf03a07c66a3803858ad0562df5">CONDITIONAL_LAMBDA_SCOPE_HELPER</a>(type,  cond)</td></tr>
+<tr class="memdesc:afda57cf03a07c66a3803858ad0562df5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The lambda scope helper is only created if cond is true.  <a href="_code_generator_8cpp.html#afda57cf03a07c66a3803858ad0562df5">More...</a><br /></td></tr>
+<tr class="separator:afda57cf03a07c66a3803858ad0562df5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf41fe69f8471ca02e372f01ce9ba956"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_code_generator_8cpp.html#adf41fe69f8471ca02e372f01ce9ba956">SUPPORTED_DECL</a>(type)</td></tr>
 <tr class="separator:adf41fe69f8471ca02e372f01ce9ba956"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab524781a44fe0ca61683b5209b69fdab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_code_generator_8cpp.html#ab524781a44fe0ca61683b5209b69fdab">IGNORED_DECL</a>&#160;&#160;&#160;<a class="el" href="_code_generator_types_8h.html#adf41fe69f8471ca02e372f01ce9ba956">SUPPORTED_DECL</a></td></tr>
@@ -218,6 +226,42 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="afda57cf03a07c66a3803858ad0562df5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afda57cf03a07c66a3803858ad0562df5">&#9670;&nbsp;</a></span>CONDITIONAL_LAMBDA_SCOPE_HELPER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CONDITIONAL_LAMBDA_SCOPE_HELPER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cond&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    std::optional&lt;LambdaScopeHandler&gt; lambdaScopeHandler;                                                              \</div>
+<div class="line">    if(cond) {                                                                                                         \</div>
+<div class="line">        lambdaScopeHandler.emplace(mLambdaStack, mOutputFormatHelper, LambdaCallerType::type);                         \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p>The lambda scope helper is only created if cond is true. </p>
+
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00034">34</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+
+</div>
+</div>
 <a id="ab524781a44fe0ca61683b5209b69fdab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab524781a44fe0ca61683b5209b69fdab">&#9670;&nbsp;</a></span>IGNORED_DECL</h2>
 
@@ -264,7 +308,7 @@ Functions</h2></td></tr>
 
 <p>Convenience macro to create a LambdaScopeHandler on the stack. </p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00028">28</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00029">29</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
 </div>
 </div>

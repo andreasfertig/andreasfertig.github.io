@@ -46,10 +46,13 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;clang/AST/AST.h&quot;</code><br />
 <code>#include &quot;clang/AST/ASTContext.h&quot;</code><br />
+<code>#include &quot;clang/AST/RecursiveASTVisitor.h&quot;</code><br />
 <code>#include &quot;clang/ASTMatchers/ASTMatchFinder.h&quot;</code><br />
 <code>#include &quot;clang/ASTMatchers/ASTMatchers.h&quot;</code><br />
 <code>#include &quot;clang/Lex/Lexer.h&quot;</code><br />
+<code>#include &lt;functional&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;variant&gt;</code><br />
 <code>#include &quot;<a class="el" href="_insights_strong_types_8h_source.html">InsightsStrongTypes.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_stack_list_8h_source.html">StackList.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -57,15 +60,18 @@ Include dependency graph for InsightsHelpers.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_insights_helpers_8h__incl.png" border="0" usemap="#a_insights_helpers_8h" alt=""/></div>
 <map name="a_insights_helpers_8h" id="a_insights_helpers_8h">
-<area shape="rect" title=" " alt="" coords="759,5,893,32"/>
+<area shape="rect" title=" " alt="" coords="1124,5,1259,32"/>
 <area shape="rect" title=" " alt="" coords="5,87,132,114"/>
 <area shape="rect" title=" " alt="" coords="156,87,333,114"/>
-<area shape="rect" title=" " alt="" coords="357,80,572,121"/>
-<area shape="rect" title=" " alt="" coords="596,87,843,114"/>
-<area shape="rect" title=" " alt="" coords="867,87,1001,114"/>
-<area shape="rect" title=" " alt="" coords="1026,87,1085,114"/>
-<area shape="rect" href="_insights_strong_types_8h.html" title=" " alt="" coords="1109,87,1273,114"/>
-<area shape="rect" href="_stack_list_8h.html" title=" " alt="" coords="1298,87,1391,114"/>
+<area shape="rect" title=" " alt="" coords="358,87,590,114"/>
+<area shape="rect" title=" " alt="" coords="615,80,829,121"/>
+<area shape="rect" title=" " alt="" coords="853,87,1100,114"/>
+<area shape="rect" title=" " alt="" coords="1124,87,1259,114"/>
+<area shape="rect" title=" " alt="" coords="1283,87,1369,114"/>
+<area shape="rect" title=" " alt="" coords="1394,87,1453,114"/>
+<area shape="rect" title=" " alt="" coords="1477,87,1545,114"/>
+<area shape="rect" href="_insights_strong_types_8h.html" title=" " alt="" coords="1569,87,1733,114"/>
+<area shape="rect" href="_stack_list_8h.html" title=" " alt="" coords="1758,87,1851,114"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -106,6 +112,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclang_1_1insights_1_1is.html">clang::insights::is&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handy helper to avoid longish comparisons.  <a href="structclang_1_1insights_1_1is.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_p0315_visitor.html">clang::insights::P0315Visitor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">! Find a LambdaExpr inside a Decltype  <a href="classclang_1_1insights_1_1_p0315_visitor.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -118,7 +127,7 @@ Namespaces</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a9a7d08ff042b24899e10c2be6b26e505"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_helpers_8h.html#a9a7d08ff042b24899e10c2be6b26e505">SKIP_MACRO_LOCATION</a>(...)</td></tr>
 <tr class="separator:a9a7d08ff042b24899e10c2be6b26e505"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90c3f2ef6cff218daef6fad4313c8979"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_helpers_8h.html#a90c3f2ef6cff218daef6fad4313c8979">SCOPE_HELPER</a>(d)&#160;&#160;&#160;    ScopeHandler _scopeHandler { d }</td></tr>
+<tr class="memitem:a90c3f2ef6cff218daef6fad4313c8979"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_helpers_8h.html#a90c3f2ef6cff218daef6fad4313c8979">SCOPE_HELPER</a>(d)</td></tr>
 <tr class="memdesc:a90c3f2ef6cff218daef6fad4313c8979"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper to create a <code>ScopeHandler</code> on the stack which adds the current <code>Decl</code> to it and removes it once the scope is left.  <a href="_insights_helpers_8h.html#a90c3f2ef6cff218daef6fad4313c8979">More...</a><br /></td></tr>
 <tr class="separator:a90c3f2ef6cff218daef6fad4313c8979"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -180,8 +189,10 @@ Functions</h2></td></tr>
 <tr class="separator:afa844d9a8142d05091eb9a50bb131f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a751459ee892ceed7c0a4092e4da46758"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a751459ee892ceed7c0a4092e4da46758">clang::insights::GetName</a> (const VarDecl &amp;VD)</td></tr>
 <tr class="separator:a751459ee892ceed7c0a4092e4da46758"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31328e39391e305efa2a1b5da3116d82"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a31328e39391e305efa2a1b5da3116d82">clang::insights::GetName</a> (const NamedDecl &amp;nd)</td></tr>
-<tr class="separator:a31328e39391e305efa2a1b5da3116d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a427f5028a454b22788b096a1e3bf6469"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a427f5028a454b22788b096a1e3bf6469">clang::insights::STRONG_BOOL</a> (QualifiedName)</td></tr>
+<tr class="separator:a427f5028a454b22788b096a1e3bf6469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48f28e34f3abfc59c28aa3ba788fc08e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a48f28e34f3abfc59c28aa3ba788fc08e">clang::insights::GetName</a> (const NamedDecl &amp;nd, const QualifiedName qualifiedName)</td></tr>
+<tr class="separator:a48f28e34f3abfc59c28aa3ba788fc08e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f542e4bdb2ff04d57f8bc013e71fc3e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a7f542e4bdb2ff04d57f8bc013e71fc3e">clang::insights::GetNameAsFunctionPointer</a> (const QualType &amp;t)</td></tr>
 <tr class="separator:a7f542e4bdb2ff04d57f8bc013e71fc3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a092bf8da7f2b98d426f5973c5b36076b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a092bf8da7f2b98d426f5973c5b36076b">clang::insights::GetLambdaName</a> (const CXXRecordDecl &amp;lambda)</td></tr>
@@ -246,14 +257,18 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">d</td><td>)</td>
-          <td>&#160;&#160;&#160;    ScopeHandler _scopeHandler { d }</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Value:</b><div class="fragment"><div class="line">    ScopeHandler _scopeHandler                                                                                         \</div>
+<div class="line">    {                                                                                                                  \</div>
+<div class="line">        d                                                                                                              \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
 <p>Helper to create a <code>ScopeHandler</code> on the stack which adds the current <code>Decl</code> to it and removes it once the scope is left. </p>
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00306">306</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00310">310</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
 
 </div>
 </div>
@@ -279,10 +294,10 @@ Functions</h2></td></tr>
 <div class="line">        } <span class="keywordflow">else</span> {                                                                                                       \</div>
 <div class="line">        }                                                                                                              \</div>
 <div class="line">    }</div>
-<div class="ttc" id="anamespaceclang_1_1insights_html_a72b5593e066e45b4cba67836b74a523c"><div class="ttname"><a href="namespaceclang_1_1insights.html#a72b5593e066e45b4cba67836b74a523c">clang::insights::IsInvalidLocation</a></div><div class="ttdeci">bool IsInvalidLocation(const auto &amp;t, auto... args)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_helpers_8h_source.html#l00073">InsightsHelpers.h:73</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_html_ace531662826866b6904949776a926228"><div class="ttname"><a href="namespaceclang_1_1insights.html#ace531662826866b6904949776a926228">clang::insights::IsMacroLocation</a></div><div class="ttdeci">bool IsMacroLocation(const auto &amp;t, auto... args)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_helpers_8h_source.html#l00055">InsightsHelpers.h:55</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_html_a72b5593e066e45b4cba67836b74a523c"><div class="ttname"><a href="namespaceclang_1_1insights.html#a72b5593e066e45b4cba67836b74a523c">clang::insights::IsInvalidLocation</a></div><div class="ttdeci">bool IsInvalidLocation(const auto &amp;t, auto... args)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_helpers_8h_source.html#l00076">InsightsHelpers.h:76</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_html_ace531662826866b6904949776a926228"><div class="ttname"><a href="namespaceclang_1_1insights.html#ace531662826866b6904949776a926228">clang::insights::IsMacroLocation</a></div><div class="ttdeci">bool IsMacroLocation(const auto &amp;t, auto... args)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_helpers_8h_source.html#l00058">InsightsHelpers.h:58</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00082">82</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8h_source.html#l00085">85</a> of file <a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>.</p>
 
 </div>
 </div>
