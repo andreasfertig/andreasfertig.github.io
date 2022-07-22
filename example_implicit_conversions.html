@@ -73,18 +73,19 @@ $(function() {
 <div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</div>
 <div class="line"><span class="keyword">class </span>X</div>
 <div class="line">{</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    X()           = <span class="keywordflow">default</span>;</div>
-<div class="line">    X(<span class="keyword">const</span> X&amp; x) = <span class="keywordflow">default</span>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line">    X(T&amp;&amp; x)</div>
-<div class="line">    : mX{}</div>
-<div class="line">    {</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line">    U mX;</div>
+<div class="line">  </div>
+<div class="line">  <span class="keyword">public</span>: </div>
+<div class="line">  <span class="keyword">inline</span> X() = <span class="keywordflow">default</span>;</div>
+<div class="line">  <span class="keyword">inline</span> X(<span class="keyword">const</span> X&lt;U&gt; &amp; x) = <span class="keywordflow">default</span>;</div>
+<div class="line">  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line">  <span class="keyword">inline</span> X(T &amp;&amp; x)</div>
+<div class="line">  : mX{}</div>
+<div class="line">  {</div>
+<div class="line">  }</div>
+<div class="line">  </div>
+<div class="line">  </div>
+<div class="line">  <span class="keyword">private</span>: </div>
+<div class="line">  U mX;</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">/* First instantiated from: implicit-conversions.cpp:21 */</span></div>
@@ -106,8 +107,6 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#endif</span></div>
-<div class="line"> </div>
-<div class="line"> </div>
 <div class="line"><span class="comment">/* First instantiated from: implicit-conversions.cpp:26 */</span></div>
 <div class="line"><span class="preprocessor">#ifdef INSIGHTS_USE_TEMPLATE</span></div>
 <div class="line"><span class="keyword">template</span>&lt;&gt;</div>

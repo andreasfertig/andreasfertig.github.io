@@ -66,19 +66,8 @@ $(function() {
 <div class="line"><span class="keyword">template</span>&lt;<span class="keywordtype">int</span> n&gt;</div>
 <div class="line"><span class="keyword">struct </span>A</div>
 <div class="line">{</div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">auto</span> value = A&lt;n - 1&gt;::value + n;</div>
+<div class="line">  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">auto</span> value = A&lt;n - 1&gt;::value + n;</div>
 <div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">/* First instantiated from: recursive-template.cpp:18 */</span></div>
-<div class="line"><span class="preprocessor">#ifdef INSIGHTS_USE_TEMPLATE</span></div>
-<div class="line"><span class="keyword">template</span>&lt;&gt;</div>
-<div class="line"><span class="keyword">struct </span>A&lt;5&gt;</div>
-<div class="line">{</div>
-<div class="line">  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> value = A&lt;4&gt;::value + 5;</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#endif</span></div>
-<div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="comment">/* First instantiated from: recursive-template.cpp:7 */</span></div>
 <div class="line"><span class="preprocessor">#ifdef INSIGHTS_USE_TEMPLATE</span></div>
@@ -89,8 +78,6 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#endif</span></div>
-<div class="line"> </div>
-<div class="line"> </div>
 <div class="line"><span class="comment">/* First instantiated from: recursive-template.cpp:7 */</span></div>
 <div class="line"><span class="preprocessor">#ifdef INSIGHTS_USE_TEMPLATE</span></div>
 <div class="line"><span class="keyword">template</span>&lt;&gt;</div>
@@ -100,14 +87,21 @@ $(function() {
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#endif</span></div>
-<div class="line"> </div>
-<div class="line"> </div>
 <div class="line"><span class="comment">/* First instantiated from: recursive-template.cpp:7 */</span></div>
 <div class="line"><span class="preprocessor">#ifdef INSIGHTS_USE_TEMPLATE</span></div>
 <div class="line"><span class="keyword">template</span>&lt;&gt;</div>
 <div class="line"><span class="keyword">struct </span>A&lt;2&gt;</div>
 <div class="line">{</div>
 <div class="line">  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> value = A&lt;1&gt;::value + 2;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="comment">/* First instantiated from: recursive-template.cpp:18 */</span></div>
+<div class="line"><span class="preprocessor">#ifdef INSIGHTS_USE_TEMPLATE</span></div>
+<div class="line"><span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><span class="keyword">struct </span>A&lt;5&gt;</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> value = A&lt;4&gt;::value + 5;</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#endif</span></div>
