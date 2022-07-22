@@ -292,14 +292,17 @@ $(function() {
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="_insights_8cpp.html#ad9abeaa3b6e8cbfd73dd238b1efbd154">gUseLibCpp</a>) {</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        prependArgument(INSIGHTS_LLVM_INCLUDE_DIR);</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        prependArgument(<span class="stringliteral">&quot;-stdlib=libc++&quot;</span>);</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    }</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    prependArgument(INSIGHTS_CLANG_RESOURCE_INCLUDE_DIR);</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    prependArgument(INSIGHTS_CLANG_RESOURCE_DIR);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="preprocessor">#ifdef __APPLE__</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        prependArgument(<span class="stringliteral">&quot;-nostdinc++&quot;</span>);  <span class="comment">// macos Monterey</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="preprocessor">#endif                                   </span><span class="comment">/* __APPLE__ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    }</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">return</span> tool.run(newFrontendActionFactory&lt;CppInsightFrontendAction&gt;().get());</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;}</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    prependArgument(INSIGHTS_CLANG_RESOURCE_INCLUDE_DIR);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    prependArgument(INSIGHTS_CLANG_RESOURCE_DIR);</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordflow">return</span> tool.run(newFrontendActionFactory&lt;CppInsightFrontendAction&gt;().get());</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;}</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="ttc" id="a_code_generator_8h_html"><div class="ttname"><a href="_code_generator_8h.html">CodeGenerator.h</a></div></div>
 <div class="ttc" id="a_d_print_8h_html"><div class="ttname"><a href="_d_print_8h.html">DPrint.h</a></div></div>
 <div class="ttc" id="a_function_decl_handler_8h_html"><div class="ttname"><a href="_function_decl_handler_8h.html">FunctionDeclHandler.h</a></div></div>
