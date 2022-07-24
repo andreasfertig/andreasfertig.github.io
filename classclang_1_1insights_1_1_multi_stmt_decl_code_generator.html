@@ -127,6 +127,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6911c04927d581a1faae150fb25c6bb9 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a6911c04927d581a1faae150fb25c6bb9">InsertTemplateParameters</a> (const TemplateParameterList &amp;list, const TemplateParamsOnly templateParamsOnly=TemplateParamsOnly::No)</td></tr>
 <tr class="memdesc:a6911c04927d581a1faae150fb25c6bb9 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="mdescLeft">&#160;</td><td class="mdescRight">! Skip template, type constraints and class/typename.  <a href="classclang_1_1insights_1_1_code_generator.html#a6911c04927d581a1faae150fb25c6bb9">More...</a><br /></td></tr>
 <tr class="separator:a6911c04927d581a1faae150fb25c6bb9 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22fe3b0603a4f7ca16891069d6f8f8e9 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a22fe3b0603a4f7ca16891069d6f8f8e9">InsertPrimaryTemplate</a> (const FunctionTemplateDecl *)</td></tr>
+<tr class="separator:a22fe3b0603a4f7ca16891069d6f8f8e9 inherit pub_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -177,6 +179,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a9ad1f5ae7f2324ecf0368e762730799d inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a001cfe22ba715df1ba9a2ff4192ee632 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a001cfe22ba715df1ba9a2ff4192ee632">InsertConceptConstraint</a> (const TemplateParameterList &amp;tmplDecl)</td></tr>
 <tr class="separator:a001cfe22ba715df1ba9a2ff4192ee632 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad386d01edf0e79972de18fb3c734a361 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#ad386d01edf0e79972de18fb3c734a361">InsertTemplate</a> (const FunctionTemplateDecl *, bool withSpec)</td></tr>
+<tr class="separator:ad386d01edf0e79972de18fb3c734a361 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c0517d463d9583dfc1ec4d4b8840598 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a0c0517d463d9583dfc1ec4d4b8840598">InsertQualifierAndNameWithTemplateArgs</a> (const DeclarationName &amp;declName, const auto *stmt)</td></tr>
 <tr class="separator:a0c0517d463d9583dfc1ec4d4b8840598 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c6c0f3f8515b13a134e86e8659a2948 inherit pro_methods_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a8c6c0f3f8515b13a134e86e8659a2948">InsertQualifierAndName</a> (const DeclarationName &amp;declName, const NestedNameSpecifier *qualifier, const bool hasTemplateKeyword)</td></tr>
@@ -338,7 +342,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00470">470</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00474">474</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5053707613387e4620278cf173d2b065"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5053707613387e4620278cf173d2b065">&#9670;&nbsp;</a></span>MultiStmtDeclCodeGenerator()</h2>
@@ -380,7 +384,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00473">473</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00477">477</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -407,7 +411,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00483">483</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00487">487</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 <p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00068">clang::insights::OutputFormatHelper::Append()</a>, and <a class="el" href="_code_generator_8h_source.html#l00061">clang::insights::CodeGenerator::mOutputFormatHelper</a>.</p>
 
@@ -471,9 +475,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classclang_1_1insights_1_1_code_generator.html#a84ede41f1fb2a3aeb965c3908e24185c">clang::insights::CodeGenerator</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00493">493</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00497">497</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
-<p class="reference">References <a class="el" href="_code_generator_8h_source.html#l00489">mInsertComma</a>.</p>
+<p class="reference">References <a class="el" href="_code_generator_8h_source.html#l00493">mInsertComma</a>.</p>
 
 </div>
 </div>
@@ -502,7 +506,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classclang_1_1insights_1_1_code_generator.html#a72a5180899ea7c4b931234a59282dbe2">clang::insights::CodeGenerator</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00494">494</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00498">498</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -532,9 +536,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classclang_1_1insights_1_1_code_generator.html#a2bc34daf3d79e1ee3c47f90ce334f27e">clang::insights::CodeGenerator</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00492">492</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00496">496</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
-<p class="reference">References <a class="el" href="_code_generator_8h_source.html#l00488">mInsertVarDecl</a>.</p>
+<p class="reference">References <a class="el" href="_code_generator_8h_source.html#l00492">mInsertVarDecl</a>.</p>
 
 </div>
 </div>
@@ -561,9 +565,9 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Insert the <code>VarDecl</code> only once. </p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00489">489</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00493">493</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8h_source.html#l00493">InsertComma()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8h_source.html#l00497">InsertComma()</a>.</p>
 
 </div>
 </div>
@@ -587,9 +591,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00488">488</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00492">492</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8h_source.html#l00492">InsertVarDecl()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8h_source.html#l00496">InsertVarDecl()</a>.</p>
 
 </div>
 </div>
