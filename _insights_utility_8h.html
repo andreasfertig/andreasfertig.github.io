@@ -60,8 +60,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_insights_utility_8h__dep__incl.png" border="0" usemap="#a_insights_utility_8hdep" alt=""/></div>
 <map name="a_insights_utility_8hdep" id="a_insights_utility_8hdep">
-<area shape="rect" title=" " alt="" coords="907,5,1029,32"/>
-<area shape="rect" href="_code_generator_8h.html" title=" " alt="" coords="903,80,1033,107"/>
+<area shape="rect" title=" " alt="" coords="832,5,955,32"/>
+<area shape="rect" href="_code_generator_8h.html" title=" " alt="" coords="828,80,959,107"/>
 <area shape="rect" href="_code_generator_8cpp.html" title=" " alt="" coords="5,155,152,181"/>
 <area shape="rect" href="_coroutines_code_generator_8cpp.html" title=" " alt="" coords="176,155,392,181"/>
 <area shape="rect" href="_function_decl_handler_8cpp.html" title=" " alt="" coords="417,155,599,181"/>
@@ -70,8 +70,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <area shape="rect" href="_insights_helpers_8cpp.html" title=" " alt="" coords="967,155,1118,181"/>
 <area shape="rect" href="_output_format_helper_8cpp.html" title=" " alt="" coords="1143,155,1324,181"/>
 <area shape="rect" href="_record_decl_handler_8cpp.html" title=" " alt="" coords="1348,155,1521,181"/>
-<area shape="rect" href="_static_assert_handler_8cpp.html" title=" " alt="" coords="1546,155,1723,181"/>
-<area shape="rect" href="_template_handler_8cpp.html" title=" " alt="" coords="1747,155,1906,181"/>
+<area shape="rect" href="_template_handler_8cpp.html" title=" " alt="" coords="1546,155,1705,181"/>
 </map>
 </div>
 </div>
@@ -79,8 +78,9 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a8dfff7147f0fdff4642a6667a375ae29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_utility_8h.html#a8dfff7147f0fdff4642a6667a375ae29">FWD</a>(...)&#160;&#160;&#160;::std::forward&lt;decltype(__VA_ARGS__)&gt;(__VA_ARGS__)</td></tr>
-<tr class="separator:a8dfff7147f0fdff4642a6667a375ae29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22243e4a20c07236699cf5d4f887e3ab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_utility_8h.html#a22243e4a20c07236699cf5d4f887e3ab">RETURN_IF</a>(cond)</td></tr>
+<tr class="memdesc:a22243e4a20c07236699cf5d4f887e3ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">! A helper inspired by <a target="_blank" href="https://github.com/Microsoft/wil/wiki/Error-handling-helpers">https://github.com/Microsoft/wil/wiki/Error-handling-helpers</a>  <a href="_insights_utility_8h.html#a22243e4a20c07236699cf5d4f887e3ab">More...</a><br /></td></tr>
+<tr class="separator:a22243e4a20c07236699cf5d4f887e3ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -90,27 +90,32 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:adbd9023489e9f1015b1d2d8ca86c292c"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Ts&gt; </td></tr>
-<tr class="memitem:adbd9023489e9f1015b1d2d8ca86c292c"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_insights_utility_8h.html#adbd9023489e9f1015b1d2d8ca86c292c">same_as_any_of</a> = (std::same_as&lt;T, Ts&gt; || ...)</td></tr>
+<tr class="memitem:adbd9023489e9f1015b1d2d8ca86c292c"><td class="memTemplItemLeft" align="right" valign="top">concept&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_insights_utility_8h.html#adbd9023489e9f1015b1d2d8ca86c292c">same_as_any_of</a> = (std::same_as&lt;T, Ts&gt; or ...)</td></tr>
 <tr class="separator:adbd9023489e9f1015b1d2d8ca86c292c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a8dfff7147f0fdff4642a6667a375ae29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8dfff7147f0fdff4642a6667a375ae29">&#9670;&nbsp;</a></span>FWD</h2>
+<a id="a22243e4a20c07236699cf5d4f887e3ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22243e4a20c07236699cf5d4f887e3ab">&#9670;&nbsp;</a></span>RETURN_IF</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FWD</td>
+          <td class="memname">#define RETURN_IF</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em></td><td>)</td>
-          <td>&#160;&#160;&#160;::std::forward&lt;decltype(__VA_ARGS__)&gt;(__VA_ARGS__)</td>
+          <td class="paramname">cond</td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">if</span>(cond) {                                                                                                         \</div>
+<div class="line">        return;                                                                                                        \</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p>! A helper inspired by <a target="_blank" href="https://github.com/Microsoft/wil/wiki/Error-handling-helpers">https://github.com/Microsoft/wil/wiki/Error-handling-helpers</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_insights_utility_8h_source.html#l00016">16</a> of file <a class="el" href="_insights_utility_8h_source.html">InsightsUtility.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_utility_8h_source.html#l00017">17</a> of file <a class="el" href="_insights_utility_8h_source.html">InsightsUtility.h</a>.</p>
 
 </div>
 </div>
@@ -127,7 +132,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_utility_8h_source.html#l00019">19</a> of file <a class="el" href="_insights_utility_8h_source.html">InsightsUtility.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_utility_8h_source.html#l00023">23</a> of file <a class="el" href="_insights_utility_8h_source.html">InsightsUtility.h</a>.</p>
 
 </div>
 </div>
@@ -141,12 +146,12 @@ Variables</h2></td></tr>
 template&lt;typename T , typename... Ts&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">concept same_as_any_of = (std::same_as&lt;T, Ts&gt; || ...)</td>
+          <td class="memname">concept same_as_any_of = (std::same_as&lt;T, Ts&gt; or ...)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_utility_8h_source.html#l00023">23</a> of file <a class="el" href="_insights_utility_8h_source.html">InsightsUtility.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_utility_8h_source.html#l00027">27</a> of file <a class="el" href="_insights_utility_8h_source.html">InsightsUtility.h</a>.</p>
 
 </div>
 </div>
