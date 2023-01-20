@@ -51,25 +51,26 @@ $(function() {
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;llvm/ADT/STLExtras.h&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">///! A helper inspired by https://github.com/Microsoft/wil/wiki/Error-handling-helpers</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="_insights_utility_8h.html#a22243e4a20c07236699cf5d4f887e3ab">   17</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define RETURN_IF(cond)                                                                                                \</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">    if(cond) {                                                                                                         \</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">        return;                                                                                                        \</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">    }</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="_insights_utility_8h.html#adea30c1555bf6f7d2175e48acf59b288">   23</a></span>&#160;<span class="keyword">using</span> <a class="code" href="_insights_utility_8h.html#adea30c1555bf6f7d2175e48acf59b288">void_func_ref</a> = llvm::function_ref&lt;void()&gt;;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Ts&gt;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="_insights_utility_8h.html#adbd9023489e9f1015b1d2d8ca86c292c">   27</a></span>&#160;concept <a class="code" href="_insights_utility_8h.html#adbd9023489e9f1015b1d2d8ca86c292c">same_as_any_of</a> = (std::same_as&lt;T, Ts&gt; or ...);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* INSIGHTS_UTILITY_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="a_insights_utility_8h_html_adbd9023489e9f1015b1d2d8ca86c292c"><div class="ttname"><a href="_insights_utility_8h.html#adbd9023489e9f1015b1d2d8ca86c292c">same_as_any_of</a></div><div class="ttdeci">concept same_as_any_of</div><div class="ttdef"><b>Definition:</b> <a href="_insights_utility_8h_source.html#l00027">InsightsUtility.h:27</a></div></div>
-<div class="ttc" id="a_insights_utility_8h_html_adea30c1555bf6f7d2175e48acf59b288"><div class="ttname"><a href="_insights_utility_8h.html#adea30c1555bf6f7d2175e48acf59b288">void_func_ref</a></div><div class="ttdeci">llvm::function_ref&lt; void()&gt; void_func_ref</div><div class="ttdef"><b>Definition:</b> <a href="_insights_utility_8h_source.html#l00023">InsightsUtility.h:23</a></div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">///! A helper inspired by https://github.com/Microsoft/wil/wiki/Error-handling-helpers</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="_insights_utility_8h.html#a22243e4a20c07236699cf5d4f887e3ab">   18</a></span>&#160;<span class="comment"></span><span class="preprocessor">#define RETURN_IF(cond)                                                                                                \</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">    if(cond) {                                                                                                         \</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">        return;                                                                                                        \</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">    }</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="_insights_utility_8h.html#adea30c1555bf6f7d2175e48acf59b288">   24</a></span>&#160;<span class="keyword">using</span> <a class="code" href="_insights_utility_8h.html#adea30c1555bf6f7d2175e48acf59b288">void_func_ref</a> = llvm::function_ref&lt;void()&gt;;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span>... Ts&gt;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="_insights_utility_8h.html#adbd9023489e9f1015b1d2d8ca86c292c">   28</a></span>&#160;concept <a class="code" href="_insights_utility_8h.html#adbd9023489e9f1015b1d2d8ca86c292c">same_as_any_of</a> = (std::same_as&lt;T, Ts&gt; or ...);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* INSIGHTS_UTILITY_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="a_insights_utility_8h_html_adbd9023489e9f1015b1d2d8ca86c292c"><div class="ttname"><a href="_insights_utility_8h.html#adbd9023489e9f1015b1d2d8ca86c292c">same_as_any_of</a></div><div class="ttdeci">concept same_as_any_of</div><div class="ttdef"><b>Definition:</b> <a href="_insights_utility_8h_source.html#l00028">InsightsUtility.h:28</a></div></div>
+<div class="ttc" id="a_insights_utility_8h_html_adea30c1555bf6f7d2175e48acf59b288"><div class="ttname"><a href="_insights_utility_8h.html#adea30c1555bf6f7d2175e48acf59b288">void_func_ref</a></div><div class="ttdeci">llvm::function_ref&lt; void()&gt; void_func_ref</div><div class="ttdef"><b>Definition:</b> <a href="_insights_utility_8h_source.html#l00024">InsightsUtility.h:24</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.11-->
 <!-- start footer part -->
