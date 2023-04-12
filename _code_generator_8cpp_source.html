@@ -737,7 +737,7 @@ $(function() {
 <div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_code_generator.html#ad1e9d2faecf473d757dce3d0d8905538">mOutputFormatHelper</a>.<a class="code" href="classclang_1_1insights_1_1_output_format_helper.html#a60b57e56992be76173c655ac665cb345">Append</a>(<a class="code" href="_insights_static_strings_8h.html#a6c4a8af0c8cd31e49f3ec2567ae4bbc5">kwTypeId</a>);</div>
 <div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    <a class="code" href="classclang_1_1insights_1_1_code_generator.html#a1141bfcbb328eb209e25ddeb6d5fbe07">WrapInParens</a>([&amp;]() {</div>
 <div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;        <span class="keywordflow">if</span>(stmt-&gt;isTypeOperand()) {</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;            mOutputFormatHelper.Append(GetName(stmt-&gt;getType()));</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;            mOutputFormatHelper.Append(GetName(stmt-&gt;getTypeOperand(const_cast&lt;ASTContext&amp;&gt;(GetGlobalAST()))));</div>
 <div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;        } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;            InsertArg(stmt-&gt;getExprOperand());</div>
 <div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;        }</div>
