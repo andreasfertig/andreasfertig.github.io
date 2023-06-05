@@ -59,7 +59,7 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespacerun_test.html#af605161ba82a01f4543f95ca58c29ced">   14</a></span>&#160;mypath = <span class="stringliteral">&#39;.&#39;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="namespacerun_test.html#ad7638acd86a07a40d92e714ddb4dafac">   16</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacerun_test.html#ad7638acd86a07a40d92e714ddb4dafac">runCmd</a>(cmd, data=None):</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> <span class="keywordtype">None</span> == input:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">if</span> input <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        stdout, stderr = p.communicate()</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">else</span>:</div>
@@ -70,7 +70,7 @@ $(function() {
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">#------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="namespacerun_test.html#ae61fbc5993818de4e1c5f42f67e04e3b">   27</a></span>&#160;<span class="keyword">def </span><a class="code" href="namespacerun_test.html#ae61fbc5993818de4e1c5f42f67e04e3b">cleanStderr</a>(stderr, fileName=None):</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span> <span class="keywordtype">None</span> != fileName:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">if</span> fileName <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        stderr = stderr.replace(fileName, <span class="stringliteral">&#39;.tmp.cpp&#39;</span>)</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">else</span>:</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        stderr = re.sub(<span class="stringliteral">&#39;(.*).cpp:&#39;</span>, <span class="stringliteral">&#39;.tmp:&#39;</span>, stderr)</div>
@@ -200,11 +200,11 @@ $(function() {
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        fileHeader = fh.readline()</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        fileHeader += fh.readline()</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        m = regEx.search(fileHeader)</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">if</span> <span class="keywordtype">None</span> != m:</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">if</span> m <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            cppStd = m.group(1)</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        m = regExInsights.search(fileHeader)</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordflow">if</span> <span class="keywordtype">None</span> != m:</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordflow">if</span> m <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            insightsOpts = m.group(1)</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isfile(expectFile) <span class="keywordflow">and</span> <span class="keywordflow">not</span> os.path.isfile(ignoreFile):</div>
@@ -301,7 +301,7 @@ $(function() {
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    passed = (0 == missingExpected) <span class="keywordflow">and</span> (expectedToPass == filesPassed)</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">return</span> (<span class="keyword">False</span> == passed)  <span class="comment"># note bash expects 0 for ok</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">return</span> (passed <span class="keywordflow">is</span> <span class="keyword">False</span>)  <span class="comment"># note bash expects 0 for ok</span></div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment">#------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>

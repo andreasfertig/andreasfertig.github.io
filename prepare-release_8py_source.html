@@ -62,7 +62,7 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    oldClangStable = <span class="stringliteral">&#39;14&#39;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    newClangStable = <span class="stringliteral">&#39;15&#39;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    newInsightsVersion = <span class="stringliteral">&#39;0.10&#39;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    oldInsightsVersion = re.search(<span class="stringliteral">&#39;INSIGHTS_VERSION\s+&quot;(.*?)&quot;&#39;</span>, versionH, re.DOTALL | re.MULTILINE).group(1)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    oldInsightsVersion = re.search(<span class="stringliteral">r&#39;INSIGHTS_VERSION\s+&quot;(.*?)&quot;&#39;</span>, versionH, re.DOTALL | re.MULTILINE).group(1)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    print(<span class="stringliteral">&#39;Preparing a new release:&#39;</span>)</div>
@@ -76,7 +76,7 @@ $(function() {
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    regEx = re.compile(<span class="stringliteral">&#39;[clang|llvm]-([0-9]+)&#39;</span>)</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    travis = re.sub(<span class="stringliteral">&#39;(clang|llvm|clang\+\+|llvm-config|llvm-toolchain-bionic|clang-format|clang-tidy|llvm-toolchain-trusty)(-%s)&#39;</span> %(oldClangStable), <span class="stringliteral">&#39;\\1-%s&#39;</span> %(newClangStable) , travis)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    travis = re.sub(<span class="stringliteral">r&#39;(clang|llvm|clang\+\+|llvm-config|llvm-toolchain-bionic|clang-format|clang-tidy|llvm-toolchain-trusty)(-%s)&#39;</span> %(oldClangStable), <span class="stringliteral">&#39;\\1-%s&#39;</span> %(newClangStable) , travis)</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    travis = re.sub(<span class="stringliteral">&#39;(clang|Clang|llvm|LLVM) (%s)&#39;</span> %(oldClangStable), <span class="stringliteral">&#39;\\1 %s&#39;</span> %(newClangStable) , travis)</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    travis = re.sub(<span class="stringliteral">r&quot;(LLVM_VERSION=)(&#39;%s)&quot;</span> %(oldClangStable), <span class="stringliteral">r&quot;\1&#39;%s&quot;</span> %(newClangStable) , travis)</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    travis = re.sub(<span class="stringliteral">r&quot;(LLVM_VERSION:)\s*(%s.0.0)&quot;</span> %(oldClangStable), <span class="stringliteral">r&quot;\1 %s.0.0&quot;</span> %(newClangStable) , travis)</div>
@@ -91,7 +91,7 @@ $(function() {
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    print(<span class="stringliteral">&#39;  - Updating CMakeLists.txt&#39;</span>)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    cmake = open(<span class="stringliteral">&#39;CMakeLists.txt&#39;</span>, <span class="stringliteral">&#39;r&#39;</span>).read()</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    cmake = re.sub(<span class="stringliteral">&#39;(set\&zwj;(INSIGHTS_MIN_LLVM_MAJOR_VERSION)( %s)\&zwj;)&#39;</span> %(oldClangStable), <span class="stringliteral">&#39;\\1 %s)&#39;</span> %(newClangStable) , cmake)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    cmake = re.sub(<span class="stringliteral">r&#39;(set\&zwj;(INSIGHTS_MIN_LLVM_MAJOR_VERSION)( %s)\&zwj;)&#39;</span> %(oldClangStable), <span class="stringliteral">&#39;\\1 %s)&#39;</span> %(newClangStable) , cmake)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    open(<span class="stringliteral">&#39;CMakeLists.txt&#39;</span>, <span class="stringliteral">&#39;w&#39;</span>).write(cmake)</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
@@ -135,7 +135,7 @@ $(function() {
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    print(<span class="stringliteral">&#39;  - Updating cppinsights-docker-base (%s)&#39;</span> %(cppInsightsDockerBaseFile))</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    dockerFile = open(cppInsightsDockerBaseFile, <span class="stringliteral">&#39;r&#39;</span>).read()</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    dockerFile = re.sub(<span class="stringliteral">&#39;(ENV\s+CLANG_VERSION=)([0-9]+)&#39;</span>, <span class="stringliteral">r&#39;\g&lt;1&gt;%s&#39;</span> %(newClangStable), dockerFile)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    dockerFile = re.sub(<span class="stringliteral">r&#39;(ENV\s+CLANG_VERSION=)([0-9]+)&#39;</span>, <span class="stringliteral">r&#39;\g&lt;1&gt;%s&#39;</span> %(newClangStable), dockerFile)</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    open(cppInsightsDockerBaseFile, <span class="stringliteral">&#39;w&#39;</span>).write(dockerFile)</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">#------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
