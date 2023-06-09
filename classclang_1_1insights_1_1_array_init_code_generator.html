@@ -60,19 +60,19 @@ Collaboration diagram for clang::insights::ArrayInitCodeGenerator:</div>
 <div class="dyncontent">
 <div class="center"><img src="classclang_1_1insights_1_1_array_init_code_generator__coll__graph.png" border="0" usemap="#aclang_1_1insights_1_1_array_init_code_generator_coll__map" alt="Collaboration graph"/></div>
 <map name="aclang_1_1insights_1_1_array_init_code_generator_coll__map" id="aclang_1_1insights_1_1_array_init_code_generator_coll__map">
-<area shape="rect" title=" " alt="" coords="765,353,945,394"/>
-<area shape="rect" href="classclang_1_1insights_1_1_code_generator.html" title="More or less the heart of C++ Insights." alt="" coords="493,360,716,387"/>
+<area shape="rect" title=" " alt="" coords="765,367,945,409"/>
+<area shape="rect" href="classclang_1_1insights_1_1_code_generator.html" title="More or less the heart of C++ Insights." alt="" coords="493,375,716,401"/>
 <area shape="rect" title=" " alt="" coords="29,25,224,52"/>
 <area shape="rect" title=" " alt="" coords="47,76,206,103"/>
 <area shape="rect" href="class_stack_list.html" title=" " alt="" coords="5,136,248,163"/>
 <area shape="rect" title=" " alt="" coords="47,196,206,223"/>
-<area shape="rect" title=" " alt="" coords="101,285,152,312"/>
-<area shape="rect" title=" " alt="" coords="54,352,199,379"/>
-<area shape="rect" title=" " alt="" coords="63,403,190,429"/>
-<area shape="rect" title=" " alt="" coords="37,453,217,480"/>
-<area shape="rect" title=" " alt="" coords="77,504,177,531"/>
-<area shape="rect" href="classclang_1_1insights_1_1_output_format_helper.html" title="The C++ Insights formatter." alt="" coords="19,555,234,597"/>
-<area shape="rect" title=" " alt="" coords="50,621,203,648"/>
+<area shape="rect" title=" " alt="" coords="101,300,152,327"/>
+<area shape="rect" title=" " alt="" coords="54,367,199,393"/>
+<area shape="rect" title=" " alt="" coords="63,417,190,444"/>
+<area shape="rect" title=" " alt="" coords="37,468,217,495"/>
+<area shape="rect" title=" " alt="" coords="77,519,177,545"/>
+<area shape="rect" href="classclang_1_1insights_1_1_output_format_helper.html" title="The C++ Insights formatter." alt="" coords="19,570,234,611"/>
+<area shape="rect" title=" " alt="" coords="50,636,203,663"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -316,6 +316,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a64e632a0204d480d0e44222a5fe65ea1 inherit pro_static_attribs_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#a64e632a0204d480d0e44222a5fe65ea1">mHaveLocalStatic</a></td></tr>
 <tr class="memdesc:a64e632a0204d480d0e44222a5fe65ea1 inherit pro_static_attribs_classclang_1_1insights_1_1_code_generator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Track whether there was a thread-safe <code>static</code> in the code.  <a href="classclang_1_1insights_1_1_code_generator.html#a64e632a0204d480d0e44222a5fe65ea1">More...</a><br /></td></tr>
 <tr class="separator:a64e632a0204d480d0e44222a5fe65ea1 inherit pro_static_attribs_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa75a330ec5f65acd10b3270ad9976b31 inherit pro_static_attribs_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#aa75a330ec5f65acd10b3270ad9976b31">mHaveCoroutine</a></td></tr>
+<tr class="memdesc:aa75a330ec5f65acd10b3270ad9976b31 inherit pro_static_attribs_classclang_1_1insights_1_1_code_generator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Track whether there we have a coroutine and need the new header there.  <a href="classclang_1_1insights_1_1_code_generator.html#aa75a330ec5f65acd10b3270ad9976b31">More...</a><br /></td></tr>
+<tr class="separator:aa75a330ec5f65acd10b3270ad9976b31 inherit pro_static_attribs_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aada5a65646358462e19296e28225c4fb inherit pro_static_attribs_classclang_1_1insights_1_1_code_generator"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator.html#aada5a65646358462e19296e28225c4fb">mHaveMovedLambda</a></td></tr>
 <tr class="memdesc:aada5a65646358462e19296e28225c4fb inherit pro_static_attribs_classclang_1_1insights_1_1_code_generator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Track whether there was a std::move inserted.  <a href="classclang_1_1insights_1_1_code_generator.html#aada5a65646358462e19296e28225c4fb">More...</a><br /></td></tr>
 <tr class="separator:aada5a65646358462e19296e28225c4fb inherit pro_static_attribs_classclang_1_1insights_1_1_code_generator"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -410,7 +413,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00164">164</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00168">168</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
 </div>
 </div>
@@ -426,7 +429,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00165">165</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8cpp_source.html#l00169">169</a> of file <a class="el" href="_code_generator_8cpp_source.html">CodeGenerator.cpp</a>.</p>
 
 </div>
 </div>
