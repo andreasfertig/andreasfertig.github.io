@@ -38,7 +38,6 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -106,10 +105,11 @@ Include dependency graph for CoroutinesCodeGenerator.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclang_1_1insights_1_1_decls_holder.html">clang::insights::DeclsHolder</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclang_1_1insights_1_1_stmts_container.html">clang::insights::StmtsContainer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">! A helper type to have a container for ArrayRef  <a href="structclang_1_1insights_1_1_stmts_container.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_coroutine_a_s_t_transformer.html">clang::insights::CoroutineASTTransformer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a <code>SuspendsExpr's</code> in a coroutine body statement for early transformation.  <a href="classclang_1_1insights_1_1_coroutine_a_s_t_transformer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -121,28 +121,13 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceclang_1_1insights_1_1asthelpers"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html">clang::insights::asthelpers</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a8e4d49f8d7833a282eb74ff9a464b522"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_coroutines_code_generator_8cpp.html#a8e4d49f8d7833a282eb74ff9a464b522">SKIP_NAME_PREFIX_FOR_SCOPE</a></td></tr>
-<tr class="separator:a8e4d49f8d7833a282eb74ff9a464b522"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a23669081df5ea495668c58a485b656"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_coroutines_code_generator_8cpp.html#a3a23669081df5ea495668c58a485b656">SCOPED_VAR_TOGGLE</a>(var)</td></tr>
-<tr class="separator:a3a23669081df5ea495668c58a485b656"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a38df7885ae95cee3556ee655e768fcac"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">clang::insights::asthelpers::params_vector</a> = std::vector&lt; std::pair&lt; std::string_view, QualType &gt; &gt;</td></tr>
 <tr class="separator:a38df7885ae95cee3556ee655e768fcac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef7267b45a6a1a9412c49519a7dab41b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#aef7267b45a6a1a9412c49519a7dab41b">clang::insights::decl_vector_t</a> = std::vector&lt; const VarDecl * &gt;</td></tr>
-<tr class="separator:aef7267b45a6a1a9412c49519a7dab41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e62a04754955c1c2cb0badd147a2f83"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a8e62a04754955c1c2cb0badd147a2f83">clang::insights::this_vector_t</a> = std::vector&lt; const CXXThisExpr * &gt;</td></tr>
-<tr class="separator:a8e62a04754955c1c2cb0badd147a2f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b67dd30256ebe660d9113e25acb65a2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a7b67dd30256ebe660d9113e25acb65a2">clang::insights::recordDecl_vector_t</a> = std::vector&lt; const CXXRecordDecl * &gt;</td></tr>
-<tr class="separator:a7b67dd30256ebe660d9113e25acb65a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9a33e5feeee1194d541702e3f2b0718b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a9a33e5feeee1194d541702e3f2b0718b">clang::insights::SkipNamePrefix</a> (bool b)</td></tr>
-<tr class="separator:a9a33e5feeee1194d541702e3f2b0718b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace11ff739993c05dee9fc96c8ebc72e7"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ace11ff739993c05dee9fc96c8ebc72e7">clang::insights::asthelpers::mkLabelDecl</a> (std::string_view name)</td></tr>
 <tr class="separator:ace11ff739993c05dee9fc96c8ebc72e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cd6648246c648a337c7eac437c0533b"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a7cd6648246c648a337c7eac437c0533b">clang::insights::asthelpers::mkLabelStmt</a> (std::string_view name)</td></tr>
@@ -195,16 +180,18 @@ Functions</h2></td></tr>
 <tr class="separator:a5a21458b371b445ae9dcd970ecc727d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad370205170154cc105a1495f2dd622ff"><td class="memItemLeft" align="right" valign="top">UnaryExprOrTypeTraitExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ad370205170154cc105a1495f2dd622ff">clang::insights::Sizeof</a> (QualType toType)</td></tr>
 <tr class="separator:ad370205170154cc105a1495f2dd622ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6393ae4635c06a64d928e330f93e27c8"><td class="memItemLeft" align="right" valign="top">static FieldDecl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a6393ae4635c06a64d928e330f93e27c8">clang::insights::AddField</a> (CoroutineASTData &amp;astData, std::string_view name, QualType type)</td></tr>
+<tr class="separator:a6393ae4635c06a64d928e330f93e27c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab99c2cc3e61baaea5c426e7ed883e55d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ab99c2cc3e61baaea5c426e7ed883e55d">clang::insights::ReplaceAll</a> (std::string &amp;str, std::string_view from, std::string_view to)</td></tr>
 <tr class="separator:ab99c2cc3e61baaea5c426e7ed883e55d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84c9e2bccb3583b941fdb0940fd9d330"><td class="memItemLeft" align="right" valign="top">static auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a84c9e2bccb3583b941fdb0940fd9d330">clang::insights::CreateFunctionDecl</a> (std::string funcName, asthelpers::params_vector params)</td></tr>
 <tr class="separator:a84c9e2bccb3583b941fdb0940fd9d330"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a324d0b94ad0db41c2fe8ba9e743461f7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a324d0b94ad0db41c2fe8ba9e743461f7">clang::insights::SetFunctionBody</a> (FunctionDecl *fd, StmtsContainer &amp;bodyStmts)</td></tr>
 <tr class="separator:a324d0b94ad0db41c2fe8ba9e743461f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad852e1064361f3d3c97496ef9ce9e8b2"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ad852e1064361f3d3c97496ef9ce9e8b2">clang::insights::BuildSuspendVarName</a> (const OpaqueValueExpr *stmt)</td></tr>
+<tr class="separator:ad852e1064361f3d3c97496ef9ce9e8b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4198515122f0b4d232a14607f3fee1ee"><td class="memItemLeft" align="right" valign="top">static std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a4198515122f0b4d232a14607f3fee1ee">clang::insights::FindValue</a> (llvm::DenseMap&lt; const Expr *, std::string &gt; &amp;map, const Expr *key)</td></tr>
 <tr class="separator:a4198515122f0b4d232a14607f3fee1ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae355092cb9ef0082caed5d6a0f8ce507"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ae355092cb9ef0082caed5d6a0f8ce507">clang::insights::HasCoroutineSuspendExpr</a> (const <a class="el" href="class_stmt.html">Stmt</a> *stmt)</td></tr>
-<tr class="separator:ae355092cb9ef0082caed5d6a0f8ce507"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -222,51 +209,7 @@ Variables</h2></td></tr>
 <tr class="separator:a13aa60cc32f09249daad1393e6a57be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4dfcb0b4aa3ea11f8c5cd21970ae43c"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#aa4dfcb0b4aa3ea11f8c5cd21970ae43c">clang::insights::FINAL_SUSPEND_NAME</a> {BuildInternalVarName(&quot;final_suspend&quot;sv)}</td></tr>
 <tr class="separator:aa4dfcb0b4aa3ea11f8c5cd21970ae43c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea1a55a34d3910900a82d754669ea37f"><td class="memItemLeft" align="right" valign="top">static DeclsHolder&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#aea1a55a34d3910900a82d754669ea37f">clang::insights::mDeclsHolder</a> {}</td></tr>
-<tr class="separator:aea1a55a34d3910900a82d754669ea37f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a3a23669081df5ea495668c58a485b656"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a23669081df5ea495668c58a485b656">&#9670;&nbsp;</a></span>SCOPED_VAR_TOGGLE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SCOPED_VAR_TOGGLE</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">var</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">if</span>(FinalAction __fa{[&amp;] { var != var; }}; (var != var), <span class="keyword">false</span>) {                                                   \</div>
-<div class="line">    } <span class="keywordflow">else</span></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00027">27</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a8e4d49f8d7833a282eb74ff9a464b522"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e4d49f8d7833a282eb74ff9a464b522">&#9670;&nbsp;</a></span>SKIP_NAME_PREFIX_FOR_SCOPE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SKIP_NAME_PREFIX_FOR_SCOPE</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">if</span>(FinalAction __fa{[] { <a class="code" href="namespaceclang_1_1insights.html#a9a33e5feeee1194d541702e3f2b0718b">SkipNamePrefix</a>(<span class="keyword">false</span>); }}; <a class="code" href="namespaceclang_1_1insights.html#a9a33e5feeee1194d541702e3f2b0718b">SkipNamePrefix</a>(<span class="keyword">true</span>), <span class="keyword">false</span>) {                                 \</div>
-<div class="line">    } <span class="keywordflow">else</span></div>
-<div class="ttc" id="anamespaceclang_1_1insights_html_a9a33e5feeee1194d541702e3f2b0718b"><div class="ttname"><a href="namespaceclang_1_1insights.html#a9a33e5feeee1194d541702e3f2b0718b">clang::insights::SkipNamePrefix</a></div><div class="ttdeci">void SkipNamePrefix(bool b)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_helpers_8cpp_source.html#l01260">InsightsHelpers.cpp:1260</a></div></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00023">23</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.11-->
 <!-- start footer part -->

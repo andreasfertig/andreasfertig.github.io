@@ -39,8 +39,7 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">InsightsHelpers.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -214,14 +213,6 @@ Functions</h2></td></tr>
 <tr class="separator:ad61916ff78d0c6cc6474ea740066b376"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16120180befa5b9477570215b22b5736"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a16120180befa5b9477570215b22b5736">clang::insights::GetTemplateParameterPackArgumentName</a> (std::string_view name, const Decl *decl)</td></tr>
 <tr class="separator:a16120180befa5b9477570215b22b5736"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdf65159bbccb2cb9b6c41a497f96f1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#abdf65159bbccb2cb9b6c41a497f96f1a">clang::insights::AddToVarNamePrefixMap</a> (const VarDecl *vd, std::string_view name)</td></tr>
-<tr class="separator:abdf65159bbccb2cb9b6c41a497f96f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bf2de61a22fee3ed8d5b6e3eb3abbca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a1bf2de61a22fee3ed8d5b6e3eb3abbca">clang::insights::ClearVarNamePrefix</a> ()</td></tr>
-<tr class="separator:a1bf2de61a22fee3ed8d5b6e3eb3abbca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a33e5feeee1194d541702e3f2b0718b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a9a33e5feeee1194d541702e3f2b0718b">clang::insights::SkipNamePrefix</a> (bool b)</td></tr>
-<tr class="separator:a9a33e5feeee1194d541702e3f2b0718b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac34e11efe0b8c447b9b46056e69c85af"><td class="memItemLeft" align="right" valign="top">static std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ac34e11efe0b8c447b9b46056e69c85af">clang::insights::GetPrefixIfAvailable</a> (const ValueDecl *decl)</td></tr>
-<tr class="separator:ac34e11efe0b8c447b9b46056e69c85af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa844d9a8142d05091eb9a50bb131f00"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#afa844d9a8142d05091eb9a50bb131f00">clang::insights::GetName</a> (const DeclRefExpr &amp;declRefExpr)</td></tr>
 <tr class="separator:afa844d9a8142d05091eb9a50bb131f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a254bc59c81fe07ef87ac27e5b3ef254f"><td class="memItemLeft" align="right" valign="top">const DeclRefExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a254bc59c81fe07ef87ac27e5b3ef254f">clang::insights::FindDeclRef</a> (const <a class="el" href="class_stmt.html">Stmt</a> *stmt)</td></tr>
@@ -240,13 +231,6 @@ Functions</h2></td></tr>
 <tr class="memitem:aa86700e1919de7df97968abb6129c5a3"><td class="memTemplParams" colspan="2">template&lt;class... Ts&gt; </td></tr>
 <tr class="memitem:aa86700e1919de7df97968abb6129c5a3"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#aa86700e1919de7df97968abb6129c5a3">clang::insights::overloaded</a> (Ts...) -&gt; overloaded&lt; Ts... &gt;</td></tr>
 <tr class="separator:aa86700e1919de7df97968abb6129c5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ae783c2e74385270f932fa36f4043d847"><td class="memItemLeft" align="right" valign="top">static llvm::DenseMap&lt; const ValueDecl *, std::string_view &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ae783c2e74385270f932fa36f4043d847">clang::insights::varNamePrefix</a> {}</td></tr>
-<tr class="separator:ae783c2e74385270f932fa36f4043d847"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4c318858fd4a2e28a07ef2f9ef215f4"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ac4c318858fd4a2e28a07ef2f9ef215f4">clang::insights::skipNamePrefix</a> {}</td></tr>
-<tr class="separator:ac4c318858fd4a2e28a07ef2f9ef215f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a143d8ccdc97606721f594b124e75070e"></a>

@@ -94,17 +94,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a16833cf4172126c0f50e7738f02a74d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac60200dc8bb6d3c28f15773e5f84444f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_coroutines_code_generator.html#ac60200dc8bb6d3c28f15773e5f84444f">InsertArg</a> (const CallExpr *stmt) override</td></tr>
 <tr class="separator:ac60200dc8bb6d3c28f15773e5f84444f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a708e81e1b4aaf6ceb78e689dd90df83a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_coroutines_code_generator.html#a708e81e1b4aaf6ceb78e689dd90df83a">InsertArg</a> (const CStyleCastExpr *stmt) override</td></tr>
-<tr class="memdesc:a708e81e1b4aaf6ceb78e689dd90df83a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is here to filter out a void cast of a co_await / co_yield expr.  <a href="classclang_1_1insights_1_1_coroutines_code_generator.html#a708e81e1b4aaf6ceb78e689dd90df83a">More...</a><br /></td></tr>
-<tr class="separator:a708e81e1b4aaf6ceb78e689dd90df83a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae97e3975eff1f3cd4e503499db28ec4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_coroutines_code_generator.html#ae97e3975eff1f3cd4e503499db28ec4d">InsertArg</a> (const CXXRecordDecl *stmt) override</td></tr>
 <tr class="separator:ae97e3975eff1f3cd4e503499db28ec4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2c9c535ea71641ff0ef97a204831834"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_coroutines_code_generator.html#aa2c9c535ea71641ff0ef97a204831834">InsertArg</a> (const CXXThisExpr *stmt) override</td></tr>
-<tr class="separator:aa2c9c535ea71641ff0ef97a204831834"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3055f02f43e44055a25f8a42a6d1a1b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_coroutines_code_generator.html#a3055f02f43e44055a25f8a42a6d1a1b7">InsertArg</a> (const OpaqueValueExpr *stmt) override</td></tr>
 <tr class="separator:a3055f02f43e44055a25f8a42a6d1a1b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a6e25588313978c1ed2f1ff042341c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_coroutines_code_generator.html#a3a6e25588313978c1ed2f1ff042341c8">InsertArg</a> (const BinaryOperator *stmt) override</td></tr>
-<tr class="separator:a3a6e25588313978c1ed2f1ff042341c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a044d9e8235007b00f819248b60c81b7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_coroutines_code_generator.html#a044d9e8235007b00f819248b60c81b7b">InsertArg</a> (const CoroutineBodyStmt *stmt) override</td></tr>
 <tr class="separator:a044d9e8235007b00f819248b60c81b7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8510f314e2f2d286d4127ab6e100ce26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_coroutines_code_generator.html#a8510f314e2f2d286d4127ab6e100ce26">InsertArg</a> (const CoroutineSuspendExpr *stmt) override</td></tr>
@@ -367,7 +360,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A special generator for coroutines. It is only activated, if <code>-show-coroutines-transformation</code> is given as a command line option. </p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00488">488</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00489">489</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4a789db383fdcbc0a1464c4b6fc264b4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4a789db383fdcbc0a1464c4b6fc264b4">&#9670;&nbsp;</a></span>CoroutinesCodeGenerator() <span class="overload">[1/2]</span></h2>
@@ -403,7 +396,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00491">491</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00492">492</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -459,7 +452,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00496">496</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00497">497</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -486,9 +479,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00360">360</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00272">272</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l01255">clang::insights::ClearVarNamePrefix()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03626">clang::insights::CodeGenerator::InsertArg()</a>, and <a class="el" href="_insights_utility_8h_source.html#l00018">RETURN_IF</a>.</p>
+<p class="reference">References <a class="el" href="_code_generator_8cpp_source.html#l03635">clang::insights::CodeGenerator::InsertArg()</a>, and <a class="el" href="_insights_utility_8h_source.html#l00018">RETURN_IF</a>.</p>
 
 </div>
 </div>
@@ -516,42 +509,12 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00527">527</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
-
-</div>
-</div>
-<a id="a3a6e25588313978c1ed2f1ff042341c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a6e25588313978c1ed2f1ff042341c8">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[1/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void clang::insights::CoroutinesCodeGenerator::InsertArg </td>
-          <td>(</td>
-          <td class="paramtype">const BinaryOperator *&#160;</td>
-          <td class="paramname"><em>stmt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01296">1296</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="_insights_helpers_8h_source.html#l00095">clang::insights::Contains()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01215">clang::insights::HasCoroutineSuspendExpr()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00525">525</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
 <a id="ac60200dc8bb6d3c28f15773e5f84444f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac60200dc8bb6d3c28f15773e5f84444f">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[2/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac60200dc8bb6d3c28f15773e5f84444f">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[1/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -574,14 +537,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00993">993</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01148">1148</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00088">clang::insights::GetPlainName()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00269">clang::insights::Sizeof()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00088">clang::insights::GetPlainName()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00259">clang::insights::Sizeof()</a>.</p>
 
 </div>
 </div>
 <a id="a8fadc323e5328bfa6e1bdf812a375ca3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fadc323e5328bfa6e1bdf812a375ca3">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[3/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fadc323e5328bfa6e1bdf812a375ca3">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[2/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -604,14 +567,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01233">1233</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01356">1356</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00162">kwCoReturnSpace</a>, and <a class="el" href="_output_format_helper_8h_source.html#l00051">clang::insights::OutputFormatHelper::SetIndent()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, and <a class="el" href="_insights_static_strings_8h_source.html#l00162">kwCoReturnSpace</a>.</p>
 
 </div>
 </div>
 <a id="a044d9e8235007b00f819248b60c81b7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a044d9e8235007b00f819248b60c81b7b">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[4/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a044d9e8235007b00f819248b60c81b7b">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[3/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -634,14 +597,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00839">839</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01053">1053</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00392">clang::insights::StmtsContainer::Add()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00290">clang::insights::DeclsHolder::EmulateEmpty</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00038">clang::insights::FINAL_SUSPEND_NAME</a>, <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00902">clang::insights::details::GetName()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00128">kwInternalThis</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00283">clang::insights::DeclsHolder::mDecls</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00351">clang::insights::mDeclsHolder</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00220">clang::insights::asthelpers::mkCaseStmt()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00055">clang::insights::asthelpers::mkCompoundStmt()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00125">clang::insights::asthelpers::mkGotoStmt()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00249">clang::insights::asthelpers::mkInsightsComment()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00050">clang::insights::asthelpers::mkLabelStmt()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00086">clang::insights::asthelpers::mkNotIfStmt()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00286">clang::insights::DeclsHolder::mRecordDecls</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00288">clang::insights::DeclsHolder::mThisExprs</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00027">SCOPED_VAR_TOGGLE</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00023">SKIP_NAME_PREFIX_FOR_SCOPE</a>.</p>
+<p class="reference">References <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00304">clang::insights::StmtsContainer::Add()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00315">clang::insights::AddField()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00028">clang::insights::FINAL_SUSPEND_NAME</a>, <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00128">kwInternalThis</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00210">clang::insights::asthelpers::mkCaseStmt()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00045">clang::insights::asthelpers::mkCompoundStmt()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00115">clang::insights::asthelpers::mkGotoStmt()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00239">clang::insights::asthelpers::mkInsightsComment()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00040">clang::insights::asthelpers::mkLabelStmt()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00076">clang::insights::asthelpers::mkNotIfStmt()</a>.</p>
 
 </div>
 </div>
 <a id="a8510f314e2f2d286d4127ab6e100ce26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8510f314e2f2d286d4127ab6e100ce26">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[5/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8510f314e2f2d286d4127ab6e100ce26">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[4/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -666,44 +629,14 @@ Additional Inherited Members</h2></td></tr>
 <p>Represents an expression that might suspend coroutine execution; either a co_await or co_yield expression.</p>
 <p>Evaluation of this expression first evaluates its 'ready' expression. If that returns 'false': &ndash; execution of the coroutine is suspended &ndash; the 'suspend' expression is evaluated &ndash; if the 'suspend' expression returns 'false', the coroutine is resumed &ndash; otherwise, control passes back to the resumer. If the coroutine is not suspended, or when it is resumed, the 'resume' expression is evaluated, and its result is the result of the overall expression.</p>
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01087">1087</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01239">1239</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01026">clang::insights::FindValue()</a>, and <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
-
-</div>
-</div>
-<a id="a708e81e1b4aaf6ceb78e689dd90df83a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a708e81e1b4aaf6ceb78e689dd90df83a">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[6/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void clang::insights::CoroutinesCodeGenerator::InsertArg </td>
-          <td>(</td>
-          <td class="paramtype">const CStyleCastExpr *&#160;</td>
-          <td class="paramname"><em>stmt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This is here to filter out a void cast of a co_await / co_yield expr. </p>
-
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00949">949</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
 
 </div>
 </div>
 <a id="ae97e3975eff1f3cd4e503499db28ec4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae97e3975eff1f3cd4e503499db28ec4d">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[7/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae97e3975eff1f3cd4e503499db28ec4d">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[5/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -726,42 +659,12 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00940">940</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
-
-</div>
-</div>
-<a id="aa2c9c535ea71641ff0ef97a204831834"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2c9c535ea71641ff0ef97a204831834">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[8/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void clang::insights::CoroutinesCodeGenerator::InsertArg </td>
-          <td>(</td>
-          <td class="paramtype">const CXXThisExpr *&#160;</td>
-          <td class="paramname"><em>stmt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01286">1286</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="_insights_helpers_8h_source.html#l00095">clang::insights::Contains()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00034">clang::insights::CORO_FRAME_ACCESS_THIS</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00351">clang::insights::mDeclsHolder</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00288">clang::insights::DeclsHolder::mThisExprs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01127">1127</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a197dbd903d92a812483bbc3a61308819"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a197dbd903d92a812483bbc3a61308819">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[9/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a197dbd903d92a812483bbc3a61308819">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[6/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -777,7 +680,7 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <a id="a16833cf4172126c0f50e7738f02a74d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16833cf4172126c0f50e7738f02a74d0">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[10/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a16833cf4172126c0f50e7738f02a74d0">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[7/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -800,12 +703,12 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00981">981</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01136">1136</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a3055f02f43e44055a25f8a42a6d1a1b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3055f02f43e44055a25f8a42a6d1a1b7">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[11/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3055f02f43e44055a25f8a42a6d1a1b7">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[8/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -828,14 +731,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01036">1036</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01191">1191</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00185">clang::insights::BuildInternalVarName()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00033">clang::insights::CORO_FRAME_ACCESS</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01026">clang::insights::FindValue()</a>, <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00284">clang::insights::MakeLineColumnName()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00118">clang::insights::asthelpers::mkAssign()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00087">clang::insights::details::StrCat()</a>.</p>
+<p class="reference">References <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00315">clang::insights::AddField()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00361">clang::insights::BuildSuspendVarName()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00023">clang::insights::CORO_FRAME_ACCESS</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01181">clang::insights::FindValue()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00108">clang::insights::asthelpers::mkAssign()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00087">clang::insights::details::StrCat()</a>.</p>
 
 </div>
 </div>
 <a id="a0d493c636c3e6ff838ad21df00e0c5a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d493c636c3e6ff838ad21df00e0c5a9">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[12/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d493c636c3e6ff838ad21df00e0c5a9">&#9670;&nbsp;</a></span>InsertArg() <span class="overload">[9/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -876,9 +779,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00443">443</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00709">709</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00185">clang::insights::BuildInternalVarName()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00032">clang::insights::CORO_FRAME_NAME</a>, <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00902">clang::insights::details::GetName()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00133">hlpResumeFn</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00284">clang::insights::MakeLineColumnName()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00351">clang::insights::mDeclsHolder</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00260">clang::insights::asthelpers::mkCXXRecordDecl()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00188">clang::insights::asthelpers::mkDeclRefExpr()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00174">clang::insights::asthelpers::mkFunctionDecl()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00229">clang::insights::asthelpers::mkVarDecl()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00292">clang::insights::DeclsHolder::push_back()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00420">clang::insights::ReplaceAll()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00087">clang::insights::details::StrCat()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_helpers_8cpp_source.html#l00185">clang::insights::BuildInternalVarName()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00022">clang::insights::CORO_FRAME_NAME</a>, <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00899">clang::insights::details::GetName()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00133">hlpResumeFn</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00284">clang::insights::MakeLineColumnName()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00250">clang::insights::asthelpers::mkCXXRecordDecl()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00178">clang::insights::asthelpers::mkDeclRefExpr()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00164">clang::insights::asthelpers::mkFunctionDecl()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00219">clang::insights::asthelpers::mkVarDecl()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00338">clang::insights::ReplaceAll()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00087">clang::insights::details::StrCat()</a>.</p>
 
 </div>
 </div>
@@ -907,7 +810,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classclang_1_1insights_1_1_code_generator.html#a2bc34daf3d79e1ee3c47f90ce334f27e">clang::insights::CodeGenerator</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00530">530</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00528">528</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -936,7 +839,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="classclang_1_1insights_1_1_code_generator.html#ac6a1b3337e86694f814ac8d4ae1955fe">clang::insights::CodeGenerator</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00531">531</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00529">529</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
