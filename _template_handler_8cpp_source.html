@@ -274,44 +274,56 @@ $(function() {
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        <a class="code" href="_insights_utility_8h.html#a22243e4a20c07236699cf5d4f887e3ab">RETURN_IF</a>(outputFormatHelper.<a class="code" href="classclang_1_1insights_1_1_output_format_helper.html#a9e64ba0f2d57e43f8c65c76b3806f779">empty</a>());</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keywordflow">if</span>(<span class="keyword">auto</span> sourceRange = vd-&gt;getSourceRange(); not <a class="code" href="namespaceclang_1_1insights.html#addb1cb6e57297289785916aefc56e674">IsMacroLocation</a>(sourceRange)) {</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> endOfCond = <a class="code" href="namespaceclang_1_1insights.html#a675cd82dc2017b1c8f79938a45b467be">FindLocationAfterSemi</a>(vd-&gt;getEndLoc(), result);</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            <a class="code" href="classclang_1_1insights_1_1_insights_base.html#a58c24d3f1f5841fa46d746c9c74f48b9">mRewrite</a>.ReplaceText({sourceRange.getBegin(), endOfCond}, outputFormatHelper);</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            <span class="comment">// We&#39;re just interested in the start location, -1 work(s|ed)</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> startLoc =</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                <a class="code" href="namespaceclang_1_1insights.html#a38b22c048007958fd8f8b263eca430a9">GetSourceRangeAfterSemi</a>(sourceRange, result, RequireSemi::No).getBegin().getLocWithOffset(-1);</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            <a class="code" href="classclang_1_1insights_1_1_insights_base.html#a403194ca8523e761510c0c7e249d7771">InsertIndentedText</a>(startLoc, outputFormatHelper);</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        }</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<span class="keyword">const</span> <span class="keyword">auto</span>* vdspec = result.Nodes.getNodeAs&lt;VarTemplateSpecializationDecl&gt;(<a class="code" href="namespaceclang_1_1insights.html#a187fc8962cd7f1cfcb51757723ead830">idVarSpec</a>)) {</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="comment">// Only handle explicit specializations here. Implicit ones are handled by the `VarTemplateDecl` itself.</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <span class="keywordflow">if</span>(TSK_ExplicitSpecialization != vdspec-&gt;getSpecializationKind()) {</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        }</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> tmpLoc = [&amp;] {</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                <span class="keywordflow">if</span>(<span class="keyword">const</span> <span class="keyword">auto</span>* init = vd-&gt;getTemplatedDecl()-&gt;getInit()) {</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                    <span class="keywordflow">return</span> init-&gt;getEndLoc();</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                }</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                <span class="keywordflow">return</span> vd-&gt;getEndLoc();</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            }();</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> endOfCond = <a class="code" href="namespaceclang_1_1insights.html#a675cd82dc2017b1c8f79938a45b467be">FindLocationAfterSemi</a>(tmpLoc, result);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            <a class="code" href="classclang_1_1insights_1_1_insights_base.html#a58c24d3f1f5841fa46d746c9c74f48b9">mRewrite</a>.ReplaceText({sourceRange.getBegin(), endOfCond.getLocWithOffset(-1)}, outputFormatHelper);</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            <span class="comment">// We&#39;re just interested in the start location, -1 work(s|ed)</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> startLoc =</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                <a class="code" href="namespaceclang_1_1insights.html#a38b22c048007958fd8f8b263eca430a9">GetSourceRangeAfterSemi</a>(sourceRange, result, RequireSemi::No).getBegin().getLocWithOffset(-1);</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <span class="keywordflow">if</span>(<span class="keyword">const</span> <span class="keyword">auto</span>* init = vdspec-&gt;getAnyInitializer()) {</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;            init-&gt;dump();</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        }</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <a class="code" href="classclang_1_1insights_1_1_output_format_helper.html">OutputFormatHelper</a> outputFormatHelper = <a class="code" href="namespaceclang_1_1insights.html#a708da17310887e0439840e8e5ef7bb4d">InsertInstantiatedTemplate</a>(vdspec);</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keywordflow">if</span>(<span class="keyword">auto</span> sourceRange = vdspec-&gt;getSourceRange(); not <a class="code" href="namespaceclang_1_1insights.html#addb1cb6e57297289785916aefc56e674">IsMacroLocation</a>(sourceRange)) {</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> endOfCond = <a class="code" href="namespaceclang_1_1insights.html#a675cd82dc2017b1c8f79938a45b467be">FindLocationAfterSemi</a>(vdspec-&gt;getEndLoc(), result);</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <a class="code" href="classclang_1_1insights_1_1_insights_base.html#a58c24d3f1f5841fa46d746c9c74f48b9">mRewrite</a>.ReplaceText({sourceRange.getBegin(), endOfCond.getLocWithOffset(1)}, outputFormatHelper);</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> startLoc = <a class="code" href="namespaceclang_1_1insights.html#a38b22c048007958fd8f8b263eca430a9">GetSourceRangeAfterSemi</a>(sourceRange, result, RequireSemi::No).getBegin();</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            <a class="code" href="classclang_1_1insights_1_1_insights_base.html#a403194ca8523e761510c0c7e249d7771">InsertIndentedText</a>(startLoc, outputFormatHelper);</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        }</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    }</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;}</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;}  <span class="comment">// namespace clang::insights</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            <a class="code" href="classclang_1_1insights_1_1_insights_base.html#a403194ca8523e761510c0c7e249d7771">InsertIndentedText</a>(startLoc, outputFormatHelper);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        }</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<span class="keyword">const</span> <span class="keyword">auto</span>* vdspec = result.Nodes.getNodeAs&lt;VarTemplateSpecializationDecl&gt;(<a class="code" href="namespaceclang_1_1insights.html#a187fc8962cd7f1cfcb51757723ead830">idVarSpec</a>)) {</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <span class="comment">// Only handle explicit specializations here. Implicit ones are handled by the `VarTemplateDecl` itself.</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <span class="keywordflow">if</span>(TSK_ExplicitSpecialization != vdspec-&gt;getSpecializationKind()) {</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        }</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <a class="code" href="classclang_1_1insights_1_1_output_format_helper.html">OutputFormatHelper</a> outputFormatHelper = <a class="code" href="namespaceclang_1_1insights.html#a708da17310887e0439840e8e5ef7bb4d">InsertInstantiatedTemplate</a>(vdspec);</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keywordflow">if</span>(<span class="keyword">auto</span> sourceRange = vdspec-&gt;getSourceRange(); not <a class="code" href="namespaceclang_1_1insights.html#addb1cb6e57297289785916aefc56e674">IsMacroLocation</a>(sourceRange)) {</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> tmpLoc = [&amp;] {</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                <span class="keywordflow">if</span>(<span class="keyword">const</span> <span class="keyword">auto</span>* init = vdspec-&gt;getInit()) {</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                    <span class="keywordflow">return</span> init-&gt;getEndLoc();</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                }</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                <span class="keywordflow">return</span> vdspec-&gt;getEndLoc();</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            }();</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> endOfCond = <a class="code" href="namespaceclang_1_1insights.html#a675cd82dc2017b1c8f79938a45b467be">FindLocationAfterSemi</a>(tmpLoc, result);</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;            <a class="code" href="classclang_1_1insights_1_1_insights_base.html#a58c24d3f1f5841fa46d746c9c74f48b9">mRewrite</a>.ReplaceText({sourceRange.getBegin(), endOfCond}, outputFormatHelper);</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> startLoc = <a class="code" href="namespaceclang_1_1insights.html#a38b22c048007958fd8f8b263eca430a9">GetSourceRangeAfterSemi</a>(sourceRange, result, RequireSemi::No).getBegin();</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            <a class="code" href="classclang_1_1insights_1_1_insights_base.html#a403194ca8523e761510c0c7e249d7771">InsertIndentedText</a>(startLoc, outputFormatHelper);</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        }</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    }</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;}</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;}  <span class="comment">// namespace clang::insights</span></div>
 <div class="ttc" id="a_clang_compat_8h_html"><div class="ttname"><a href="_clang_compat_8h.html">ClangCompat.h</a></div></div>
 <div class="ttc" id="a_code_generator_8h_html"><div class="ttname"><a href="_code_generator_8h.html">CodeGenerator.h</a></div></div>
 <div class="ttc" id="a_insights_helpers_8h_html"><div class="ttname"><a href="_insights_helpers_8h.html">InsightsHelpers.h</a></div></div>
