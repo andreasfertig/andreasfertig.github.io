@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>C++ Insights: C++ Insights command line options</title>
+<title>C++ Insights: show-all-callexpr-template-parameters</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -36,20 +36,26 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">C++ Insights command line options </div>  </div>
+<div class="title">show-all-callexpr-template-parameters </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_docs_CommandLineOptions"></a></p><ul>
-<li><a class="el" href="alt_syntax_for.html">alt-syntax-for</a></li>
-<li><a class="el" href="alt_syntax_subscription.html">alt-syntax-subscription</a></li>
-<li><a class="el" href="edu_show_coroutine_transformation.html">edu-show-coroutine-transformation</a></li>
-<li><a class="el" href="edu_show_initlist.html">edu-show-initlist</a></li>
-<li><a class="el" href="edu_show_noexcept.html">edu-show-noexcept</a></li>
-<li><a class="el" href="edu_show_padding.html">edu-show-padding</a></li>
-<li><a class="el" href="show_all_callexpr_template_parameters.html">show-all-callexpr-template-parameters</a></li>
-<li><a class="el" href="show_all_implicit_casts.html">show-all-implicit-casts</a> </li>
-</ul>
-</div></div><!-- contents -->
+<div class="textblock"><p><a class="anchor" id="md_docs_opt_show_all_callexpr_template_parameters"></a>Show all template parameters of a CallExpr.</p>
+<p><b>Default:</b> Off</p>
+<p><b>Examples:</b></p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> Fun()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">return</span> std::make_pair(5, 7.5);</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>transforms into this:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"> </div>
+<div class="line">std::pair&lt;int, double&gt; Fun()</div>
+<div class="line">{</div>
+<div class="line">  <span class="keywordflow">return</span> std::make_pair&lt;int, double&gt;(5, 7.5);</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- HTML footer for doxygen 1.8.11-->
 <!-- start footer part -->
