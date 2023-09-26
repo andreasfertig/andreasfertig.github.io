@@ -136,11 +136,13 @@ Building outside Clang</h3>
 </div><!-- fragment --><p> The resulting binary (insights) can be found in the <code>build</code> folder.</p>
 <h3><a class="anchor" id="autotoc_md30"></a>
 Building inside Clang</h3>
-<p>For building it inside the Clang source tree, assuming you have your source tree already prepared:</p>
-<div class="fragment"><div class="line">cd llvm/tools/clang/tools/extra</div>
+<p>For building it inside the Clang source tree, assuming you have your source tree already prepared under <code>llvm-project</code>:</p>
+<div class="fragment"><div class="line">cd llvm-project/clang-tools-extra/</div>
 <div class="line">git clone https://github.com/andreasfertig/cppinsights.git</div>
 <div class="line"> </div>
 <div class="line">echo &quot;add_subdirectory(cppinsights)&quot; &gt;&gt; CMakeLists.txt</div>
+</div><!-- fragment --><p>To activate the C++ Insights build you have to set <code>-DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra"</code> for <code>cmake</code>:</p>
+<div class="fragment"><div class="line">cmake -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_PROJECTS=&quot;clang;clang-tools-extra&quot; -G &quot;Unix Makefiles&quot; ../llvm-project</div>
 </div><!-- fragment --><p>Then, build Clang as you normally do.</p>
 <h3><a class="anchor" id="autotoc_md31"></a>
 cmake options</h3>
