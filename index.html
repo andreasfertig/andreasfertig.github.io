@@ -66,33 +66,49 @@ What</h2>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> <a class="code" href="_option_documentation_generator_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
 <div class="line">  Derived d;</div>
+<div class="line"> </div>
+<div class="line">  Derived d2 = d;</div>
+<div class="line"> </div>
+<div class="line">  d2 = d;</div>
+<div class="line"> </div>
 <div class="line">  Base&amp; b = d;</div>
 <div class="line">}</div>
 <div class="ttc" id="a_option_documentation_generator_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="_option_documentation_generator_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> <a href="_option_documentation_generator_8cpp_source.html#l00046">OptionDocumentationGenerator.cpp:46</a></div></div>
-</div><!-- fragment --><p>Nothing special and of course it compiles. This is the compilers view on it:</p>
-<div class="fragment"><div class="line"><span class="keyword">class </span>Base {</div>
-<div class="line"><span class="comment">/* public: inline constexpr Base() noexcept; */</span></div>
-<div class="line"><span class="comment">/* public: inline ~Base(); */</span></div>
-<div class="line"><span class="comment">/* public: inline constexpr Base(const Base &amp;); */</span></div>
-<div class="line"><span class="comment">/* public: inline constexpr Base(Base &amp;&amp;); */</span></div>
+</div><!-- fragment --><p>Nothing special, and of course, it compiles. This is the compiler's view on it:</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>Base</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">public</span>:</div>
+<div class="line">  <span class="comment">// inline constexpr Base() noexcept = default;</span></div>
+<div class="line">  <span class="comment">// inline constexpr Base(const Base &amp;) noexcept = default;</span></div>
+<div class="line">  <span class="comment">// inline constexpr Base &amp; operator=(const Base &amp;) noexcept = default;</span></div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>Derived : <span class="keyword">public</span> Base {</div>
-<div class="line"><span class="comment">/* public: inline constexpr Derived() noexcept; */</span></div>
-<div class="line"><span class="comment">/* public: inline constexpr Derived(const Derived &amp;); */</span></div>
-<div class="line"><span class="comment">/* public: inline constexpr Derived(Derived &amp;&amp;); */</span></div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>Derived : <span class="keyword">public</span> Base</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">public</span>:</div>
+<div class="line">  <span class="comment">// inline constexpr Derived() noexcept = default;</span></div>
+<div class="line">  <span class="comment">// inline constexpr Derived(const Derived &amp;) noexcept = default;</span></div>
+<div class="line">  <span class="comment">// inline constexpr Derived &amp; operator=(const Derived &amp;) noexcept = default;</span></div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> <a class="code" href="_option_documentation_generator_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>(){</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> <a class="code" href="_option_documentation_generator_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
+<div class="line">{</div>
 <div class="line">  Derived d;</div>
-<div class="line">  Base&amp; b = <span class="keyword">static_cast&lt;</span>Base&amp;<span class="keyword">&gt;</span>(d);</div>
+<div class="line">  Derived d2 = Derived(d);</div>
+<div class="line">  d2.operator=(d);</div>
+<div class="line">  Base &amp; b = <span class="keyword">static_cast&lt;</span>Base&amp;<span class="keyword">&gt;</span>(d);</div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><p>You can see all the compiler-provided functions as well as the downcast from <code>Derived</code> to <code>Base</code>.</p>
+</div><!-- fragment --><p>You can see all the compiler-provided special member functions and the downcast from <code>Derived</code> to <code>Base</code>.</p>
 <h2><a class="anchor" id="autotoc_md25"></a>
 Why</h2>
 <p><a target="_blank" href="https://cppinsights.io">C++ Insights</a> is a <a target="_blank" href="https://clang.llvm.org">Clang</a>-based tool that does a source-to-source transformation. The goal of C++ Insights is to make things visible that normally and intentionally happen behind the scenes. It's about the magic the compiler does for us to make things work. Or looking through the classes of a compiler.</p>
-<p>In 2017 I started looking into some new things we got with C++11, C++14, and C++17. Amazing things like lambdas, range-based for-loops, and structured bindings. I put it together in a talk. You can find the <a target="_blank" href="https://andreasfertig.com/talks/dl/afertig-ndcolo-2017-fast-and-small.pdf">slides</a> and a <a target="_blank" href="https://youtu.be/Bt7KzFxcbgc">video</a> online.</p>
-<p>However, all that research and some of my training and teaching got me to start thinking about how it would be if we could see with the eyes of the compiler. Sure, there is an AST dump, at least for Clang. With tools like Compiler Explorer, we can see what code the compiler generates from a C++ source snippet. However, what we see is assembler. Neither the AST nor the Compiler Explorer output is in the language I write code, and therefore I'm most familiar with. Plus, when teaching students C++ showing an AST and explaining that it is all there was not quite satisfying for me.</p>
+<p>In 2017, I started looking into some new things we got with C++11, C++14, and C++17. Amazing things like lambdas, range-based for-loops, and structured bindings. I put it together in a talk. You can find the <a target="_blank" href="https://andreasfertig.com/talks/dl/afertig-ndcolo-2017-fast-and-small.pdf">slides</a> and a <a target="_blank" href="https://youtu.be/Bt7KzFxcbgc">video</a> online.</p>
+<p>However, all that research and some of my training and teaching got me to start thinking about how it would be if we could see with the eyes of the compiler. Sure, there is an AST dump, at least for Clang. We can see what code the compiler generates from a C++ source snippet with tools like Compiler Explorer. However, what we see is assembler. Neither the AST nor the Compiler Explorer output is in the language I write code. Hence, I'm not very familiar with this output. Plus, when teaching students C++, showing an AST and explaining that it is all there was not quite satisfying for me.</p>
 <p>I started to write a Clang-based tool that can transform a range-based for-loop into the compiler-internal version. Then, I did the same for structured bindings and lambdas. In the end, I did much more than initially planned. It shows where operators are invoked and places in which the compiler does some casting. C++ Insights can deduce the type behind <code>auto</code> or <code>decltype</code>. The goal is to produce compilable code. However, this is not possible in all places.</p>
 <p>You can see, for example, the transformation of a <a target="_blank" href="https://cppinsights.io/s/e4e19791">lambda</a>, <a target="_blank" href="https://cppinsights.io/s/0cddd172">range-based for-loop</a>, or <a target="_blank" href="https://cppinsights.io/s/6c61d601">auto</a>. Of course, you can transform any other C++ snippet.</p>
 <p>See yourself. C++ Insights is available online: <a target="_blank" href="https://cppinsights.io">cppinsights.io</a>.</p>
@@ -117,7 +133,7 @@ Building outside Clang</h3>
 <div class="line">mkdir build &amp;&amp; cd build</div>
 <div class="line">cmake -G&quot;Ninja&quot; ../cppinsights</div>
 <div class="line">ninja</div>
-</div><!-- fragment --><p> The resulting binary (insights) can be found in the build-folder.</p>
+</div><!-- fragment --><p> The resulting binary (insights) can be found in the <code>build</code> folder.</p>
 <h3><a class="anchor" id="autotoc_md30"></a>
 Building inside Clang</h3>
 <p>For building it inside the Clang source tree, assuming you have your source tree already prepared:</p>
@@ -125,10 +141,10 @@ Building inside Clang</h3>
 <div class="line">git clone https://github.com/andreasfertig/cppinsights.git</div>
 <div class="line"> </div>
 <div class="line">echo &quot;add_subdirectory(cppinsights)&quot; &gt;&gt; CMakeLists.txt</div>
-</div><!-- fragment --><p>Then build Clang as you normally do.</p>
+</div><!-- fragment --><p>Then, build Clang as you normally do.</p>
 <h3><a class="anchor" id="autotoc_md31"></a>
 cmake options</h3>
-<p>There are a couple of options which can be enable with <a target="_blank" href="https://cmake.org">cmake</a>:</p>
+<p>There are a couple of options that can be enabled with <a target="_blank" href="https://cmake.org">cmake</a>:</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Option   </th><th class="markdownTableHeadLeft">Description   </th><th class="markdownTableHeadNone">Default    </th></tr>
@@ -149,12 +165,12 @@ Use it with &lt;a target="_blank" href="https://www.cevelop.com"&gt;Cevelop&lt;/
 <div class="line">mkdir build_eclipse</div>
 <div class="line">cd build_eclipse</div>
 <div class="line">cmake -G&quot;Eclipse CDT4 - Unix Makefiles&quot; ../cppinsights/</div>
-</div><!-- fragment --><p>Then in <a target="_blank" href="https://www.cevelop.com">Cevelop</a> Import -&gt; General -&gt; Existing Project into Workspace. Select <code>build_eclipse</code>. Enjoy editing with <a target="_blank" href="https://www.cevelop.com">Cevelop</a>.</p>
+</div><!-- fragment --><p>Then, in <a target="_blank" href="https://www.cevelop.com">Cevelop</a> Import -&gt; General -&gt; Existing Project into Workspace. Select <code>build_eclipse</code>. Enjoy editing with <a target="_blank" href="https://www.cevelop.com">Cevelop</a>.</p>
 <h2><a class="anchor" id="autotoc_md33"></a>
 Usage</h2>
 <p>Using C++ Insights is fairly simple:</p>
 <div class="fragment"><div class="line">insights &lt;YOUR_CPP_FILE&gt; -- -std=c++17</div>
-</div><!-- fragment --><p>Things get complicated when it comes to the system include paths. These paths are hard-coded in the binary, which seems to come from the compiler C++ Insights was built with. To help with that, check out <a href="scripts/getinclude.py">scripts/getinclude.py</a>. The script tries to collect the system include paths, from the compiler. Without an option, <code><a class="el" href="getinclude_8py.html">getinclude.py</a></code> uses <code>g++</code>. You can also pass another compiler as a first argument.</p>
+</div><!-- fragment --><p>Things get complicated when it comes to the system-include paths. These paths are hard-coded in the binary, which seems to come from the compiler C++ Insights was built with. To help with that, check out <a href="scripts/getinclude.py">scripts/getinclude.py</a>. The script tries to collect the system-include paths from the compiler. Without an option, <code><a class="el" href="getinclude_8py.html">getinclude.py</a></code> uses <code>g++</code>. You can also pass another compiler as a first argument.</p>
 <p>Here is an example:</p>
 <div class="fragment"><div class="line">./scripts/getinclude.py</div>
 <div class="line">-isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1 -isystem/usr/local/include -isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include -isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -isystem/usr/include</div>
@@ -167,31 +183,35 @@ Custom GCC installation</h3>
 </div><!-- fragment --><p>Here "`${GCC_11_2_0_INSTALL_PATH}`" is the installation directory of your customized-built GCC. The option for Clang is described <a target="_blank" href="https://clang.llvm.org/docs/ClangCommandLineReference.html#cmdoption-clang-gcc-toolchain">here</a>.</p>
 <h3><a class="anchor" id="autotoc_md35"></a>
 Ready to use Docker container</h3>
-<p>There is also another GitHub project which sets up a docker container with the latest C++ Insights version in it: <a target="_blank" href="https://github.com/andreasfertig/cppinsights-docker">C++ Insights - Docker</a></p>
+<p>There is also another GitHub project that sets up a docker container with the latest C++ Insights version in it: <a target="_blank" href="https://github.com/andreasfertig/cppinsights-docker">C++ Insights - Docker</a></p>
 <h3><a class="anchor" id="autotoc_md36"></a>
 C++ Insights @ Vim</h3>
 <p>A plugin for Vim is available at <a target="_blank" href="https://github.com/Freed-Wu/cppinsights.vim">here</a>.</p>
 <h3><a class="anchor" id="autotoc_md37"></a>
 C++ Insights @ VSCode</h3>
 <p>An extension for Visual Studio Code is available at the VS Code marketplace: <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=devtbi.vscode-cppinsights">C++ Insights - VSCode Extension</a>.</p>
-<h2><a class="anchor" id="autotoc_md38"></a>
+<h3><a class="anchor" id="autotoc_md38"></a>
+C++ Insights @ brew</h3>
+<p>At least for macOS, you can install C++ Insights via Homebrew thanks to <a target="_blank" href="https://formulae.brew.sh/formula/cppinsights">this formulae</a>:</p>
+<div class="fragment"><div class="line">brew install cppinsights</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md39"></a>
 Compatibility</h2>
-<p>I aim that the repository compiles with the latest version of Clang and at least the one before. The website tries to stay close to the latest release of Clang. However, due to certain issues (building Clang for Windows), the website's version is often delayed a few months.</p>
-<h2><a class="anchor" id="autotoc_md39"></a>
-C++ Insights @ YouTube</h2>
-<p>I created a <a target="_blank" href="https://www.youtube.com/c/AndreasFertig-info">YouTube</a> channel where I release a new video each month. In these videos, I use C++ Insights to show and explain certain C++ constructs, and sometimes I explain C++ Insights as well.</p>
+<p>I aim for the repository to compile with the latest version of Clang and at least the one before. The website tries to stay close to the latest release of Clang. However, due to certain issues (building Clang for Windows), the website's version is often delayed by a few months.</p>
 <h2><a class="anchor" id="autotoc_md40"></a>
+C++ Insights @ YouTube</h2>
+<p>I created a <a target="_blank" href="https://youtube.com/@andreas_fertig">YouTube</a> channel where I release a new video each month. In these videos, I use C++ Insights to show and explain certain C++ constructs, and sometimes I explain C++ Insights as well.</p>
+<h2><a class="anchor" id="autotoc_md41"></a>
 ToDo's</h2>
 <p>See <a class="el" href="todo.html#md_TODO">TODO</a>.</p>
-<h2><a class="anchor" id="autotoc_md41"></a>
+<h2><a class="anchor" id="autotoc_md42"></a>
 Get Involved</h2>
 <ul>
 <li>Report bugs/issues by submitting a <a target="_blank" href="https://github.com/andreasfertig/cppinsights/issues">GitHub issue</a>.</li>
 <li>Submit contributions using <a target="_blank" href="https://github.com/andreasfertig/cppinsights/pulls">pull requests</a>. See <a class="el" href="contributing.html#md_CONTRIBUTING">Contributing</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md42"></a>
+<h2><a class="anchor" id="autotoc_md43"></a>
 Support</h2>
-<p>If you like to support the project, consider <a class="el" href="contributing.html#md_CONTRIBUTING">submitting</a> a patch. Another alternative is to become a <a target="_blank" href="https://www.patreon.com/cppinsights">Patreon</a> supporter. </p>
+<p>If you like to support the project, consider <a class="el" href="contributing.html#md_CONTRIBUTING">submitting</a> a patch. Another alternative is to become a <a target="_blank" href="https://github.com/sponsors/andreasfertig">GitHub Sponsor</a> or a <a target="_blank" href="https://www.patreon.com/cppinsights">Patreon</a> supporter. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.11-->
