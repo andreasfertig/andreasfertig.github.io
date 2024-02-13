@@ -3370,7 +3370,7 @@ $(function() {
 <div class="line"><a name="l03329"></a><span class="lineno"> 3329</span>&#160;            <span class="comment">// mOutputFormatHelper.AppendNewLine();</span></div>
 <div class="line"><a name="l03330"></a><span class="lineno"> 3330</span>&#160;        }</div>
 <div class="line"><a name="l03331"></a><span class="lineno"> 3331</span>&#160; </div>
-<div class="line"><a name="l03332"></a><span class="lineno"> 3332</span>&#160;        <span class="keywordflow">if</span>((stmt-&gt;isLambda() and isa&lt;CXXDestructorDecl&gt;(d))) {</div>
+<div class="line"><a name="l03332"></a><span class="lineno"> 3332</span>&#160;        <span class="keywordflow">if</span>((stmt-&gt;isLambda() and isa&lt;CXXDestructorDecl&gt;(d)) and not d-&gt;isUsed()) {</div>
 <div class="line"><a name="l03333"></a><span class="lineno"> 3333</span>&#160;            <span class="keywordflow">continue</span>;</div>
 <div class="line"><a name="l03334"></a><span class="lineno"> 3334</span>&#160;        }</div>
 <div class="line"><a name="l03335"></a><span class="lineno"> 3335</span>&#160; </div>
