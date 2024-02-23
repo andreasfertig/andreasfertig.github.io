@@ -45,52 +45,64 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="_insights_helpers_8h_source.html">InsightsHelpers.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_a_s_t_helpers_8h_source.html">ASTHelpers.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_clang_compat_8h_source.html">ClangCompat.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_d_print_8h_source.html">DPrint.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_insights_8h_source.html">Insights.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_insights_static_strings_8h_source.html">InsightsStaticStrings.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_output_format_helper_8h_source.html">OutputFormatHelper.h</a>&quot;</code><br />
+<code>#include &quot;clang/Frontend/CompilerInstance.h&quot;</code><br />
+<code>#include &quot;clang/Sema/Lookup.h&quot;</code><br />
+<code>#include &quot;clang/Basic/OperatorKinds.def&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for InsightsHelpers.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_insights_helpers_8cpp__incl.png" border="0" usemap="#a_insights_helpers_8cpp" alt=""/></div>
 <map name="a_insights_helpers_8cpp" id="a_insights_helpers_8cpp">
-<area shape="rect" title=" " alt="" coords="545,5,695,32"/>
-<area shape="rect" href="_insights_helpers_8h.html" title=" " alt="" coords="2250,80,2385,107"/>
-<area shape="rect" href="_clang_compat_8h.html" title=" " alt="" coords="169,319,292,345"/>
-<area shape="rect" href="_code_generator_8h.html" title=" " alt="" coords="1064,80,1195,107"/>
-<area shape="rect" href="_insights_static_strings_8h.html" title=" " alt="" coords="537,162,703,189"/>
-<area shape="rect" href="_output_format_helper_8h.html" title=" " alt="" coords="346,162,513,189"/>
-<area shape="rect" href="_d_print_8h.html" title=" " alt="" coords="293,80,368,107"/>
-<area shape="rect" href="_insights_8h.html" title=" " alt="" coords="2757,80,2843,107"/>
-<area shape="rect" title=" " alt="" coords="1797,319,1923,345"/>
-<area shape="rect" title=" " alt="" coords="1838,162,2015,189"/>
-<area shape="rect" title=" " alt="" coords="2380,162,2612,189"/>
-<area shape="rect" title=" " alt="" coords="2039,155,2254,196"/>
-<area shape="rect" title=" " alt="" coords="1567,162,1814,189"/>
-<area shape="rect" title=" " alt="" coords="2637,162,2771,189"/>
-<area shape="rect" title=" " alt="" coords="2795,162,2882,189"/>
-<area shape="rect" title=" " alt="" coords="2419,319,2477,345"/>
-<area shape="rect" title=" " alt="" coords="2958,162,3026,189"/>
-<area shape="rect" href="_insights_strong_types_8h.html" title=" " alt="" coords="958,244,1122,271"/>
-<area shape="rect" href="_stack_list_8h.html" title=" " alt="" coords="1449,162,1543,189"/>
-<area shape="rect" title=" " alt="" coords="5,393,165,420"/>
-<area shape="rect" title=" " alt="" coords="189,393,272,420"/>
-<area shape="rect" title=" " alt="" coords="297,393,455,420"/>
-<area shape="rect" title=" " alt="" coords="1229,155,1374,196"/>
-<area shape="rect" title=" " alt="" coords="727,162,859,189"/>
-<area shape="rect" title=" " alt="" coords="884,162,959,189"/>
-<area shape="rect" href="_insights_utility_8h.html" title=" " alt="" coords="1147,244,1269,271"/>
-<area shape="rect" href="_code_generator_types_8h.html" title=" " alt="" coords="983,162,1153,189"/>
-<area shape="rect" title=" " alt="" coords="687,244,785,271"/>
-<area shape="rect" title=" " alt="" coords="1127,319,1289,345"/>
-<area shape="rect" title=" " alt="" coords="518,319,610,345"/>
-<area shape="rect" title=" " alt="" coords="634,319,694,345"/>
-<area shape="rect" href="_insights_once_8h.html" title=" " alt="" coords="493,244,611,271"/>
-<area shape="rect" href="_insights_str_cat_8h.html" title=" " alt="" coords="343,244,468,271"/>
-<area shape="rect" title=" " alt="" coords="317,319,494,345"/>
-<area shape="rect" title=" " alt="" coords="3050,162,3198,189"/>
+<area shape="rect" title=" " alt="" coords="2477,5,2627,32"/>
+<area shape="rect" href="_insights_helpers_8h.html" title=" " alt="" coords="2087,80,2222,107"/>
+<area shape="rect" href="_a_s_t_helpers_8h.html" title=" " alt="" coords="2855,80,2964,107"/>
+<area shape="rect" href="_clang_compat_8h.html" title=" " alt="" coords="57,319,180,345"/>
+<area shape="rect" href="_code_generator_8h.html" title=" " alt="" coords="947,80,1077,107"/>
+<area shape="rect" href="_insights_static_strings_8h.html" title=" " alt="" coords="2469,162,2635,189"/>
+<area shape="rect" href="_output_format_helper_8h.html" title=" " alt="" coords="157,162,323,189"/>
+<area shape="rect" href="_d_print_8h.html" title=" " alt="" coords="301,80,376,107"/>
+<area shape="rect" href="_insights_8h.html" title=" " alt="" coords="2988,80,3073,107"/>
+<area shape="rect" title=" " alt="" coords="3097,80,3345,107"/>
+<area shape="rect" title=" " alt="" coords="3369,80,3529,107"/>
+<area shape="rect" title=" " alt="" coords="3553,80,3772,107"/>
+<area shape="rect" title=" " alt="" coords="1629,319,1755,345"/>
+<area shape="rect" title=" " alt="" coords="2659,162,2837,189"/>
+<area shape="rect" title=" " alt="" coords="1696,162,1928,189"/>
+<area shape="rect" title=" " alt="" coords="1457,155,1671,196"/>
+<area shape="rect" title=" " alt="" coords="969,162,1215,189"/>
+<area shape="rect" title=" " alt="" coords="1953,162,2087,189"/>
+<area shape="rect" title=" " alt="" coords="2111,162,2198,189"/>
+<area shape="rect" title=" " alt="" coords="1357,162,1432,189"/>
+<area shape="rect" title=" " alt="" coords="620,319,679,345"/>
+<area shape="rect" title=" " alt="" coords="2325,162,2393,189"/>
+<area shape="rect" href="_insights_strong_types_8h.html" title=" " alt="" coords="1467,244,1631,271"/>
+<area shape="rect" href="_stack_list_8h.html" title=" " alt="" coords="1240,162,1333,189"/>
+<area shape="rect" title=" " alt="" coords="3199,162,3255,189"/>
+<area shape="rect" title=" " alt="" coords="3329,162,3383,189"/>
+<area shape="rect" title=" " alt="" coords="2503,244,2601,271"/>
+<area shape="rect" title=" " alt="" coords="2913,162,2975,189"/>
+<area shape="rect" title=" " alt="" coords="1818,393,1977,420"/>
+<area shape="rect" title=" " alt="" coords="2999,162,3174,189"/>
+<area shape="rect" title=" " alt="" coords="112,393,272,420"/>
+<area shape="rect" title=" " alt="" coords="5,393,88,420"/>
+<area shape="rect" title=" " alt="" coords="399,155,545,196"/>
+<area shape="rect" title=" " alt="" coords="569,162,701,189"/>
+<area shape="rect" href="_insights_utility_8h.html" title=" " alt="" coords="500,244,623,271"/>
+<area shape="rect" href="_code_generator_types_8h.html" title=" " alt="" coords="725,162,894,189"/>
+<area shape="rect" title=" " alt="" coords="703,319,865,345"/>
+<area shape="rect" title=" " alt="" coords="503,319,595,345"/>
+<area shape="rect" title=" " alt="" coords="419,319,479,345"/>
+<area shape="rect" href="_insights_once_8h.html" title=" " alt="" coords="306,244,425,271"/>
+<area shape="rect" href="_insights_str_cat_8h.html" title=" " alt="" coords="156,244,281,271"/>
+<area shape="rect" title=" " alt="" coords="205,319,382,345"/>
+<area shape="rect" title=" " alt="" coords="3458,162,3606,189"/>
 </map>
 </div>
 </div>
@@ -117,6 +129,8 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:ae9bc9df27486ab35403c6fa21e934318"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_helpers_8cpp.html#ae9bc9df27486ab35403c6fa21e934318">OVERLOADED_OPERATOR</a>(Name,  Spelling,  Token,  Unary,  Binary,  MemberOnly)&#160;&#160;&#160;    case OO_##Name: return &quot;operator&quot; #Name;</td></tr>
+<tr class="separator:ae9bc9df27486ab35403c6fa21e934318"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a143d8ccdc97606721f594b124e75070e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_helpers_8cpp.html#a143d8ccdc97606721f594b124e75070e">HANDLE_TYPE</a>(t)</td></tr>
 <tr class="separator:a143d8ccdc97606721f594b124e75070e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a143d8ccdc97606721f594b124e75070e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_helpers_8cpp.html#a143d8ccdc97606721f594b124e75070e">HANDLE_TYPE</a>(t)</td></tr>
@@ -124,6 +138,8 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:aebe516ed81e93ecf36bcf72962cc6bbf"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#aebe516ed81e93ecf36bcf72962cc6bbf">clang::insights::GetNamePlain</a> (const NamedDecl &amp;decl)</td></tr>
+<tr class="separator:aebe516ed81e93ecf36bcf72962cc6bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25a262ecf4b73d03805e810f0e629cc4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a25a262ecf4b73d03805e810f0e629cc4">clang::insights::GetPlainName</a> (const DeclRefExpr &amp;DRE)</td></tr>
 <tr class="separator:a25a262ecf4b73d03805e810f0e629cc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b606a588102e4fecc58980544d68574"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a4b606a588102e4fecc58980544d68574">clang::insights::STRONG_BOOL</a> (InsightsSuppressScope)</td></tr>
@@ -132,6 +148,8 @@ Functions</h2></td></tr>
 <tr class="separator:a80049164e8e750ecb7753296bcb9aa53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad17b32ff782799d0c2ccce177493dabf"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#ad17b32ff782799d0c2ccce177493dabf">clang::insights::GetUnqualifiedScopelessName</a> (const Type *type, const InsightsSuppressScope supressScope)</td></tr>
 <tr class="separator:ad17b32ff782799d0c2ccce177493dabf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58f05a5c5692d2c6d0a28120e5e816cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a58f05a5c5692d2c6d0a28120e5e816cd">clang::insights::ReplaceAll</a> (std::string &amp;str, std::string_view from, std::string_view to)</td></tr>
+<tr class="separator:a58f05a5c5692d2c6d0a28120e5e816cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c85f34596642f5c4e7abf1d67b7fb7b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#a5c85f34596642f5c4e7abf1d67b7fb7b">clang::insights::details::BuildNamespace</a> (std::string &amp;fullNamespace, const NestedNameSpecifier *stmt, const IgnoreNamespace ignoreNamespace)</td></tr>
 <tr class="separator:a5c85f34596642f5c4e7abf1d67b7fb7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcac175c772427825eeb76f9e8271cc7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#adcac175c772427825eeb76f9e8271cc7">clang::insights::GetNestedName</a> (const NestedNameSpecifier *nns, const IgnoreNamespace ignoreNamespace)</td></tr>
@@ -181,6 +199,12 @@ Functions</h2></td></tr>
 <tr class="separator:af6250485944c474b32f5ed65134de3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af12a79652483475c31aa0321487d9d7d"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1details.html#af12a79652483475c31aa0321487d9d7d">clang::insights::details::GetName</a> (QualType t, const Unqualified unqualified=Unqualified::No, const InsightsSuppressScope supressScope=InsightsSuppressScope::No)</td></tr>
 <tr class="separator:af12a79652483475c31aa0321487d9d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7913eab384de03bf0bb44d35708020b7"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a7913eab384de03bf0bb44d35708020b7">clang::insights::HasOverload</a> (const FunctionDecl *fd)</td></tr>
+<tr class="separator:a7913eab384de03bf0bb44d35708020b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65da48e0e018cb31dffc84e365115058"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a65da48e0e018cb31dffc84e365115058">clang::insights::GetSpecialMemberName</a> (const ValueDecl *vd)</td></tr>
+<tr class="separator:a65da48e0e018cb31dffc84e365115058"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec76680332e41776943fa1565521cf1b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#aec76680332e41776943fa1565521cf1b">clang::insights::GetCfrontOverloadedFunctionName</a> (const FunctionDecl *fd)</td></tr>
+<tr class="separator:aec76680332e41776943fa1565521cf1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8aa34a486d1bf4246526875ad3bcb697"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a8aa34a486d1bf4246526875ad3bcb697">clang::insights::STRONG_BOOL</a> (UseLexicalParent)</td></tr>
 <tr class="separator:a8aa34a486d1bf4246526875ad3bcb697"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1130cda5ac5ec51dd075ccc328c1167b"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a1130cda5ac5ec51dd075ccc328c1167b">clang::insights::NeedsNamespace</a> (const Decl &amp;decl, UseLexicalParent useLexicalParent)</td></tr>
@@ -195,10 +219,17 @@ Functions</h2></td></tr>
 <tr class="separator:a48f28e34f3abfc59c28aa3ba788fc08e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ceeca80354b780f4bd8f66f66fdce60"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a4ceeca80354b780f4bd8f66f66fdce60">clang::insights::GetName</a> (const CXXRecordDecl &amp;RD)</td></tr>
 <tr class="separator:a4ceeca80354b780f4bd8f66f66fdce60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9194de1ad3e9f453060e951afed4e984"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a9194de1ad3e9f453060e951afed4e984">clang::insights::GetTemporaryName</a> (const Expr &amp;tmp)</td></tr>
+<tr class="separator:a9194de1ad3e9f453060e951afed4e984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ef630d47c474b88e4e105143542e04b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a4ef630d47c474b88e4e105143542e04b">clang::insights::GetName</a> (const CXXTemporaryObjectExpr &amp;tmp)</td></tr>
+<tr class="separator:a4ef630d47c474b88e4e105143542e04b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41474e880afe2fcb11dfbf733c6d6765"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a41474e880afe2fcb11dfbf733c6d6765">clang::insights::GetName</a> (const QualType &amp;t, const Unqualified unqualified)</td></tr>
 <tr class="separator:a41474e880afe2fcb11dfbf733c6d6765"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b19d1838019fc52398b25d46b03ecec"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a7b19d1838019fc52398b25d46b03ecec">clang::insights::GetUnqualifiedScopelessName</a> (const Type *type)</td></tr>
 <tr class="separator:a7b19d1838019fc52398b25d46b03ecec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48cc5c056a24c2c92801ba48455fe829"><td class="memItemLeft" align="right" valign="top">QualType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a48cc5c056a24c2c92801ba48455fe829">clang::insights::GetType</a> (QualType)</td></tr>
+<tr class="memdesc:a48cc5c056a24c2c92801ba48455fe829"><td class="mdescLeft">&#160;</td><td class="mdescRight">In Cfront mode we transform references to pointers.  <a href="namespaceclang_1_1insights.html#a48cc5c056a24c2c92801ba48455fe829">More...</a><br /></td></tr>
+<tr class="separator:a48cc5c056a24c2c92801ba48455fe829"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22b0a150b7e66a445236c07d3fd51386"><td class="memTemplParams" colspan="2">template&lt;typename QT , typename SUB_T , typename SUB_T2  = void&gt; </td></tr>
 <tr class="memitem:a22b0a150b7e66a445236c07d3fd51386"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a22b0a150b7e66a445236c07d3fd51386">clang::insights::HasTypeWithSubType</a> (const QualType &amp;t)</td></tr>
 <tr class="separator:a22b0a150b7e66a445236c07d3fd51386"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -234,6 +265,8 @@ Functions</h2></td></tr>
 <tr class="separator:a76f8aae897fda1320ed7d2a93817ab0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29842741a06b85108035b0abc48d5c6f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a29842741a06b85108035b0abc48d5c6f">clang::insights::GetElaboratedTypeKeyword</a> (const ElaboratedTypeKeyword keyword)</td></tr>
 <tr class="separator:a29842741a06b85108035b0abc48d5c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06fec9c3e506f5cf55aaf294630727f1"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a06fec9c3e506f5cf55aaf294630727f1">clang::insights::GetSize</a> (const ConstantArrayType *arrayType)</td></tr>
+<tr class="separator:a06fec9c3e506f5cf55aaf294630727f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa86700e1919de7df97968abb6129c5a3"><td class="memTemplParams" colspan="2">template&lt;class... Ts&gt; </td></tr>
 <tr class="memitem:aa86700e1919de7df97968abb6129c5a3"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#aa86700e1919de7df97968abb6129c5a3">clang::insights::overloaded</a> (Ts...) -&gt; overloaded&lt; Ts... &gt;</td></tr>
 <tr class="separator:aa86700e1919de7df97968abb6129c5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -279,6 +312,58 @@ Functions</h2></td></tr>
 <div class="line">        HandleTypeAfter(dyn_cast_or_null&lt;t&gt;(type));                                                                    \</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<a id="ae9bc9df27486ab35403c6fa21e934318"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9bc9df27486ab35403c6fa21e934318">&#9670;&nbsp;</a></span>OVERLOADED_OPERATOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OVERLOADED_OPERATOR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Spelling, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Token, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Unary, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Binary, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">MemberOnly&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;    case OO_##Name: return &quot;operator&quot; #Name;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
 </div>
 </div>
 </div><!-- contents -->

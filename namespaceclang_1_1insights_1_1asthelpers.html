@@ -40,6 +40,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -47,65 +48,186 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclang_1_1insights_1_1asthelpers_1_1_stmts_container.html">StmtsContainer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">! A helper type to have a container for ArrayRef  <a href="structclang_1_1insights_1_1asthelpers_1_1_stmts_container.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a38df7885ae95cee3556ee655e768fcac"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a> = std::vector&lt; std::pair&lt; std::string_view, QualType &gt; &gt;</td></tr>
 <tr class="separator:a38df7885ae95cee3556ee655e768fcac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad293ff2b0364e1ee761750e2ee67b939"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ad293ff2b0364e1ee761750e2ee67b939">params_store</a> = std::vector&lt; std::pair&lt; std::string, QualType &gt; &gt;</td></tr>
+<tr class="separator:ad293ff2b0364e1ee761750e2ee67b939"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abbf35d287682063e72ada7746111a302"><td class="memItemLeft" align="right" valign="top">GotoStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#abbf35d287682063e72ada7746111a302">mkGotoStmt</a> (std::string_view labelName)</td></tr>
-<tr class="separator:abbf35d287682063e72ada7746111a302"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af03e36fe0ccf41fcfaf4e1a38f3d34c6"><td class="memItemLeft" align="right" valign="top">LabelStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#af03e36fe0ccf41fcfaf4e1a38f3d34c6">mkLabelStmt</a> (std::string_view name)</td></tr>
-<tr class="separator:af03e36fe0ccf41fcfaf4e1a38f3d34c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b6b1f40ac0b779870eb86db3e2e5be2"><td class="memItemLeft" align="right" valign="top">CompoundStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a5b6b1f40ac0b779870eb86db3e2e5be2">mkCompoundStmt</a> (ArrayRef&lt; <a class="el" href="class_stmt.html">Stmt</a> * &gt; bodyStmts, SourceLocation beginLoc={}, SourceLocation endLoc={})</td></tr>
-<tr class="separator:a5b6b1f40ac0b779870eb86db3e2e5be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5ad891bffe208cc89ec34c6591b64e3"><td class="memItemLeft" align="right" valign="top">DeclStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ad5ad891bffe208cc89ec34c6591b64e3">_mkDeclStmt</a> (std::span&lt; Decl * &gt; decls)</td></tr>
+<tr class="separator:ad5ad891bffe208cc89ec34c6591b64e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afde001f9d25f3f0926adddffdfc2990c"><td class="memItemLeft" align="right" valign="top">BinaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#afde001f9d25f3f0926adddffdfc2990c">Assign</a> (const VarDecl *var, Expr *assignExpr)</td></tr>
+<tr class="separator:afde001f9d25f3f0926adddffdfc2990c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac897c3802b0c8b8b3b43f03319353add"><td class="memItemLeft" align="right" valign="top">static BinaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ac897c3802b0c8b8b3b43f03319353add">mkBinaryOperator</a> (Expr *lhs, Expr *rhs, BinaryOperator::Opcode opc, QualType resType)</td></tr>
+<tr class="separator:ac897c3802b0c8b8b3b43f03319353add"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c100d1349e91de82b87a75a187cb826"><td class="memItemLeft" align="right" valign="top">BinaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a0c100d1349e91de82b87a75a187cb826">Assign</a> (UnaryOperator *var, Expr *assignExpr)</td></tr>
+<tr class="separator:a0c100d1349e91de82b87a75a187cb826"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0ada6e721e6af4a322e5bc840743d48"><td class="memItemLeft" align="right" valign="top">BinaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ad0ada6e721e6af4a322e5bc840743d48">Assign</a> (MemberExpr *me, ValueDecl *field, Expr *assignExpr)</td></tr>
+<tr class="separator:ad0ada6e721e6af4a322e5bc840743d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec11e69f66daa83ef307527365e9e982"><td class="memItemLeft" align="right" valign="top">BinaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#aec11e69f66daa83ef307527365e9e982">Assign</a> (DeclRefExpr *declRef, ValueDecl *field, Expr *assignExpr)</td></tr>
+<tr class="separator:aec11e69f66daa83ef307527365e9e982"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29e486d0b71a373cd32a84999f019a7c"><td class="memItemLeft" align="right" valign="top">BinaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a29e486d0b71a373cd32a84999f019a7c">Assign</a> (DeclRefExpr *declRef, Expr *assignExpr)</td></tr>
+<tr class="separator:a29e486d0b71a373cd32a84999f019a7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24885690ce9557fc27490495f976aafd"><td class="memItemLeft" align="right" valign="top">BinaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a24885690ce9557fc27490495f976aafd">Assign</a> (Expr *var, Expr *assignExpr)</td></tr>
+<tr class="separator:a24885690ce9557fc27490495f976aafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3c46c330ea2d06f7afe6818589f9178"><td class="memItemLeft" align="right" valign="top">static UnaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ae3c46c330ea2d06f7afe6818589f9178">mkUnaryOperator</a> (const Expr *stmt, UnaryOperatorKind kind, QualType type)</td></tr>
+<tr class="separator:ae3c46c330ea2d06f7afe6818589f9178"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5ee2405b5e79c432d8e62d99215facc"><td class="memItemLeft" align="right" valign="top">UnaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ad5ee2405b5e79c432d8e62d99215facc">Not</a> (const Expr *stmt)</td></tr>
+<tr class="separator:ad5ee2405b5e79c432d8e62d99215facc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4ef9a66829f3c285004cd9d7a0f9b0a"><td class="memItemLeft" align="right" valign="top">UnaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#aa4ef9a66829f3c285004cd9d7a0f9b0a">Not</a> (const VarDecl *stmt)</td></tr>
+<tr class="separator:aa4ef9a66829f3c285004cd9d7a0f9b0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af69346e36fb0fe0d172c7d05f1de6c71"><td class="memItemLeft" align="right" valign="top">static UnaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#af69346e36fb0fe0d172c7d05f1de6c71">mkReference</a> (Expr *e, QualType t)</td></tr>
+<tr class="separator:af69346e36fb0fe0d172c7d05f1de6c71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a580dad58dc6951103d6431da42625af0"><td class="memItemLeft" align="right" valign="top">UnaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a580dad58dc6951103d6431da42625af0">Ref</a> (const Expr *e)</td></tr>
+<tr class="separator:a580dad58dc6951103d6431da42625af0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38d620cf42e22b4377d57bbaf78f33b7"><td class="memItemLeft" align="right" valign="top">UnaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a38d620cf42e22b4377d57bbaf78f33b7">Ref</a> (const ValueDecl *d)</td></tr>
+<tr class="separator:a38d620cf42e22b4377d57bbaf78f33b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af046d0a157e17382dab2b8d2078d13a7"><td class="memItemLeft" align="right" valign="top">UnaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#af046d0a157e17382dab2b8d2078d13a7">Dref</a> (const Expr *stmt)</td></tr>
+<tr class="separator:af046d0a157e17382dab2b8d2078d13a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07da9b00d166a90653800c010430b96b"><td class="memItemLeft" align="right" valign="top">UnaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a07da9b00d166a90653800c010430b96b">AddrOf</a> (const Expr *stmt)</td></tr>
+<tr class="separator:a07da9b00d166a90653800c010430b96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b016eb63027bce5854b67a482eead43"><td class="memItemLeft" align="right" valign="top">CallExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a4b016eb63027bce5854b67a482eead43">Call</a> (const FunctionDecl *fd, ArrayRef&lt; Expr * &gt; params)</td></tr>
+<tr class="separator:a4b016eb63027bce5854b67a482eead43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbf77f17e857b61d8f3b87d22dc6008f"><td class="memItemLeft" align="right" valign="top">CallExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#acbf77f17e857b61d8f3b87d22dc6008f">Call</a> (std::string_view name, ArrayRef&lt; Expr * &gt; args)</td></tr>
+<tr class="separator:acbf77f17e857b61d8f3b87d22dc6008f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeeafe7e1eb195f4d1ca8f151678b128"><td class="memItemLeft" align="right" valign="top">CXXTryStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#afeeafe7e1eb195f4d1ca8f151678b128">Try</a> (const <a class="el" href="class_stmt.html">Stmt</a> *tryBody, CXXCatchStmt *catchAllBody)</td></tr>
+<tr class="separator:afeeafe7e1eb195f4d1ca8f151678b128"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa90ea498c09025eaea3f6b358bd9412c"><td class="memItemLeft" align="right" valign="top">CXXCatchStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#aa90ea498c09025eaea3f6b358bd9412c">Catch</a> (ArrayRef&lt; <a class="el" href="class_stmt.html">Stmt</a> * &gt; body)</td></tr>
+<tr class="separator:aa90ea498c09025eaea3f6b358bd9412c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f7b1d4cb9f539d3c4fea53f7213fa94"><td class="memItemLeft" align="right" valign="top">CXXCatchStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a7f7b1d4cb9f539d3c4fea53f7213fa94">Catch</a> (<a class="el" href="class_stmt.html">Stmt</a> *body)</td></tr>
+<tr class="separator:a7f7b1d4cb9f539d3c4fea53f7213fa94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab689fad0a6b070a47090384db0f25407"><td class="memItemLeft" align="right" valign="top">CXXThrowExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ab689fad0a6b070a47090384db0f25407">Throw</a> (const Expr *expr)</td></tr>
+<tr class="separator:ab689fad0a6b070a47090384db0f25407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab72f464e8cb636ecd387a9fa576c2a9d"><td class="memItemLeft" align="right" valign="top">UnaryExprOrTypeTraitExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ab72f464e8cb636ecd387a9fa576c2a9d">Sizeof</a> (QualType toType)</td></tr>
+<tr class="separator:ab72f464e8cb636ecd387a9fa576c2a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a794f4649c8d38db9650f1fe5654d8115"><td class="memItemLeft" align="right" valign="top">CXXStaticCastExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a794f4649c8d38db9650f1fe5654d8115">Cast</a> (const Expr *toExpr, QualType toType)</td></tr>
+<tr class="separator:a794f4649c8d38db9650f1fe5654d8115"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1f00432784bdd2f1f990bd0db95b850"><td class="memItemLeft" align="right" valign="top">QualType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#af1f00432784bdd2f1f990bd0db95b850">Ptr</a> (QualType srcType)</td></tr>
+<tr class="separator:af1f00432784bdd2f1f990bd0db95b850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38dd5887bd08be8d8b287cc2a61b3d30"><td class="memItemLeft" align="right" valign="top">CanQualType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a38dd5887bd08be8d8b287cc2a61b3d30">VoidTy</a> ()</td></tr>
+<tr class="separator:a38dd5887bd08be8d8b287cc2a61b3d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24023a5c2ab48898019fbe188af0057a"><td class="memItemLeft" align="right" valign="top">static QualType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a24023a5c2ab48898019fbe188af0057a">mkAnonVoidFunctionPointer</a> ()</td></tr>
+<tr class="separator:a24023a5c2ab48898019fbe188af0057a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a529213964820372b087dd83151d5fbe1"><td class="memItemLeft" align="right" valign="top">static FunctionDecl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a529213964820372b087dd83151d5fbe1">CreateFunctionDecl</a> (std::string_view funcName, <a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a> params)</td></tr>
+<tr class="separator:a529213964820372b087dd83151d5fbe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a797ef113917b3be11d7bac83712ae9cb"><td class="memItemLeft" align="right" valign="top">CXXStaticCastExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a797ef113917b3be11d7bac83712ae9cb">CastToVoidFunPtr</a> (std::string_view name)</td></tr>
+<tr class="separator:a797ef113917b3be11d7bac83712ae9cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5a0195b03a7fabaad32b20465d64fee"><td class="memItemLeft" align="right" valign="top">CXXStaticCastExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#af5a0195b03a7fabaad32b20465d64fee">StaticCast</a> (QualType toType, const Expr *toExpr, bool makePointer)</td></tr>
+<tr class="separator:af5a0195b03a7fabaad32b20465d64fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace11ff739993c05dee9fc96c8ebc72e7"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ace11ff739993c05dee9fc96c8ebc72e7">mkLabelDecl</a> (std::string_view name)</td></tr>
 <tr class="separator:ace11ff739993c05dee9fc96c8ebc72e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada07c680dfc503e2bc5f64f4e525c479"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ada07c680dfc503e2bc5f64f4e525c479">mkIfStmt</a> (Expr *condition, ArrayRef&lt; <a class="el" href="class_stmt.html">Stmt</a> * &gt; bodyStmts)</td></tr>
-<tr class="separator:ada07c680dfc503e2bc5f64f4e525c479"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a139f4d12de898744d7d090d89434df2d"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a139f4d12de898744d7d090d89434df2d">mkUnaryOperator</a> (Expr *stmt, UnaryOperatorKind kind, QualType type)</td></tr>
-<tr class="separator:a139f4d12de898744d7d090d89434df2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54f94ea5b7a581deb4e234dc5794f41b"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a54f94ea5b7a581deb4e234dc5794f41b">mkNotIfStmt</a> (Expr *stmt, ArrayRef&lt; <a class="el" href="class_stmt.html">Stmt</a> * &gt; bodyStmts)</td></tr>
-<tr class="separator:a54f94ea5b7a581deb4e234dc5794f41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac90b31cf2f1ac989e2b95142f8ea97c6"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ac90b31cf2f1ac989e2b95142f8ea97c6">mkIntegerLiteral32</a> (uint64_t value)</td></tr>
-<tr class="separator:ac90b31cf2f1ac989e2b95142f8ea97c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4243fece6da6c5a20a1644491684c986"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a4243fece6da6c5a20a1644491684c986">mkBoolLiteral</a> (bool value)</td></tr>
-<tr class="separator:a4243fece6da6c5a20a1644491684c986"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d88e8a3fc6889108f287e9261403b14"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a8d88e8a3fc6889108f287e9261403b14">mkMemberExpr</a> (Expr *expr, ValueDecl *vd, bool isArrow=true)</td></tr>
-<tr class="separator:a8d88e8a3fc6889108f287e9261403b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca36f8bfe7213268b3c5182f03afc6b5"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#aca36f8bfe7213268b3c5182f03afc6b5">mkBinaryOperator</a> (Expr *lhs, Expr *rhs, BinaryOperator::Opcode opc, QualType resType)</td></tr>
-<tr class="separator:aca36f8bfe7213268b3c5182f03afc6b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9eaf35d566a0793cb0b94ac832291e4"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#af9eaf35d566a0793cb0b94ac832291e4">mkAssign</a> (DeclRefExpr *declRef, FieldDecl *field, Expr *assignExpr)</td></tr>
-<tr class="separator:af9eaf35d566a0793cb0b94ac832291e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a583ff2747d50658fc21fa30a62196aec"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a583ff2747d50658fc21fa30a62196aec">mkFunctionDeclBase</a> (std::string_view name, QualType returnType, const <a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a> &amp;parameters, DeclContext *declCtx)</td></tr>
-<tr class="separator:a583ff2747d50658fc21fa30a62196aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c6f4c84a0b974392d1a6cdcc93863d8"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a0c6f4c84a0b974392d1a6cdcc93863d8">mkFunctionDecl</a> (std::string_view name, QualType returnType, const <a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a> &amp;parameters)</td></tr>
-<tr class="separator:a0c6f4c84a0b974392d1a6cdcc93863d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace7a8d8c960c363af986bef27efcea44"><td class="memItemLeft" align="right" valign="top">LabelStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ace7a8d8c960c363af986bef27efcea44">Label</a> (std::string_view name)</td></tr>
+<tr class="separator:ace7a8d8c960c363af986bef27efcea44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf362489ef458fc60ef6f9388a586d7d"><td class="memItemLeft" align="right" valign="top">CompoundStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#adf362489ef458fc60ef6f9388a586d7d">mkCompoundStmt</a> (ArrayRef&lt; <a class="el" href="class_stmt.html">Stmt</a> * &gt; bodyStmts, SourceLocation beginLoc, SourceLocation endLoc)</td></tr>
+<tr class="separator:adf362489ef458fc60ef6f9388a586d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a951cd0eeec7328699d650cc131361cbf"><td class="memItemLeft" align="right" valign="top">IfStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a951cd0eeec7328699d650cc131361cbf">If</a> (const Expr *condition, ArrayRef&lt; <a class="el" href="class_stmt.html">Stmt</a> * &gt; bodyStmts)</td></tr>
+<tr class="separator:a951cd0eeec7328699d650cc131361cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae89f7aee5c31e06e95088536e3c36ce1"><td class="memItemLeft" align="right" valign="top">IntegerLiteral *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ae89f7aee5c31e06e95088536e3c36ce1">Int32</a> (uint64_t value)</td></tr>
+<tr class="separator:ae89f7aee5c31e06e95088536e3c36ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e9e8e8c823d79dd0d681c3f0046fae2"><td class="memItemLeft" align="right" valign="top">MemberExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a5e9e8e8c823d79dd0d681c3f0046fae2">AccessMember</a> (const Expr *expr, const ValueDecl *vd, bool isArrow)</td></tr>
+<tr class="separator:a5e9e8e8c823d79dd0d681c3f0046fae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0252d6c93fa1b82e04248e367278c818"><td class="memItemLeft" align="right" valign="top">BinaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a0252d6c93fa1b82e04248e367278c818">Equal</a> (Expr *var, Expr *assignExpr)</td></tr>
+<tr class="separator:a0252d6c93fa1b82e04248e367278c818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa499abed5326bca73e79d8526bdfb31d"><td class="memItemLeft" align="right" valign="top">GotoStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#aa499abed5326bca73e79d8526bdfb31d">Goto</a> (std::string_view labelName)</td></tr>
+<tr class="separator:aa499abed5326bca73e79d8526bdfb31d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefdb647034d4b696f302debff0142726"><td class="memItemLeft" align="right" valign="top">ParmVarDecl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#aefdb647034d4b696f302debff0142726">Parameter</a> (const FunctionDecl *fd, std::string_view name, QualType type)</td></tr>
+<tr class="separator:aefdb647034d4b696f302debff0142726"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4b27f3ac55eaf6c8cc9098bf565b9f0"><td class="memItemLeft" align="right" valign="top">static auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#af4b27f3ac55eaf6c8cc9098bf565b9f0">FunctionBase</a> (std::string_view name, QualType returnType, const <a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a> &amp;parameters, DeclContext *declCtx)</td></tr>
+<tr class="separator:af4b27f3ac55eaf6c8cc9098bf565b9f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adba86b8ac1e70d673420ad8601017875"><td class="memItemLeft" align="right" valign="top">FunctionDecl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#adba86b8ac1e70d673420ad8601017875">Function</a> (std::string_view name, QualType returnType, const <a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a> &amp;parameters)</td></tr>
+<tr class="separator:adba86b8ac1e70d673420ad8601017875"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a214cc5c47392bf2fe0f69dcd20894e6a"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a214cc5c47392bf2fe0f69dcd20894e6a">mkStdFunctionDecl</a> (std::string_view name, QualType returnType, const <a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a> &amp;parameters)</td></tr>
 <tr class="separator:a214cc5c47392bf2fe0f69dcd20894e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7dc4ab3e7cc4fd58a95d01ea41aeb703"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a7dc4ab3e7cc4fd58a95d01ea41aeb703">mkDeclRefExpr</a> (ValueDecl *vd)</td></tr>
-<tr class="separator:a7dc4ab3e7cc4fd58a95d01ea41aeb703"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53152d6464730c88d325226c34b10f2c"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a53152d6464730c88d325226c34b10f2c">mkCallExpr</a> (FunctionDecl *fd, QualType retType, const std::vector&lt; Expr * &gt; &amp;params)</td></tr>
-<tr class="separator:a53152d6464730c88d325226c34b10f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a662b1ce24a9219243f825f8727985ba9"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a662b1ce24a9219243f825f8727985ba9">mkMemberCallExpr</a> (MemberExpr *memExpr, QualType retType)</td></tr>
-<tr class="separator:a662b1ce24a9219243f825f8727985ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85ef7a2a764780692d1f689c1882e4fe"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a85ef7a2a764780692d1f689c1882e4fe">mkReturnStmt</a> (Expr *stmt=nullptr)</td></tr>
-<tr class="separator:a85ef7a2a764780692d1f689c1882e4fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec3c8f84da903d8c0ed3203d255da5bc"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#aec3c8f84da903d8c0ed3203d255da5bc">mkCaseStmt</a> (int value, <a class="el" href="class_stmt.html">Stmt</a> *stmt)</td></tr>
-<tr class="separator:aec3c8f84da903d8c0ed3203d255da5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82853a56d20de313792facc5b7ae6d09"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a82853a56d20de313792facc5b7ae6d09">mkVarDecl</a> (std::string_view name, QualType type)</td></tr>
-<tr class="separator:a82853a56d20de313792facc5b7ae6d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc84c52e17332c92ae4b2157cf95e054"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#abc84c52e17332c92ae4b2157cf95e054">mkNullStmt</a> ()</td></tr>
-<tr class="separator:abc84c52e17332c92ae4b2157cf95e054"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38778521f21d4fb509d988577eb163e3"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a38778521f21d4fb509d988577eb163e3">mkInsightsComment</a> (std::string_view comment)</td></tr>
-<tr class="separator:a38778521f21d4fb509d988577eb163e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab72406fe807c3ade25f110a014595c3"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#aab72406fe807c3ade25f110a014595c3">mkFunctionReference</a> (FunctionDecl *fd)</td></tr>
-<tr class="separator:aab72406fe807c3ade25f110a014595c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a21458b371b445ae9dcd970ecc727d9"><td class="memItemLeft" align="right" valign="top">auto *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a5a21458b371b445ae9dcd970ecc727d9">mkCXXRecordDecl</a> (std::string_view name)</td></tr>
-<tr class="separator:a5a21458b371b445ae9dcd970ecc727d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2794621199a0822f2cbecdcae68e948b"><td class="memItemLeft" align="right" valign="top">DeclRefExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">mkDeclRefExpr</a> (const ValueDecl *vd)</td></tr>
+<tr class="separator:a2794621199a0822f2cbecdcae68e948b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aece324f96b4e1c067dd03457ad0ae795"><td class="memItemLeft" align="right" valign="top">ImplicitCastExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#aece324f96b4e1c067dd03457ad0ae795">CastLToRValue</a> (const VarDecl *vd)</td></tr>
+<tr class="separator:aece324f96b4e1c067dd03457ad0ae795"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcfe000266b8240d47825203181e817a"><td class="memItemLeft" align="right" valign="top">CXXMemberCallExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#afcfe000266b8240d47825203181e817a">CallMemberFun</a> (Expr *memExpr, QualType retType)</td></tr>
+<tr class="separator:afcfe000266b8240d47825203181e817a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a770b41401ec718ccdd44baa001fcaadb"><td class="memItemLeft" align="right" valign="top">ReturnStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a770b41401ec718ccdd44baa001fcaadb">Return</a> (Expr *stmt)</td></tr>
+<tr class="separator:a770b41401ec718ccdd44baa001fcaadb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8bbffd40d0d6727d73883029062a972"><td class="memItemLeft" align="right" valign="top">ReturnStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ac8bbffd40d0d6727d73883029062a972">Return</a> (const ValueDecl *stmt)</td></tr>
+<tr class="separator:ac8bbffd40d0d6727d73883029062a972"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4a11bc238a5761be1e4d72d692007d8"><td class="memItemLeft" align="right" valign="top">SwitchStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ae4a11bc238a5761be1e4d72d692007d8">Switch</a> (Expr *stmt)</td></tr>
+<tr class="separator:ae4a11bc238a5761be1e4d72d692007d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49c378ab01073608a675dcc8b8a5c850"><td class="memItemLeft" align="right" valign="top">BreakStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a49c378ab01073608a675dcc8b8a5c850">Break</a> ()</td></tr>
+<tr class="separator:a49c378ab01073608a675dcc8b8a5c850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c2f9d793d7af2e3b636bc3a365f7c0b"><td class="memItemLeft" align="right" valign="top">CaseStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a7c2f9d793d7af2e3b636bc3a365f7c0b">Case</a> (int value, <a class="el" href="class_stmt.html">Stmt</a> *stmt)</td></tr>
+<tr class="separator:a7c2f9d793d7af2e3b636bc3a365f7c0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cfb143b9ab54ea300b1fc27694b267d"><td class="memItemLeft" align="right" valign="top">VarDecl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a5cfb143b9ab54ea300b1fc27694b267d">Variable</a> (std::string_view name, QualType type, DeclContext *dc)</td></tr>
+<tr class="separator:a5cfb143b9ab54ea300b1fc27694b267d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41dbaab5ec5bfaafda9126fedc0c9797"><td class="memItemLeft" align="right" valign="top">NullStmt *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a41dbaab5ec5bfaafda9126fedc0c9797">mkNullStmt</a> ()</td></tr>
+<tr class="separator:a41dbaab5ec5bfaafda9126fedc0c9797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85cb26e9f1583857ef0dd33eae3c0b35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_stmt.html">Stmt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a85cb26e9f1583857ef0dd33eae3c0b35">Comment</a> (std::string_view comment)</td></tr>
+<tr class="separator:a85cb26e9f1583857ef0dd33eae3c0b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b79e1f462192ae5a58b5745a038dd48"><td class="memItemLeft" align="right" valign="top">CXXRecordDecl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a1b79e1f462192ae5a58b5745a038dd48">Struct</a> (std::string_view name)</td></tr>
+<tr class="separator:a1b79e1f462192ae5a58b5745a038dd48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20cd9e503e099ec18aa0294df02803d5"><td class="memItemLeft" align="right" valign="top">FieldDecl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a20cd9e503e099ec18aa0294df02803d5">mkFieldDecl</a> (DeclContext *dc, std::string_view name, QualType type)</td></tr>
+<tr class="separator:a20cd9e503e099ec18aa0294df02803d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68c13104130240f3eca5aa4b689b6725"><td class="memItemLeft" align="right" valign="top">ArraySubscriptExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a68c13104130240f3eca5aa4b689b6725">ArraySubscript</a> (const Expr *lhs, uint64_t index, QualType type)</td></tr>
+<tr class="separator:a68c13104130240f3eca5aa4b689b6725"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a248c0c60ccd924e6909315ee09acd7c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a248c0c60ccd924e6909315ee09acd7c2">to_params_view</a> (<a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ad293ff2b0364e1ee761750e2ee67b939">params_store</a> &amp;params)</td></tr>
+<tr class="separator:a248c0c60ccd924e6909315ee09acd7c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f7a602024e1bbb5b68fcb1742b9bb15"><td class="memItemLeft" align="right" valign="top">DeclRefExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a5f7a602024e1bbb5b68fcb1742b9bb15">mkVarDeclRefExpr</a> (std::string_view name, QualType type)</td></tr>
+<tr class="separator:a5f7a602024e1bbb5b68fcb1742b9bb15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaf48b5d6cf58f68d1ed251825fd5cc3"><td class="memItemLeft" align="right" valign="top">static CallExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#acaf48b5d6cf58f68d1ed251825fd5cc3">CallConstructor</a> (QualType ctorType, DeclRefExpr *lhsDeclRef, Expr *lhsMemberExpr, ArrayRef&lt; Expr * &gt; callParams, DoCast doCast, AsReference asReference)</td></tr>
+<tr class="separator:acaf48b5d6cf58f68d1ed251825fd5cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2698b1e80679b55ceee1f423ae65b6a5"><td class="memItemLeft" align="right" valign="top">CallExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a2698b1e80679b55ceee1f423ae65b6a5">CallConstructor</a> (QualType ctorType, QualType lhsType, const FieldDecl *fieldDecl, ArrayRef&lt; Expr * &gt; callParams, DoCast doCast, AsReference asReference)</td></tr>
+<tr class="separator:a2698b1e80679b55ceee1f423ae65b6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a493aa55d9c2749d0272a03ed519aeed0"><td class="memItemLeft" align="right" valign="top">CallExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a493aa55d9c2749d0272a03ed519aeed0">CallConstructor</a> (QualType ctorType, const VarDecl *varDecl, ArrayRef&lt; Expr * &gt; callParams, DoCast doCast, AsReference asReference)</td></tr>
+<tr class="separator:a493aa55d9c2749d0272a03ed519aeed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad74ad0818bf5789eab79251a9f457777"><td class="memItemLeft" align="right" valign="top">CXXBoolLiteralExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ad74ad0818bf5789eab79251a9f457777">Bool</a> (bool b)</td></tr>
+<tr class="separator:ad74ad0818bf5789eab79251a9f457777"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff57f99697eaf07eb9b92532f3d38963"><td class="memItemLeft" align="right" valign="top">CallExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#aff57f99697eaf07eb9b92532f3d38963">CallDestructor</a> (const VarDecl *varDecl)</td></tr>
+<tr class="separator:aff57f99697eaf07eb9b92532f3d38963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27bc3a61d39ff0e88865f6d04323f9fc"><td class="memItemLeft" align="right" valign="top">QualType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a27bc3a61d39ff0e88865f6d04323f9fc">Typedef</a> (std::string_view name, QualType underlayingType)</td></tr>
+<tr class="separator:a27bc3a61d39ff0e88865f6d04323f9fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2167b4c219428e6fca1fd20af5039b4"><td class="memItemLeft" align="right" valign="top">QualType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ac2167b4c219428e6fca1fd20af5039b4">GetRecordDeclType</a> (const CXXMethodDecl *md)</td></tr>
+<tr class="separator:ac2167b4c219428e6fca1fd20af5039b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5061f3cf9163b9d776ff87778485f30e"><td class="memItemLeft" align="right" valign="top">QualType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a5061f3cf9163b9d776ff87778485f30e">GetRecordDeclType</a> (const RecordDecl *rd)</td></tr>
+<tr class="separator:a5061f3cf9163b9d776ff87778485f30e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a1fecd05ff0c111bed1a89afcd7e1db"><td class="memItemLeft" align="right" valign="top">CXXNewExpr *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a2a1fecd05ff0c111bed1a89afcd7e1db">New</a> (ArrayRef&lt; Expr * &gt; placementArgs, const Expr *expr, QualType t)</td></tr>
+<tr class="separator:a2a1fecd05ff0c111bed1a89afcd7e1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a998d9005b3543ca1ef42fdafa972d765"><td class="memItemLeft" align="right" valign="top">BinaryOperator *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a998d9005b3543ca1ef42fdafa972d765">Mul</a> (Expr *lhs, Expr *rhs)</td></tr>
+<tr class="separator:a998d9005b3543ca1ef42fdafa972d765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6922e471ac9e89dcd7e6c81e9aa6adc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ab6922e471ac9e89dcd7e6c81e9aa6adc">ReplaceNode</a> (<a class="el" href="class_stmt.html">Stmt</a> *parent, <a class="el" href="class_stmt.html">Stmt</a> *oldNode, <a class="el" href="class_stmt.html">Stmt</a> *newNode)</td></tr>
+<tr class="separator:ab6922e471ac9e89dcd7e6c81e9aa6adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68303ab559188d305094536a119eb22d"><td class="memItemLeft" align="right" valign="top">SmallVector&lt; Expr *, 5 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a68303ab559188d305094536a119eb22d">ArgsToExprVector</a> (const Expr *expr)</td></tr>
+<tr class="separator:a68303ab559188d305094536a119eb22d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b451db072fa3a9ec10c2357449ea119"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a5b451db072fa3a9ec10c2357449ea119">STRONG_BOOL</a> (DoCast)</td></tr>
+<tr class="separator:a5b451db072fa3a9ec10c2357449ea119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93473a886477824581209e2661ac716a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a93473a886477824581209e2661ac716a">STRONG_BOOL</a> (AsReference)</td></tr>
+<tr class="separator:a93473a886477824581209e2661ac716a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24f32bdf82df61e27efb8601985dc8df"><td class="memTemplParams" colspan="2">template&lt;typename... Dcls&gt; </td></tr>
+<tr class="memitem:a24f32bdf82df61e27efb8601985dc8df"><td class="memTemplItemLeft" align="right" valign="top">DeclStmt *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a24f32bdf82df61e27efb8601985dc8df">mkDeclStmt</a> (Dcls... dcls)</td></tr>
+<tr class="separator:a24f32bdf82df61e27efb8601985dc8df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
+<a id="ad293ff2b0364e1ee761750e2ee67b939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad293ff2b0364e1ee761750e2ee67b939">&#9670;&nbsp;</a></span>params_store</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ad293ff2b0364e1ee761750e2ee67b939">clang::insights::asthelpers::params_store</a> = typedef std::vector&lt;std::pair&lt;std::string, QualType&gt; &gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8h_source.html#l00028">28</a> of file <a class="el" href="_a_s_t_helpers_8h_source.html">ASTHelpers.h</a>.</p>
+
+</div>
+</div>
 <a id="a38df7885ae95cee3556ee655e768fcac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a38df7885ae95cee3556ee655e768fcac">&#9670;&nbsp;</a></span>params_vector</h2>
 
@@ -118,19 +240,203 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00122">122</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8h_source.html#l00027">27</a> of file <a class="el" href="_a_s_t_helpers_8h_source.html">ASTHelpers.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="af9eaf35d566a0793cb0b94ac832291e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9eaf35d566a0793cb0b94ac832291e4">&#9670;&nbsp;</a></span>mkAssign()</h2>
+<a id="ad5ad891bffe208cc89ec34c6591b64e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5ad891bffe208cc89ec34c6591b64e3">&#9670;&nbsp;</a></span>_mkDeclStmt()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkAssign </td>
+          <td class="memname">DeclStmt* clang::insights::asthelpers::_mkDeclStmt </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; Decl * &gt;&#160;</td>
+          <td class="paramname"><em>decls</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00021">21</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8h_source.html#l00090">mkDeclStmt()</a>.</p>
+
+</div>
+</div>
+<a id="a5e9e8e8c823d79dd0d681c3f0046fae2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e9e8e8c823d79dd0d681c3f0046fae2">&#9670;&nbsp;</a></span>AccessMember()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MemberExpr * clang::insights::asthelpers::AccessMember </td>
+          <td>(</td>
+          <td class="paramtype">const Expr *&#160;</td>
+          <td class="paramname"><em>expr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ValueDecl *&#160;</td>
+          <td class="paramname"><em>vd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isArrow</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00283">283</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00026">clang::insights::AccessMember()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00056">Assign()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00565">CallConstructor()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00346">clang::insights::CoroutineASTTransformer::VisitCoroutineBodyStmt()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00262">clang::insights::CoroutineASTTransformer::VisitCXXThisExpr()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00239">clang::insights::CoroutineASTTransformer::VisitDeclStmt()</a>.</p>
+
+</div>
+</div>
+<a id="a07da9b00d166a90653800c010430b96b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07da9b00d166a90653800c010430b96b">&#9670;&nbsp;</a></span>AddrOf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UnaryOperator * clang::insights::asthelpers::AddrOf </td>
+          <td>(</td>
+          <td class="paramtype">const Expr *&#160;</td>
+          <td class="paramname"><em>stmt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00117">117</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00074">mkUnaryOperator()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>.</p>
+
+</div>
+</div>
+<a id="a68303ab559188d305094536a119eb22d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68303ab559188d305094536a119eb22d">&#9670;&nbsp;</a></span>ArgsToExprVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SmallVector&lt; Expr *, 5 &gt; clang::insights::asthelpers::ArgsToExprVector </td>
+          <td>(</td>
+          <td class="paramtype">const Expr *&#160;</td>
+          <td class="paramname"><em>expr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00684">684</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00825">clang::insights::CfrontCodeGenerator::InsertArg()</a>, and <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>.</p>
+
+</div>
+</div>
+<a id="a68c13104130240f3eca5aa4b689b6725"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68c13104130240f3eca5aa4b689b6725">&#9670;&nbsp;</a></span>ArraySubscript()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ArraySubscriptExpr * clang::insights::asthelpers::ArraySubscript </td>
+          <td>(</td>
+          <td class="paramtype">const Expr *&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00503">503</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00274">Int32()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00249">clang::insights::CfrontCodeGenerator::InsertArg()</a>.</p>
+
+</div>
+</div>
+<a id="afde001f9d25f3f0926adddffdfc2990c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afde001f9d25f3f0926adddffdfc2990c">&#9670;&nbsp;</a></span>Assign() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BinaryOperator * clang::insights::asthelpers::Assign </td>
+          <td>(</td>
+          <td class="paramtype">const VarDecl *&#160;</td>
+          <td class="paramname"><em>var</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramname"><em>assignExpr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00031">31</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00068">Assign()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00384">mkDeclRefExpr()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l04371">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00249">clang::insights::CfrontCodeGenerator::InsertArg()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00856">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00239">clang::insights::CoroutineASTTransformer::VisitDeclStmt()</a>.</p>
+
+</div>
+</div>
+<a id="a29e486d0b71a373cd32a84999f019a7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29e486d0b71a373cd32a84999f019a7c">&#9670;&nbsp;</a></span>Assign() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BinaryOperator * clang::insights::asthelpers::Assign </td>
           <td>(</td>
           <td class="paramtype">DeclRefExpr *&#160;</td>
           <td class="paramname"><em>declRef</em>, </td>
@@ -138,7 +444,39 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">FieldDecl *&#160;</td>
+          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramname"><em>assignExpr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00062">62</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00037">mkBinaryOperator()</a>.</p>
+
+</div>
+</div>
+<a id="aec11e69f66daa83ef307527365e9e982"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec11e69f66daa83ef307527365e9e982">&#9670;&nbsp;</a></span>Assign() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BinaryOperator * clang::insights::asthelpers::Assign </td>
+          <td>(</td>
+          <td class="paramtype">DeclRefExpr *&#160;</td>
+          <td class="paramname"><em>declRef</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ValueDecl *&#160;</td>
           <td class="paramname"><em>field</em>, </td>
         </tr>
         <tr>
@@ -155,43 +493,29 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00110">110</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00056">56</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00104">mkBinaryOperator()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00098">mkMemberExpr()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01220">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>.</p>
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00283">AccessMember()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00068">Assign()</a>.</p>
 
 </div>
 </div>
-<a id="aca36f8bfe7213268b3c5182f03afc6b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca36f8bfe7213268b3c5182f03afc6b5">&#9670;&nbsp;</a></span>mkBinaryOperator()</h2>
+<a id="a24885690ce9557fc27490495f976aafd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24885690ce9557fc27490495f976aafd">&#9670;&nbsp;</a></span>Assign() <span class="overload">[4/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkBinaryOperator </td>
+          <td class="memname">BinaryOperator * clang::insights::asthelpers::Assign </td>
           <td>(</td>
           <td class="paramtype">Expr *&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
+          <td class="paramname"><em>var</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">Expr *&#160;</td>
-          <td class="paramname"><em>rhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">BinaryOperator::Opcode&#160;</td>
-          <td class="paramname"><em>opc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QualType&#160;</td>
-          <td class="paramname"><em>resType</em>&#160;</td>
+          <td class="paramname"><em>assignExpr</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -201,58 +525,147 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00104">104</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00068">68</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00037">mkBinaryOperator()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00110">mkAssign()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00525">clang::insights::CoroutineASTTransformer::VisitDeclStmt()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00031">Assign()</a>.</p>
 
 </div>
 </div>
-<a id="a4243fece6da6c5a20a1644491684c986"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4243fece6da6c5a20a1644491684c986">&#9670;&nbsp;</a></span>mkBoolLiteral()</h2>
+<a id="ad0ada6e721e6af4a322e5bc840743d48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0ada6e721e6af4a322e5bc840743d48">&#9670;&nbsp;</a></span>Assign() <span class="overload">[5/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkBoolLiteral </td>
+          <td class="memname">BinaryOperator * clang::insights::asthelpers::Assign </td>
+          <td>(</td>
+          <td class="paramtype">MemberExpr *&#160;</td>
+          <td class="paramname"><em>me</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ValueDecl *&#160;</td>
+          <td class="paramname"><em>field</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramname"><em>assignExpr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00050">50</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00037">mkBinaryOperator()</a>.</p>
+
+</div>
+</div>
+<a id="a0c100d1349e91de82b87a75a187cb826"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c100d1349e91de82b87a75a187cb826">&#9670;&nbsp;</a></span>Assign() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BinaryOperator * clang::insights::asthelpers::Assign </td>
+          <td>(</td>
+          <td class="paramtype">UnaryOperator *&#160;</td>
+          <td class="paramname"><em>var</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramname"><em>assignExpr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00044">44</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00037">mkBinaryOperator()</a>.</p>
+
+</div>
+</div>
+<a id="ad74ad0818bf5789eab79251a9f457777"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad74ad0818bf5789eab79251a9f457777">&#9670;&nbsp;</a></span>Bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CXXBoolLiteralExpr * clang::insights::asthelpers::Bool </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00091">91</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00595">595</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l04371">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>.</p>
 
 </div>
 </div>
-<a id="a53152d6464730c88d325226c34b10f2c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53152d6464730c88d325226c34b10f2c">&#9670;&nbsp;</a></span>mkCallExpr()</h2>
+<a id="a49c378ab01073608a675dcc8b8a5c850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49c378ab01073608a675dcc8b8a5c850">&#9670;&nbsp;</a></span>Break()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkCallExpr </td>
+          <td class="memname">BreakStmt * clang::insights::asthelpers::Break </td>
           <td>(</td>
-          <td class="paramtype">FunctionDecl *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00431">431</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00733">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>.</p>
+
+</div>
+</div>
+<a id="a4b016eb63027bce5854b67a482eead43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b016eb63027bce5854b67a482eead43">&#9670;&nbsp;</a></span>Call() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CallExpr * clang::insights::asthelpers::Call </td>
+          <td>(</td>
+          <td class="paramtype">const FunctionDecl *&#160;</td>
           <td class="paramname"><em>fd</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">QualType&#160;</td>
-          <td class="paramname"><em>retType</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; Expr * &gt; &amp;&#160;</td>
+          <td class="paramtype">ArrayRef&lt; Expr * &gt;&#160;</td>
           <td class="paramname"><em>params</em>&#160;</td>
         </tr>
         <tr>
@@ -263,20 +676,286 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00205">205</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00123">123</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00190">mkDeclRefExpr()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00384">mkDeclRefExpr()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00153">clang::insights::CallVecDeleteOrDtor()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00204">clang::insights::CallVecNewOrCtor()</a>, <a class="el" href="_code_generator_8cpp_source.html#l04371">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00182">clang::insights::CfrontCodeGenerator::InsertArg()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l01459">clang::insights::CodeGenerator::InsertMethodBody()</a>.</p>
 
 </div>
 </div>
-<a id="aec3c8f84da903d8c0ed3203d255da5bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec3c8f84da903d8c0ed3203d255da5bc">&#9670;&nbsp;</a></span>mkCaseStmt()</h2>
+<a id="acbf77f17e857b61d8f3b87d22dc6008f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbf77f17e857b61d8f3b87d22dc6008f">&#9670;&nbsp;</a></span>Call() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkCaseStmt </td>
+          <td class="memname">CallExpr * clang::insights::asthelpers::Call </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ArrayRef&lt; Expr * &gt;&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00129">129</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00362">Function()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00190">VoidTy()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00532">CallConstructor()</a>.</p>
+
+</div>
+</div>
+<a id="a493aa55d9c2749d0272a03ed519aeed0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a493aa55d9c2749d0272a03ed519aeed0">&#9670;&nbsp;</a></span>CallConstructor() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CallExpr * clang::insights::asthelpers::CallConstructor </td>
+          <td>(</td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>ctorType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const VarDecl *&#160;</td>
+          <td class="paramname"><em>varDecl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ArrayRef&lt; Expr * &gt;&#160;</td>
+          <td class="paramname"><em>callParams</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DoCast&#160;</td>
+          <td class="paramname"><em>doCast</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AsReference&#160;</td>
+          <td class="paramname"><em>asReference</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00583">583</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00384">mkDeclRefExpr()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00565">CallConstructor()</a>.</p>
+
+</div>
+</div>
+<a id="acaf48b5d6cf58f68d1ed251825fd5cc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaf48b5d6cf58f68d1ed251825fd5cc3">&#9670;&nbsp;</a></span>CallConstructor() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static CallExpr* clang::insights::asthelpers::CallConstructor </td>
+          <td>(</td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>ctorType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DeclRefExpr *&#160;</td>
+          <td class="paramname"><em>lhsDeclRef</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramname"><em>lhsMemberExpr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ArrayRef&lt; Expr * &gt;&#160;</td>
+          <td class="paramname"><em>callParams</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DoCast&#160;</td>
+          <td class="paramname"><em>doCast</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AsReference&#160;</td>
+          <td class="paramname"><em>asReference</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00532">532</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00129">Call()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00206">CreateFunctionDecl()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00936">clang::insights::details::GetName()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00129">kwInternalThis</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00105">Ref()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00218">StaticCast()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00087">clang::insights::details::StrCat()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00825">clang::insights::CfrontCodeGenerator::InsertArg()</a>, and <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>.</p>
+
+</div>
+</div>
+<a id="a2698b1e80679b55ceee1f423ae65b6a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2698b1e80679b55ceee1f423ae65b6a5">&#9670;&nbsp;</a></span>CallConstructor() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CallExpr * clang::insights::asthelpers::CallConstructor </td>
+          <td>(</td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>ctorType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>lhsType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FieldDecl *&#160;</td>
+          <td class="paramname"><em>fieldDecl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ArrayRef&lt; Expr * &gt;&#160;</td>
+          <td class="paramname"><em>callParams</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DoCast&#160;</td>
+          <td class="paramname"><em>doCast</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AsReference&#160;</td>
+          <td class="paramname"><em>asReference</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00565">565</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00283">AccessMember()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00583">CallConstructor()</a>, <a class="el" href="_insights_static_strings_8h_source.html#l00129">kwInternalThis</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00523">mkVarDeclRefExpr()</a>.</p>
+
+</div>
+</div>
+<a id="aff57f99697eaf07eb9b92532f3d38963"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff57f99697eaf07eb9b92532f3d38963">&#9670;&nbsp;</a></span>CallDestructor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CallExpr * clang::insights::asthelpers::CallDestructor </td>
+          <td>(</td>
+          <td class="paramtype">const VarDecl *&#160;</td>
+          <td class="paramname"><em>varDecl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00602">602</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00206">CreateFunctionDecl()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00936">clang::insights::details::GetName()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00384">mkDeclRefExpr()</a>, and <a class="el" href="_insights_str_cat_8h_source.html#l00087">clang::insights::details::StrCat()</a>.</p>
+
+</div>
+</div>
+<a id="afcfe000266b8240d47825203181e817a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcfe000266b8240d47825203181e817a">&#9670;&nbsp;</a></span>CallMemberFun()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CXXMemberCallExpr * clang::insights::asthelpers::CallMemberFun </td>
+          <td>(</td>
+          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramname"><em>memExpr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>retType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00407">407</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>.</p>
+
+</div>
+</div>
+<a id="a7c2f9d793d7af2e3b636bc3a365f7c0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c2f9d793d7af2e3b636bc3a365f7c0b">&#9670;&nbsp;</a></span>Case()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CaseStmt * clang::insights::asthelpers::Case </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>value</em>, </td>
@@ -295,37 +974,31 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00222">222</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00437">437</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00083">mkIntegerLiteral32()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00274">Int32()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01082">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00733">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>.</p>
 
 </div>
 </div>
-<a id="a5b6b1f40ac0b779870eb86db3e2e5be2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b6b1f40ac0b779870eb86db3e2e5be2">&#9670;&nbsp;</a></span>mkCompoundStmt()</h2>
+<a id="a794f4649c8d38db9650f1fe5654d8115"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a794f4649c8d38db9650f1fe5654d8115">&#9670;&nbsp;</a></span>Cast()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CompoundStmt * clang::insights::asthelpers::mkCompoundStmt </td>
+          <td class="memname">CXXStaticCastExpr * clang::insights::asthelpers::Cast </td>
           <td>(</td>
-          <td class="paramtype">ArrayRef&lt; <a class="el" href="class_stmt.html">Stmt</a> * &gt;&#160;</td>
-          <td class="paramname"><em>bodyStmts</em>, </td>
+          <td class="paramtype">const Expr *&#160;</td>
+          <td class="paramname"><em>toExpr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">SourceLocation&#160;</td>
-          <td class="paramname"><em>beginLoc</em> = <code>{}</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SourceLocation&#160;</td>
-          <td class="paramname"><em>endLoc</em> = <code>{}</code>&#160;</td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>toType</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -335,20 +1008,44 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00045">45</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00178">178</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01082">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00056">mkIfStmt()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00367">clang::insights::SetFunctionBody()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00421">clang::insights::CoroutineASTTransformer::VisitCompoundStmt()</a>.</p>
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00218">StaticCast()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00212">CastToVoidFunPtr()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00249">clang::insights::CfrontCodeGenerator::InsertArg()</a>, and <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>.</p>
 
 </div>
 </div>
-<a id="a5a21458b371b445ae9dcd970ecc727d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a21458b371b445ae9dcd970ecc727d9">&#9670;&nbsp;</a></span>mkCXXRecordDecl()</h2>
+<a id="aece324f96b4e1c067dd03457ad0ae795"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aece324f96b4e1c067dd03457ad0ae795">&#9670;&nbsp;</a></span>CastLToRValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkCXXRecordDecl </td>
+          <td class="memname">ImplicitCastExpr * clang::insights::asthelpers::CastLToRValue </td>
+          <td>(</td>
+          <td class="paramtype">const VarDecl *&#160;</td>
+          <td class="paramname"><em>vd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00400">400</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00384">mkDeclRefExpr()</a>.</p>
+
+</div>
+</div>
+<a id="a797ef113917b3be11d7bac83712ae9cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a797ef113917b3be11d7bac83712ae9cb">&#9670;&nbsp;</a></span>CastToVoidFunPtr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CXXStaticCastExpr * clang::insights::asthelpers::CastToVoidFunPtr </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
           <td class="paramname"><em>name</em></td><td>)</td>
@@ -357,46 +1054,190 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00262">262</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00212">212</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00178">Cast()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00206">CreateFunctionDecl()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00196">mkAnonVoidFunctionPointer()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00384">mkDeclRefExpr()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00717">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00153">clang::insights::CallVecDeleteOrDtor()</a>, and <a class="el" href="_cfront_code_generator_8cpp_source.html#l00204">clang::insights::CallVecNewOrCtor()</a>.</p>
 
 </div>
 </div>
-<a id="a7dc4ab3e7cc4fd58a95d01ea41aeb703"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7dc4ab3e7cc4fd58a95d01ea41aeb703">&#9670;&nbsp;</a></span>mkDeclRefExpr()</h2>
+<a id="aa90ea498c09025eaea3f6b358bd9412c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa90ea498c09025eaea3f6b358bd9412c">&#9670;&nbsp;</a></span>Catch() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkDeclRefExpr </td>
+          <td class="memname">CXXCatchStmt * clang::insights::asthelpers::Catch </td>
           <td>(</td>
-          <td class="paramtype">ValueDecl *&#160;</td>
-          <td class="paramname"><em>vd</em></td><td>)</td>
+          <td class="paramtype">ArrayRef&lt; <a class="el" href="class_stmt.html">Stmt</a> * &gt;&#160;</td>
+          <td class="paramname"><em>body</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00190">190</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00151">151</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00252">mkCompoundStmt()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00717">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00205">mkCallExpr()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00256">mkFunctionReference()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00617">clang::insights::CoroutineASTTransformer::VisitCoawaitExpr()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l04371">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00733">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l01459">clang::insights::CodeGenerator::InsertMethodBody()</a>.</p>
 
 </div>
 </div>
-<a id="a0c6f4c84a0b974392d1a6cdcc93863d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c6f4c84a0b974392d1a6cdcc93863d8">&#9670;&nbsp;</a></span>mkFunctionDecl()</h2>
+<a id="a7f7b1d4cb9f539d3c4fea53f7213fa94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f7b1d4cb9f539d3c4fea53f7213fa94">&#9670;&nbsp;</a></span>Catch() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkFunctionDecl </td>
+          <td class="memname">CXXCatchStmt * clang::insights::asthelpers::Catch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stmt.html">Stmt</a> *&#160;</td>
+          <td class="paramname"><em>body</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00159">159</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a85cb26e9f1583857ef0dd33eae3c0b35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85cb26e9f1583857ef0dd33eae3c0b35">&#9670;&nbsp;</a></span>Comment()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_stmt.html">Stmt</a> * clang::insights::asthelpers::Comment </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>comment</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00465">465</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00733">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>, and <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>.</p>
+
+</div>
+</div>
+<a id="a529213964820372b087dd83151d5fbe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a529213964820372b087dd83151d5fbe1">&#9670;&nbsp;</a></span>CreateFunctionDecl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static FunctionDecl* clang::insights::asthelpers::CreateFunctionDecl </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>funcName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a>&#160;</td>
+          <td class="paramname"><em>params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00206">206</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00362">Function()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00190">VoidTy()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00532">CallConstructor()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00602">CallDestructor()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00212">CastToVoidFunPtr()</a>.</p>
+
+</div>
+</div>
+<a id="af046d0a157e17382dab2b8d2078d13a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af046d0a157e17382dab2b8d2078d13a7">&#9670;&nbsp;</a></span>Dref()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UnaryOperator * clang::insights::asthelpers::Dref </td>
+          <td>(</td>
+          <td class="paramtype">const Expr *&#160;</td>
+          <td class="paramname"><em>stmt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00111">111</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00074">mkUnaryOperator()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00249">clang::insights::CfrontCodeGenerator::InsertArg()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>.</p>
+
+</div>
+</div>
+<a id="a0252d6c93fa1b82e04248e367278c818"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0252d6c93fa1b82e04248e367278c818">&#9670;&nbsp;</a></span>Equal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BinaryOperator * clang::insights::asthelpers::Equal </td>
+          <td>(</td>
+          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramname"><em>var</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramname"><em>assignExpr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00295">295</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00037">mkBinaryOperator()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>.</p>
+
+</div>
+</div>
+<a id="adba86b8ac1e70d673420ad8601017875"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adba86b8ac1e70d673420ad8601017875">&#9670;&nbsp;</a></span>Function()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FunctionDecl * clang::insights::asthelpers::Function </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -421,22 +1262,25 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00166">166</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00362">362</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00124">mkFunctionDeclBase()</a>.</p>
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00324">FunctionBase()</a>, and <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00360">clang::insights::CreateFunctionDecl()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00717">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00129">Call()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00078">clang::insights::CreateCoroFunctionDecl()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00206">CreateFunctionDecl()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01078">clang::insights::EmitGlobalVariableCtors()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00785">clang::insights::CfrontCodeGenerator::InsertArg()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00196">mkAnonVoidFunctionPointer()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l00919">clang::insights::TemporaryDeclFinder::TemporaryDeclFinder()</a>.</p>
 
 </div>
 </div>
-<a id="a583ff2747d50658fc21fa30a62196aec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a583ff2747d50658fc21fa30a62196aec">&#9670;&nbsp;</a></span>mkFunctionDeclBase()</h2>
+<a id="af4b27f3ac55eaf6c8cc9098bf565b9f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4b27f3ac55eaf6c8cc9098bf565b9f0">&#9670;&nbsp;</a></span>FunctionBase()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkFunctionDeclBase </td>
+          <td class="memname">static auto* clang::insights::asthelpers::FunctionBase </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -465,46 +1309,71 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00124">124</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00324">324</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00307">Parameter()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00166">mkFunctionDecl()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00171">mkStdFunctionDecl()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00362">Function()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00368">mkStdFunctionDecl()</a>.</p>
 
 </div>
 </div>
-<a id="aab72406fe807c3ade25f110a014595c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab72406fe807c3ade25f110a014595c3">&#9670;&nbsp;</a></span>mkFunctionReference()</h2>
+<a id="ac2167b4c219428e6fca1fd20af5039b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2167b4c219428e6fca1fd20af5039b4">&#9670;&nbsp;</a></span>GetRecordDeclType() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkFunctionReference </td>
+          <td class="memname">QualType clang::insights::asthelpers::GetRecordDeclType </td>
           <td>(</td>
-          <td class="paramtype">FunctionDecl *&#160;</td>
-          <td class="paramname"><em>fd</em></td><td>)</td>
+          <td class="paramtype">const CXXMethodDecl *&#160;</td>
+          <td class="paramname"><em>md</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00256">256</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00627">627</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00190">mkDeclRefExpr()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00071">mkUnaryOperator()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00117">clang::insights::GetSpecialMemberName()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00678">clang::insights::CfrontCodeGenerator::InsertArg()</a>, and <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>.</p>
 
 </div>
 </div>
-<a id="abbf35d287682063e72ada7746111a302"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbf35d287682063e72ada7746111a302">&#9670;&nbsp;</a></span>mkGotoStmt()</h2>
+<a id="a5061f3cf9163b9d776ff87778485f30e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5061f3cf9163b9d776ff87778485f30e">&#9670;&nbsp;</a></span>GetRecordDeclType() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GotoStmt * clang::insights::asthelpers::mkGotoStmt </td>
+          <td class="memname">QualType clang::insights::asthelpers::GetRecordDeclType </td>
+          <td>(</td>
+          <td class="paramtype">const RecordDecl *&#160;</td>
+          <td class="paramname"><em>rd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00633">633</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa499abed5326bca73e79d8526bdfb31d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa499abed5326bca73e79d8526bdfb31d">&#9670;&nbsp;</a></span>Goto()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GotoStmt * clang::insights::asthelpers::Goto </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
           <td class="paramname"><em>labelName</em></td><td>)</td>
@@ -513,24 +1382,24 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00117">117</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00301">301</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00033">mkLabelDecl()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00238">mkLabelDecl()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01082">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l02009">clang::insights::ContinueASTTransformer::VisitContinueStmt()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00733">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l02388">clang::insights::ContinueASTTransformer::VisitContinueStmt()</a>.</p>
 
 </div>
 </div>
-<a id="ada07c680dfc503e2bc5f64f4e525c479"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada07c680dfc503e2bc5f64f4e525c479">&#9670;&nbsp;</a></span>mkIfStmt()</h2>
+<a id="a951cd0eeec7328699d650cc131361cbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a951cd0eeec7328699d650cc131361cbf">&#9670;&nbsp;</a></span>If()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkIfStmt </td>
+          <td class="memname">IfStmt * clang::insights::asthelpers::If </td>
           <td>(</td>
-          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramtype">const Expr *&#160;</td>
           <td class="paramname"><em>condition</em>, </td>
         </tr>
         <tr>
@@ -547,46 +1416,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00056">56</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00258">258</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00045">mkCompoundStmt()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00252">mkCompoundStmt()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00076">mkNotIfStmt()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l04371">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00733">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00182">clang::insights::CfrontCodeGenerator::InsertArg()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>.</p>
 
 </div>
 </div>
-<a id="a38778521f21d4fb509d988577eb163e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38778521f21d4fb509d988577eb163e3">&#9670;&nbsp;</a></span>mkInsightsComment()</h2>
+<a id="ae89f7aee5c31e06e95088536e3c36ce1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae89f7aee5c31e06e95088536e3c36ce1">&#9670;&nbsp;</a></span>Int32()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkInsightsComment </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>comment</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00251">251</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01082">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>.</p>
-
-</div>
-</div>
-<a id="ac90b31cf2f1ac989e2b95142f8ea97c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac90b31cf2f1ac989e2b95142f8ea97c6">&#9670;&nbsp;</a></span>mkIntegerLiteral32()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkIntegerLiteral32 </td>
+          <td class="memname">IntegerLiteral * clang::insights::asthelpers::Int32 </td>
           <td>(</td>
           <td class="paramtype">uint64_t&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
@@ -595,11 +1440,250 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00083">83</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00274">274</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00222">mkCaseStmt()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00503">ArraySubscript()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00153">clang::insights::CallVecDeleteOrDtor()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00204">clang::insights::CallVecNewOrCtor()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00437">Case()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00825">clang::insights::CfrontCodeGenerator::InsertArg()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>.</p>
+
+</div>
+</div>
+<a id="ace7a8d8c960c363af986bef27efcea44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace7a8d8c960c363af986bef27efcea44">&#9670;&nbsp;</a></span>Label()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LabelStmt * clang::insights::asthelpers::Label </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00246">246</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00238">mkLabelDecl()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00733">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>.</p>
+
+</div>
+</div>
+<a id="a24023a5c2ab48898019fbe188af0057a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24023a5c2ab48898019fbe188af0057a">&#9670;&nbsp;</a></span>mkAnonVoidFunctionPointer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static QualType clang::insights::asthelpers::mkAnonVoidFunctionPointer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00196">196</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00362">Function()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00184">Ptr()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00510">to_params_view()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00190">VoidTy()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00212">CastToVoidFunPtr()</a>.</p>
+
+</div>
+</div>
+<a id="ac897c3802b0c8b8b3b43f03319353add"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac897c3802b0c8b8b3b43f03319353add">&#9670;&nbsp;</a></span>mkBinaryOperator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static BinaryOperator* clang::insights::asthelpers::mkBinaryOperator </td>
+          <td>(</td>
+          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramname"><em>rhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BinaryOperator::Opcode&#160;</td>
+          <td class="paramname"><em>opc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>resType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00037">37</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00044">Assign()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00295">Equal()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00661">Mul()</a>.</p>
+
+</div>
+</div>
+<a id="adf362489ef458fc60ef6f9388a586d7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf362489ef458fc60ef6f9388a586d7d">&#9670;&nbsp;</a></span>mkCompoundStmt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CompoundStmt * clang::insights::asthelpers::mkCompoundStmt </td>
+          <td>(</td>
+          <td class="paramtype">ArrayRef&lt; <a class="el" href="class_stmt.html">Stmt</a> * &gt;&#160;</td>
+          <td class="paramname"><em>bodyStmts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SourceLocation&#160;</td>
+          <td class="paramname"><em>beginLoc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SourceLocation&#160;</td>
+          <td class="paramname"><em>endLoc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00252">252</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00151">Catch()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01078">clang::insights::EmitGlobalVariableCtors()</a>, <a class="el" href="_code_generator_8cpp_source.html#l04371">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00258">If()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00733">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00785">clang::insights::CfrontCodeGenerator::InsertArg()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01459">clang::insights::CodeGenerator::InsertMethodBody()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00087">clang::insights::SetFunctionBody()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00141">clang::insights::CoroutineASTTransformer::VisitCompoundStmt()</a>.</p>
+
+</div>
+</div>
+<a id="a2794621199a0822f2cbecdcae68e948b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2794621199a0822f2cbecdcae68e948b">&#9670;&nbsp;</a></span>mkDeclRefExpr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DeclRefExpr * clang::insights::asthelpers::mkDeclRefExpr </td>
+          <td>(</td>
+          <td class="paramtype">const ValueDecl *&#160;</td>
+          <td class="paramname"><em>vd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00384">384</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00031">Assign()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00123">Call()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00583">CallConstructor()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00602">CallDestructor()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00241">clang::insights::CallVecCtor()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00400">CastLToRValue()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00212">CastToVoidFunPtr()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00249">clang::insights::CfrontCodeGenerator::InsertArg()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00523">mkVarDeclRefExpr()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00087">Not()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00105">Ref()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00419">Return()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00316">clang::insights::CoroutineASTTransformer::VisitCoawaitExpr()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00973">clang::insights::TemporaryDeclFinder::VisitCXXTemporaryObjectExpr()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l01021">clang::insights::TemporaryDeclFinder::VisitMaterializeTemporaryExpr()</a>.</p>
+
+</div>
+</div>
+<a id="a24f32bdf82df61e27efb8601985dc8df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24f32bdf82df61e27efb8601985dc8df">&#9670;&nbsp;</a></span>mkDeclStmt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... Dcls&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">DeclStmt* clang::insights::asthelpers::mkDeclStmt </td>
+          <td>(</td>
+          <td class="paramtype">Dcls...&#160;</td>
+          <td class="paramname"><em>dcls</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8h_source.html#l00090">90</a> of file <a class="el" href="_a_s_t_helpers_8h_source.html">ASTHelpers.h</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00021">_mkDeclStmt()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00785">clang::insights::CfrontCodeGenerator::InsertArg()</a>.</p>
+
+</div>
+</div>
+<a id="a20cd9e503e099ec18aa0294df02803d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20cd9e503e099ec18aa0294df02803d5">&#9670;&nbsp;</a></span>mkFieldDecl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FieldDecl * clang::insights::asthelpers::mkFieldDecl </td>
+          <td>(</td>
+          <td class="paramtype">DeclContext *&#160;</td>
+          <td class="paramname"><em>dc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00492">492</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00058">clang::insights::AddField()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00678">clang::insights::CfrontCodeGenerator::InsertArg()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00262">clang::insights::CoroutineASTTransformer::VisitCXXThisExpr()</a>.</p>
 
 </div>
 </div>
@@ -619,152 +1703,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00033">33</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00238">238</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00117">mkGotoStmt()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00040">mkLabelStmt()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00301">Goto()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00246">Label()</a>.</p>
 
 </div>
 </div>
-<a id="af03e36fe0ccf41fcfaf4e1a38f3d34c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af03e36fe0ccf41fcfaf4e1a38f3d34c6">&#9670;&nbsp;</a></span>mkLabelStmt()</h2>
+<a id="a41dbaab5ec5bfaafda9126fedc0c9797"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41dbaab5ec5bfaafda9126fedc0c9797">&#9670;&nbsp;</a></span>mkNullStmt()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">LabelStmt * clang::insights::asthelpers::mkLabelStmt </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00040">40</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00033">mkLabelDecl()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01082">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>.</p>
-
-</div>
-</div>
-<a id="a662b1ce24a9219243f825f8727985ba9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a662b1ce24a9219243f825f8727985ba9">&#9670;&nbsp;</a></span>mkMemberCallExpr()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkMemberCallExpr </td>
-          <td>(</td>
-          <td class="paramtype">MemberExpr *&#160;</td>
-          <td class="paramname"><em>memExpr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">QualType&#160;</td>
-          <td class="paramname"><em>retType</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00212">212</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
-
-</div>
-</div>
-<a id="a8d88e8a3fc6889108f287e9261403b14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d88e8a3fc6889108f287e9261403b14">&#9670;&nbsp;</a></span>mkMemberExpr()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkMemberExpr </td>
-          <td>(</td>
-          <td class="paramtype">Expr *&#160;</td>
-          <td class="paramname"><em>expr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">ValueDecl *&#160;</td>
-          <td class="paramname"><em>vd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>isArrow</em> = <code>true</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00098">98</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00110">mkAssign()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00650">clang::insights::CoroutineASTTransformer::VisitCoroutineBodyStmt()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00548">clang::insights::CoroutineASTTransformer::VisitCXXThisExpr()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00525">clang::insights::CoroutineASTTransformer::VisitDeclStmt()</a>.</p>
-
-</div>
-</div>
-<a id="a54f94ea5b7a581deb4e234dc5794f41b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54f94ea5b7a581deb4e234dc5794f41b">&#9670;&nbsp;</a></span>mkNotIfStmt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkNotIfStmt </td>
-          <td>(</td>
-          <td class="paramtype">Expr *&#160;</td>
-          <td class="paramname"><em>stmt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">ArrayRef&lt; <a class="el" href="class_stmt.html">Stmt</a> * &gt;&#160;</td>
-          <td class="paramname"><em>bodyStmts</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00076">76</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
-
-<p class="reference">References <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00056">mkIfStmt()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00071">mkUnaryOperator()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l01082">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>.</p>
-
-</div>
-</div>
-<a id="abc84c52e17332c92ae4b2157cf95e054"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc84c52e17332c92ae4b2157cf95e054">&#9670;&nbsp;</a></span>mkNullStmt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkNullStmt </td>
+          <td class="memname">NullStmt * clang::insights::asthelpers::mkNullStmt </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -772,31 +1726,53 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00245">245</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00458">458</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_lifetime_tracker_8cpp_source.html#l00092">clang::insights::LifetimeTracker::Return()</a>.</p>
 
 </div>
 </div>
-<a id="a85ef7a2a764780692d1f689c1882e4fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85ef7a2a764780692d1f689c1882e4fe">&#9670;&nbsp;</a></span>mkReturnStmt()</h2>
+<a id="af69346e36fb0fe0d172c7d05f1de6c71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af69346e36fb0fe0d172c7d05f1de6c71">&#9670;&nbsp;</a></span>mkReference()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkReturnStmt </td>
+          <td class="memname">static UnaryOperator* clang::insights::asthelpers::mkReference </td>
           <td>(</td>
           <td class="paramtype">Expr *&#160;</td>
-          <td class="paramname"><em>stmt</em> = <code>nullptr</code></td><td>)</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00217">217</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00093">93</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00074">mkUnaryOperator()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00099">Ref()</a>.</p>
 
 </div>
 </div>
@@ -832,22 +1808,25 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00171">171</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00368">368</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>, <a class="el" href="_clang_compat_8h_source.html#l00016">IS_CLANG_NEWER_THAN</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00124">mkFunctionDeclBase()</a>.</p>
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00324">FunctionBase()</a>, and <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
 
 </div>
 </div>
-<a id="a139f4d12de898744d7d090d89434df2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a139f4d12de898744d7d090d89434df2d">&#9670;&nbsp;</a></span>mkUnaryOperator()</h2>
+<a id="ae3c46c330ea2d06f7afe6818589f9178"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3c46c330ea2d06f7afe6818589f9178">&#9670;&nbsp;</a></span>mkUnaryOperator()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkUnaryOperator </td>
+          <td class="memname">static UnaryOperator* clang::insights::asthelpers::mkUnaryOperator </td>
           <td>(</td>
-          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramtype">const Expr *&#160;</td>
           <td class="paramname"><em>stmt</em>, </td>
         </tr>
         <tr>
@@ -868,24 +1847,29 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00071">71</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00074">74</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00256">mkFunctionReference()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00076">mkNotIfStmt()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00117">AddrOf()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00111">Dref()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00093">mkReference()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00081">Not()</a>.</p>
 
 </div>
 </div>
-<a id="a82853a56d20de313792facc5b7ae6d09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82853a56d20de313792facc5b7ae6d09">&#9670;&nbsp;</a></span>mkVarDecl()</h2>
+<a id="a5f7a602024e1bbb5b68fcb1742b9bb15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f7a602024e1bbb5b68fcb1742b9bb15">&#9670;&nbsp;</a></span>mkVarDeclRefExpr()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">auto* clang::insights::asthelpers::mkVarDecl </td>
+          <td class="memname">DeclRefExpr * clang::insights::asthelpers::mkVarDeclRefExpr </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -904,11 +1888,652 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00231">231</a> of file <a class="el" href="_coroutines_code_generator_8cpp_source.html">CoroutinesCodeGenerator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00523">523</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">GetGlobalAST()</a>.</p>
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00384">mkDeclRefExpr()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00446">Variable()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00717">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00617">clang::insights::CoroutineASTTransformer::VisitCoawaitExpr()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00026">clang::insights::AccessMember()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00565">CallConstructor()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00825">clang::insights::CfrontCodeGenerator::InsertArg()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>, and <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>.</p>
+
+</div>
+</div>
+<a id="a998d9005b3543ca1ef42fdafa972d765"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a998d9005b3543ca1ef42fdafa972d765">&#9670;&nbsp;</a></span>Mul()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BinaryOperator * clang::insights::asthelpers::Mul </td>
+          <td>(</td>
+          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00661">661</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00037">mkBinaryOperator()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00249">clang::insights::CfrontCodeGenerator::InsertArg()</a>.</p>
+
+</div>
+</div>
+<a id="a2a1fecd05ff0c111bed1a89afcd7e1db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a1fecd05ff0c111bed1a89afcd7e1db">&#9670;&nbsp;</a></span>New()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CXXNewExpr * clang::insights::asthelpers::New </td>
+          <td>(</td>
+          <td class="paramtype">ArrayRef&lt; Expr * &gt;&#160;</td>
+          <td class="paramname"><em>placementArgs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Expr *&#160;</td>
+          <td class="paramname"><em>expr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00639">639</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00184">Ptr()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l04371">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>.</p>
+
+</div>
+</div>
+<a id="ad5ee2405b5e79c432d8e62d99215facc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5ee2405b5e79c432d8e62d99215facc">&#9670;&nbsp;</a></span>Not() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UnaryOperator * clang::insights::asthelpers::Not </td>
+          <td>(</td>
+          <td class="paramtype">const Expr *&#160;</td>
+          <td class="paramname"><em>stmt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00081">81</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00074">mkUnaryOperator()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l04371">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00733">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>.</p>
+
+</div>
+</div>
+<a id="aa4ef9a66829f3c285004cd9d7a0f9b0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4ef9a66829f3c285004cd9d7a0f9b0a">&#9670;&nbsp;</a></span>Not() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UnaryOperator * clang::insights::asthelpers::Not </td>
+          <td>(</td>
+          <td class="paramtype">const VarDecl *&#160;</td>
+          <td class="paramname"><em>stmt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00087">87</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00384">mkDeclRefExpr()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00074">mkUnaryOperator()</a>.</p>
+
+</div>
+</div>
+<a id="aefdb647034d4b696f302debff0142726"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefdb647034d4b696f302debff0142726">&#9670;&nbsp;</a></span>Parameter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ParmVarDecl * clang::insights::asthelpers::Parameter </td>
+          <td>(</td>
+          <td class="paramtype">const FunctionDecl *&#160;</td>
+          <td class="paramname"><em>fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00307">307</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00324">FunctionBase()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>.</p>
+
+</div>
+</div>
+<a id="af1f00432784bdd2f1f990bd0db95b850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1f00432784bdd2f1f990bd0db95b850">&#9670;&nbsp;</a></span>Ptr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QualType clang::insights::asthelpers::Ptr </td>
+          <td>(</td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>srcType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00184">184</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00249">clang::insights::CfrontCodeGenerator::InsertArg()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00196">mkAnonVoidFunctionPointer()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00639">New()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00218">StaticCast()</a>.</p>
+
+</div>
+</div>
+<a id="a580dad58dc6951103d6431da42625af0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a580dad58dc6951103d6431da42625af0">&#9670;&nbsp;</a></span>Ref() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UnaryOperator * clang::insights::asthelpers::Ref </td>
+          <td>(</td>
+          <td class="paramtype">const Expr *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00099">99</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00093">mkReference()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l04371">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00371">clang::insights::CfrontCodeGenerator::InsertArg()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>, and <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>.</p>
+
+</div>
+</div>
+<a id="a38d620cf42e22b4377d57bbaf78f33b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38d620cf42e22b4377d57bbaf78f33b7">&#9670;&nbsp;</a></span>Ref() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UnaryOperator * clang::insights::asthelpers::Ref </td>
+          <td>(</td>
+          <td class="paramtype">const ValueDecl *&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00105">105</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00384">mkDeclRefExpr()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00532">CallConstructor()</a>.</p>
+
+</div>
+</div>
+<a id="ab6922e471ac9e89dcd7e6c81e9aa6adc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6922e471ac9e89dcd7e6c81e9aa6adc">&#9670;&nbsp;</a></span>ReplaceNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clang::insights::asthelpers::ReplaceNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_stmt.html">Stmt</a> *&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stmt.html">Stmt</a> *&#160;</td>
+          <td class="paramname"><em>oldNode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_stmt.html">Stmt</a> *&#160;</td>
+          <td class="paramname"><em>newNode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00678">678</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00316">clang::insights::CoroutineASTTransformer::VisitCoawaitExpr()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00141">clang::insights::CoroutineASTTransformer::VisitCompoundStmt()</a>, <a class="el" href="_code_generator_8cpp_source.html#l02388">clang::insights::ContinueASTTransformer::VisitContinueStmt()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00973">clang::insights::TemporaryDeclFinder::VisitCXXTemporaryObjectExpr()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00262">clang::insights::CoroutineASTTransformer::VisitCXXThisExpr()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00226">clang::insights::CoroutineASTTransformer::VisitDeclRefExpr()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00191">clang::insights::CoroutineASTTransformer::VisitForStmt()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l01021">clang::insights::TemporaryDeclFinder::VisitMaterializeTemporaryExpr()</a>.</p>
+
+</div>
+</div>
+<a id="ac8bbffd40d0d6727d73883029062a972"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8bbffd40d0d6727d73883029062a972">&#9670;&nbsp;</a></span>Return() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ReturnStmt * clang::insights::asthelpers::Return </td>
+          <td>(</td>
+          <td class="paramtype">const ValueDecl *&#160;</td>
+          <td class="paramname"><em>stmt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00419">419</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00384">mkDeclRefExpr()</a>.</p>
+
+</div>
+</div>
+<a id="a770b41401ec718ccdd44baa001fcaadb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a770b41401ec718ccdd44baa001fcaadb">&#9670;&nbsp;</a></span>Return() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ReturnStmt * clang::insights::asthelpers::Return </td>
+          <td>(</td>
+          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramname"><em>stmt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00413">413</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00785">clang::insights::CfrontCodeGenerator::InsertArg()</a>, and <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>.</p>
+
+</div>
+</div>
+<a id="ab72f464e8cb636ecd387a9fa576c2a9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab72f464e8cb636ecd387a9fa576c2a9d">&#9670;&nbsp;</a></span>Sizeof()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UnaryExprOrTypeTraitExpr * clang::insights::asthelpers::Sizeof </td>
+          <td>(</td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>toType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00171">171</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00153">clang::insights::CallVecDeleteOrDtor()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00204">clang::insights::CallVecNewOrCtor()</a>, <a class="el" href="_code_generator_8cpp_source.html#l04371">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00825">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, and <a class="el" href="_cfront_code_generator_8cpp_source.html#l00249">clang::insights::CfrontCodeGenerator::InsertArg()</a>.</p>
+
+</div>
+</div>
+<a id="af5a0195b03a7fabaad32b20465d64fee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5a0195b03a7fabaad32b20465d64fee">&#9670;&nbsp;</a></span>StaticCast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CXXStaticCastExpr * clang::insights::asthelpers::StaticCast </td>
+          <td>(</td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>toType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Expr *&#160;</td>
+          <td class="paramname"><em>toExpr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>makePointer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00218">218</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00184">Ptr()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00532">CallConstructor()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00178">Cast()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00825">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, and <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>.</p>
+
+</div>
+</div>
+<a id="a93473a886477824581209e2661ac716a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93473a886477824581209e2661ac716a">&#9670;&nbsp;</a></span>STRONG_BOOL() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">clang::insights::asthelpers::STRONG_BOOL </td>
+          <td>(</td>
+          <td class="paramtype">AsReference&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b451db072fa3a9ec10c2357449ea119"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b451db072fa3a9ec10c2357449ea119">&#9670;&nbsp;</a></span>STRONG_BOOL() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">clang::insights::asthelpers::STRONG_BOOL </td>
+          <td>(</td>
+          <td class="paramtype">DoCast&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b79e1f462192ae5a58b5745a038dd48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b79e1f462192ae5a58b5745a038dd48">&#9670;&nbsp;</a></span>Struct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CXXRecordDecl * clang::insights::asthelpers::Struct </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00471">471</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00678">clang::insights::CfrontCodeGenerator::InsertArg()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>.</p>
+
+</div>
+</div>
+<a id="ae4a11bc238a5761be1e4d72d692007d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4a11bc238a5761be1e4d72d692007d8">&#9670;&nbsp;</a></span>Switch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SwitchStmt * clang::insights::asthelpers::Switch </td>
+          <td>(</td>
+          <td class="paramtype">Expr *&#160;</td>
+          <td class="paramname"><em>stmt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00425">425</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00733">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>.</p>
+
+</div>
+</div>
+<a id="ab689fad0a6b070a47090384db0f25407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab689fad0a6b070a47090384db0f25407">&#9670;&nbsp;</a></span>Throw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CXXThrowExpr * clang::insights::asthelpers::Throw </td>
+          <td>(</td>
+          <td class="paramtype">const Expr *&#160;</td>
+          <td class="paramname"><em>expr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00165">165</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00190">VoidTy()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l04371">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, and <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00733">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>.</p>
+
+</div>
+</div>
+<a id="a248c0c60ccd924e6909315ee09acd7c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a248c0c60ccd924e6909315ee09acd7c2">&#9670;&nbsp;</a></span>to_params_view()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a> clang::insights::asthelpers::to_params_view </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceclang_1_1insights_1_1asthelpers.html#ad293ff2b0364e1ee761750e2ee67b939">params_store</a> &amp;&#160;</td>
+          <td class="paramname"><em>params</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00510">510</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_cfront_code_generator_8cpp_source.html#l00785">clang::insights::CfrontCodeGenerator::InsertArg()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00390">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00196">mkAnonVoidFunctionPointer()</a>.</p>
+
+</div>
+</div>
+<a id="afeeafe7e1eb195f4d1ca8f151678b128"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afeeafe7e1eb195f4d1ca8f151678b128">&#9670;&nbsp;</a></span>Try()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CXXTryStmt * clang::insights::asthelpers::Try </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_stmt.html">Stmt</a> *&#160;</td>
+          <td class="paramname"><em>tryBody</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CXXCatchStmt *&#160;</td>
+          <td class="paramname"><em>catchAllBody</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00144">144</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l04371">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00733">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l01459">clang::insights::CodeGenerator::InsertMethodBody()</a>.</p>
+
+</div>
+</div>
+<a id="a27bc3a61d39ff0e88865f6d04323f9fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27bc3a61d39ff0e88865f6d04323f9fc">&#9670;&nbsp;</a></span>Typedef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QualType clang::insights::asthelpers::Typedef </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>underlayingType</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00613">613</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l04371">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, and <a class="el" href="_cfront_code_generator_8cpp_source.html#l00678">clang::insights::CfrontCodeGenerator::InsertArg()</a>.</p>
+
+</div>
+</div>
+<a id="a5cfb143b9ab54ea300b1fc27694b267d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cfb143b9ab54ea300b1fc27694b267d">&#9670;&nbsp;</a></span>Variable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VarDecl * clang::insights::asthelpers::Variable </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QualType&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DeclContext *&#160;</td>
+          <td class="paramname"><em>dc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00446">446</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l04371">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00785">clang::insights::CfrontCodeGenerator::InsertArg()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00523">mkVarDeclRefExpr()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00919">clang::insights::TemporaryDeclFinder::TemporaryDeclFinder()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00316">clang::insights::CoroutineASTTransformer::VisitCoawaitExpr()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00973">clang::insights::TemporaryDeclFinder::VisitCXXTemporaryObjectExpr()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l01021">clang::insights::TemporaryDeclFinder::VisitMaterializeTemporaryExpr()</a>.</p>
+
+</div>
+</div>
+<a id="a38dd5887bd08be8d8b287cc2a61b3d30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38dd5887bd08be8d8b287cc2a61b3d30">&#9670;&nbsp;</a></span>VoidTy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CanQualType clang::insights::asthelpers::VoidTy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00190">190</a> of file <a class="el" href="_a_s_t_helpers_8cpp_source.html">ASTHelpers.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00129">Call()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00078">clang::insights::CreateCoroFunctionDecl()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00206">CreateFunctionDecl()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01078">clang::insights::EmitGlobalVariableCtors()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00825">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00412">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00196">mkAnonVoidFunctionPointer()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00919">clang::insights::TemporaryDeclFinder::TemporaryDeclFinder()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00165">Throw()</a>.</p>
 
 </div>
 </div>
