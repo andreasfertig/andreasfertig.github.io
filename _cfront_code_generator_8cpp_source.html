@@ -904,38 +904,40 @@ $(function() {
 <div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;            <span class="comment">// InsertArg(Ref(vd));</span></div>
 <div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;        }</div>
 <div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160; </div>
-<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(tmpObjectExpr) {</div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;        <span class="keyword">auto</span>* varNameRef = <a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#a580dad58dc6951103d6431da42625af0">Ref</a>(<a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#a5f7a602024e1bbb5b68fcb1742b9bb15">mkVarDeclRefExpr</a>(<a class="code" href="namespaceclang_1_1insights.html#a48f28e34f3abfc59c28aa3ba788fc08e">GetName</a>(*tmpObjectExpr), stmt-&gt;getType()));</div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160; </div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;        SmallVector&lt;Expr*, 16&gt; args{<a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#a794f4649c8d38db9650f1fe5654d8115">Cast</a>(varNameRef, <a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#af1f00432784bdd2f1f990bd0db95b850">Ptr</a>(stmt-&gt;getType()))};</div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;        mInsertSemi = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160; </div>
+<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(tmpObjectExpr) {</div>
+<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;        <span class="keyword">auto</span>* varNameRef = <a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#a580dad58dc6951103d6431da42625af0">Ref</a>(<a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#a5f7a602024e1bbb5b68fcb1742b9bb15">mkVarDeclRefExpr</a>(<a class="code" href="namespaceclang_1_1insights.html#a48f28e34f3abfc59c28aa3ba788fc08e">GetName</a>(*tmpObjectExpr), stmt-&gt;getType()));</div>
 <div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160; </div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;        <span class="keywordflow">if</span>(not <a class="code" href="namespaceclang_1_1insights.html#a84a2b09f741bd90d78dba800bd757a6a">HasCtor</a>(stmt-&gt;getType())) {</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;            InsertArg(varNameRef);</div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;            <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;        }</div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160; </div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>* arg : stmt-&gt;arguments()) {</div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="namespaceclang_1_1insights.html#ac93b1cc6d17994fa9207e4fee727d1d3">IsCopyOrMoveCtor</a>(stmt-&gt;getConstructor())) {</div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;                args.push_back(<a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#a580dad58dc6951103d6431da42625af0">Ref</a>(arg));</div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160; </div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;                args.push_back(<span class="keyword">const_cast&lt;</span>Expr*<span class="keyword">&gt;</span>(arg));</div>
-<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;            }</div>
-<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;        }</div>
-<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160; </div>
-<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;        InsertArg(<a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#a4b016eb63027bce5854b67a482eead43">Call</a>(ctorName, args));</div>
+<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;        SmallVector&lt;Expr*, 16&gt; args{<a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#a794f4649c8d38db9650f1fe5654d8115">Cast</a>(varNameRef, <a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#af1f00432784bdd2f1f990bd0db95b850">Ptr</a>(stmt-&gt;getType()))};</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160; </div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;        <span class="keywordflow">if</span>(not <a class="code" href="namespaceclang_1_1insights.html#a84a2b09f741bd90d78dba800bd757a6a">HasCtor</a>(stmt-&gt;getType())) {</div>
+<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;            InsertArg(varNameRef);</div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;            <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;        }</div>
+<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160; </div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span>* arg : stmt-&gt;arguments()) {</div>
+<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="namespaceclang_1_1insights.html#ac93b1cc6d17994fa9207e4fee727d1d3">IsCopyOrMoveCtor</a>(stmt-&gt;getConstructor())) {</div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;                args.push_back(<a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#a580dad58dc6951103d6431da42625af0">Ref</a>(arg));</div>
+<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160; </div>
+<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;                args.push_back(<span class="keyword">const_cast&lt;</span>Expr*<span class="keyword">&gt;</span>(arg));</div>
+<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;            }</div>
+<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;        }</div>
 <div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160; </div>
-<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;        InsertArg(<a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#acaf48b5d6cf58f68d1ed251825fd5cc3">CallConstructor</a>(stmt-&gt;getType(),</div>
-<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;                                  <a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#af1f00432784bdd2f1f990bd0db95b850">Ptr</a>(<a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#ac2167b4c219428e6fca1fd20af5039b4">GetRecordDeclType</a>(stmt-&gt;getConstructor())),</div>
-<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;                                  <span class="keyword">nullptr</span>,</div>
-<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;                                  <a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#a68303ab559188d305094536a119eb22d">ArgsToExprVector</a>(stmt),</div>
-<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;                                  DoCast::Yes));</div>
-<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;    }</div>
-<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;}</div>
-<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160; </div>
-<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;}  <span class="comment">// namespace clang::insights</span></div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;        InsertArg(<a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#a4b016eb63027bce5854b67a482eead43">Call</a>(ctorName, args));</div>
+<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160; </div>
+<div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;        InsertArg(<a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#acaf48b5d6cf58f68d1ed251825fd5cc3">CallConstructor</a>(stmt-&gt;getType(),</div>
+<div class="line"><a name="l00891"></a><span class="lineno">  891</span>&#160;                                  <a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#af1f00432784bdd2f1f990bd0db95b850">Ptr</a>(<a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#ac2167b4c219428e6fca1fd20af5039b4">GetRecordDeclType</a>(stmt-&gt;getConstructor())),</div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;                                  <span class="keyword">nullptr</span>,</div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;                                  <a class="code" href="namespaceclang_1_1insights_1_1asthelpers.html#a68303ab559188d305094536a119eb22d">ArgsToExprVector</a>(stmt),</div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;                                  DoCast::Yes));</div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160;    }</div>
+<div class="line"><a name="l00896"></a><span class="lineno">  896</span>&#160;}</div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160; </div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;}  <span class="comment">// namespace clang::insights</span></div>
 <div class="ttc" id="a_a_s_t_helpers_8h_html"><div class="ttname"><a href="_a_s_t_helpers_8h.html">ASTHelpers.h</a></div></div>
 <div class="ttc" id="a_code_generator_8h_html"><div class="ttname"><a href="_code_generator_8h.html">CodeGenerator.h</a></div></div>
 <div class="ttc" id="a_d_print_8h_html"><div class="ttname"><a href="_d_print_8h.html">DPrint.h</a></div></div>
