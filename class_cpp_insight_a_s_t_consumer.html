@@ -63,17 +63,17 @@ Collaboration diagram for CppInsightASTConsumer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a73b9df83419f4ce751f5b87dfea7e353"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpp_insight_a_s_t_consumer.html#a73b9df83419f4ce751f5b87dfea7e353">CppInsightASTConsumer</a> (Rewriter &amp;rewriter)</td></tr>
-<tr class="separator:a73b9df83419f4ce751f5b87dfea7e353"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0bb0e9acf4ca5c1ce7e31d4b62247e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpp_insight_a_s_t_consumer.html#ae0bb0e9acf4ca5c1ce7e31d4b62247e6">CppInsightASTConsumer</a> (Rewriter &amp;rewriter, std::vector&lt; <a class="el" href="_insights_8cpp.html#a0da78ea4c6958ac2a28b545e80d82ba0">IncludeData</a> &gt; &amp;includes)</td></tr>
+<tr class="separator:ae0bb0e9acf4ca5c1ce7e31d4b62247e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad64dcd8af6d6ac4a7f81fb5211baa11b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cpp_insight_a_s_t_consumer.html#ad64dcd8af6d6ac4a7f81fb5211baa11b">HandleTranslationUnit</a> (ASTContext &amp;context) override</td></tr>
 <tr class="separator:ad64dcd8af6d6ac4a7f81fb5211baa11b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00113">113</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00170">170</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a73b9df83419f4ce751f5b87dfea7e353"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73b9df83419f4ce751f5b87dfea7e353">&#9670;&nbsp;</a></span>CppInsightASTConsumer()</h2>
+<a id="ae0bb0e9acf4ca5c1ce7e31d4b62247e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0bb0e9acf4ca5c1ce7e31d4b62247e6">&#9670;&nbsp;</a></span>CppInsightASTConsumer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -85,8 +85,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname">CppInsightASTConsumer::CppInsightASTConsumer </td>
           <td>(</td>
           <td class="paramtype">Rewriter &amp;&#160;</td>
-          <td class="paramname"><em>rewriter</em></td><td>)</td>
+          <td class="paramname"><em>rewriter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="_insights_8cpp.html#a0da78ea4c6958ac2a28b545e80d82ba0">IncludeData</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>includes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -96,9 +106,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00116">116</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00176">176</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00040">GetInsightsOptions()</a>, and <a class="el" href="_insights_8cpp_source.html#l00037">gInsightsOptions</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00037">GetInsightsOptions()</a>, and <a class="el" href="_insights_8cpp_source.html#l00034">gInsightsOptions</a>.</p>
 
 </div>
 </div>
@@ -127,9 +137,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00134">134</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00190">190</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_static_strings_8h_source.html#l00193">cxaStart</a>, <a class="el" href="_code_generator_8cpp_source.html#l01087">clang::insights::EmitGlobalVariableCtors()</a>, <a class="el" href="_insights_8cpp_source.html#l00080">gAST</a>, <a class="el" href="_insights_8cpp_source.html#l00040">GetInsightsOptions()</a>, and <a class="el" href="_insights_8cpp_source.html#l00099">clang::insights::gGlobalInserts</a>.</p>
+<p class="reference">References <a class="el" href="_insights_static_strings_8h_source.html#l00193">cxaStart</a>, <a class="el" href="_code_generator_8cpp_source.html#l01085">clang::insights::EmitGlobalVariableCtors()</a>, <a class="el" href="_insights_8cpp_source.html#l00077">gAST</a>, <a class="el" href="_insights_8cpp_source.html#l00037">GetInsightsOptions()</a>, and <a class="el" href="_insights_8cpp_source.html#l00096">clang::insights::gGlobalInserts</a>.</p>
 
 </div>
 </div>

@@ -53,6 +53,7 @@ $(function() {
 <div class="line">}</div>
 </div><!-- fragment --><p>transforms into this:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;exception&gt;</span> <span class="comment">// for noexcept transformation</span></div>
+<div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> Fun() noexcept(true)</div>
 <div class="line">{</div>
 <div class="line">  <span class="keywordflow">try</span> </div>
@@ -62,7 +63,6 @@ $(function() {
 <div class="line">    std::terminate();</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-<div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> Fun2() noexcept(false)</div>
 <div class="line">{</div>
