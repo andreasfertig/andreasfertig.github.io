@@ -59,10 +59,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a76facb1652c48bbdb3d93ef8a4888e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4a49940979a85479b3c4f314242ae01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_lifetime_tracker.html#ae4a49940979a85479b3c4f314242ae01">StartScope</a> (bool funcStart)</td></tr>
 <tr class="separator:ae4a49940979a85479b3c4f314242ae01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83e638a8ed4b7e51ee4eebe50df87599"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_lifetime_tracker.html#a83e638a8ed4b7e51ee4eebe50df87599">Return</a> (<a class="el" href="classclang_1_1insights_1_1_output_format_helper.html">OutputFormatHelper</a> &amp;ofm)</td></tr>
-<tr class="separator:a83e638a8ed4b7e51ee4eebe50df87599"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a033d16db04e279a2f1eccf5c64489436"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_lifetime_tracker.html#a033d16db04e279a2f1eccf5c64489436">EndScope</a> (<a class="el" href="classclang_1_1insights_1_1_output_format_helper.html">OutputFormatHelper</a> &amp;ofm, bool clear)</td></tr>
-<tr class="separator:a033d16db04e279a2f1eccf5c64489436"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acba77929a65a6a39b3b341742a52b02e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_lifetime_tracker.html#acba77929a65a6a39b3b341742a52b02e">Return</a> (<a class="el" href="classclang_1_1insights_1_1_output_format_helper.html">OutputFormatHelper</a> &amp;ofm)</td></tr>
+<tr class="separator:acba77929a65a6a39b3b341742a52b02e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0919f39e01b2b9879d89a29fded9fe56"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_lifetime_tracker.html#a0919f39e01b2b9879d89a29fded9fe56">EndScope</a> (<a class="el" href="classclang_1_1insights_1_1_output_format_helper.html">OutputFormatHelper</a> &amp;ofm, bool clear)</td></tr>
+<tr class="separator:a0919f39e01b2b9879d89a29fded9fe56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -92,14 +92,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a033d16db04e279a2f1eccf5c64489436"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a033d16db04e279a2f1eccf5c64489436">&#9670;&nbsp;</a></span>EndScope()</h2>
+<a id="a0919f39e01b2b9879d89a29fded9fe56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0919f39e01b2b9879d89a29fded9fe56">&#9670;&nbsp;</a></span>EndScope()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void clang::insights::LifetimeTracker::EndScope </td>
+          <td class="memname">bool clang::insights::LifetimeTracker::EndScope </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classclang_1_1insights_1_1_output_format_helper.html">OutputFormatHelper</a> &amp;&#160;</td>
           <td class="paramname"><em>ofm</em>, </td>
@@ -118,9 +118,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_lifetime_tracker_8cpp_source.html#l00126">126</a> of file <a class="el" href="_lifetime_tracker_8cpp_source.html">LifetimeTracker.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_lifetime_tracker_8cpp_source.html#l00127">127</a> of file <a class="el" href="_lifetime_tracker_8cpp_source.html">LifetimeTracker.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00037">GetInsightsOptions()</a>, and <a class="el" href="_insights_utility_8h_source.html#l00018">RETURN_IF</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00037">GetInsightsOptions()</a>, and <a class="el" href="_insights_utility_8h_source.html#l00024">RETURN_FALSE_IF</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01124">clang::insights::CodeGenerator::EndLifetimeScope()</a>.</p>
 
@@ -141,20 +141,20 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_lifetime_tracker_8cpp_source.html#l00115">115</a> of file <a class="el" href="_lifetime_tracker_8cpp_source.html">LifetimeTracker.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_lifetime_tracker_8cpp_source.html#l00116">116</a> of file <a class="el" href="_lifetime_tracker_8cpp_source.html">LifetimeTracker.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="_code_generator_8h_source.html#l00060">clang::insights::LifetimeEntry::scope</a>.</p>
 
 </div>
 </div>
-<a id="a83e638a8ed4b7e51ee4eebe50df87599"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83e638a8ed4b7e51ee4eebe50df87599">&#9670;&nbsp;</a></span>Return()</h2>
+<a id="acba77929a65a6a39b3b341742a52b02e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acba77929a65a6a39b3b341742a52b02e">&#9670;&nbsp;</a></span>Return()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void clang::insights::LifetimeTracker::Return </td>
+          <td class="memname">bool clang::insights::LifetimeTracker::Return </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classclang_1_1insights_1_1_output_format_helper.html">OutputFormatHelper</a> &amp;&#160;</td>
           <td class="paramname"><em>ofm</em></td><td>)</td>
@@ -163,9 +163,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_lifetime_tracker_8cpp_source.html#l00092">92</a> of file <a class="el" href="_lifetime_tracker_8cpp_source.html">LifetimeTracker.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_lifetime_tracker_8cpp_source.html#l00088">88</a> of file <a class="el" href="_lifetime_tracker_8cpp_source.html">LifetimeTracker.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00037">GetInsightsOptions()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00458">clang::insights::asthelpers::mkNullStmt()</a>, and <a class="el" href="_insights_utility_8h_source.html#l00018">RETURN_IF</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00037">GetInsightsOptions()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00458">clang::insights::asthelpers::mkNullStmt()</a>, and <a class="el" href="_insights_utility_8h_source.html#l00024">RETURN_FALSE_IF</a>.</p>
 
 </div>
 </div>
