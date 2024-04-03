@@ -162,13 +162,17 @@ cmake options</h3>
 <td class="markdownTableBodyNone">DEBUG   </td><td class="markdownTableBodyLeft">Enable debug   </td><td class="markdownTableBodyNone">OFF   </td></tr>
 </table>
 <h3><a class="anchor" id="autotoc_md32"></a>
+Building for ARM on macOS</h3>
+<p>It seems best to supply the architecture during configuration:</p>
+<div class="fragment"><div class="line">cmake -DCMAKE_OSX_ARCHITECTURES=arm64 ../cppinsights</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md33"></a>
 Use it with &lt;a target="_blank" href="https://www.cevelop.com"&gt;Cevelop&lt;/a&gt;</h3>
 <div class="fragment"><div class="line">git clone https://github.com/andreasfertig/cppinsights.git</div>
 <div class="line">mkdir build_eclipse</div>
 <div class="line">cd build_eclipse</div>
 <div class="line">cmake -G&quot;Eclipse CDT4 - Unix Makefiles&quot; ../cppinsights/</div>
 </div><!-- fragment --><p>Then, in <a target="_blank" href="https://www.cevelop.com">Cevelop</a> Import -&gt; General -&gt; Existing Project into Workspace. Select <code>build_eclipse</code>. Enjoy editing with <a target="_blank" href="https://www.cevelop.com">Cevelop</a>.</p>
-<h2><a class="anchor" id="autotoc_md33"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
 Usage</h2>
 <p>Using C++ Insights is fairly simple:</p>
 <div class="fragment"><div class="line">insights &lt;YOUR_CPP_FILE&gt; -- -std=c++17</div>
@@ -178,40 +182,40 @@ Usage</h2>
 <div class="line">-isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1 -isystem/usr/local/include -isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/7.3.0/include -isystem/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -isystem/usr/include</div>
 </div><!-- fragment --><p>The script can be used together with C++ Insights:</p>
 <div class="fragment"><div class="line">insights &lt;YOUR_CPP_FILE&gt; -- -std=c++17 `./scripts/getinclude.py`</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md34"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md35"></a>
 Custom GCC installation</h3>
 <p>In case you have a custom build of the GCC compiler, for example, gcc-11.2.0, and <em>NOT</em> installed in the compiler in the default system path, then after building, Clang fails to find the correct <code>libstdc++</code> path (GCC's STL). If you run into this situation, you can use "`--gcc-toolchain=/path/GCC-1x.x.x/installed/path`" to tell Clang/C++ Insights the location of the STL:</p>
 <div class="fragment"><div class="line">./cppinsights Insights.cpp -- --gcc-toolchain=${GCC_11_2_0_INSTALL_PATH} -std=c++20</div>
 </div><!-- fragment --><p>Here "`${GCC_11_2_0_INSTALL_PATH}`" is the installation directory of your customized-built GCC. The option for Clang is described <a target="_blank" href="https://clang.llvm.org/docs/ClangCommandLineReference.html#cmdoption-clang-gcc-toolchain">here</a>.</p>
-<h3><a class="anchor" id="autotoc_md35"></a>
+<h3><a class="anchor" id="autotoc_md36"></a>
 Ready to use Docker container</h3>
 <p>There is also another GitHub project that sets up a docker container with the latest C++ Insights version in it: <a target="_blank" href="https://github.com/andreasfertig/cppinsights-docker">C++ Insights - Docker</a></p>
-<h3><a class="anchor" id="autotoc_md36"></a>
+<h3><a class="anchor" id="autotoc_md37"></a>
 C++ Insights @ Vim</h3>
 <p>A plugin for Vim is available at <a target="_blank" href="https://github.com/Freed-Wu/cppinsights.vim">here</a>.</p>
-<h3><a class="anchor" id="autotoc_md37"></a>
+<h3><a class="anchor" id="autotoc_md38"></a>
 C++ Insights @ VSCode</h3>
 <p>An extension for Visual Studio Code is available at the VS Code marketplace: <a target="_blank" href="https://marketplace.visualstudio.com/items?itemName=devtbi.vscode-cppinsights">C++ Insights - VSCode Extension</a>.</p>
-<h3><a class="anchor" id="autotoc_md38"></a>
+<h3><a class="anchor" id="autotoc_md39"></a>
 C++ Insights @ brew</h3>
 <p>At least for macOS, you can install C++ Insights via Homebrew thanks to <a target="_blank" href="https://formulae.brew.sh/formula/cppinsights">this formulae</a>:</p>
 <div class="fragment"><div class="line">brew install cppinsights</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md39"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md40"></a>
 Compatibility</h2>
 <p>I aim for the repository to compile with the latest version of Clang and at least the one before. The website tries to stay close to the latest release of Clang. However, due to certain issues (building Clang for Windows), the website's version is often delayed by a few months.</p>
-<h2><a class="anchor" id="autotoc_md40"></a>
+<h2><a class="anchor" id="autotoc_md41"></a>
 C++ Insights @ YouTube</h2>
 <p>I created a <a target="_blank" href="https://youtube.com/@andreas_fertig">YouTube</a> channel where I release a new video each month. In these videos, I use C++ Insights to show and explain certain C++ constructs, and sometimes I explain C++ Insights as well.</p>
-<h2><a class="anchor" id="autotoc_md41"></a>
+<h2><a class="anchor" id="autotoc_md42"></a>
 ToDo's</h2>
 <p>See <a class="el" href="todo.html#md_TODO">TODO</a>.</p>
-<h2><a class="anchor" id="autotoc_md42"></a>
+<h2><a class="anchor" id="autotoc_md43"></a>
 Get Involved</h2>
 <ul>
 <li>Report bugs/issues by submitting a <a target="_blank" href="https://github.com/andreasfertig/cppinsights/issues">GitHub issue</a>.</li>
 <li>Submit contributions using <a target="_blank" href="https://github.com/andreasfertig/cppinsights/pulls">pull requests</a>. See <a class="el" href="contributing.html#md_CONTRIBUTING">Contributing</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md43"></a>
+<h2><a class="anchor" id="autotoc_md44"></a>
 Support</h2>
 <p>If you like to support the project, consider <a class="el" href="contributing.html#md_CONTRIBUTING">submitting</a> a patch. Another alternative is to become a <a target="_blank" href="https://github.com/sponsors/andreasfertig">GitHub Sponsor</a> or a <a target="_blank" href="https://www.patreon.com/cppinsights">Patreon</a> supporter. </p>
 </div></div><!-- PageDoc -->

@@ -40,27 +40,27 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_tests_Readme"></a> </p>
-<h1><a class="anchor" id="autotoc_md50"></a>
+<h1><a class="anchor" id="autotoc_md51"></a>
 Running tests</h1>
 <p>Here you find files for regression tests. They can be invoked either directly with <code><a class="el" href="run_test_8py.html">runTest.py</a></code> or with a build target:</p>
 <div class="fragment"><div class="line">cmake --build . --target tests</div>
 </div><!-- fragment --><p>the later one tries to setup all the stuff required (compiler, include paths, path to the insights executable...).</p>
 <p>To run a single test you can use this: </p><div class="fragment"><div class="line">./runTest.py --insights=PATH-TO-insights --cxx=PATH-TO-COMPILER TemplatesWithAutoAndLambdaTest.cpp</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md51"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md52"></a>
 What kind of tests</h1>
 <p>In general this is a end-to-end verification system. There are no unit tests. There are only checks, if for a known input a expected output is generated. C++ code level unit test would require create AST nodes. This is possible, but has still the issue of beeing not as narrow as wanted. The end-to-end test seem best and worked out good so far.</p>
-<h1><a class="anchor" id="autotoc_md52"></a>
+<h1><a class="anchor" id="autotoc_md53"></a>
 The test system</h1>
 <p>The system is, that for each *.cpp file a corresponding *.expect file exists. This expect file contains the transformed output. In some, hopefully rare, cases an additional file *.cerr exists as well. This file then contains the compiler error output. The idea is to track all changes as close as possible.</p>
 <p><code><a class="el" href="run_test_8py.html">runTest.py</a></code> does invoke insights as first and transforms the <code>*.cpp</code>. It then compares the result to the corresponding <code>.expect</code> files contents. If there is a difference it shows the output of the diff. In any case it invokes gcc or clang afterwards and tries to compile the transformed code.</p>
 <p>Currently, it is hard to do this tests. One reason is, that the transformation result is different between <a target="_blank" href="https://gcc.gnu.org/onlinedocs/libstdc++/">libstdc++</a> and <a target="_blank" href="https://libcxx.llvm.org/">libc++</a>. This results in many difference, if tests are executed under Linux vs. macOS. As my main development environment is currently macOS all the test results are based on that.</p>
-<h1><a class="anchor" id="autotoc_md53"></a>
+<h1><a class="anchor" id="autotoc_md54"></a>
 Test creation rules</h1>
 <p>For each issue a dedicated <code>Issue#ISSUE_NUMBER.cpp</code> file is created with a matching <code>.expect</code> file. Both should be checked in together with the actual fix.</p>
 <p>Other tests are named <code>NAME_OF_THE_TESTTest.cpp</code>. In case, there are more than one test for the same subject the scheme is <code>NAME_OF_THE_TESTNUMBERTest.cpp</code>. For example:</p>
 <div class="fragment"><div class="line">StructuredBindingsHandlerTest.cpp</div>
 <div class="line">StructuredBindingsHandler2Test.cpp</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md54"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md55"></a>
 Updating tests</h1>
 <p>There is a dedicated build target for cases where a change causes the need to update a lot of tests</p>
 <div class="fragment"><div class="line">make update-tests</div>
