@@ -53,6 +53,8 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3cc35d8a90c2bfbd0772658065b215c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_lifetime_tracker.html#a3cc35d8a90c2bfbd0772658065b215c6">Add</a> (const VarDecl *decl)</td></tr>
 <tr class="separator:a3cc35d8a90c2bfbd0772658065b215c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb52f4b73fdceb0aa41592b630542b10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_lifetime_tracker.html#adb52f4b73fdceb0aa41592b630542b10">AddExtended</a> (const VarDecl *decl, const ValueDecl *extending)</td></tr>
+<tr class="separator:adb52f4b73fdceb0aa41592b630542b10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62cb789aaca2ef25344b4ac15fc118a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structclang_1_1insights_1_1_lifetime_entry.html">LifetimeEntry</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_lifetime_tracker.html#a62cb789aaca2ef25344b4ac15fc118a6">top</a> ()</td></tr>
 <tr class="separator:a62cb789aaca2ef25344b4ac15fc118a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76facb1652c48bbdb3d93ef8a4888e91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_lifetime_tracker.html#a76facb1652c48bbdb3d93ef8a4888e91">removeTop</a> ()</td></tr>
@@ -84,11 +86,43 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_lifetime_tracker_8cpp_source.html#l00034">34</a> of file <a class="el" href="_lifetime_tracker_8cpp_source.html">LifetimeTracker.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_lifetime_tracker_8cpp_source.html#l00047">47</a> of file <a class="el" href="_lifetime_tracker_8cpp_source.html">LifetimeTracker.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00037">GetInsightsOptions()</a>, and <a class="el" href="_insights_utility_8h_source.html#l00018">RETURN_IF</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01499">clang::insights::CodeGenerator::InsertMethodBody()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01507">clang::insights::CodeGenerator::InsertMethodBody()</a>.</p>
+
+</div>
+</div>
+<a id="adb52f4b73fdceb0aa41592b630542b10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb52f4b73fdceb0aa41592b630542b10">&#9670;&nbsp;</a></span>AddExtended()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clang::insights::LifetimeTracker::AddExtended </td>
+          <td>(</td>
+          <td class="paramtype">const VarDecl *&#160;</td>
+          <td class="paramname"><em>decl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ValueDecl *&#160;</td>
+          <td class="paramname"><em>extending</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_lifetime_tracker_8cpp_source.html#l00034">34</a> of file <a class="el" href="_lifetime_tracker_8cpp_source.html">LifetimeTracker.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01122">clang::insights::CodeGenerator::LifetimeAddExtended()</a>.</p>
 
 </div>
 </div>
@@ -118,11 +152,11 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_lifetime_tracker_8cpp_source.html#l00127">127</a> of file <a class="el" href="_lifetime_tracker_8cpp_source.html">LifetimeTracker.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_lifetime_tracker_8cpp_source.html#l00144">144</a> of file <a class="el" href="_lifetime_tracker_8cpp_source.html">LifetimeTracker.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00037">GetInsightsOptions()</a>, and <a class="el" href="_insights_utility_8h_source.html#l00024">RETURN_FALSE_IF</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01126">clang::insights::CodeGenerator::EndLifetimeScope()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01134">clang::insights::CodeGenerator::EndLifetimeScope()</a>.</p>
 
 </div>
 </div>
@@ -141,7 +175,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_lifetime_tracker_8cpp_source.html#l00116">116</a> of file <a class="el" href="_lifetime_tracker_8cpp_source.html">LifetimeTracker.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_lifetime_tracker_8cpp_source.html#l00133">133</a> of file <a class="el" href="_lifetime_tracker_8cpp_source.html">LifetimeTracker.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="_code_generator_8h_source.html#l00060">clang::insights::LifetimeEntry::scope</a>.</p>
 
@@ -163,7 +197,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_lifetime_tracker_8cpp_source.html#l00088">88</a> of file <a class="el" href="_lifetime_tracker_8cpp_source.html">LifetimeTracker.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_lifetime_tracker_8cpp_source.html#l00105">105</a> of file <a class="el" href="_lifetime_tracker_8cpp_source.html">LifetimeTracker.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00037">GetInsightsOptions()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00458">clang::insights::asthelpers::mkNullStmt()</a>, and <a class="el" href="_insights_utility_8h_source.html#l00024">RETURN_FALSE_IF</a>.</p>
 
@@ -189,7 +223,7 @@ Public Member Functions</h2></td></tr>
 
 <p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00037">GetInsightsOptions()</a>, and <a class="el" href="_insights_utility_8h_source.html#l00018">RETURN_IF</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01120">clang::insights::CodeGenerator::StartLifetimeScope()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_code_generator_8cpp_source.html#l01128">clang::insights::CodeGenerator::StartLifetimeScope()</a>.</p>
 
 </div>
 </div>
@@ -216,7 +250,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00074">74</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00075">75</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
