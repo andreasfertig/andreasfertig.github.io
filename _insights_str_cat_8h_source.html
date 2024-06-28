@@ -76,82 +76,78 @@ $(function() {
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceclang_1_1insights_1_1details.html#af2172f4938065c7dba999b834d469c7e">details::ConvertToBoolString</a>(0 != val.getExtValue());</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#if IS_CLANG_NEWER_THAN(12)</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> llvm::toString(val, 10);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> val.toString(10);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#aba8a2833bb973dcc67dbab0d5531d637">   46</a></span>&#160;<span class="keyword">inline</span> uint64_t <a class="code" href="namespaceclang_1_1insights.html#aba8a2833bb973dcc67dbab0d5531d637">Normalize</a>(<span class="keyword">const</span> llvm::APInt&amp; arg)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> arg.getZExtValue();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#a1215c7dcf304a47162551ddfc8eee7a0">   52</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="namespaceclang_1_1insights.html#aba8a2833bb973dcc67dbab0d5531d637">Normalize</a>(<span class="keyword">const</span> llvm::APSInt&amp; arg)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceclang_1_1insights.html#aa8841d6c2eee9f0f026bea4107bbcde6">ToString</a>(arg);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#a22b81fa7a60330daaf689f7b7ff2bc6a">   58</a></span>&#160;<span class="keyword">inline</span> std::string_view <a class="code" href="namespaceclang_1_1insights.html#aba8a2833bb973dcc67dbab0d5531d637">Normalize</a>(<span class="keyword">const</span> StringRef&amp; arg)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> arg;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#ad02d153abfeaca93e7b597a698818ad3">   64</a></span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> std::string <a class="code" href="namespaceclang_1_1insights.html#aba8a2833bb973dcc67dbab0d5531d637">Normalize</a>(<span class="keyword">const</span> CharUnits&amp; arg)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> std::to_string(arg.getQuantity());</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#adf61807ed0a2a8b10cceb8fa319c2d98">   71</a></span>&#160;<span class="keyword">inline</span> decltype(<span class="keyword">auto</span>) <a class="code" href="namespaceclang_1_1insights.html#aba8a2833bb973dcc67dbab0d5531d637">Normalize</a>(const T&amp; arg)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">// Handle bool&#39;s first, we like their string representation.</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">if</span> constexpr(std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <span class="keywordtype">bool</span>&gt;) {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceclang_1_1insights_1_1details.html#af2172f4938065c7dba999b834d469c7e">details::ConvertToBoolString</a>(arg);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr(std::is_integral_v&lt;T&gt;) {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> std::to_string(arg);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">return</span> (arg);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">namespace </span>details {</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1details.html#a4f20ce25552dc9e90883a87651c72fc9">   87</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceclang_1_1insights_1_1details.html#a4f20ce25552dc9e90883a87651c72fc9">StrCat</a>(std::string&amp; ret, <span class="keyword">const</span> <span class="keyword">auto</span>&amp;... args)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    (ret += ... += <a class="code" href="namespaceclang_1_1insights.html#adf61807ed0a2a8b10cceb8fa319c2d98">::clang::insights::Normalize</a>(args));</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}  <span class="comment">// namespace details</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">   94</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">StrCat</a>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp;... args)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    std::string ret{};</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="namespaceclang_1_1insights_1_1details.html#a4f20ce25552dc9e90883a87651c72fc9">details::StrCat</a>(ret, args...);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> llvm::toString(val, 10);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#aba8a2833bb973dcc67dbab0d5531d637">   42</a></span>&#160;<span class="keyword">inline</span> uint64_t <a class="code" href="namespaceclang_1_1insights.html#aba8a2833bb973dcc67dbab0d5531d637">Normalize</a>(<span class="keyword">const</span> llvm::APInt&amp; arg)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> arg.getZExtValue();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#a1215c7dcf304a47162551ddfc8eee7a0">   48</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="namespaceclang_1_1insights.html#aba8a2833bb973dcc67dbab0d5531d637">Normalize</a>(<span class="keyword">const</span> llvm::APSInt&amp; arg)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespaceclang_1_1insights.html#aa8841d6c2eee9f0f026bea4107bbcde6">ToString</a>(arg);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#a22b81fa7a60330daaf689f7b7ff2bc6a">   54</a></span>&#160;<span class="keyword">inline</span> std::string_view <a class="code" href="namespaceclang_1_1insights.html#aba8a2833bb973dcc67dbab0d5531d637">Normalize</a>(<span class="keyword">const</span> StringRef&amp; arg)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">return</span> arg;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#ad02d153abfeaca93e7b597a698818ad3">   60</a></span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> std::string <a class="code" href="namespaceclang_1_1insights.html#aba8a2833bb973dcc67dbab0d5531d637">Normalize</a>(<span class="keyword">const</span> CharUnits&amp; arg)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> std::to_string(arg.getQuantity());</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#adf61807ed0a2a8b10cceb8fa319c2d98">   67</a></span>&#160;<span class="keyword">inline</span> decltype(<span class="keyword">auto</span>) <a class="code" href="namespaceclang_1_1insights.html#aba8a2833bb973dcc67dbab0d5531d637">Normalize</a>(const T&amp; arg)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">// Handle bool&#39;s first, we like their string representation.</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">if</span> constexpr(std::is_same_v&lt;std::remove_cvref_t&lt;T&gt;, <span class="keywordtype">bool</span>&gt;) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceclang_1_1insights_1_1details.html#af2172f4938065c7dba999b834d469c7e">details::ConvertToBoolString</a>(arg);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr(std::is_integral_v&lt;T&gt;) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> std::to_string(arg);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">return</span> (arg);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">namespace </span>details {</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1details.html#a4f20ce25552dc9e90883a87651c72fc9">   83</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceclang_1_1insights_1_1details.html#a4f20ce25552dc9e90883a87651c72fc9">StrCat</a>(std::string&amp; ret, <span class="keyword">const</span> <span class="keyword">auto</span>&amp;... args)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    (ret += ... += <a class="code" href="namespaceclang_1_1insights.html#adf61807ed0a2a8b10cceb8fa319c2d98">::clang::insights::Normalize</a>(args));</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}  <span class="comment">// namespace details</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">   90</a></span>&#160;<span class="keyword">inline</span> std::string <a class="code" href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">StrCat</a>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp;... args)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    std::string ret{};</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <a class="code" href="namespaceclang_1_1insights_1_1details.html#a4f20ce25552dc9e90883a87651c72fc9">details::StrCat</a>(ret, args...);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}  <span class="comment">// namespace clang::insights</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* INSIGHTS_STRCAT_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}  <span class="comment">// namespace clang::insights</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* INSIGHTS_STRCAT_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="a_clang_compat_8h_html"><div class="ttname"><a href="_clang_compat_8h.html">ClangCompat.h</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1details_html_a4f20ce25552dc9e90883a87651c72fc9"><div class="ttname"><a href="namespaceclang_1_1insights_1_1details.html#a4f20ce25552dc9e90883a87651c72fc9">clang::insights::details::StrCat</a></div><div class="ttdeci">void StrCat(std::string &amp;ret, const auto &amp;... args)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_str_cat_8h_source.html#l00087">InsightsStrCat.h:87</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1details_html_a4f20ce25552dc9e90883a87651c72fc9"><div class="ttname"><a href="namespaceclang_1_1insights_1_1details.html#a4f20ce25552dc9e90883a87651c72fc9">clang::insights::details::StrCat</a></div><div class="ttdeci">void StrCat(std::string &amp;ret, const auto &amp;... args)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_str_cat_8h_source.html#l00083">InsightsStrCat.h:83</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1details_html_af2172f4938065c7dba999b834d469c7e"><div class="ttname"><a href="namespaceclang_1_1insights_1_1details.html#af2172f4938065c7dba999b834d469c7e">clang::insights::details::ConvertToBoolString</a></div><div class="ttdeci">std::string ConvertToBoolString(bool b)</div><div class="ttdoc">Convert a boolean value to a string representation of &quot;true&quot; or &quot;false&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="_insights_str_cat_8h_source.html#l00025">InsightsStrCat.h:25</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_html"><div class="ttname"><a href="namespaceclang_1_1insights.html">clang::insights</a></div><div class="ttdef"><b>Definition:</b> <a href="_a_s_t_helpers_8cpp_source.html#l00020">ASTHelpers.cpp:20</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_html_aa8841d6c2eee9f0f026bea4107bbcde6"><div class="ttname"><a href="namespaceclang_1_1insights.html#aa8841d6c2eee9f0f026bea4107bbcde6">clang::insights::ToString</a></div><div class="ttdeci">std::string ToString(const llvm::APSInt &amp;val)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_str_cat_8h_source.html#l00032">InsightsStrCat.h:32</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_html_aba8a2833bb973dcc67dbab0d5531d637"><div class="ttname"><a href="namespaceclang_1_1insights.html#aba8a2833bb973dcc67dbab0d5531d637">clang::insights::Normalize</a></div><div class="ttdeci">uint64_t Normalize(const llvm::APInt &amp;arg)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_str_cat_8h_source.html#l00046">InsightsStrCat.h:46</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_html_adf61807ed0a2a8b10cceb8fa319c2d98"><div class="ttname"><a href="namespaceclang_1_1insights.html#adf61807ed0a2a8b10cceb8fa319c2d98">clang::insights::Normalize</a></div><div class="ttdeci">decltype(auto) Normalize(const T &amp;arg)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_str_cat_8h_source.html#l00071">InsightsStrCat.h:71</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_html_af1547a2577846066c0e306b2123be616"><div class="ttname"><a href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">clang::insights::StrCat</a></div><div class="ttdeci">std::string StrCat(const auto &amp;... args)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_str_cat_8h_source.html#l00094">InsightsStrCat.h:94</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_html_aba8a2833bb973dcc67dbab0d5531d637"><div class="ttname"><a href="namespaceclang_1_1insights.html#aba8a2833bb973dcc67dbab0d5531d637">clang::insights::Normalize</a></div><div class="ttdeci">uint64_t Normalize(const llvm::APInt &amp;arg)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_str_cat_8h_source.html#l00042">InsightsStrCat.h:42</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_html_adf61807ed0a2a8b10cceb8fa319c2d98"><div class="ttname"><a href="namespaceclang_1_1insights.html#adf61807ed0a2a8b10cceb8fa319c2d98">clang::insights::Normalize</a></div><div class="ttdeci">decltype(auto) Normalize(const T &amp;arg)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_str_cat_8h_source.html#l00067">InsightsStrCat.h:67</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_html_af1547a2577846066c0e306b2123be616"><div class="ttname"><a href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">clang::insights::StrCat</a></div><div class="ttdeci">std::string StrCat(const auto &amp;... args)</div><div class="ttdef"><b>Definition:</b> <a href="_insights_str_cat_8h_source.html#l00090">InsightsStrCat.h:90</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.11-->
 <!-- start footer part -->

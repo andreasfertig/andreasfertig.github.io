@@ -107,7 +107,7 @@ $(function() {
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        cppStd = cppStd.replace(<span class="stringliteral">&#39;-std=&#39;</span>, <span class="stringliteral">&#39;/std:&#39;</span>)</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        cppStd = cppStd.replace(<span class="stringliteral">&#39;2a&#39;</span>, <span class="stringliteral">&#39;latest&#39;</span>)</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    cmd = [args[<span class="stringliteral">&#39;cxx&#39;</span>], cppStd, <span class="stringliteral">&#39;-D__cxa_guard_acquire(x)=true&#39;</span>, <span class="stringliteral">&#39;-D__cxa_guard_release(x)&#39;</span>, <span class="stringliteral">&#39;-D__cxa_guard_abort(x)&#39;</span>]</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    cmd = [args[<span class="stringliteral">&#39;cxx&#39;</span>], cppStd, <span class="stringliteral">&#39;-D__cxa_guard_acquire(x)=true&#39;</span>, <span class="stringliteral">&#39;-D__cxa_guard_release(x)&#39;</span>, <span class="stringliteral">&#39;-D__cxa_guard_abort(x)&#39;</span>, <span class="stringliteral">&#39;-I&#39;</span>, os.getcwd()]</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">if</span> os.name != <span class="stringliteral">&#39;nt&#39;</span>:</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        cmd.append(<span class="stringliteral">&#39;-m64&#39;</span>)</div>
@@ -129,7 +129,7 @@ $(function() {
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            stderr = <a class="code" href="namespacerun_test.html#ae61fbc5993818de4e1c5f42f67e04e3b">cleanStderr</a>(stderr, tmpFileName)</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordflow">if</span> ce == stderr:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                print(<span class="stringliteral">&#39;[PASSED] Compile: %s&#39;</span> %(f))</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                print(f<span class="stringliteral">&#39;[PASSED] Compile: {f}&#39;</span>)</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">True</span>, <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        compileErrorFile = os.path.join(mypath, fileName + <span class="stringliteral">&#39;.ccerr&#39;</span>)</div>
@@ -138,10 +138,10 @@ $(function() {
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                stderr = stderr.replace(tmpFileName, <span class="stringliteral">&#39;.tmp.cpp&#39;</span>)</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keywordflow">if</span> ce == stderr:</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                    print(<span class="stringliteral">&#39;[PASSED] Compile: %s&#39;</span> %(f))</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                    print(<span class="stringliteral">&#39;f[PASSED] Compile: {f}&#39;</span>)</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">True</span>, <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        print(<span class="stringliteral">&#39;[ERROR] Compile failed: %s&#39;</span> %(f))</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        print(f<span class="stringliteral">&#39;[ERROR] Compile failed: {f}&#39;</span>)</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        print(stderr)</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">else</span>:</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">if</span> os.path.isfile(compileErrorFile):</div>
@@ -152,7 +152,7 @@ $(function() {
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        objFileName = <span class="stringliteral">&#39;%s.%s&#39;</span> %(os.path.splitext(os.path.basename(tmpFileName))[0], ext)</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        os.remove(objFileName)</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        print(<span class="stringliteral">&#39;[PASSED] Compile: %s&#39;</span> %(f))</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        print(f<span class="stringliteral">&#39;[PASSED] Compile: {f}&#39;</span>)</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">True</span>, <span class="keywordtype">None</span></div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">False</span>, stderr</div>
@@ -175,7 +175,7 @@ $(function() {
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    remainingArgs = args[<span class="stringliteral">&#39;args&#39;</span>]</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    bFailureIsOk  = args[<span class="stringliteral">&#39;failure_is_ok&#39;</span>]</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    bUpdateTests  = args[<span class="stringliteral">&#39;update_tests&#39;</span>]</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    defaultCppStd = <span class="stringliteral">&#39;-std=%s&#39;</span>% (args[<span class="stringliteral">&#39;std&#39;</span>])</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    defaultCppStd = f<span class="stringliteral">&quot;-std={args[&#39;std&#39;]}&quot;</span></div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">if</span> args[<span class="stringliteral">&#39;llvm_prof_dir&#39;</span>] != <span class="stringliteral">&#39;&#39;</span>:</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        os.environ[<span class="stringliteral">&#39;LLVM_PROFILE_FILE&#39;</span>] = os.path.join(args[<span class="stringliteral">&#39;llvm_prof_dir&#39;</span>], <span class="stringliteral">&#39;prof%p.profraw&#39;</span>)</div>
@@ -212,12 +212,12 @@ $(function() {
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            insightsOpts = m.group(1).split(<span class="stringliteral">&#39; &#39;</span>)</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keywordflow">if</span> <span class="keywordflow">not</span> os.path.isfile(expectFile) <span class="keywordflow">and</span> <span class="keywordflow">not</span> os.path.isfile(ignoreFile):</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            print(<span class="stringliteral">&#39;Missing expect/ignore for: %s&#39;</span> %(f))</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            print(f<span class="stringliteral">&#39;Missing expect/ignore for: {f}&#39;</span>)</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            missingExpected += 1</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            <span class="keywordflow">continue</span></div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keywordflow">if</span> os.path.isfile(ignoreFile):</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            print(<span class="stringliteral">&#39;Ignoring: %s&#39;</span> %(f))</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            print(f<span class="stringliteral">&#39;Ignoring: {f}&#39;</span>)</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            filesPassed += 1</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            <span class="keywordflow">continue</span></div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
@@ -249,69 +249,65 @@ $(function() {
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                stderr = <a class="code" href="namespacerun_test.html#ae61fbc5993818de4e1c5f42f67e04e3b">cleanStderr</a>(stderr)</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                <span class="comment"># The cerr output matches and the return code says that we hit a compile error, accept it as passed</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                <span class="keywordflow">if</span> (ce == stderr) <span class="keywordflow">and</span> (1 == returncode):</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                    print(<span class="stringliteral">&#39;[PASSED] Compile: %s&#39;</span> %(f))</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                <span class="keywordflow">if</span> ((ce == stderr) <span class="keywordflow">and</span> (1 == returncode)) <span class="keywordflow">or</span> os.path.exists(os.path.join(mypath, fileName + <span class="stringliteral">&#39;.failure&#39;</span>)):</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                    print(f<span class="stringliteral">&#39;[PASSED] Transform: {f}&#39;</span>)</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                    filesPassed += 1</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                    <span class="keywordflow">continue</span></div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                    print(<span class="stringliteral">&#39;[ERROR] Compile: %s&#39;</span> %(f))</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                    print(f<span class="stringliteral">&#39;[ERROR] Transform: {f}&#39;</span>)</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                    ret = 1</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            crashes += 1</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            print(<span class="stringliteral">&#39;Insight crashed for: %s with: %d&#39;</span> %(f, returncode))</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            print(stderr)</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> bUpdateTests:</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                <span class="keywordflow">continue</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        fd, tmpFileName = tempfile.mkstemp(<span class="stringliteral">&#39;.cpp&#39;</span>)</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordflow">try</span>:</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            <span class="keyword">with</span> os.fdopen(fd, <span class="stringliteral">&#39;w&#39;</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span>) <span class="keyword">as</span> tmp:</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                <span class="comment"># write the data to the temp file</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                tmp.write(stdout)</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            equal = <a class="code" href="namespacerun_test.html#a53db917c6ce85bda423f3b393179f806">testCompare</a>(tmpFileName, stdout, expectFile, f, args, end-begin)</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            bCompiles, stderr = <a class="code" href="namespacerun_test.html#adbaa43a716acbc6a260d9861476d12ea">testCompile</a>(tmpFileName, f, args, fileName, cppStd)</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            compileErrorFile = os.path.join(mypath, fileName + <span class="stringliteral">&#39;.cerr&#39;</span>)</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            crashes += 1</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            print(f<span class="stringliteral">&#39;Insight crashed for: {f} with: {returncode}&#39;</span>)</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            print(stderr)</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            <span class="keywordflow">if</span> <span class="keywordflow">not</span> bUpdateTests:</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                <span class="keywordflow">continue</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        fd, tmpFileName = tempfile.mkstemp(<span class="stringliteral">&#39;.cpp&#39;</span>)</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keywordflow">try</span>:</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            <span class="keyword">with</span> os.fdopen(fd, <span class="stringliteral">&#39;w&#39;</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span>) <span class="keyword">as</span> tmp:</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                <span class="comment"># write the data to the temp file</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                tmp.write(stdout)</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            equal = <a class="code" href="namespacerun_test.html#a53db917c6ce85bda423f3b393179f806">testCompare</a>(tmpFileName, stdout, expectFile, f, args, end-begin)</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            bCompiles, stderr = <a class="code" href="namespacerun_test.html#adbaa43a716acbc6a260d9861476d12ea">testCompile</a>(tmpFileName, f, args, fileName, cppStd)</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            compileErrorFile = os.path.join(mypath, fileName + <span class="stringliteral">&#39;.cerr&#39;</span>)</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            <span class="keywordflow">if</span> bCompiles <span class="keywordflow">and</span> equal:</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                filesPassed += 1</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="keywordflow">elif</span> bUpdateTests:</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                <span class="keywordflow">if</span> bCompiles <span class="keywordflow">and</span> <span class="keywordflow">not</span> equal:</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                    open(expectFile, <span class="stringliteral">&#39;w&#39;</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span>).write(stdout)</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                    print(<span class="stringliteral">&#39;Updating test&#39;</span>)</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                <span class="keywordflow">elif</span> <span class="keywordflow">not</span> bCompiles <span class="keywordflow">and</span> os.path.exists(compileErrorFile):</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                    open(expectFile, <span class="stringliteral">&#39;w&#39;</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span>).write(stdout)</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                    open(compileErrorFile, <span class="stringliteral">&#39;w&#39;</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span>).write(stderr)</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;                    print(<span class="stringliteral">&#39;Updating test cerr&#39;</span>)</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            <span class="keywordflow">if</span> (bCompiles <span class="keywordflow">and</span> equal) <span class="keywordflow">or</span> bFailureIsOk:</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                filesPassed += 1</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            <span class="keywordflow">elif</span> bUpdateTests:</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                <span class="keywordflow">if</span> bCompiles <span class="keywordflow">and</span> <span class="keywordflow">not</span> equal:</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                    open(expectFile, <span class="stringliteral">&#39;w&#39;</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span>).write(stdout)</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                    print(<span class="stringliteral">&#39;Updating test&#39;</span>)</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                <span class="keywordflow">elif</span> <span class="keywordflow">not</span> bCompiles <span class="keywordflow">and</span> os.path.exists(compileErrorFile):</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                    open(expectFile, <span class="stringliteral">&#39;w&#39;</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span>).write(stdout)</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                    open(compileErrorFile, <span class="stringliteral">&#39;w&#39;</span>, encoding=<span class="stringliteral">&#39;utf-8&#39;</span>).write(stderr)</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                    print(<span class="stringliteral">&#39;Updating test cerr&#39;</span>)</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <span class="keywordflow">finally</span>:</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            os.remove(tmpFileName)</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordflow">finally</span>:</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            os.remove(tmpFileName)</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    expectedToPass = len(cppFiles)-missingExpected</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    print(<span class="stringliteral">&#39;-----------------------------------------------------------------&#39;</span>)</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    print(<span class="stringliteral">&#39;Tests passed: %d/%d&#39;</span> %(filesPassed, expectedToPass))</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordflow">if</span> bFailureIsOk:</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <span class="keywordflow">return</span> 0</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    print(<span class="stringliteral">&#39;Insights crashed: %d&#39;</span> %(crashes))</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    print(<span class="stringliteral">&#39;Missing expected files: %d&#39;</span> %(missingExpected))</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    passed = (0 == missingExpected) <span class="keywordflow">and</span> (expectedToPass == filesPassed)</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    expectedToPass = len(cppFiles)-missingExpected</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    print(<span class="stringliteral">&#39;-----------------------------------------------------------------&#39;</span>)</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    print(f<span class="stringliteral">&#39;Tests passed: {filesPassed}/{expectedToPass}&#39;</span>)</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    print(f<span class="stringliteral">&#39;Insights crashed: {crashes}&#39;</span>)</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    print(f<span class="stringliteral">&#39;Missing expected files: {missingExpected}&#39;</span>)</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    passed = (0 == missingExpected) <span class="keywordflow">and</span> (expectedToPass == filesPassed)</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">return</span> (passed <span class="keywordflow">is</span> <span class="keyword">False</span>)  <span class="comment"># note bash expects 0 for ok</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment">#------------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    <span class="keywordflow">return</span> (passed <span class="keywordflow">is</span> <span class="keyword">False</span>)  <span class="comment"># note bash expects 0 for ok</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;sys.exit(<a class="code" href="namespacerun_test.html#ab39d36fa748338062543467c402e84b8">main</a>())</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment">#------------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;sys.exit(<a class="code" href="namespacerun_test.html#ab39d36fa748338062543467c402e84b8">main</a>())</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="comment">#------------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
 <div class="ttc" id="anamespacerun_test_html_a53db917c6ce85bda423f3b393179f806"><div class="ttname"><a href="namespacerun_test.html#a53db917c6ce85bda423f3b393179f806">runTest.testCompare</a></div><div class="ttdeci">def testCompare(tmpFileName, stdout, expectFile, f, args, time)</div><div class="ttdef"><b>Definition:</b> <a href="run_test_8py_source.html#l00041">runTest.py:41</a></div></div>
 <div class="ttc" id="anamespacerun_test_html_ab39d36fa748338062543467c402e84b8"><div class="ttname"><a href="namespacerun_test.html#ab39d36fa748338062543467c402e84b8">runTest.main</a></div><div class="ttdeci">def main()</div><div class="ttdef"><b>Definition:</b> <a href="run_test_8py_source.html#l00117">runTest.py:117</a></div></div>
 <div class="ttc" id="anamespacerun_test_html_ad7638acd86a07a40d92e714ddb4dafac"><div class="ttname"><a href="namespacerun_test.html#ad7638acd86a07a40d92e714ddb4dafac">runTest.runCmd</a></div><div class="ttdeci">def runCmd(cmd, data=None)</div><div class="ttdef"><b>Definition:</b> <a href="run_test_8py_source.html#l00016">runTest.py:16</a></div></div>
