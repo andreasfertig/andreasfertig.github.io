@@ -38,7 +38,8 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">CodeGenerator.h File Reference</div>  </div>
 </div><!--header-->
@@ -130,6 +131,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_cfront_code_generator.html">clang::insights::CfrontCodeGenerator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A special generator for coroutines. It is only activated, if <code>-show-coroutines-transformation</code> is given as a command line option.  <a href="classclang_1_1insights_1_1_cfront_code_generator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structclang_1_1insights_1_1_cfront_code_generator_1_1_cfront_vtable_data.html">clang::insights::CfrontCodeGenerator::CfrontVtableData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classclang_1_1insights_1_1_code_generator_variant.html">clang::insights::CodeGeneratorVariant</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A special container which creates either a <code><a class="el" href="classclang_1_1insights_1_1_code_generator.html" title="More or less the heart of C++ Insights.">CodeGenerator</a></code> or a <code><a class="el" href="classclang_1_1insights_1_1_cfront_code_generator.html" title="A special generator for coroutines. It is only activated, if -show-coroutines-transformation is given...">CfrontCodeGenerator</a></code> depending on the command line options.  <a href="classclang_1_1insights_1_1_code_generator_variant.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,6 +154,13 @@ Macros</h2></td></tr>
 <tr class="separator:adf41fe69f8471ca02e372f01ce9ba956"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a394bf9fbf0c63ef36073482f768870c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_code_generator_8h.html#a394bf9fbf0c63ef36073482f768870c7">SUPPORTED_STMT</a>(type)&#160;&#160;&#160;virtual void InsertArg(const type* stmt);</td></tr>
 <tr class="separator:a394bf9fbf0c63ef36073482f768870c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a2dd49ca264b374d8207307ddf3f5af3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a2dd49ca264b374d8207307ddf3f5af3a">clang::insights::PushVtableEntry</a> (const CXXRecordDecl *record, const CXXRecordDecl *recordB, VarDecl *decl)</td></tr>
+<tr class="separator:a2dd49ca264b374d8207307ddf3f5af3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e87c85924b924a304a8bda87cc0df2f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceclang_1_1insights.html#a2e87c85924b924a304a8bda87cc0df2f">clang::insights::GetGlobalVtablePos</a> (const CXXRecordDecl *record, const CXXRecordDecl *recordB)</td></tr>
+<tr class="separator:a2e87c85924b924a304a8bda87cc0df2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ad0893106d55e05613d490bce38c0e4fa"></a>
@@ -169,7 +179,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00202">202</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00205">205</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -189,7 +199,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00204">204</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00207">207</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -209,7 +219,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00206">206</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00209">209</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>
@@ -229,7 +239,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00207">207</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_code_generator_8h_source.html#l00210">210</a> of file <a class="el" href="_code_generator_8h_source.html">CodeGenerator.h</a>.</p>
 
 </div>
 </div>

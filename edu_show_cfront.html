@@ -42,10 +42,41 @@ $(function() {
 <div class="textblock"><p><a class="anchor" id="md_docs_opt_edu_show_cfront"></a>Show transformation to C</p>
 <p><b>Default:</b> Off</p>
 <p><b>Examples:</b></p>
-<div class="fragment"><div class="line"><span class="keyword">class </span>Apple</div>
+<div class="fragment"><div class="line"><span class="comment">// cmdlineinsights:-edu-show-cfront</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>A</div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    Apple(){};</div>
+<div class="line">    <span class="keywordtype">int</span>          a;</div>
+<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> v() { puts(<span class="stringliteral">&quot;A-&gt;v&quot;</span>); }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>B</div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keywordtype">int</span>          b;</div>
+<div class="line">    <span class="keyword">virtual</span> <span class="keywordtype">void</span> w() { puts(<span class="stringliteral">&quot;B-&gt;w&quot;</span>); }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>C : <span class="keyword">public</span> A, <span class="keyword">public</span> B</div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keywordtype">int</span>  c;</div>
+<div class="line">    <span class="keywordtype">void</span> w() { puts(<span class="stringliteral">&quot;C-&gt;w&quot;</span>); }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>D : <span class="keyword">public</span> A, <span class="keyword">public</span> B</div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keywordtype">int</span> d;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>Apple</div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    Apple() {}</div>
 <div class="line"> </div>
 <div class="line">    Apple(<span class="keywordtype">int</span> x)</div>
 <div class="line">    : mX{x}</div>
@@ -63,7 +94,7 @@ $(function() {
 <div class="line">    <span class="keywordtype">int</span> mX{};</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> <a class="code" href="_option_documentation_generator_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
+<div class="line"><span class="keywordtype">void</span> MemberFunctions()</div>
 <div class="line">{</div>
 <div class="line">    Apple a{};</div>
 <div class="line"> </div>
@@ -77,6 +108,33 @@ $(function() {
 <div class="line"> </div>
 <div class="line">    b = a;</div>
 <div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> Inheritance()</div>
+<div class="line">{</div>
+<div class="line">    C c;</div>
+<div class="line"> </div>
+<div class="line">    c.w();</div>
+<div class="line">    c.v();</div>
+<div class="line"> </div>
+<div class="line">    B* b = &amp;c;</div>
+<div class="line">    b-&gt;w();</div>
+<div class="line"> </div>
+<div class="line">    C* cb = (C*)(b);</div>
+<div class="line">    cb-&gt;v();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">//</span></div>
+<div class="line">    D  d;</div>
+<div class="line">    B* bd = &amp;d;</div>
+<div class="line">    D* db = (D*)bd;</div>
+<div class="line">    db-&gt;w();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> <a class="code" href="_option_documentation_generator_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
+<div class="line">{</div>
+<div class="line">    MemberFunctions();</div>
+<div class="line"> </div>
+<div class="line">    Inheritance();</div>
+<div class="line">}</div>
 <div class="ttc" id="a_option_documentation_generator_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="_option_documentation_generator_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> <a href="_option_documentation_generator_8cpp_source.html#l00046">OptionDocumentationGenerator.cpp:46</a></div></div>
 </div><!-- fragment --><p>transforms into this:</p>
 <div class="fragment"><div class="line"><span class="comment">/*************************************************************************************</span></div>
@@ -85,6 +143,162 @@ $(function() {
 <div class="line"><span class="comment"> *************************************************************************************/</span></div>
 <div class="line"><span class="keywordtype">void</span> __cxa_start(<span class="keywordtype">void</span>);</div>
 <div class="line"><span class="keywordtype">void</span> __cxa_atexit(<span class="keywordtype">void</span>);</div>
+<div class="line"><span class="keyword">typedef</span> int (*__vptp)();</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span>__mptr</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">short</span>  d;</div>
+<div class="line">    <span class="keywordtype">short</span>  i;</div>
+<div class="line">    __vptp f;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="keyword">struct </span>__mptr* __vtbl_array[];</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>A</div>
+<div class="line">{</div>
+<div class="line">  __mptr * __vptrA;</div>
+<div class="line">  <span class="keywordtype">int</span> a;</div>
+<div class="line">} A;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> <span class="keywordtype">void</span> vA(A * __this)</div>
+<div class="line">{</div>
+<div class="line">  puts(<span class="stringliteral">&quot;A-&gt;v&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> A * operatorEqual(A * __this, <span class="keyword">const</span> A * __rhs)</div>
+<div class="line">{</div>
+<div class="line">  __this-&gt;a = __rhs-&gt;a;</div>
+<div class="line">  <span class="keywordflow">return</span> __this;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> A * operatorEqual(A * __this, A * __rhs)</div>
+<div class="line">{</div>
+<div class="line">  __this-&gt;a = __rhs-&gt;a;</div>
+<div class="line">  <span class="keywordflow">return</span> __this;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> A * Constructor_A(A * __this)</div>
+<div class="line">{</div>
+<div class="line">  __this-&gt;__vptrA = __vtbl_array[0];</div>
+<div class="line">  <span class="keywordflow">return</span> __this;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>B</div>
+<div class="line">{</div>
+<div class="line">  __mptr * __vptrB;</div>
+<div class="line">  <span class="keywordtype">int</span> b;</div>
+<div class="line">} B;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> <span class="keywordtype">void</span> wB(B * __this)</div>
+<div class="line">{</div>
+<div class="line">  puts(<span class="stringliteral">&quot;B-&gt;w&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> B * operatorEqual(B * __this, <span class="keyword">const</span> B * __rhs)</div>
+<div class="line">{</div>
+<div class="line">  __this-&gt;b = __rhs-&gt;b;</div>
+<div class="line">  <span class="keywordflow">return</span> __this;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> B * operatorEqual(B * __this, B * __rhs)</div>
+<div class="line">{</div>
+<div class="line">  __this-&gt;b = __rhs-&gt;b;</div>
+<div class="line">  <span class="keywordflow">return</span> __this;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> B * Constructor_B(B * __this)</div>
+<div class="line">{</div>
+<div class="line">  __this-&gt;__vptrB = __vtbl_array[1];</div>
+<div class="line">  <span class="keywordflow">return</span> __this;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>C</div>
+<div class="line">{</div>
+<div class="line">  __mptr * __vptrA;</div>
+<div class="line">  <span class="keywordtype">int</span> a;</div>
+<div class="line">  __mptr * __vptrB;</div>
+<div class="line">  <span class="keywordtype">int</span> b;</div>
+<div class="line">  <span class="keywordtype">int</span> c;</div>
+<div class="line">} C;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> <span class="keywordtype">void</span> wC(C * __this)</div>
+<div class="line">{</div>
+<div class="line">  puts(<span class="stringliteral">&quot;C-&gt;w&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> C * operatorEqual(C * __this, <span class="keyword">const</span> C * __rhs)</div>
+<div class="line">{</div>
+<div class="line">  __this-&gt;a = __rhs-&gt;a;</div>
+<div class="line">  operatorEqual((A *)__this, (A *)__rhs);</div>
+<div class="line">  __this-&gt;b = __rhs-&gt;b;</div>
+<div class="line">  operatorEqual((B *)((<span class="keywordtype">char</span>*)__this+16), (B *)((<span class="keywordtype">char</span>*)__rhs+16));</div>
+<div class="line">  __this-&gt;c = __rhs-&gt;c;</div>
+<div class="line">  <span class="keywordflow">return</span> __this;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> C * operatorEqual(C * __this, C * __rhs)</div>
+<div class="line">{</div>
+<div class="line">  __this-&gt;a = __rhs-&gt;a;</div>
+<div class="line">  operatorEqual((A *)__this, (A *)__rhs);</div>
+<div class="line">  __this-&gt;b = __rhs-&gt;b;</div>
+<div class="line">  operatorEqual((B *)((<span class="keywordtype">char</span>*)__this+16), (B *)((<span class="keywordtype">char</span>*)__rhs+16));</div>
+<div class="line">  __this-&gt;c = __rhs-&gt;c;</div>
+<div class="line">  <span class="keywordflow">return</span> __this;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> C * Constructor_C(C * __this)</div>
+<div class="line">{</div>
+<div class="line">  Constructor_A((A *)__this);</div>
+<div class="line">  Constructor_B((B *)__this);</div>
+<div class="line">  __this-&gt;__vptrA = __vtbl_array[2];</div>
+<div class="line">  __this-&gt;__vptrB = __vtbl_array[3];</div>
+<div class="line">  <span class="keywordflow">return</span> __this;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>D</div>
+<div class="line">{</div>
+<div class="line">  __mptr * __vptrA;</div>
+<div class="line">  <span class="keywordtype">int</span> a;</div>
+<div class="line">  __mptr * __vptrB;</div>
+<div class="line">  <span class="keywordtype">int</span> b;</div>
+<div class="line">  <span class="keywordtype">int</span> d;</div>
+<div class="line">} D;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> D * operatorEqual(D * __this, <span class="keyword">const</span> D * __rhs)</div>
+<div class="line">{</div>
+<div class="line">  __this-&gt;a = __rhs-&gt;a;</div>
+<div class="line">  operatorEqual((A *)__this, (A *)__rhs);</div>
+<div class="line">  __this-&gt;b = __rhs-&gt;b;</div>
+<div class="line">  operatorEqual((B *)((<span class="keywordtype">char</span>*)__this+16), (B *)((<span class="keywordtype">char</span>*)__rhs+16));</div>
+<div class="line">  __this-&gt;d = __rhs-&gt;d;</div>
+<div class="line">  <span class="keywordflow">return</span> __this;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> D * operatorEqual(D * __this, D * __rhs)</div>
+<div class="line">{</div>
+<div class="line">  __this-&gt;a = __rhs-&gt;a;</div>
+<div class="line">  operatorEqual((A *)__this, (A *)__rhs);</div>
+<div class="line">  __this-&gt;b = __rhs-&gt;b;</div>
+<div class="line">  operatorEqual((B *)((<span class="keywordtype">char</span>*)__this+16), (B *)((<span class="keywordtype">char</span>*)__rhs+16));</div>
+<div class="line">  __this-&gt;d = __rhs-&gt;d;</div>
+<div class="line">  <span class="keywordflow">return</span> __this;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> D * Constructor_D(D * __this)</div>
+<div class="line">{</div>
+<div class="line">  Constructor_A((A *)__this);</div>
+<div class="line">  Constructor_B((B *)__this);</div>
+<div class="line">  __this-&gt;__vptrA = __vtbl_array[4];</div>
+<div class="line">  __this-&gt;__vptrB = __vtbl_array[5];</div>
+<div class="line">  <span class="keywordflow">return</span> __this;</div>
+<div class="line">}</div>
+<div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>Apple</div>
 <div class="line">{</div>
@@ -131,7 +345,7 @@ $(function() {
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> __main(<span class="keywordtype">void</span>)</div>
+<div class="line"><span class="keywordtype">void</span> MemberFunctions(<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
 <div class="line">  Apple a;</div>
 <div class="line">  Constructor_Apple((Apple *)&amp;a);</div>
@@ -143,10 +357,34 @@ $(function() {
 <div class="line">  Apple c;</div>
 <div class="line">  CopyConstructor_Apple((Apple *)&amp;c, &amp;b);</div>
 <div class="line">  operatorEqual(&amp;b, &amp;a);</div>
-<div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">  Destructor_Apple(&amp;c);</div>
 <div class="line">  Destructor_Apple(&amp;b);</div>
 <div class="line">  Destructor_Apple(&amp;a);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> Inheritance(<span class="keywordtype">void</span>)</div>
+<div class="line">{</div>
+<div class="line">  C c;</div>
+<div class="line">  Constructor_C((C *)&amp;c);</div>
+<div class="line">  (*((void (*)(C *))((&amp;c)-&gt;__vptrA[0]).f))((((C *)(<span class="keywordtype">char</span> *)(&amp;c)) + ((&amp;c)-&gt;__vptrA[0]).d));</div>
+<div class="line">  (*((void (*)(A *))((&amp;c)-&gt;__vptrA[0]).f))((((A *)(<span class="keywordtype">char</span> *)(&amp;c)) + ((&amp;c)-&gt;__vptrA[0]).d));</div>
+<div class="line">  B * b = (B *)((<span class="keywordtype">char</span>*)&amp;c+16);</div>
+<div class="line">  (*((void (*)(B *))((b)-&gt;__vptrB[0]).f))((((B *)(<span class="keywordtype">char</span> *)(b)) + ((b)-&gt;__vptrB[0]).d));</div>
+<div class="line">  C * cb = (C *)((<span class="keywordtype">char</span>*)(b)-16);</div>
+<div class="line">  (*((void (*)(A *))((cb)-&gt;__vptrA[0]).f))((((A *)(<span class="keywordtype">char</span> *)(cb)) + ((cb)-&gt;__vptrA[0]).d));</div>
+<div class="line">  D d;</div>
+<div class="line">  Constructor_D((D *)&amp;d);</div>
+<div class="line">  B * bd = (B *)((<span class="keywordtype">char</span>*)&amp;d+16);</div>
+<div class="line">  D * db = (D *)((<span class="keywordtype">char</span>*)bd-16);</div>
+<div class="line">  (*((void (*)(B *))((db)-&gt;__vptrB[0]).f))((((B *)(<span class="keywordtype">char</span> *)(db)) + ((db)-&gt;__vptrB[0]).d));</div>
+<div class="line">  <span class="comment">/* d // lifetime ends here */</span></div>
+<div class="line">  <span class="comment">/* c // lifetime ends here */</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> __main(<span class="keywordtype">void</span>)</div>
+<div class="line">{</div>
+<div class="line">  MemberFunctions()Inheritance();</div>
+<div class="line">  return 0;</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> <a class="code" href="_option_documentation_generator_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>(<span class="keywordtype">void</span>)</div>
@@ -157,6 +395,15 @@ $(function() {
 <div class="line">  <span class="keywordflow">return</span> ret;</div>
 <div class="line">  <span class="comment">/* ret // lifetime ends here */</span></div>
 <div class="line">}</div>
+<div class="line"> </div>
+<div class="line">__mptr __vtbl_A[1] = {0, 0, (__vptp)vA};</div>
+<div class="line">__mptr __vtbl_B[1] = {0, 0, (__vptp)wB};</div>
+<div class="line">__mptr __vtbl_CA[2] = {{0, 0, (__vptp)vA}, {0, 0, (__vptp)wC}};</div>
+<div class="line">__mptr __vtbl_CB[1] = {-16, 0, (__vptp)wC};</div>
+<div class="line">__mptr __vtbl_DA[1] = {0, 0, (__vptp)vA};</div>
+<div class="line">__mptr __vtbl_DB[1] = {0, 0, (__vptp)wB};</div>
+<div class="line"> </div>
+<div class="line">__mptr * __vtbl_array[6] = {__vtbl_A, __vtbl_B, __vtbl_CA, __vtbl_CB, __vtbl_DA, __vtbl_DB};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> __cxa_start(<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
