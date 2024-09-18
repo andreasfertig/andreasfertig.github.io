@@ -168,18 +168,6 @@ $(function() {
 <div class="line">  puts(<span class="stringliteral">&quot;A-&gt;v&quot;</span>);</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">inline</span> A * operatorEqual(A * __this, <span class="keyword">const</span> A * __rhs)</div>
-<div class="line">{</div>
-<div class="line">  __this-&gt;a = __rhs-&gt;a;</div>
-<div class="line">  <span class="keywordflow">return</span> __this;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">inline</span> A * operatorEqual(A * __this, A * __rhs)</div>
-<div class="line">{</div>
-<div class="line">  __this-&gt;a = __rhs-&gt;a;</div>
-<div class="line">  <span class="keywordflow">return</span> __this;</div>
-<div class="line">}</div>
-<div class="line"> </div>
 <div class="line"><span class="keyword">inline</span> A * Constructor_A(A * __this)</div>
 <div class="line">{</div>
 <div class="line">  __this-&gt;__vptrA = __vtbl_array[0];</div>
@@ -196,18 +184,6 @@ $(function() {
 <div class="line"><span class="keyword">inline</span> <span class="keywordtype">void</span> wB(B * __this)</div>
 <div class="line">{</div>
 <div class="line">  puts(<span class="stringliteral">&quot;B-&gt;w&quot;</span>);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">inline</span> B * operatorEqual(B * __this, <span class="keyword">const</span> B * __rhs)</div>
-<div class="line">{</div>
-<div class="line">  __this-&gt;b = __rhs-&gt;b;</div>
-<div class="line">  <span class="keywordflow">return</span> __this;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">inline</span> B * operatorEqual(B * __this, B * __rhs)</div>
-<div class="line">{</div>
-<div class="line">  __this-&gt;b = __rhs-&gt;b;</div>
-<div class="line">  <span class="keywordflow">return</span> __this;</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">inline</span> B * Constructor_B(B * __this)</div>
@@ -231,26 +207,6 @@ $(function() {
 <div class="line">  puts(<span class="stringliteral">&quot;C-&gt;w&quot;</span>);</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">inline</span> C * operatorEqual(C * __this, <span class="keyword">const</span> C * __rhs)</div>
-<div class="line">{</div>
-<div class="line">  __this-&gt;a = __rhs-&gt;a;</div>
-<div class="line">  operatorEqual((A *)__this, (A *)__rhs);</div>
-<div class="line">  __this-&gt;b = __rhs-&gt;b;</div>
-<div class="line">  operatorEqual((B *)((<span class="keywordtype">char</span>*)__this+16), (B *)((<span class="keywordtype">char</span>*)__rhs+16));</div>
-<div class="line">  __this-&gt;c = __rhs-&gt;c;</div>
-<div class="line">  <span class="keywordflow">return</span> __this;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">inline</span> C * operatorEqual(C * __this, C * __rhs)</div>
-<div class="line">{</div>
-<div class="line">  __this-&gt;a = __rhs-&gt;a;</div>
-<div class="line">  operatorEqual((A *)__this, (A *)__rhs);</div>
-<div class="line">  __this-&gt;b = __rhs-&gt;b;</div>
-<div class="line">  operatorEqual((B *)((<span class="keywordtype">char</span>*)__this+16), (B *)((<span class="keywordtype">char</span>*)__rhs+16));</div>
-<div class="line">  __this-&gt;c = __rhs-&gt;c;</div>
-<div class="line">  <span class="keywordflow">return</span> __this;</div>
-<div class="line">}</div>
-<div class="line"> </div>
 <div class="line"><span class="keyword">inline</span> C * Constructor_C(C * __this)</div>
 <div class="line">{</div>
 <div class="line">  Constructor_A((A *)__this);</div>
@@ -269,26 +225,6 @@ $(function() {
 <div class="line">  <span class="keywordtype">int</span> b;</div>
 <div class="line">  <span class="keywordtype">int</span> d;</div>
 <div class="line">} D;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">inline</span> D * operatorEqual(D * __this, <span class="keyword">const</span> D * __rhs)</div>
-<div class="line">{</div>
-<div class="line">  __this-&gt;a = __rhs-&gt;a;</div>
-<div class="line">  operatorEqual((A *)__this, (A *)__rhs);</div>
-<div class="line">  __this-&gt;b = __rhs-&gt;b;</div>
-<div class="line">  operatorEqual((B *)((<span class="keywordtype">char</span>*)__this+16), (B *)((<span class="keywordtype">char</span>*)__rhs+16));</div>
-<div class="line">  __this-&gt;d = __rhs-&gt;d;</div>
-<div class="line">  <span class="keywordflow">return</span> __this;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">inline</span> D * operatorEqual(D * __this, D * __rhs)</div>
-<div class="line">{</div>
-<div class="line">  __this-&gt;a = __rhs-&gt;a;</div>
-<div class="line">  operatorEqual((A *)__this, (A *)__rhs);</div>
-<div class="line">  __this-&gt;b = __rhs-&gt;b;</div>
-<div class="line">  operatorEqual((B *)((<span class="keywordtype">char</span>*)__this+16), (B *)((<span class="keywordtype">char</span>*)__rhs+16));</div>
-<div class="line">  __this-&gt;d = __rhs-&gt;d;</div>
-<div class="line">  <span class="keywordflow">return</span> __this;</div>
-<div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">inline</span> D * Constructor_D(D * __this)</div>
 <div class="line">{</div>
