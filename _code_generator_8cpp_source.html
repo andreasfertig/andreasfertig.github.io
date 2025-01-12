@@ -5190,52 +5190,54 @@ $(function() {
 <div class="line"><a name="l05149"></a><span class="lineno"> 5149</span>&#160;        type = stmt-&gt;getASTContext().getLValueReferenceType(type);</div>
 <div class="line"><a name="l05150"></a><span class="lineno"> 5150</span>&#160;    }</div>
 <div class="line"><a name="l05151"></a><span class="lineno"> 5151</span>&#160; </div>
-<div class="line"><a name="l05152"></a><span class="lineno"> 5152</span>&#160;    mOutputFormatHelper.Append(<a class="code" href="namespaceclang_1_1insights.html#a9ab828004c6acbbaeb410856e284a1e4">GetQualifiers</a>(*dyn_cast_or_null&lt;VarDecl&gt;(stmt-&gt;getDecomposedDecl())),</div>
-<div class="line"><a name="l05153"></a><span class="lineno"> 5153</span>&#160;                               <a class="code" href="namespaceclang_1_1insights.html#ae670e1040066f23e9f2d67541871a497">GetTypeNameAsParameter</a>(type, <a class="code" href="namespaceclang_1_1insights_1_1details.html#af12a79652483475c31aa0321487d9d7d">GetName</a>(*stmt)),</div>
-<div class="line"><a name="l05154"></a><span class="lineno"> 5154</span>&#160;                               <a class="code" href="_insights_static_strings_8h.html#ae8cb449a65a776d09d4856f26daa7e7f">hlpAssing</a>);</div>
-<div class="line"><a name="l05155"></a><span class="lineno"> 5155</span>&#160; </div>
-<div class="line"><a name="l05156"></a><span class="lineno"> 5156</span>&#160;    InsertArg(bindingStmt);</div>
+<div class="line"><a name="l05152"></a><span class="lineno"> 5152</span>&#160;    InsertAttributes(stmt-&gt;attrs());</div>
+<div class="line"><a name="l05153"></a><span class="lineno"> 5153</span>&#160; </div>
+<div class="line"><a name="l05154"></a><span class="lineno"> 5154</span>&#160;    mOutputFormatHelper.Append(<a class="code" href="namespaceclang_1_1insights.html#a9ab828004c6acbbaeb410856e284a1e4">GetQualifiers</a>(*dyn_cast_or_null&lt;VarDecl&gt;(stmt-&gt;getDecomposedDecl())),</div>
+<div class="line"><a name="l05155"></a><span class="lineno"> 5155</span>&#160;                               <a class="code" href="namespaceclang_1_1insights.html#ae670e1040066f23e9f2d67541871a497">GetTypeNameAsParameter</a>(type, <a class="code" href="namespaceclang_1_1insights_1_1details.html#af12a79652483475c31aa0321487d9d7d">GetName</a>(*stmt)),</div>
+<div class="line"><a name="l05156"></a><span class="lineno"> 5156</span>&#160;                               <a class="code" href="_insights_static_strings_8h.html#ae8cb449a65a776d09d4856f26daa7e7f">hlpAssing</a>);</div>
 <div class="line"><a name="l05157"></a><span class="lineno"> 5157</span>&#160; </div>
-<div class="line"><a name="l05158"></a><span class="lineno"> 5158</span>&#160;    mOutputFormatHelper.AppendSemiNewLine();</div>
-<div class="line"><a name="l05159"></a><span class="lineno"> 5159</span>&#160;}</div>
-<div class="line"><a name="l05160"></a><span class="lineno"> 5160</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05161"></a><span class="lineno"> 5161</span>&#160; </div>
-<div class="line"><a name="l05162"></a><span class="lineno"><a class="line" href="classclang_1_1insights_1_1_structured_bindings_code_generator.html#a23ec554d450e40e3953a177b13410f4d"> 5162</a></span>&#160;<span class="keywordtype">void</span> StructuredBindingsCodeGenerator::InsertDecompositionBindings(<span class="keyword">const</span> DecompositionDecl&amp; decompositionDeclStmt)</div>
-<div class="line"><a name="l05163"></a><span class="lineno"> 5163</span>&#160;{</div>
-<div class="line"><a name="l05164"></a><span class="lineno"> 5164</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>* bindingDecl : decompositionDeclStmt.bindings()) {</div>
-<div class="line"><a name="l05165"></a><span class="lineno"> 5165</span>&#160;        InsertArg(bindingDecl);</div>
-<div class="line"><a name="l05166"></a><span class="lineno"> 5166</span>&#160;    }</div>
-<div class="line"><a name="l05167"></a><span class="lineno"> 5167</span>&#160;}</div>
-<div class="line"><a name="l05168"></a><span class="lineno"> 5168</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05169"></a><span class="lineno"> 5169</span>&#160; </div>
-<div class="line"><a name="l05170"></a><span class="lineno"><a class="line" href="classclang_1_1insights_1_1_structured_bindings_code_generator.html#a5f5cc9c93b508b9df23dd1b9437efb18"> 5170</a></span>&#160;<span class="keywordtype">void</span> StructuredBindingsCodeGenerator::InsertArg(<span class="keyword">const</span> DeclRefExpr* stmt)</div>
-<div class="line"><a name="l05171"></a><span class="lineno"> 5171</span>&#160;{</div>
-<div class="line"><a name="l05172"></a><span class="lineno"> 5172</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> name = <a class="code" href="namespaceclang_1_1insights_1_1details.html#af12a79652483475c31aa0321487d9d7d">GetName</a>(*stmt);</div>
-<div class="line"><a name="l05173"></a><span class="lineno"> 5173</span>&#160; </div>
-<div class="line"><a name="l05174"></a><span class="lineno"> 5174</span>&#160;    mOutputFormatHelper.Append(name);</div>
+<div class="line"><a name="l05158"></a><span class="lineno"> 5158</span>&#160;    InsertArg(bindingStmt);</div>
+<div class="line"><a name="l05159"></a><span class="lineno"> 5159</span>&#160; </div>
+<div class="line"><a name="l05160"></a><span class="lineno"> 5160</span>&#160;    mOutputFormatHelper.AppendSemiNewLine();</div>
+<div class="line"><a name="l05161"></a><span class="lineno"> 5161</span>&#160;}</div>
+<div class="line"><a name="l05162"></a><span class="lineno"> 5162</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l05163"></a><span class="lineno"> 5163</span>&#160; </div>
+<div class="line"><a name="l05164"></a><span class="lineno"><a class="line" href="classclang_1_1insights_1_1_structured_bindings_code_generator.html#a23ec554d450e40e3953a177b13410f4d"> 5164</a></span>&#160;<span class="keywordtype">void</span> StructuredBindingsCodeGenerator::InsertDecompositionBindings(<span class="keyword">const</span> DecompositionDecl&amp; decompositionDeclStmt)</div>
+<div class="line"><a name="l05165"></a><span class="lineno"> 5165</span>&#160;{</div>
+<div class="line"><a name="l05166"></a><span class="lineno"> 5166</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>* bindingDecl : decompositionDeclStmt.bindings()) {</div>
+<div class="line"><a name="l05167"></a><span class="lineno"> 5167</span>&#160;        InsertArg(bindingDecl);</div>
+<div class="line"><a name="l05168"></a><span class="lineno"> 5168</span>&#160;    }</div>
+<div class="line"><a name="l05169"></a><span class="lineno"> 5169</span>&#160;}</div>
+<div class="line"><a name="l05170"></a><span class="lineno"> 5170</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l05171"></a><span class="lineno"> 5171</span>&#160; </div>
+<div class="line"><a name="l05172"></a><span class="lineno"><a class="line" href="classclang_1_1insights_1_1_structured_bindings_code_generator.html#a5f5cc9c93b508b9df23dd1b9437efb18"> 5172</a></span>&#160;<span class="keywordtype">void</span> StructuredBindingsCodeGenerator::InsertArg(<span class="keyword">const</span> DeclRefExpr* stmt)</div>
+<div class="line"><a name="l05173"></a><span class="lineno"> 5173</span>&#160;{</div>
+<div class="line"><a name="l05174"></a><span class="lineno"> 5174</span>&#160;    <span class="keyword">const</span> <span class="keyword">auto</span> name = <a class="code" href="namespaceclang_1_1insights_1_1details.html#af12a79652483475c31aa0321487d9d7d">GetName</a>(*stmt);</div>
 <div class="line"><a name="l05175"></a><span class="lineno"> 5175</span>&#160; </div>
-<div class="line"><a name="l05176"></a><span class="lineno"> 5176</span>&#160;    <span class="keywordflow">if</span>(name.empty()) {</div>
-<div class="line"><a name="l05177"></a><span class="lineno"> 5177</span>&#160;        mOutputFormatHelper.Append(mVarName);</div>
-<div class="line"><a name="l05178"></a><span class="lineno"> 5178</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l05179"></a><span class="lineno"> 5179</span>&#160;        InsertTemplateArgs(*stmt);</div>
-<div class="line"><a name="l05180"></a><span class="lineno"> 5180</span>&#160;    }</div>
-<div class="line"><a name="l05181"></a><span class="lineno"> 5181</span>&#160;}</div>
-<div class="line"><a name="l05182"></a><span class="lineno"> 5182</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05183"></a><span class="lineno"> 5183</span>&#160; </div>
-<div class="line"><a name="l05184"></a><span class="lineno"><a class="line" href="classclang_1_1insights_1_1_lambda_code_generator.html#ab1186f14eededb9a5af7c35226ae29da"> 5184</a></span>&#160;<span class="keywordtype">void</span> LambdaCodeGenerator::InsertArg(<span class="keyword">const</span> CXXThisExpr* stmt)</div>
-<div class="line"><a name="l05185"></a><span class="lineno"> 5185</span>&#160;{</div>
-<div class="line"><a name="l05186"></a><span class="lineno"> 5186</span>&#160;    <a class="code" href="namespaceclang_1_1insights.html#a2405af13849670d5f23951648fdf475b">DPrint</a>(<span class="stringliteral">&quot;thisExpr: imlicit=%d %s\n&quot;</span>, stmt-&gt;isImplicit(), <a class="code" href="namespaceclang_1_1insights_1_1details.html#af12a79652483475c31aa0321487d9d7d">GetName</a>(<a class="code" href="namespaceclang_1_1insights.html#ac1054e2f7ea91e1f9baeb6490fbbaee0">GetDesugarType</a>(stmt-&gt;getType())));</div>
-<div class="line"><a name="l05187"></a><span class="lineno"> 5187</span>&#160; </div>
-<div class="line"><a name="l05188"></a><span class="lineno"> 5188</span>&#160;    <span class="keywordflow">if</span>(mCapturedThisAsCopy) {</div>
-<div class="line"><a name="l05189"></a><span class="lineno"> 5189</span>&#160;        mOutputFormatHelper.Append(<span class="stringliteral">&quot;(&amp;&quot;</span>sv, <a class="code" href="_insights_static_strings_8h.html#aba250ab7cd90f77f9e04e5b5d869c80f">kwInternalThis</a>, <span class="stringliteral">&quot;)&quot;</span>sv);</div>
-<div class="line"><a name="l05190"></a><span class="lineno"> 5190</span>&#160; </div>
-<div class="line"><a name="l05191"></a><span class="lineno"> 5191</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l05192"></a><span class="lineno"> 5192</span>&#160;        mOutputFormatHelper.Append(<a class="code" href="_insights_static_strings_8h.html#aba250ab7cd90f77f9e04e5b5d869c80f">kwInternalThis</a>);</div>
-<div class="line"><a name="l05193"></a><span class="lineno"> 5193</span>&#160;    }</div>
-<div class="line"><a name="l05194"></a><span class="lineno"> 5194</span>&#160;}</div>
-<div class="line"><a name="l05195"></a><span class="lineno"> 5195</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l05196"></a><span class="lineno"> 5196</span>&#160; </div>
-<div class="line"><a name="l05197"></a><span class="lineno"> 5197</span>&#160;}  <span class="comment">// namespace clang::insights</span></div>
+<div class="line"><a name="l05176"></a><span class="lineno"> 5176</span>&#160;    mOutputFormatHelper.Append(name);</div>
+<div class="line"><a name="l05177"></a><span class="lineno"> 5177</span>&#160; </div>
+<div class="line"><a name="l05178"></a><span class="lineno"> 5178</span>&#160;    <span class="keywordflow">if</span>(name.empty()) {</div>
+<div class="line"><a name="l05179"></a><span class="lineno"> 5179</span>&#160;        mOutputFormatHelper.Append(mVarName);</div>
+<div class="line"><a name="l05180"></a><span class="lineno"> 5180</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l05181"></a><span class="lineno"> 5181</span>&#160;        InsertTemplateArgs(*stmt);</div>
+<div class="line"><a name="l05182"></a><span class="lineno"> 5182</span>&#160;    }</div>
+<div class="line"><a name="l05183"></a><span class="lineno"> 5183</span>&#160;}</div>
+<div class="line"><a name="l05184"></a><span class="lineno"> 5184</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l05185"></a><span class="lineno"> 5185</span>&#160; </div>
+<div class="line"><a name="l05186"></a><span class="lineno"><a class="line" href="classclang_1_1insights_1_1_lambda_code_generator.html#ab1186f14eededb9a5af7c35226ae29da"> 5186</a></span>&#160;<span class="keywordtype">void</span> LambdaCodeGenerator::InsertArg(<span class="keyword">const</span> CXXThisExpr* stmt)</div>
+<div class="line"><a name="l05187"></a><span class="lineno"> 5187</span>&#160;{</div>
+<div class="line"><a name="l05188"></a><span class="lineno"> 5188</span>&#160;    <a class="code" href="namespaceclang_1_1insights.html#a2405af13849670d5f23951648fdf475b">DPrint</a>(<span class="stringliteral">&quot;thisExpr: imlicit=%d %s\n&quot;</span>, stmt-&gt;isImplicit(), <a class="code" href="namespaceclang_1_1insights_1_1details.html#af12a79652483475c31aa0321487d9d7d">GetName</a>(<a class="code" href="namespaceclang_1_1insights.html#ac1054e2f7ea91e1f9baeb6490fbbaee0">GetDesugarType</a>(stmt-&gt;getType())));</div>
+<div class="line"><a name="l05189"></a><span class="lineno"> 5189</span>&#160; </div>
+<div class="line"><a name="l05190"></a><span class="lineno"> 5190</span>&#160;    <span class="keywordflow">if</span>(mCapturedThisAsCopy) {</div>
+<div class="line"><a name="l05191"></a><span class="lineno"> 5191</span>&#160;        mOutputFormatHelper.Append(<span class="stringliteral">&quot;(&amp;&quot;</span>sv, <a class="code" href="_insights_static_strings_8h.html#aba250ab7cd90f77f9e04e5b5d869c80f">kwInternalThis</a>, <span class="stringliteral">&quot;)&quot;</span>sv);</div>
+<div class="line"><a name="l05192"></a><span class="lineno"> 5192</span>&#160; </div>
+<div class="line"><a name="l05193"></a><span class="lineno"> 5193</span>&#160;    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l05194"></a><span class="lineno"> 5194</span>&#160;        mOutputFormatHelper.Append(<a class="code" href="_insights_static_strings_8h.html#aba250ab7cd90f77f9e04e5b5d869c80f">kwInternalThis</a>);</div>
+<div class="line"><a name="l05195"></a><span class="lineno"> 5195</span>&#160;    }</div>
+<div class="line"><a name="l05196"></a><span class="lineno"> 5196</span>&#160;}</div>
+<div class="line"><a name="l05197"></a><span class="lineno"> 5197</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l05198"></a><span class="lineno"> 5198</span>&#160; </div>
+<div class="line"><a name="l05199"></a><span class="lineno"> 5199</span>&#160;}  <span class="comment">// namespace clang::insights</span></div>
 <div class="ttc" id="a_a_s_t_helpers_8h_html"><div class="ttname"><a href="_a_s_t_helpers_8h.html">ASTHelpers.h</a></div></div>
 <div class="ttc" id="a_clang_compat_8h_html"><div class="ttname"><a href="_clang_compat_8h.html">ClangCompat.h</a></div></div>
 <div class="ttc" id="a_clang_compat_8h_html_a90b4207557ef1835854e0d04c8cd6515"><div class="ttname"><a href="_clang_compat_8h.html#a90b4207557ef1835854e0d04c8cd6515">IS_CLANG_NEWER_THAN</a></div><div class="ttdeci">#define IS_CLANG_NEWER_THAN(major)</div><div class="ttdef"><b>Definition:</b> <a href="_clang_compat_8h_source.html#l00016">ClangCompat.h:16</a></div></div>
