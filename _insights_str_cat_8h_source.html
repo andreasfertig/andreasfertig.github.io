@@ -101,11 +101,11 @@ $(function() {
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            ::llvm::raw_string_ostream stream{str};</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            arg.getFloat().print(stream);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">if</span>(std::string::npos == str.find(<span class="charliteral">&#39;.&#39;</span>)) {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="comment">/* in case it is a number like 10.0 toString() seems to leave out the .0. However, as this distinguished</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">                 * between an integer and a floating point literal we need that dot. */</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                str.pop_back();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            str.pop_back();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">if</span>(std::string::npos == str.find(<span class="charliteral">&#39;.&#39;</span>)) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="comment">/* in case it is a number like 10.0 toString() seems to leave out the .0. However, as this distinguished</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">                 * between an integer and a floating point literal we need that dot. */</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                str.append(<span class="stringliteral">&quot;.0&quot;</span>);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            }</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>

@@ -632,7 +632,7 @@ $(function() {
 <div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;    std::string                       mFSMName{};</div>
 <div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    CoroutineASTData                  mASTData{};</div>
 <div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    llvm::DenseMap&lt;const Stmt*, bool&gt; mBinaryExprs{};</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    <span class="keyword">static</span> <span class="keyword">inline</span> llvm::DenseMap&lt;const Expr*, std::string&gt;</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    <span class="keyword">static</span> <span class="keyword">inline</span> llvm::DenseMap&lt;const Expr*, std::pair&lt;const DeclRefExpr*, std::string&gt;&gt;</div>
 <div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        mOpaqueValues{};  <span class="comment">///! Keeps track of the current set of opaque value</span></div>
 <div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160; </div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    QualType GetFrameType()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> QualType(mASTData.mFrameType-&gt;getTypeForDecl(), 0); }</div>
