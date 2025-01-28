@@ -64,7 +64,7 @@ Public Member Functions</h2></td></tr>
 <p>With Clang 9 there seems to be a change in <code>lib/AST/TypePrinter.cpp</code> in <code>printTemplateTypeParmBefore</code>. It now inserts <code>auto</code> when it is a lambda auto parameter. Which is correct, but C++ Insights needs the template parameter name to make up compiling code. Hence, this <code>if</code> "overrides" the implementation of TypePrinter in that case.</p>
 <p>It also drops some former code which handled <code>ClassTemplateSpecializationDecl</code> in a special way. Here the template parameters can be lambdas. Those they need a proper name. </p>
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00456">456</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00439">439</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af74fa75640923c86b237460432e6031a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af74fa75640923c86b237460432e6031a">&#9670;&nbsp;</a></span>SimpleTypePrinter()</h2>
@@ -100,7 +100,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00829">829</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00812">812</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
 </div>
 </div>
@@ -128,7 +128,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00835">835</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00818">818</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00079">clang::insights::OutputFormatHelper::GetString()</a>.</p>
 
@@ -157,11 +157,11 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00837">837</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_helpers_8cpp_source.html#l00820">820</a> of file <a class="el" href="_insights_helpers_8cpp_source.html">InsightsHelpers.cpp</a>.</p>
 
 <p class="reference">References <a class="el" href="_output_format_helper_8h_source.html#l00084">clang::insights::OutputFormatHelper::Append()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00868">clang::insights::details::GetName()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00851">clang::insights::details::GetName()</a>.</p>
 
 </div>
 </div>
