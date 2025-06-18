@@ -181,6 +181,8 @@ Namespaces</h2></td></tr>
 Macros</h2></td></tr>
 <tr class="memitem:a07b047289e685e00d2fc834165a402e7" id="r_a07b047289e685e00d2fc834165a402e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_8cpp.html#a07b047289e685e00d2fc834165a402e7">INSIGHTS_OPT</a>(option,  name,  deflt,  description,  category)</td></tr>
 <tr class="separator:a07b047289e685e00d2fc834165a402e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07b047289e685e00d2fc834165a402e7" id="r_a07b047289e685e00d2fc834165a402e7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_8cpp.html#a07b047289e685e00d2fc834165a402e7">INSIGHTS_OPT</a>(option,  name,  deflt,  description,  category)&#160;&#160;&#160;llvm::outs() &lt;&lt; &quot;--&quot; &lt;&lt; option &lt;&lt; &quot; &quot;;</td></tr>
+<tr class="separator:a07b047289e685e00d2fc834165a402e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -200,10 +202,6 @@ Functions</h2></td></tr>
 <tr class="separator:a237d39563de56bf4a3f45ef0bd68d038"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6d8b25d0bbaca8570845e7f6aa1e9ea" id="r_ab6d8b25d0bbaca8570845e7f6aa1e9ea"><td class="memItemLeft" align="right" valign="top">static llvm::cl::OptionCategory&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_8cpp.html#ab6d8b25d0bbaca8570845e7f6aa1e9ea">gInsightEduCategory</a> (&quot;Insights-Educational&quot;sv, &quot;This transformations are only for education purposes. The resulting code most likely does not compile.&quot;sv)</td></tr>
 <tr class="separator:ab6d8b25d0bbaca8570845e7f6aa1e9ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09bf8ad5f74ea0bbc07d4c611478708e" id="r_a09bf8ad5f74ea0bbc07d4c611478708e"><td class="memItemLeft" align="right" valign="top">static llvm::cl::opt&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_8cpp.html#a09bf8ad5f74ea0bbc07d4c611478708e">gStdinMode</a> (&quot;stdin&quot;, llvm::cl::desc(&quot;Read the input from &lt;stdin&gt;.&quot;sv), llvm::cl::init(false), llvm::cl::cat(<a class="el" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a>))</td></tr>
-<tr class="separator:a09bf8ad5f74ea0bbc07d4c611478708e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adac6abf0a72adb36dbf763e4d3579f3f" id="r_adac6abf0a72adb36dbf763e4d3579f3f"><td class="memItemLeft" align="right" valign="top">static llvm::cl::opt&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_8cpp.html#adac6abf0a72adb36dbf763e4d3579f3f">gUseLibCpp</a> (&quot;use-libc++&quot;, llvm::cl::desc(&quot;Use libc++.&quot;sv), llvm::cl::init(false), llvm::cl::cat(<a class="el" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a>))</td></tr>
-<tr class="separator:adac6abf0a72adb36dbf763e4d3579f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77f2bef86bff505682aa180dde089a4d" id="r_a77f2bef86bff505682aa180dde089a4d"><td class="memItemLeft" align="right" valign="top">const ASTContext &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a> ()</td></tr>
 <tr class="memdesc:a77f2bef86bff505682aa180dde089a4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get access to the ASTContext.  <br /></td></tr>
 <tr class="separator:a77f2bef86bff505682aa180dde089a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -234,7 +232,7 @@ Variables</h2></td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a07b047289e685e00d2fc834165a402e7" name="a07b047289e685e00d2fc834165a402e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07b047289e685e00d2fc834165a402e7">&#9670;&#160;</a></span>INSIGHTS_OPT</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a07b047289e685e00d2fc834165a402e7">&#9670;&#160;</a></span>INSIGHTS_OPT <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -284,7 +282,55 @@ Variables</h2></td></tr>
 <div class="line">                                             llvm::cl::cat(category));</div>
 <div class="ttc" id="a_insights_8cpp_html_a94807dbb47cca18c1f57972e0c117317"><div class="ttname"><a href="_insights_8cpp.html#a94807dbb47cca18c1f57972e0c117317">gInsightsOptions</a></div><div class="ttdeci">static InsightsOptions gInsightsOptions</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00034">Insights.cpp:34</a></div></div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00068">68</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00058">58</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a07b047289e685e00d2fc834165a402e7" name="a07b047289e685e00d2fc834165a402e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07b047289e685e00d2fc834165a402e7">&#9670;&#160;</a></span>INSIGHTS_OPT <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INSIGHTS_OPT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">option, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">deflt, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">description, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">category&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;llvm::outs() &lt;&lt; &quot;--&quot; &lt;&lt; option &lt;&lt; &quot; &quot;;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00058">58</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
 </div>
 </div>
@@ -301,7 +347,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00113">113</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00103">103</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
 </div>
 </div>
@@ -323,9 +369,9 @@ Variables</h2></td></tr>
 
 <p>Get access to the ASTContext. </p>
 
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00081">81</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00071">71</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00080">gAST</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00070">gAST</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00021">clang::insights::asthelpers::_mkDeclStmt()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00319">clang::insights::asthelpers::AccessMember()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00554">clang::insights::asthelpers::ArraySubscript()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00646">clang::insights::asthelpers::Bool()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00473">clang::insights::asthelpers::Break()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00057">clang::insights::BUILD_OPT_AND()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00096">clang::insights::BuildSuspendVarName()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00117">clang::insights::asthelpers::Call()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00123">clang::insights::asthelpers::Call()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00449">clang::insights::asthelpers::CallMemberFun()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00479">clang::insights::asthelpers::Case()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00442">clang::insights::asthelpers::CastLToRValue()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00151">clang::insights::asthelpers::Catch()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00507">clang::insights::asthelpers::Comment()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00202">clang::insights::asthelpers::ContantArrayTy()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00331">clang::insights::asthelpers::Equal()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01768">clang::insights::EvaluateNTTPAsConstantExpr()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00404">clang::insights::asthelpers::Function()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00366">clang::insights::asthelpers::FunctionBase()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03391">clang::insights::GetRecordLayout()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01164">clang::insights::GetTemporaryName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01194">clang::insights::GetType()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00343">clang::insights::asthelpers::Goto()</a>, <a class="el" href="_code_generator_8cpp_source.html#l04639">clang::insights::CodeGenerator::HandleLocalStaticNonTrivialClass()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00294">clang::insights::asthelpers::If()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00545">clang::insights::asthelpers::InitList()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00988">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00881">clang::insights::CoroutinesCodeGenerator::InsertArg()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l01032">clang::insights::CfrontCodeGenerator::InsertArg()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00868">clang::insights::CfrontCodeGenerator::InsertArg()</a>, <a class="el" href="_code_generator_8cpp_source.html#l03777">clang::insights::CodeGenerator::InsertAttribute()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00410">clang::insights::CoroutinesCodeGenerator::InsertCoroutine()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00462">clang::insights::CfrontCodeGenerator::InsertCXXMethodDecl()</a>, <a class="el" href="_code_generator_8cpp_source.html#l04583">clang::insights::CodeGenerator::InsertTemplateArg()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01221">clang::insights::CodeGenerator::InsertTemplateArgsObjectParam()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01783">clang::insights::CodeGenerator::InsertTemplateParameters()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00310">clang::insights::asthelpers::Int32()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00282">clang::insights::asthelpers::Label()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00037">clang::insights::asthelpers::mkBinaryOperator()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00288">clang::insights::asthelpers::mkCompoundStmt()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00426">clang::insights::asthelpers::mkDeclRefExpr()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00534">clang::insights::asthelpers::mkFieldDecl()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00274">clang::insights::asthelpers::mkLabelDecl()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00500">clang::insights::asthelpers::mkNullStmt()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00410">clang::insights::asthelpers::mkStdFunctionDecl()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00074">clang::insights::asthelpers::mkUnaryOperator()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00690">clang::insights::asthelpers::New()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00349">clang::insights::asthelpers::Parameter()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00196">clang::insights::asthelpers::Paren()</a>, <a class="el" href="_cfront_code_generator_8cpp_source.html#l00798">clang::insights::ProcessFields()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00184">clang::insights::asthelpers::Ptr()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00234">clang::insights::asthelpers::ReinterpretCast()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00455">clang::insights::asthelpers::Return()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00171">clang::insights::asthelpers::Sizeof()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00253">clang::insights::asthelpers::StaticCast()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00513">clang::insights::asthelpers::Struct()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00467">clang::insights::asthelpers::Switch()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00942">clang::insights::TemporaryDeclFinder::TemporaryDeclFinder()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00165">clang::insights::asthelpers::Throw()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00144">clang::insights::asthelpers::Try()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00664">clang::insights::asthelpers::Typedef()</a>, <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00488">clang::insights::asthelpers::Variable()</a>, <a class="el" href="_coroutines_code_generator_8cpp_source.html#l00348">clang::insights::CoroutineASTTransformer::VisitCoroutineBodyStmt()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01000">clang::insights::TemporaryDeclFinder::VisitCXXTemporaryObjectExpr()</a>, and <a class="el" href="_a_s_t_helpers_8cpp_source.html#l00190">clang::insights::asthelpers::VoidTy()</a>.</p>
 
@@ -348,9 +394,9 @@ Variables</h2></td></tr>
 
 <p>Get access to the CompilerInstance. </p>
 
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00088">88</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00078">78</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00087">gCI</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00077">gCI</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="_insights_helpers_8cpp_source.html#l00882">clang::insights::HasOverload()</a>.</p>
 
@@ -377,7 +423,7 @@ Variables</h2></td></tr>
 
 <p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00034">gInsightsOptions</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_lifetime_tracker_8cpp_source.html#l00045">clang::insights::LifetimeTracker::Add()</a>, <a class="el" href="_insights_8cpp_source.html#l00180">CppInsightASTConsumer::CppInsightASTConsumer()</a>, <a class="el" href="_lifetime_tracker_8cpp_source.html#l00151">clang::insights::LifetimeTracker::EndScope()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00900">clang::insights::GetCfrontOverloadedFunctionName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00087">clang::insights::GetNamePlain()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01194">clang::insights::GetType()</a>, <a class="el" href="_insights_8cpp_source.html#l00198">CppInsightASTConsumer::HandleTranslationUnit()</a>, <a class="el" href="_code_generator_8cpp_source.html#l04839">clang::insights::CodeGenerator::InsertFunctionNameWithReturnType()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01636">clang::insights::CodeGenerator::InsertMethodBody()</a>, <a class="el" href="_insights_8cpp_source.html#l00349">main()</a>, <a class="el" href="_lifetime_tracker_8cpp_source.html#l00112">clang::insights::LifetimeTracker::Return()</a>, <a class="el" href="_lifetime_tracker_8cpp_source.html#l00023">clang::insights::LifetimeTracker::StartScope()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00942">clang::insights::TemporaryDeclFinder::TemporaryDeclFinder()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l01000">clang::insights::TemporaryDeclFinder::VisitCXXTemporaryObjectExpr()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_lifetime_tracker_8cpp_source.html#l00045">clang::insights::LifetimeTracker::Add()</a>, <a class="el" href="_insights_8cpp_source.html#l00170">CppInsightASTConsumer::CppInsightASTConsumer()</a>, <a class="el" href="_lifetime_tracker_8cpp_source.html#l00151">clang::insights::LifetimeTracker::EndScope()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00900">clang::insights::GetCfrontOverloadedFunctionName()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l00087">clang::insights::GetNamePlain()</a>, <a class="el" href="_insights_helpers_8cpp_source.html#l01194">clang::insights::GetType()</a>, <a class="el" href="_insights_8cpp_source.html#l00188">CppInsightASTConsumer::HandleTranslationUnit()</a>, <a class="el" href="_code_generator_8cpp_source.html#l04839">clang::insights::CodeGenerator::InsertFunctionNameWithReturnType()</a>, <a class="el" href="_code_generator_8cpp_source.html#l01636">clang::insights::CodeGenerator::InsertMethodBody()</a>, <a class="el" href="_insights_8cpp_source.html#l00339">main()</a>, <a class="el" href="_lifetime_tracker_8cpp_source.html#l00112">clang::insights::LifetimeTracker::Return()</a>, <a class="el" href="_lifetime_tracker_8cpp_source.html#l00023">clang::insights::LifetimeTracker::StartScope()</a>, <a class="el" href="_code_generator_8cpp_source.html#l00942">clang::insights::TemporaryDeclFinder::TemporaryDeclFinder()</a>, and <a class="el" href="_code_generator_8cpp_source.html#l01000">clang::insights::TemporaryDeclFinder::VisitCXXTemporaryObjectExpr()</a>.</p>
 
 </div>
 </div>
@@ -426,7 +472,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00349">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00339">main()</a>.</p>
 
 </div>
 </div>
@@ -466,106 +512,6 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a09bf8ad5f74ea0bbc07d4c611478708e" name="a09bf8ad5f74ea0bbc07d4c611478708e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09bf8ad5f74ea0bbc07d4c611478708e">&#9670;&#160;</a></span>gStdinMode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static llvm::cl::opt&lt; bool &gt; gStdinMode </td>
-          <td>(</td>
-          <td class="paramtype">&quot;stdin&quot;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">llvm::cl::desc(&quot;Read the input from &lt;stdin&gt;.&quot;sv)&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">llvm::cl::init(false)&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">llvm::cl::cat(<a class="el" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a>)&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00349">main()</a>.</p>
-
-</div>
-</div>
-<a id="adac6abf0a72adb36dbf763e4d3579f3f" name="adac6abf0a72adb36dbf763e4d3579f3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adac6abf0a72adb36dbf763e4d3579f3f">&#9670;&#160;</a></span>gUseLibCpp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static llvm::cl::opt&lt; bool &gt; gUseLibCpp </td>
-          <td>(</td>
-          <td class="paramtype">&quot;use-libc++&quot;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">llvm::cl::desc(&quot;Use libc++.&quot;sv)&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">llvm::cl::init(false)&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">llvm::cl::cat(<a class="el" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a>)&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00349">main()</a>.</p>
-
-</div>
-</div>
 <a id="a217dbf8b442f20279ea00b898af96f52" name="a217dbf8b442f20279ea00b898af96f52"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a217dbf8b442f20279ea00b898af96f52">&#9670;&#160;</a></span>main()</h2>
 
@@ -592,9 +538,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00349">349</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00339">339</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00101">clang::insights::AddGLobalInsertMapEntry()</a>, <a class="el" href="_insights_8cpp_source.html#l00106">clang::insights::EnableGlobalInsert()</a>, <a class="el" href="_d_print_8h_source.html#l00080">clang::insights::Error()</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0abce1044edabb2d11aec3d37f6b36c949">clang::insights::FuncCxaAtExit</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0ace8c4bdba0759f0c6e7af57afffed80e">clang::insights::FuncCxaPureVirtual</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0ae5a76987b3c90ff03a5d3e01ac1f159f">clang::insights::FuncCxaStart</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1308f44d8aaa1e9ac1443514487410a1">clang::insights::FuncCxaVecCtor</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1badfa9b048ec455450e3ddadcce01a2">clang::insights::FuncCxaVecDel</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0abd5fd61261f58e20daa425240c40c2a2">clang::insights::FuncCxaVecDtor</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a394f8f2ed9c8af6f60e492f7c0017804">clang::insights::FuncCxaVecNew</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0ae4f9353d1d953c8f8e11598946dd6e30">clang::insights::FuncFree</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1243432343079399c0dc46c16ed955ad">clang::insights::FuncMalloc</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1f332b293c62528547a82a359033ca4b">clang::insights::FuncMemcpy</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a205da945679796afd213ef4aa262eaa1">clang::insights::FuncMemset</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a473170bfac9a0693ba98232733bdd807">clang::insights::FuncVtableStruct</a>, <a class="el" href="_insights_8cpp_source.html#l00037">GetInsightsOptions()</a>, <a class="el" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory()</a>, <a class="el" href="_insights_8cpp.html#a09bf8ad5f74ea0bbc07d4c611478708e">gStdinMode()</a>, <a class="el" href="_insights_8cpp.html#adac6abf0a72adb36dbf763e4d3579f3f">gUseLibCpp()</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a4f6e0eca2d41c395ab3970545dcae7e5">clang::insights::HeaderAssert</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a78a176b2610089a99d8bc9b2ab7555fb">clang::insights::HeaderException</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a0e515233ae004d1135137f751bbb6be2">clang::insights::HeaderNew</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a98d7b8464c7518fb9da096938cdc3ae9">clang::insights::HeaderStddef</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1b6da21eca1ff81b67e466643f4c693e">clang::insights::HeaderStdlib</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a3fed75f81b2ef4aa42be556451227051">clang::insights::HeaderUtility</a>, and <a class="el" href="_insights_8cpp_source.html#l00335">PrintVersion()</a>.</p>
+<p class="reference">References <a class="el" href="_insights_8cpp_source.html#l00091">clang::insights::AddGLobalInsertMapEntry()</a>, <a class="el" href="_insights_8cpp_source.html#l00096">clang::insights::EnableGlobalInsert()</a>, <a class="el" href="_d_print_8h_source.html#l00080">clang::insights::Error()</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0abce1044edabb2d11aec3d37f6b36c949">clang::insights::FuncCxaAtExit</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0ace8c4bdba0759f0c6e7af57afffed80e">clang::insights::FuncCxaPureVirtual</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0ae5a76987b3c90ff03a5d3e01ac1f159f">clang::insights::FuncCxaStart</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1308f44d8aaa1e9ac1443514487410a1">clang::insights::FuncCxaVecCtor</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1badfa9b048ec455450e3ddadcce01a2">clang::insights::FuncCxaVecDel</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0abd5fd61261f58e20daa425240c40c2a2">clang::insights::FuncCxaVecDtor</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a394f8f2ed9c8af6f60e492f7c0017804">clang::insights::FuncCxaVecNew</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0ae4f9353d1d953c8f8e11598946dd6e30">clang::insights::FuncFree</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1243432343079399c0dc46c16ed955ad">clang::insights::FuncMalloc</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1f332b293c62528547a82a359033ca4b">clang::insights::FuncMemcpy</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a205da945679796afd213ef4aa262eaa1">clang::insights::FuncMemset</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a473170bfac9a0693ba98232733bdd807">clang::insights::FuncVtableStruct</a>, <a class="el" href="_insights_8cpp_source.html#l00037">GetInsightsOptions()</a>, <a class="el" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory()</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a4f6e0eca2d41c395ab3970545dcae7e5">clang::insights::HeaderAssert</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a78a176b2610089a99d8bc9b2ab7555fb">clang::insights::HeaderException</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a0e515233ae004d1135137f751bbb6be2">clang::insights::HeaderNew</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a98d7b8464c7518fb9da096938cdc3ae9">clang::insights::HeaderStddef</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1b6da21eca1ff81b67e466643f4c693e">clang::insights::HeaderStdlib</a>, <a class="el" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a3fed75f81b2ef4aa42be556451227051">clang::insights::HeaderUtility</a>, and <a class="el" href="_insights_8cpp_source.html#l00325">PrintVersion()</a>.</p>
 
 </div>
 </div>
@@ -622,9 +568,9 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00335">335</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00325">325</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00349">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00339">main()</a>.</p>
 
 </div>
 </div>
@@ -649,9 +595,9 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00080">80</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00070">70</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00081">GetGlobalAST()</a>, and <a class="el" href="_insights_8cpp_source.html#l00198">CppInsightASTConsumer::HandleTranslationUnit()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00071">GetGlobalAST()</a>, and <a class="el" href="_insights_8cpp_source.html#l00188">CppInsightASTConsumer::HandleTranslationUnit()</a>.</p>
 
 </div>
 </div>
@@ -675,9 +621,9 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00087">87</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00077">77</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00320">CppInsightFrontendAction::CreateASTConsumer()</a>, and <a class="el" href="_insights_8cpp_source.html#l00088">GetGlobalCI()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00310">CppInsightFrontendAction::CreateASTConsumer()</a>, and <a class="el" href="_insights_8cpp_source.html#l00078">GetGlobalCI()</a>.</p>
 
 </div>
 </div>
@@ -703,7 +649,7 @@ Variables</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_insights_8cpp_source.html#l00034">34</a> of file <a class="el" href="_insights_8cpp_source.html">Insights.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00180">CppInsightASTConsumer::CppInsightASTConsumer()</a>, <a class="el" href="_insights_8cpp_source.html#l00037">GetInsightsOptions()</a>, and <a class="el" href="_insights_8cpp_source.html#l00043">GetInsightsOptionsRW()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_insights_8cpp_source.html#l00170">CppInsightASTConsumer::CppInsightASTConsumer()</a>, <a class="el" href="_insights_8cpp_source.html#l00037">GetInsightsOptions()</a>, and <a class="el" href="_insights_8cpp_source.html#l00043">GetInsightsOptionsRW()</a>.</p>
 
 </div>
 </div>

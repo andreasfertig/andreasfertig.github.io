@@ -105,382 +105,382 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="stringliteral">&quot;This transformations are only for education purposes. The resulting code most likely does not compile.&quot;</span>sv);</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a09bf8ad5f74ea0bbc07d4c611478708e">   58</a></span><span class="keyword">static</span> llvm::cl::opt&lt;bool&gt; <a class="code hl_function" href="_insights_8cpp.html#a09bf8ad5f74ea0bbc07d4c611478708e">gStdinMode</a>(<span class="stringliteral">&quot;stdin&quot;</span>,</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                                      llvm::cl::desc(<span class="stringliteral">&quot;Read the input from &lt;stdin&gt;.&quot;</span>sv),</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                                      llvm::cl::init(<span class="keyword">false</span>),</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                                      llvm::cl::cat(<a class="code hl_function" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a>));</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">static</span> llvm::cl::opt&lt;bool&gt;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#adac6abf0a72adb36dbf763e4d3579f3f">   65</a></span>    <a class="code hl_function" href="_insights_8cpp.html#adac6abf0a72adb36dbf763e4d3579f3f">gUseLibCpp</a>(<span class="stringliteral">&quot;use-libc++&quot;</span>, llvm::cl::desc(<span class="stringliteral">&quot;Use libc++.&quot;</span>sv), llvm::cl::init(<span class="keyword">false</span>), llvm::cl::cat(<a class="code hl_function" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a>));</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="foldopen" id="foldopen00068" data-start="" data-end="">
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a07b047289e685e00d2fc834165a402e7">   68</a></span><span class="preprocessor">#define INSIGHTS_OPT(option, name, deflt, description, category)                                                       \</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">    static llvm::cl::opt&lt;bool, true&gt; g##name(option,                                                                   \</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">                                             llvm::cl::desc(std::string_view{description}),                            \</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">                                             llvm::cl::NotHidden,                                                      \</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">                                             llvm::cl::location(gInsightsOptions.name),                                \</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">                                             llvm::cl::init(deflt),                                                    \</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">                                             llvm::cl::cat(category));</span></div>
+<div class="foldopen" id="foldopen00058" data-start="" data-end="">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a07b047289e685e00d2fc834165a402e7">   58</a></span><span class="preprocessor">#define INSIGHTS_OPT(option, name, deflt, description, category)                                                       \</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">    static llvm::cl::opt&lt;bool, true&gt; g##name(option,                                                                   \</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">                                             llvm::cl::desc(std::string_view{description}),                            \</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">                                             llvm::cl::NotHidden,                                                      \</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">                                             llvm::cl::location(gInsightsOptions.name),                                \</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">                                             llvm::cl::init(deflt),                                                    \</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">                                             llvm::cl::cat(category));</span></div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#include &quot;InsightsOptions.def&quot;</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a873648e2b11ba9164e749d4977592e49">   70</a></span><span class="keyword">static</span> <span class="keyword">const</span> ASTContext* <a class="code hl_variable" href="_insights_8cpp.html#a873648e2b11ba9164e749d4977592e49">gAST</a>{};</div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">   71</a></span><span class="keyword">const</span> ASTContext&amp;        <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>()</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">return</span> *<a class="code hl_variable" href="_insights_8cpp.html#a873648e2b11ba9164e749d4977592e49">gAST</a>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
 </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#include &quot;InsightsOptions.def&quot;</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a873648e2b11ba9164e749d4977592e49">   80</a></span><span class="keyword">static</span> <span class="keyword">const</span> ASTContext* <a class="code hl_variable" href="_insights_8cpp.html#a873648e2b11ba9164e749d4977592e49">gAST</a>{};</div>
-<div class="foldopen" id="foldopen00081" data-start="{" data-end="}">
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">   81</a></span><span class="keyword">const</span> ASTContext&amp;        <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>()</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>{</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordflow">return</span> *<a class="code hl_variable" href="_insights_8cpp.html#a873648e2b11ba9164e749d4977592e49">gAST</a>;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#ad8c03bb5b78fa9d5dea6ca193b2a7d32">   77</a></span><span class="keyword">static</span> <span class="keyword">const</span> CompilerInstance* <a class="code hl_variable" href="_insights_8cpp.html#ad8c03bb5b78fa9d5dea6ca193b2a7d32">gCI</a>{};</div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a5a71d19a17aa6666b81bd98c67262160">   78</a></span><span class="keyword">const</span> CompilerInstance&amp;        <a class="code hl_function" href="_insights_8cpp.html#a5a71d19a17aa6666b81bd98c67262160">GetGlobalCI</a>()</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>{</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">return</span> *<a class="code hl_variable" href="_insights_8cpp.html#ad8c03bb5b78fa9d5dea6ca193b2a7d32">gCI</a>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
 </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceclang_1_1insights.html">clang::insights</a> {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>std::string <a class="code hl_function" href="namespaceclang_1_1insights.html#a4d6e96a9f77039bc7fe3bbf364f34fe6">EmitGlobalVariableCtors</a>();</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#ad8c03bb5b78fa9d5dea6ca193b2a7d32">   87</a></span><span class="keyword">static</span> <span class="keyword">const</span> CompilerInstance* <a class="code hl_variable" href="_insights_8cpp.html#ad8c03bb5b78fa9d5dea6ca193b2a7d32">gCI</a>{};</div>
-<div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a5a71d19a17aa6666b81bd98c67262160">   88</a></span><span class="keyword">const</span> CompilerInstance&amp;        <a class="code hl_function" href="_insights_8cpp.html#a5a71d19a17aa6666b81bd98c67262160">GetGlobalCI</a>()</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>{</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">return</span> *<a class="code hl_variable" href="_insights_8cpp.html#ad8c03bb5b78fa9d5dea6ca193b2a7d32">gCI</a>;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#ac932baa3707f00cbfb7c380ddf6f7cbd">   87</a></span><span class="keyword">using </span><a class="code hl_typedef" href="namespaceclang_1_1insights.html#ac932baa3707f00cbfb7c380ddf6f7cbd">GlobalInsertMap</a> = std::pair&lt;bool, std::string_view&gt;;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#a53d5c5520bd3fa9a5a6d50128def753e">   89</a></span><span class="keyword">static</span> <span class="keyword">constinit</span> std::array&lt;GlobalInsertMap, static_cast&lt;size_t&gt;(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a26a4b44a837bf97b972628509912b4a5">GlobalInserts::MAX</a>)&gt; <a class="code hl_variable" href="namespaceclang_1_1insights.html#a53d5c5520bd3fa9a5a6d50128def753e">gGlobalInserts</a>{};</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="foldopen" id="foldopen00091" data-start="{" data-end="}">
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">   91</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumeration" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0">GlobalInserts</a> idx, std::string_view value)</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>{</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <a class="code hl_variable" href="namespaceclang_1_1insights.html#a53d5c5520bd3fa9a5a6d50128def753e">gGlobalInserts</a>[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(idx)] = {<span class="keyword">false</span>, value};</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
 </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceclang_1_1insights.html">clang::insights</a> {</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>std::string <a class="code hl_function" href="namespaceclang_1_1insights.html#a4d6e96a9f77039bc7fe3bbf364f34fe6">EmitGlobalVariableCtors</a>();</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#ac932baa3707f00cbfb7c380ddf6f7cbd">   97</a></span><span class="keyword">using </span><a class="code hl_typedef" href="namespaceclang_1_1insights.html#ac932baa3707f00cbfb7c380ddf6f7cbd">GlobalInsertMap</a> = std::pair&lt;bool, std::string_view&gt;;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#a53d5c5520bd3fa9a5a6d50128def753e">   99</a></span><span class="keyword">static</span> <span class="keyword">constinit</span> std::array&lt;GlobalInsertMap, static_cast&lt;size_t&gt;(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a26a4b44a837bf97b972628509912b4a5">GlobalInserts::MAX</a>)&gt; <a class="code hl_variable" href="namespaceclang_1_1insights.html#a53d5c5520bd3fa9a5a6d50128def753e">gGlobalInserts</a>{};</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#adc69f8a322d3b1776643f38b18b2185a">   96</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceclang_1_1insights.html#adc69f8a322d3b1776643f38b18b2185a">EnableGlobalInsert</a>(<a class="code hl_enumeration" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0">GlobalInserts</a> idx)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>{</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <a class="code hl_variable" href="namespaceclang_1_1insights.html#a53d5c5520bd3fa9a5a6d50128def753e">gGlobalInserts</a>[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(idx)].first = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
+</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">  101</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumeration" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0">GlobalInserts</a> idx, std::string_view value)</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>{</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <a class="code hl_variable" href="namespaceclang_1_1insights.html#a53d5c5520bd3fa9a5a6d50128def753e">gGlobalInserts</a>[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(idx)] = {<span class="keyword">false</span>, value};</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
-</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights.html#adc69f8a322d3b1776643f38b18b2185a">  106</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceclang_1_1insights.html#adc69f8a322d3b1776643f38b18b2185a">EnableGlobalInsert</a>(<a class="code hl_enumeration" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0">GlobalInserts</a> idx)</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>{</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_variable" href="namespaceclang_1_1insights.html#a53d5c5520bd3fa9a5a6d50128def753e">gGlobalInserts</a>[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(idx)].first = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
-</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}  <span class="comment">// namespace clang::insights</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a0da78ea4c6958ac2a28b545e80d82ba0">  103</a></span><span class="keyword">using </span><a class="code hl_typedef" href="_insights_8cpp.html#a0da78ea4c6958ac2a28b545e80d82ba0">IncludeData</a> = std::pair&lt;const SourceLocation, std::string&gt;;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="foldopen" id="foldopen00105" data-start="{" data-end="};">
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="class_find_includes.html">  105</a></span><span class="keyword">class </span><a class="code hl_class" href="class_find_includes.html">FindIncludes</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_p_p_callbacks.html">PPCallbacks</a></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>{</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    SourceManager&amp;            mSm;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    Preprocessor&amp;             mPP;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    std::vector&lt;IncludeData&gt;&amp; mIncludes;</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}  <span class="comment">// namespace clang::insights</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a0da78ea4c6958ac2a28b545e80d82ba0">  113</a></span><span class="keyword">using </span><a class="code hl_typedef" href="_insights_8cpp.html#a0da78ea4c6958ac2a28b545e80d82ba0">IncludeData</a> = std::pair&lt;const SourceLocation, std::string&gt;;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="foldopen" id="foldopen00115" data-start="{" data-end="};">
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="class_find_includes.html">  115</a></span><span class="keyword">class </span><a class="code hl_class" href="class_find_includes.html">FindIncludes</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_p_p_callbacks.html">PPCallbacks</a></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>{</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    SourceManager&amp;            mSm;</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    Preprocessor&amp;             mPP;</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    std::vector&lt;IncludeData&gt;&amp; mIncludes;</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="class_find_includes.html#abaf0caf8b91a834128a1cd8f982e8516">  122</a></span>    <a class="code hl_function" href="class_find_includes.html#abaf0caf8b91a834128a1cd8f982e8516">FindIncludes</a>(SourceManager&amp; sm, Preprocessor&amp; pp, std::vector&lt;IncludeData&gt;&amp; incData)</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    : <a class="code hl_class" href="class_p_p_callbacks.html">PPCallbacks</a>{}</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    , mSm{sm}</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    , mPP{pp}</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    , mIncludes{incData}</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    {</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    }</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00112" data-start="{" data-end="}">
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="class_find_includes.html#abaf0caf8b91a834128a1cd8f982e8516">  112</a></span>    <a class="code hl_function" href="class_find_includes.html#abaf0caf8b91a834128a1cd8f982e8516">FindIncludes</a>(SourceManager&amp; sm, Preprocessor&amp; pp, std::vector&lt;IncludeData&gt;&amp; incData)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    : <a class="code hl_class" href="class_p_p_callbacks.html">PPCallbacks</a>{}</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    , mSm{sm}</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    , mPP{pp}</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    , mIncludes{incData}</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
 </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="foldopen" id="foldopen00130" data-start="{" data-end="}">
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="class_find_includes.html#ada78dfbb7c45af2178779bbcc6812b14">  130</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_find_includes.html#ada78dfbb7c45af2178779bbcc6812b14">InclusionDirective</a>(SourceLocation hashLoc,</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                            <span class="keyword">const</span> Token&amp; <span class="comment">/*IncludeTok*/</span>,</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                            StringRef fileName,</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                            <span class="keywordtype">bool</span>      isAngled,</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                            CharSourceRange <span class="comment">/*FilenameRange*/</span>,</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                            OptionalFileEntryRef <span class="comment">/*file*/</span>,</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                            StringRef <span class="comment">/*SearchPath*/</span>,</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                            StringRef <span class="comment">/*RelativePath*/</span>,</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                            <span class="keyword">const</span> Module* <span class="comment">/*Imported*/</span>,</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                            <span class="keywordtype">bool</span> <span class="comment">/*ModuleImported*/</span>,</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                            SrcMgr::CharacteristicKind <span class="comment">/*FileType*/</span>)<span class="keyword"> override</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <span class="keyword">auto</span> expansionLoc = mSm.getExpansionLoc(hashLoc);</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordflow">if</span>(expansionLoc.isInvalid() or mSm.isInSystemHeader(expansionLoc)) {</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        }</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="comment">// XXX: distinguish between include and import via the IncludeTok</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keywordflow">if</span>(isAngled) {</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            mIncludes.emplace_back(expansionLoc, <a class="code hl_function" href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">StrCat</a>(<span class="stringliteral">&quot;#include &lt;&quot;</span>sv, fileName, <span class="stringliteral">&quot;&gt;\n&quot;</span>sv));</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            mIncludes.emplace_back(expansionLoc, <a class="code hl_function" href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">StrCat</a>(<span class="stringliteral">&quot;#include \&quot;&quot;</span>sv, fileName, <span class="stringliteral">&quot;\&quot;\n&quot;</span>sv));</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        }</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="foldopen" id="foldopen00120" data-start="{" data-end="}">
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="class_find_includes.html#ada78dfbb7c45af2178779bbcc6812b14">  120</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_find_includes.html#ada78dfbb7c45af2178779bbcc6812b14">InclusionDirective</a>(SourceLocation hashLoc,</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                            <span class="keyword">const</span> Token&amp; <span class="comment">/*IncludeTok*/</span>,</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                            StringRef fileName,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                            <span class="keywordtype">bool</span>      isAngled,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                            CharSourceRange <span class="comment">/*FilenameRange*/</span>,</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                            OptionalFileEntryRef <span class="comment">/*file*/</span>,</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                            StringRef <span class="comment">/*SearchPath*/</span>,</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                            StringRef <span class="comment">/*RelativePath*/</span>,</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                            <span class="keyword">const</span> Module* <span class="comment">/*Imported*/</span>,</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                            <span class="keywordtype">bool</span> <span class="comment">/*ModuleImported*/</span>,</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                            SrcMgr::CharacteristicKind <span class="comment">/*FileType*/</span>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keyword">auto</span> expansionLoc = mSm.getExpansionLoc(hashLoc);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keywordflow">if</span>(expansionLoc.isInvalid() or mSm.isInSystemHeader(expansionLoc)) {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        }</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="comment">// XXX: distinguish between include and import via the IncludeTok</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="keywordflow">if</span>(isAngled) {</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            mIncludes.emplace_back(expansionLoc, <a class="code hl_function" href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">StrCat</a>(<span class="stringliteral">&quot;#include &lt;&quot;</span>sv, fileName, <span class="stringliteral">&quot;&gt;\n&quot;</span>sv));</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            mIncludes.emplace_back(expansionLoc, <a class="code hl_function" href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">StrCat</a>(<span class="stringliteral">&quot;#include \&quot;&quot;</span>sv, fileName, <span class="stringliteral">&quot;\&quot;\n&quot;</span>sv));</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        }</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    }</div>
 </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
-<div class="foldopen" id="foldopen00157" data-start="{" data-end="}">
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="class_find_includes.html#a6accb714f5180399d2286662ea1e1467">  157</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_find_includes.html#a6accb714f5180399d2286662ea1e1467">MacroDefined</a>(<span class="keyword">const</span> Token&amp; macroNameTok, <span class="keyword">const</span> MacroDirective* md)<span class="keyword"> override</span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keyword">const</span> <span class="keyword">auto</span> loc = md-&gt;getLocation();</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordflow">if</span>(not mSm.isWrittenInMainFile(loc)) {</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        }</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="foldopen" id="foldopen00147" data-start="{" data-end="}">
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="class_find_includes.html#a6accb714f5180399d2286662ea1e1467">  147</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_find_includes.html#a6accb714f5180399d2286662ea1e1467">MacroDefined</a>(<span class="keyword">const</span> Token&amp; macroNameTok, <span class="keyword">const</span> MacroDirective* md)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keyword">const</span> <span class="keyword">auto</span> loc = md-&gt;getLocation();</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keywordflow">if</span>(not mSm.isWrittenInMainFile(loc)) {</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <span class="keyword">auto</span> name = mPP.getSpelling(macroNameTok);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="keywordflow">if</span>(not name.starts_with(<span class="stringliteral">&quot;INSIGHTS_&quot;</span>sv)) {</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        }</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        mIncludes.emplace_back(loc, <a class="code hl_function" href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">StrCat</a>(<span class="stringliteral">&quot;#define &quot;</span>sv, name, <span class="stringliteral">&quot;\n&quot;</span>sv));</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
+</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>};</div>
+</div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="keyword">auto</span> name = mPP.getSpelling(macroNameTok);</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordflow">if</span>(not name.starts_with(<span class="stringliteral">&quot;INSIGHTS_&quot;</span>sv)) {</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        }</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        mIncludes.emplace_back(loc, <a class="code hl_function" href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">StrCat</a>(<span class="stringliteral">&quot;#define &quot;</span>sv, name, <span class="stringliteral">&quot;\n&quot;</span>sv));</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    }</div>
+<div class="foldopen" id="foldopen00164" data-start="{" data-end="};">
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="class_cpp_insight_a_s_t_consumer.html">  164</a></span><span class="keyword">class </span><a class="code hl_class" href="class_cpp_insight_a_s_t_consumer.html">CppInsightASTConsumer</a> final : <span class="keyword">public</span> <a class="code hl_class" href="class_a_s_t_consumer.html">ASTConsumer</a></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>{</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    Rewriter&amp;                 mRewriter;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    std::vector&lt;IncludeData&gt;&amp; mIncludes;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00170" data-start="{" data-end="}">
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="class_cpp_insight_a_s_t_consumer.html#ae0bb0e9acf4ca5c1ce7e31d4b62247e6">  170</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_cpp_insight_a_s_t_consumer.html#ae0bb0e9acf4ca5c1ce7e31d4b62247e6">CppInsightASTConsumer</a>(Rewriter&amp; rewriter, std::vector&lt;IncludeData&gt;&amp; includes)</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    : <a class="code hl_class" href="class_a_s_t_consumer.html">ASTConsumer</a>{}</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    , mRewriter{rewriter}</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    , mIncludes{includes}</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    {</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="_insights_8cpp.html#a1e88b634e7a5a8c0c346ac64dc90dd4f">GetInsightsOptions</a>().UseShow2C) {</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            <span class="keywordflow">if</span>(<a class="code hl_function" href="_insights_8cpp.html#a1e88b634e7a5a8c0c346ac64dc90dd4f">GetInsightsOptions</a>().ShowCoroutineTransformation) {</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                <a class="code hl_variable" href="_insights_8cpp.html#a94807dbb47cca18c1f57972e0c117317">gInsightsOptions</a>.UseShow2C = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>                <a class="code hl_variable" href="_insights_8cpp.html#a94807dbb47cca18c1f57972e0c117317">gInsightsOptions</a>.ShowLifetime = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            }</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        }</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="_insights_8cpp.html#a1e88b634e7a5a8c0c346ac64dc90dd4f">GetInsightsOptions</a>().ShowLifetime) {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            <a class="code hl_variable" href="_insights_8cpp.html#a94807dbb47cca18c1f57972e0c117317">gInsightsOptions</a>.UseShowInitializerList = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        }</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    }</div>
 </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>};</div>
-</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="foldopen" id="foldopen00174" data-start="{" data-end="};">
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="class_cpp_insight_a_s_t_consumer.html">  174</a></span><span class="keyword">class </span><a class="code hl_class" href="class_cpp_insight_a_s_t_consumer.html">CppInsightASTConsumer</a> final : <span class="keyword">public</span> <a class="code hl_class" href="class_a_s_t_consumer.html">ASTConsumer</a></div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>{</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    Rewriter&amp;                 mRewriter;</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    std::vector&lt;IncludeData&gt;&amp; mIncludes;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00180" data-start="{" data-end="}">
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="class_cpp_insight_a_s_t_consumer.html#ae0bb0e9acf4ca5c1ce7e31d4b62247e6">  180</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_cpp_insight_a_s_t_consumer.html#ae0bb0e9acf4ca5c1ce7e31d4b62247e6">CppInsightASTConsumer</a>(Rewriter&amp; rewriter, std::vector&lt;IncludeData&gt;&amp; includes)</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    : <a class="code hl_class" href="class_a_s_t_consumer.html">ASTConsumer</a>{}</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    , mRewriter{rewriter}</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    , mIncludes{includes}</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    {</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="_insights_8cpp.html#a1e88b634e7a5a8c0c346ac64dc90dd4f">GetInsightsOptions</a>().UseShow2C) {</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            <span class="keywordflow">if</span>(<a class="code hl_function" href="_insights_8cpp.html#a1e88b634e7a5a8c0c346ac64dc90dd4f">GetInsightsOptions</a>().ShowCoroutineTransformation) {</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>                <a class="code hl_variable" href="_insights_8cpp.html#a94807dbb47cca18c1f57972e0c117317">gInsightsOptions</a>.UseShow2C = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                <a class="code hl_variable" href="_insights_8cpp.html#a94807dbb47cca18c1f57972e0c117317">gInsightsOptions</a>.ShowLifetime = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            }</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        }</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="foldopen" id="foldopen00188" data-start="{" data-end="}">
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="class_cpp_insight_a_s_t_consumer.html#ad64dcd8af6d6ac4a7f81fb5211baa11b">  188</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cpp_insight_a_s_t_consumer.html#ad64dcd8af6d6ac4a7f81fb5211baa11b">HandleTranslationUnit</a>(ASTContext&amp; context)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <a class="code hl_variable" href="_insights_8cpp.html#a873648e2b11ba9164e749d4977592e49">gAST</a>     = &amp;context;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        <span class="keyword">auto</span>&amp; sm = context.getSourceManager();</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="_insights_8cpp.html#a1e88b634e7a5a8c0c346ac64dc90dd4f">GetInsightsOptions</a>().ShowLifetime) {</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>            <a class="code hl_variable" href="_insights_8cpp.html#a94807dbb47cca18c1f57972e0c117317">gInsightsOptions</a>.UseShowInitializerList = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        }</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    }</div>
-</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
-<div class="foldopen" id="foldopen00198" data-start="{" data-end="}">
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="class_cpp_insight_a_s_t_consumer.html#ad64dcd8af6d6ac4a7f81fb5211baa11b">  198</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cpp_insight_a_s_t_consumer.html#ad64dcd8af6d6ac4a7f81fb5211baa11b">HandleTranslationUnit</a>(ASTContext&amp; context)<span class="keyword"> override</span></div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        <a class="code hl_variable" href="_insights_8cpp.html#a873648e2b11ba9164e749d4977592e49">gAST</a>     = &amp;context;</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        <span class="keyword">auto</span>&amp; sm = context.getSourceManager();</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keyword">auto</span> isExpansionInSystemHeader = [&amp;sm](<span class="keyword">const</span> Decl* d) {</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>            <span class="keyword">auto</span> expansionLoc = sm.getExpansionLoc(d-&gt;getLocation());</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="keywordflow">return</span> expansionLoc.isInvalid() or sm.isInSystemHeader(expansionLoc);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        };</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keyword">const</span> <span class="keyword">auto</span>&amp; mainFileId = sm.getMainFileID();</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        mRewriter.ReplaceText({sm.getLocForStartOfFile(mainFileId), sm.getLocForEndOfFile(mainFileId)}, <span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="keyword">auto</span> isExpansionInSystemHeader = [&amp;sm](<span class="keyword">const</span> Decl* d) {</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            <span class="keyword">auto</span> expansionLoc = sm.getExpansionLoc(d-&gt;getLocation());</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <a class="code hl_class" href="classclang_1_1insights_1_1_output_format_helper.html">OutputFormatHelper</a>   outputFormatHelper{};</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <a class="code hl_class" href="classclang_1_1insights_1_1_code_generator_variant.html">CodeGeneratorVariant</a> codeGenerator{outputFormatHelper};</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            <span class="keywordflow">return</span> expansionLoc.isInvalid() or sm.isInSystemHeader(expansionLoc);</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        };</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <span class="keyword">const</span> <span class="keyword">auto</span>&amp; mainFileId = sm.getMainFileID();</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        mRewriter.ReplaceText({sm.getLocForStartOfFile(mainFileId), sm.getLocForEndOfFile(mainFileId)}, <span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <a class="code hl_class" href="classclang_1_1insights_1_1_output_format_helper.html">OutputFormatHelper</a>   outputFormatHelper{};</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <a class="code hl_class" href="classclang_1_1insights_1_1_code_generator_variant.html">CodeGeneratorVariant</a> codeGenerator{outputFormatHelper};</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        <span class="keyword">auto</span> include = mIncludes.begin();</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        <span class="keyword">auto</span> insertBlankLineIfRequired = [&amp;](std::optional&lt;SourceLocation&gt;&amp; lastLoc, SourceLocation nextLoc) {</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            <span class="keywordflow">if</span>(lastLoc.has_value() and</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>               (2 &lt;= (sm.getSpellingLineNumber(nextLoc) - sm.getSpellingLineNumber(lastLoc.value())))) {</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                outputFormatHelper.AppendNewLine();</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>            }</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            lastLoc = nextLoc;</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        };</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <span class="keywordflow">for</span>(std::optional&lt;SourceLocation&gt; lastLoc{}; <span class="keyword">const</span> <span class="keyword">auto</span>* d : context.getTranslationUnitDecl()-&gt;decls()) {</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            <span class="keywordflow">if</span>(isExpansionInSystemHeader(d)) {</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>            }</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>            <span class="comment">// includes before this decl</span></div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            <span class="keywordflow">for</span>(; (mIncludes.end() != include) and (include-&gt;first &lt; d-&gt;getLocation()); include = std::next(include)) {</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                insertBlankLineIfRequired(lastLoc, include-&gt;first);</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>                outputFormatHelper.Append(include-&gt;second);</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            }</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            <span class="comment">// ignore includes inside this decl</span></div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            include = std::find_if_not(include, mIncludes.end(), [&amp;](<span class="keyword">auto</span>&amp; inc) {</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                return ((inc.first &gt;= d-&gt;getLocation()) and (inc.first &lt;= d-&gt;getEndLoc()));</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            });</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keyword">auto</span> include = mIncludes.begin();</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        <span class="keyword">auto</span> insertBlankLineIfRequired = [&amp;](std::optional&lt;SourceLocation&gt;&amp; lastLoc, SourceLocation nextLoc) {</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>            <span class="keywordflow">if</span>(lastLoc.has_value() and</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>               (2 &lt;= (sm.getSpellingLineNumber(nextLoc) - sm.getSpellingLineNumber(lastLoc.value())))) {</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                outputFormatHelper.AppendNewLine();</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>            }</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>            lastLoc = nextLoc;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        };</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        <span class="keywordflow">for</span>(std::optional&lt;SourceLocation&gt; lastLoc{}; <span class="keyword">const</span> <span class="keyword">auto</span>* d : context.getTranslationUnitDecl()-&gt;decls()) {</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            <span class="keywordflow">if</span>(isExpansionInSystemHeader(d)) {</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>            }</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>            <span class="comment">// includes before this decl</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>            <span class="keywordflow">for</span>(; (mIncludes.end() != include) and (include-&gt;first &lt; d-&gt;getLocation()); include = std::next(include)) {</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>                insertBlankLineIfRequired(lastLoc, include-&gt;first);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                outputFormatHelper.Append(include-&gt;second);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>            }</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            <span class="comment">// ignore includes inside this decl</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            include = std::find_if_not(include, mIncludes.end(), [&amp;](<span class="keyword">auto</span>&amp; inc) {</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                return ((inc.first &gt;= d-&gt;getLocation()) and (inc.first &lt;= d-&gt;getEndLoc()));</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            });</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            <span class="keywordflow">if</span>(isa&lt;LinkageSpecDecl&gt;(d) and d-&gt;isImplicit()) {</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>                <span class="comment">// Only handle explicit specializations here. Implicit ones are handled by the `VarTemplateDecl`</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>                <span class="comment">// itself.</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<span class="keyword">const</span> <span class="keyword">auto</span>* vdspec = dyn_cast_or_null&lt;VarTemplateSpecializationDecl&gt;(d);</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>                      vdspec and (TSK_ExplicitSpecialization != vdspec-&gt;getSpecializationKind())) {</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            }</div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>            <span class="keywordflow">if</span>(isa&lt;LinkageSpecDecl&gt;(d) and d-&gt;isImplicit()) {</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>                <span class="comment">// Only handle explicit specializations here. Implicit ones are handled by the `VarTemplateDecl`</span></div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                <span class="comment">// itself.</span></div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<span class="keyword">const</span> <span class="keyword">auto</span>* vdspec = dyn_cast_or_null&lt;VarTemplateSpecializationDecl&gt;(d);</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                      vdspec and (TSK_ExplicitSpecialization != vdspec-&gt;getSpecializationKind())) {</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>            }</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            insertBlankLineIfRequired(lastLoc, d-&gt;getLocation());</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>            codeGenerator-&gt;InsertArg(d);</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        }</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        std::string insightsIncludes{};</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="_insights_8cpp.html#a1e88b634e7a5a8c0c346ac64dc90dd4f">GetInsightsOptions</a>().ShowCoroutineTransformation) {</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            insightsIncludes.append(</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                R<span class="stringliteral">&quot;(/*************************************************************************************</span></div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="stringliteral"> * NOTE: The coroutine transformation you&#39;ve enabled is a hand coded transformation! *</span></div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="stringliteral"> *       Most of it is _not_ present in the AST. What you see is an approximation.   *</span></div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="stringliteral"> *************************************************************************************/</span></div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="stringliteral">)&quot;sv);</span></div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="stringliteral">        } </span><span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code hl_function" href="_insights_8cpp.html#a1e88b634e7a5a8c0c346ac64dc90dd4f">GetInsightsOptions</a>().UseShow2C or <a class="code hl_function" href="_insights_8cpp.html#a1e88b634e7a5a8c0c346ac64dc90dd4f">GetInsightsOptions</a>().ShowLifetime) {</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>            insightsIncludes.append(</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                R<span class="stringliteral">&quot;(/*************************************************************************************</span></div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="stringliteral"> * NOTE: This an educational hand-rolled transformation. Things can be incorrect or  *</span></div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="stringliteral"> * buggy.                                                                            *</span></div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="stringliteral"> *************************************************************************************/</span></div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="stringliteral">)&quot;sv);</span></div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="stringliteral">        }</span></div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="stringliteral">        </span><span class="comment">// Check whether we had static local variables which we transformed. Then for the placement-new we need to</span></div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        <span class="comment">// include the header &lt;new&gt;.</span></div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        std::string inserts{};</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [active, value] : <a class="code hl_variable" href="namespaceclang_1_1insights.html#a53d5c5520bd3fa9a5a6d50128def753e">gGlobalInserts</a>) {</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>            <span class="keywordflow">if</span>(not active) {</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>            }</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>            inserts.append(value);</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>            inserts.append(<span class="stringliteral">&quot;\n&quot;</span>sv);</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        }</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        <span class="keywordflow">if</span>(not inserts.empty()) {</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            insightsIncludes.append(inserts);</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            insightsIncludes.append(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        }</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        outputFormatHelper.InsertAt(0, insightsIncludes);</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        mRewriter.InsertText(sm.getLocForStartOfFile(mainFileId), outputFormatHelper.GetString());</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>            insertBlankLineIfRequired(lastLoc, d-&gt;getLocation());</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            codeGenerator-&gt;InsertArg(d);</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        }</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        std::string insightsIncludes{};</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="_insights_8cpp.html#a1e88b634e7a5a8c0c346ac64dc90dd4f">GetInsightsOptions</a>().ShowCoroutineTransformation) {</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>            insightsIncludes.append(</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                R<span class="stringliteral">&quot;(/*************************************************************************************</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="stringliteral"> * NOTE: The coroutine transformation you&#39;ve enabled is a hand coded transformation! *</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="stringliteral"> *       Most of it is _not_ present in the AST. What you see is an approximation.   *</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="stringliteral"> *************************************************************************************/</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="stringliteral">)&quot;sv);</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="stringliteral">        } </span><span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code hl_function" href="_insights_8cpp.html#a1e88b634e7a5a8c0c346ac64dc90dd4f">GetInsightsOptions</a>().UseShow2C or <a class="code hl_function" href="_insights_8cpp.html#a1e88b634e7a5a8c0c346ac64dc90dd4f">GetInsightsOptions</a>().ShowLifetime) {</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>            insightsIncludes.append(</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                R<span class="stringliteral">&quot;(/*************************************************************************************</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="stringliteral"> * NOTE: This an educational hand-rolled transformation. Things can be incorrect or  *</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="stringliteral"> * buggy.                                                                            *</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="stringliteral"> *************************************************************************************/</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="stringliteral">)&quot;sv);</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="stringliteral">        }</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="stringliteral">        </span><span class="comment">// Check whether we had static local variables which we transformed. Then for the placement-new we need to</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>        <span class="comment">// include the header &lt;new&gt;.</span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        std::string inserts{};</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [active, value] : <a class="code hl_variable" href="namespaceclang_1_1insights.html#a53d5c5520bd3fa9a5a6d50128def753e">gGlobalInserts</a>) {</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>            <span class="keywordflow">if</span>(not active) {</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            }</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            inserts.append(value);</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>            inserts.append(<span class="stringliteral">&quot;\n&quot;</span>sv);</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        }</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        <span class="keywordflow">if</span>(not inserts.empty()) {</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>            insightsIncludes.append(inserts);</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>            insightsIncludes.append(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        }</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        outputFormatHelper.InsertAt(0, insightsIncludes);</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        mRewriter.InsertText(sm.getLocForStartOfFile(mainFileId), outputFormatHelper.GetString());</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
 </div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="_insights_8cpp.html#a1e88b634e7a5a8c0c346ac64dc90dd4f">GetInsightsOptions</a>().UseShow2C) {</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; fileEntry = sm.getFileEntryForID(mainFileId);</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            <span class="keyword">auto</span>        <a class="code hl_variable" href="_insights_static_strings_8h.html#a338c74357a2b2d3983dcee59a27e9892">cxaStart</a>  = <a class="code hl_function" href="namespaceclang_1_1insights.html#a4d6e96a9f77039bc7fe3bbf364f34fe6">EmitGlobalVariableCtors</a>();</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>            <span class="keyword">const</span> <span class="keyword">auto</span>  cxaLoc    = sm.translateFileLineCol(fileEntry, fileEntry-&gt;getSize(), 1);</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>            mRewriter.InsertText(cxaLoc, <a class="code hl_variable" href="_insights_static_strings_8h.html#a338c74357a2b2d3983dcee59a27e9892">cxaStart</a>);</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        }</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    }</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>};</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        <span class="keywordflow">if</span>(<a class="code hl_function" href="_insights_8cpp.html#a1e88b634e7a5a8c0c346ac64dc90dd4f">GetInsightsOptions</a>().UseShow2C) {</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>            <span class="keyword">const</span> <span class="keyword">auto</span>&amp; fileEntry = sm.getFileEntryForID(mainFileId);</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            <span class="keyword">auto</span>        <a class="code hl_variable" href="_insights_static_strings_8h.html#a338c74357a2b2d3983dcee59a27e9892">cxaStart</a>  = <a class="code hl_function" href="namespaceclang_1_1insights.html#a4d6e96a9f77039bc7fe3bbf364f34fe6">EmitGlobalVariableCtors</a>();</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            <span class="keyword">const</span> <span class="keyword">auto</span>  cxaLoc    = sm.translateFileLineCol(fileEntry, fileEntry-&gt;getSize(), 1);</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>            mRewriter.InsertText(cxaLoc, <a class="code hl_variable" href="_insights_static_strings_8h.html#a338c74357a2b2d3983dcee59a27e9892">cxaStart</a>);</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        }</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    }</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>};</div>
 </div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
-<div class="foldopen" id="foldopen00308" data-start="{" data-end="};">
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html">  308</a></span><span class="keyword">class </span><a class="code hl_class" href="class_cpp_insight_frontend_action.html">CppInsightFrontendAction</a> final : <span class="keyword">public</span> <a class="code hl_class" href="class_a_s_t_frontend_action.html">ASTFrontendAction</a></div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>{</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    Rewriter                 mRewriter{};</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    std::vector&lt;IncludeData&gt; mIncludes{};</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html#a0aa779e3d1b82c598a99445b987ef948">  314</a></span>    <a class="code hl_function" href="class_cpp_insight_frontend_action.html#a0aa779e3d1b82c598a99445b987ef948">CppInsightFrontendAction</a>() = <span class="keywordflow">default</span>;</div>
-<div class="foldopen" id="foldopen00315" data-start="{" data-end="}">
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html#a522c660ac54a92bcb01b4f20b3abe4e7">  315</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cpp_insight_frontend_action.html#a522c660ac54a92bcb01b4f20b3abe4e7">EndSourceFileAction</a>()<span class="keyword"> override</span></div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>        mRewriter.getEditBuffer(mRewriter.getSourceMgr().getMainFileID()).write(llvm::outs());</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    }</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
+<div class="foldopen" id="foldopen00298" data-start="{" data-end="};">
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html">  298</a></span><span class="keyword">class </span><a class="code hl_class" href="class_cpp_insight_frontend_action.html">CppInsightFrontendAction</a> final : <span class="keyword">public</span> <a class="code hl_class" href="class_a_s_t_frontend_action.html">ASTFrontendAction</a></div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>{</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    Rewriter                 mRewriter{};</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    std::vector&lt;IncludeData&gt; mIncludes{};</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html#a0aa779e3d1b82c598a99445b987ef948">  304</a></span>    <a class="code hl_function" href="class_cpp_insight_frontend_action.html#a0aa779e3d1b82c598a99445b987ef948">CppInsightFrontendAction</a>() = <span class="keywordflow">default</span>;</div>
+<div class="foldopen" id="foldopen00305" data-start="{" data-end="}">
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html#a522c660ac54a92bcb01b4f20b3abe4e7">  305</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_cpp_insight_frontend_action.html#a522c660ac54a92bcb01b4f20b3abe4e7">EndSourceFileAction</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>        mRewriter.getEditBuffer(mRewriter.getSourceMgr().getMainFileID()).write(llvm::outs());</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    }</div>
 </div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
-<div class="foldopen" id="foldopen00320" data-start="{" data-end="}">
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html#a009755f0aea443a3bda8083cea390493">  320</a></span>    std::unique_ptr&lt;ASTConsumer&gt; <a class="code hl_function" href="class_cpp_insight_frontend_action.html#a009755f0aea443a3bda8083cea390493">CreateASTConsumer</a>(CompilerInstance&amp; CI, StringRef <span class="comment">/*file*/</span>)<span class="keyword"> override</span></div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        <a class="code hl_variable" href="_insights_8cpp.html#ad8c03bb5b78fa9d5dea6ca193b2a7d32">gCI</a> = &amp;CI;</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        Preprocessor&amp; pp = CI.getPreprocessor();</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        pp.addPPCallbacks(std::make_unique&lt;FindIncludes&gt;(CI.getSourceManager(), pp, mIncludes));</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>        mRewriter.setSourceMgr(CI.getSourceManager(), CI.getLangOpts());</div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>        <span class="keywordflow">return</span> std::make_unique&lt;CppInsightASTConsumer&gt;(mRewriter, mIncludes);</div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    }</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
+<div class="foldopen" id="foldopen00310" data-start="{" data-end="}">
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno"><a class="line" href="class_cpp_insight_frontend_action.html#a009755f0aea443a3bda8083cea390493">  310</a></span>    std::unique_ptr&lt;ASTConsumer&gt; <a class="code hl_function" href="class_cpp_insight_frontend_action.html#a009755f0aea443a3bda8083cea390493">CreateASTConsumer</a>(CompilerInstance&amp; CI, StringRef <span class="comment">/*file*/</span>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        <a class="code hl_variable" href="_insights_8cpp.html#ad8c03bb5b78fa9d5dea6ca193b2a7d32">gCI</a> = &amp;CI;</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        Preprocessor&amp; pp = CI.getPreprocessor();</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        pp.addPPCallbacks(std::make_unique&lt;FindIncludes&gt;(CI.getSourceManager(), pp, mIncludes));</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>        mRewriter.setSourceMgr(CI.getSourceManager(), CI.getLangOpts());</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        <span class="keywordflow">return</span> std::make_unique&lt;CppInsightASTConsumer&gt;(mRewriter, mIncludes);</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    }</div>
 </div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>};</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>};</div>
 </div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span><span class="preprocessor">#include &quot;clang/Basic/Version.h&quot;</span></div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
-<div class="foldopen" id="foldopen00335" data-start="{" data-end="}">
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">  335</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">PrintVersion</a>(raw_ostream&amp; ostream)</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>{</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    ostream &lt;&lt; <span class="stringliteral">&quot;cpp-insights &quot;</span> &lt;&lt; INSIGHTS_VERSION &lt;&lt; <span class="stringliteral">&quot; https://cppinsights.io (&quot;</span> &lt;&lt; GIT_REPO_URL &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>            &lt;&lt; GIT_COMMIT_HASH &lt;&lt; <span class="stringliteral">&quot;)&quot;</span></div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>            &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span><span class="preprocessor">#ifdef INSIGHTS_DEBUG</span></div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    ostream &lt;&lt; <span class="stringliteral">&quot;  Build with debug enabled\n&quot;</span>;</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    ostream &lt;&lt; <span class="stringliteral">&quot;  LLVM  Revision: &quot;</span> &lt;&lt; clang::getLLVMRevision() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    ostream &lt;&lt; <span class="stringliteral">&quot;  Clang Revision: &quot;</span> &lt;&lt; clang::getClangFullCPPVersion() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>}</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span><span class="preprocessor">#include &quot;clang/Basic/Version.h&quot;</span></div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
+<div class="foldopen" id="foldopen00325" data-start="{" data-end="}">
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">  325</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">PrintVersion</a>(raw_ostream&amp; ostream)</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>{</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>    ostream &lt;&lt; <span class="stringliteral">&quot;cpp-insights &quot;</span> &lt;&lt; INSIGHTS_VERSION &lt;&lt; <span class="stringliteral">&quot; https://cppinsights.io (&quot;</span> &lt;&lt; GIT_REPO_URL &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>            &lt;&lt; GIT_COMMIT_HASH &lt;&lt; <span class="stringliteral">&quot;)&quot;</span></div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>            &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span><span class="preprocessor">#ifdef INSIGHTS_DEBUG</span></div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    ostream &lt;&lt; <span class="stringliteral">&quot;  Build with debug enabled\n&quot;</span>;</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    ostream &lt;&lt; <span class="stringliteral">&quot;  LLVM  Revision: &quot;</span> &lt;&lt; clang::getLLVMRevision() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    ostream &lt;&lt; <span class="stringliteral">&quot;  Clang Revision: &quot;</span> &lt;&lt; clang::getClangFullCPPVersion() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>}</div>
 </div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
-<div class="foldopen" id="foldopen00349" data-start="{" data-end="}">
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a217dbf8b442f20279ea00b898af96f52">  349</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="_option_documentation_generator_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>(<span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span>** argv)</div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>{</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    <span class="comment">// Headers go first</span></div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    <span class="keyword">using </span>enum <a class="code hl_enumeration" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0">GlobalInserts</a>;</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a0e515233ae004d1135137f751bbb6be2">HeaderNew</a>,</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>                            <span class="stringliteral">&quot;#include &lt;new&gt; // for thread-safe static&#39;s placement new\n#include &lt;stdint.h&gt; // for &quot;</span></div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>                            <span class="stringliteral">&quot;uint64_t under Linux/GCC&quot;</span>sv);</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a78a176b2610089a99d8bc9b2ab7555fb">HeaderException</a>, <span class="stringliteral">&quot;#include &lt;exception&gt; // for noexcept transformation&quot;</span>sv);</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a3fed75f81b2ef4aa42be556451227051">HeaderUtility</a>, <span class="stringliteral">&quot;#include &lt;utility&gt; // std::move&quot;</span>sv);</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a98d7b8464c7518fb9da096938cdc3ae9">HeaderStddef</a>, <span class="stringliteral">&quot;#include &lt;stddef.h&gt; // NULL and more&quot;</span>sv);</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a4f6e0eca2d41c395ab3970545dcae7e5">HeaderAssert</a>, <span class="stringliteral">&quot;#include &lt;assert.h&gt; // _Static_assert&quot;</span>sv);</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1b6da21eca1ff81b67e466643f4c693e">HeaderStdlib</a>, <span class="stringliteral">&quot;#include &lt;stdlib.h&gt; // abort&quot;</span>sv);</div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span> </div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>    <span class="comment">// Now all the forward declared functions</span></div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0ae5a76987b3c90ff03a5d3e01ac1f159f">FuncCxaStart</a>, <span class="stringliteral">&quot;void __cxa_start(void);&quot;</span>sv);</div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0abce1044edabb2d11aec3d37f6b36c949">FuncCxaAtExit</a>, <span class="stringliteral">&quot;void __cxa_atexit(void);&quot;</span>sv);</div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1243432343079399c0dc46c16ed955ad">FuncMalloc</a>, <span class="stringliteral">&quot;void* malloc(unsigned int);&quot;</span>sv);</div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0ae4f9353d1d953c8f8e11598946dd6e30">FuncFree</a>, R<span class="stringliteral">&quot;(extern &quot;C&quot; void free(void*);)&quot;sv);</span></div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a205da945679796afd213ef4aa262eaa1">FuncMemset</a>, R</span><span class="stringliteral">&quot;(extern &quot;C&quot; void* memset(void*, int, unsigned int);)&quot;sv);</span></div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1f332b293c62528547a82a359033ca4b">FuncMemcpy</a>, R</span><span class="stringliteral">&quot;(void* memcpy(void*, const void*, unsigned int);)&quot;sv);</span></div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(</span></div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span><span class="stringliteral">        <a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a394f8f2ed9c8af6f60e492f7c0017804">FuncCxaVecNew</a>,</span></div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span><span class="stringliteral">        R</span><span class="stringliteral">&quot;(extern &quot;C&quot; void* __cxa_vec_new(void*, unsigned int, unsigned int, unsigned int, void* (*)(void*), void* (*)(void*));)&quot;sv);</span></div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(</span></div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span><span class="stringliteral">        <a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1308f44d8aaa1e9ac1443514487410a1">FuncCxaVecCtor</a>,</span></div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span><span class="stringliteral">        R</span><span class="stringliteral">&quot;(extern &quot;C&quot; void* __cxa_vec_ctor(void*, unsigned int, unsigned int, unsigned int, void* (*)(void*), void* (*)(void*));)&quot;sv);</span></div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(</span></div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span><span class="stringliteral">        <a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1badfa9b048ec455450e3ddadcce01a2">FuncCxaVecDel</a>,</span></div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span><span class="stringliteral">        R</span><span class="stringliteral">&quot;(extern &quot;C&quot; void __cxa_vec_delete(void *, unsigned int, unsigned int, void* (*destructor)(void *) );)&quot;sv);</span></div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(</span></div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span><span class="stringliteral">        <a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0abd5fd61261f58e20daa425240c40c2a2">FuncCxaVecDtor</a>,</span></div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span><span class="stringliteral">        R</span><span class="stringliteral">&quot;(extern &quot;C&quot; void __cxa_vec_dtor(void *, unsigned int, unsigned int, void* (*destructor)(void *) );)&quot;sv);</span></div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a473170bfac9a0693ba98232733bdd807">FuncVtableStruct</a>, R</span><span class="stringliteral">&quot;(typedef int (*__vptp)();</span></div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span><span class="stringliteral">struct __mptr</span></div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span><span class="stringliteral">{</span></div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span><span class="stringliteral">    short  d;</span></div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span><span class="stringliteral">    short  i;</span></div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span><span class="stringliteral">    __vptp f;</span></div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span><span class="stringliteral">};</span></div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span><span class="stringliteral">extern struct __mptr* __vtbl_array[];</span></div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span><span class="stringliteral">)&quot;sv);</span></div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0ace8c4bdba0759f0c6e7af57afffed80e">FuncCxaPureVirtual</a>, R</span><span class="stringliteral">&quot;(extern &quot;C&quot; void __cxa_pure_virtual() { abort(); })&quot;);</span></div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span><span class="stringliteral">    llvm::sys::PrintStackTraceOnErrorSignal(argv[0]);</span></div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span><span class="stringliteral">    llvm::cl::SetVersionPrinter(&amp;<a class="code hl_function" href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">PrintVersion</a>);</span></div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span><span class="stringliteral"></span> </div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span><span class="stringliteral">    </span><span class="keyword">auto</span> opExpected = CommonOptionsParser::create(argc, argv, <a class="code hl_function" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a>);</div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span> </div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>    <span class="keywordflow">if</span>(<span class="keyword">auto</span> err = opExpected.takeError()) {</div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>        llvm::errs() &lt;&lt; toString(std::move(err)) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
+<div class="foldopen" id="foldopen00339" data-start="{" data-end="}">
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno"><a class="line" href="_insights_8cpp.html#a217dbf8b442f20279ea00b898af96f52">  339</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="_option_documentation_generator_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>(<span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span>** argv)</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>{</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    <span class="comment">// Headers go first</span></div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    <span class="keyword">using </span>enum <a class="code hl_enumeration" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0">GlobalInserts</a>;</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a0e515233ae004d1135137f751bbb6be2">HeaderNew</a>,</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>                            <span class="stringliteral">&quot;#include &lt;new&gt; // for thread-safe static&#39;s placement new\n#include &lt;stdint.h&gt; // for &quot;</span></div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>                            <span class="stringliteral">&quot;uint64_t under Linux/GCC&quot;</span>sv);</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a78a176b2610089a99d8bc9b2ab7555fb">HeaderException</a>, <span class="stringliteral">&quot;#include &lt;exception&gt; // for noexcept transformation&quot;</span>sv);</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a3fed75f81b2ef4aa42be556451227051">HeaderUtility</a>, <span class="stringliteral">&quot;#include &lt;utility&gt; // std::move&quot;</span>sv);</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a98d7b8464c7518fb9da096938cdc3ae9">HeaderStddef</a>, <span class="stringliteral">&quot;#include &lt;stddef.h&gt; // NULL and more&quot;</span>sv);</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a4f6e0eca2d41c395ab3970545dcae7e5">HeaderAssert</a>, <span class="stringliteral">&quot;#include &lt;assert.h&gt; // _Static_assert&quot;</span>sv);</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1b6da21eca1ff81b67e466643f4c693e">HeaderStdlib</a>, <span class="stringliteral">&quot;#include &lt;stdlib.h&gt; // abort&quot;</span>sv);</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    <span class="comment">// Now all the forward declared functions</span></div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0ae5a76987b3c90ff03a5d3e01ac1f159f">FuncCxaStart</a>, <span class="stringliteral">&quot;void __cxa_start(void);&quot;</span>sv);</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0abce1044edabb2d11aec3d37f6b36c949">FuncCxaAtExit</a>, <span class="stringliteral">&quot;void __cxa_atexit(void);&quot;</span>sv);</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1243432343079399c0dc46c16ed955ad">FuncMalloc</a>, <span class="stringliteral">&quot;void* malloc(unsigned int);&quot;</span>sv);</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0ae4f9353d1d953c8f8e11598946dd6e30">FuncFree</a>, R<span class="stringliteral">&quot;(extern &quot;C&quot; void free(void*);)&quot;sv);</span></div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a205da945679796afd213ef4aa262eaa1">FuncMemset</a>, R</span><span class="stringliteral">&quot;(extern &quot;C&quot; void* memset(void*, int, unsigned int);)&quot;sv);</span></div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1f332b293c62528547a82a359033ca4b">FuncMemcpy</a>, R</span><span class="stringliteral">&quot;(void* memcpy(void*, const void*, unsigned int);)&quot;sv);</span></div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(</span></div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span><span class="stringliteral">        <a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a394f8f2ed9c8af6f60e492f7c0017804">FuncCxaVecNew</a>,</span></div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span><span class="stringliteral">        R</span><span class="stringliteral">&quot;(extern &quot;C&quot; void* __cxa_vec_new(void*, unsigned int, unsigned int, unsigned int, void* (*)(void*), void* (*)(void*));)&quot;sv);</span></div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(</span></div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span><span class="stringliteral">        <a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1308f44d8aaa1e9ac1443514487410a1">FuncCxaVecCtor</a>,</span></div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span><span class="stringliteral">        R</span><span class="stringliteral">&quot;(extern &quot;C&quot; void* __cxa_vec_ctor(void*, unsigned int, unsigned int, unsigned int, void* (*)(void*), void* (*)(void*));)&quot;sv);</span></div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(</span></div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span><span class="stringliteral">        <a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a1badfa9b048ec455450e3ddadcce01a2">FuncCxaVecDel</a>,</span></div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span><span class="stringliteral">        R</span><span class="stringliteral">&quot;(extern &quot;C&quot; void __cxa_vec_delete(void *, unsigned int, unsigned int, void* (*destructor)(void *) );)&quot;sv);</span></div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(</span></div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span><span class="stringliteral">        <a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0abd5fd61261f58e20daa425240c40c2a2">FuncCxaVecDtor</a>,</span></div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span><span class="stringliteral">        R</span><span class="stringliteral">&quot;(extern &quot;C&quot; void __cxa_vec_dtor(void *, unsigned int, unsigned int, void* (*destructor)(void *) );)&quot;sv);</span></div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0a473170bfac9a0693ba98232733bdd807">FuncVtableStruct</a>, R</span><span class="stringliteral">&quot;(typedef int (*__vptp)();</span></div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span><span class="stringliteral">struct __mptr</span></div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span><span class="stringliteral">{</span></div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span><span class="stringliteral">    short  d;</span></div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span><span class="stringliteral">    short  i;</span></div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span><span class="stringliteral">    __vptp f;</span></div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span><span class="stringliteral">};</span></div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span><span class="stringliteral">extern struct __mptr* __vtbl_array[];</span></div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span><span class="stringliteral">)&quot;sv);</span></div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span><span class="stringliteral">    <a class="code hl_function" href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">AddGLobalInsertMapEntry</a>(<a class="code hl_enumvalue" href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0ace8c4bdba0759f0c6e7af57afffed80e">FuncCxaPureVirtual</a>, R</span><span class="stringliteral">&quot;(extern &quot;C&quot; void __cxa_pure_virtual() { abort(); })&quot;);</span></div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span><span class="stringliteral">    llvm::sys::PrintStackTraceOnErrorSignal(argv[0]);</span></div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span><span class="stringliteral">    llvm::cl::SetVersionPrinter(&amp;<a class="code hl_function" href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">PrintVersion</a>);</span></div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span><span class="stringliteral">    </span><span class="keyword">auto</span> opExpected = CommonOptionsParser::create(argc, argv, <a class="code hl_function" href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a>);</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span> </div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>    <span class="keywordflow">if</span>(<span class="keyword">auto</span> err = opExpected.takeError()) {</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>        <span class="keywordflow">if</span>(gAutoComplete) {</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span><span class="preprocessor">#define INSIGHTS_OPT(option, name, deflt, description, category) llvm::outs() &lt;&lt; &quot;--&quot; &lt;&lt; option &lt;&lt; &quot; &quot;;</span></div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span> </div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span><span class="preprocessor">#include &quot;InsightsOptions.def&quot;</span></div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span> </div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span> </div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>            llvm::errs() &lt;&lt; toString(std::move(err)) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>        }</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span> </div>
 <div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>        <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    }</div>
 <div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span> </div>
@@ -492,7 +492,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    CommonOptionsParser&amp; op{opExpected.get()};</div>
 <div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>    ClangTool            tool(op.getCompilations(), op.getSourcePathList());</div>
 <div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span> </div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="_insights_8cpp.html#a09bf8ad5f74ea0bbc07d4c611478708e">gStdinMode</a>) {</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    <span class="keywordflow">if</span>(gStdinMode) {</div>
 <div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>        <span class="keywordflow">if</span>(op.getSourcePathList().size() != 1) {</div>
 <div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>            llvm::errs() &lt;&lt; <span class="stringliteral">&quot;Expect exactly one file path in STDINMode.\n&quot;</span>sv;</div>
 <div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>            <span class="keywordflow">return</span> 1;</div>
@@ -524,11 +524,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span> </div>
 <div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>    <span class="comment">// For some reason, Clang on Apple seems to require an additional hint for the C++ headers.</span></div>
 <div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span><span class="preprocessor">#ifdef __APPLE__</span></div>
-<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>    <a class="code hl_function" href="_insights_8cpp.html#adac6abf0a72adb36dbf763e4d3579f3f">gUseLibCpp</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>    gUseLibCpp = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span><span class="preprocessor">#endif </span><span class="comment">/* __APPLE__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span> </div>
-<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="_insights_8cpp.html#adac6abf0a72adb36dbf763e4d3579f3f">gUseLibCpp</a>) {</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>    <span class="keywordflow">if</span>(gUseLibCpp) {</div>
 <div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>        prependArgument(INSIGHTS_LLVM_INCLUDE_DIR);</div>
+</div>
 <div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>        prependArgument(<span class="stringliteral">&quot;-stdlib=libc++&quot;</span>);</div>
 <div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>        prependArgument(<span class="stringliteral">&quot;-fexperimental-library&quot;</span>);</div>
 <div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span> </div>
@@ -547,39 +548,36 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span> </div>
 <div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span>    <span class="keywordflow">return</span> tool.run(newFrontendActionFactory&lt;CppInsightFrontendAction&gt;().get());</div>
 <div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span>}</div>
-</div>
 <div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="ttc" id="a_code_generator_8h_html"><div class="ttname"><a href="_code_generator_8h.html">CodeGenerator.h</a></div></div>
 <div class="ttc" id="a_d_print_8h_html"><div class="ttname"><a href="_d_print_8h.html">DPrint.h</a></div></div>
-<div class="ttc" id="a_insights_8cpp_html_a09bf8ad5f74ea0bbc07d4c611478708e"><div class="ttname"><a href="_insights_8cpp.html#a09bf8ad5f74ea0bbc07d4c611478708e">gStdinMode</a></div><div class="ttdeci">static llvm::cl::opt&lt; bool &gt; gStdinMode(&quot;stdin&quot;, llvm::cl::desc(&quot;Read the input from &lt;stdin&gt;.&quot;sv), llvm::cl::init(false), llvm::cl::cat(gInsightCategory))</div></div>
-<div class="ttc" id="a_insights_8cpp_html_a0da78ea4c6958ac2a28b545e80d82ba0"><div class="ttname"><a href="_insights_8cpp.html#a0da78ea4c6958ac2a28b545e80d82ba0">IncludeData</a></div><div class="ttdeci">std::pair&lt; const SourceLocation, std::string &gt; IncludeData</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00113">Insights.cpp:113</a></div></div>
+<div class="ttc" id="a_insights_8cpp_html_a0da78ea4c6958ac2a28b545e80d82ba0"><div class="ttname"><a href="_insights_8cpp.html#a0da78ea4c6958ac2a28b545e80d82ba0">IncludeData</a></div><div class="ttdeci">std::pair&lt; const SourceLocation, std::string &gt; IncludeData</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00103">Insights.cpp:103</a></div></div>
 <div class="ttc" id="a_insights_8cpp_html_a1e88b634e7a5a8c0c346ac64dc90dd4f"><div class="ttname"><a href="_insights_8cpp.html#a1e88b634e7a5a8c0c346ac64dc90dd4f">GetInsightsOptions</a></div><div class="ttdeci">const InsightsOptions &amp; GetInsightsOptions()</div><div class="ttdoc">Get the global C++ Insights options.</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00037">Insights.cpp:37</a></div></div>
 <div class="ttc" id="a_insights_8cpp_html_a237d39563de56bf4a3f45ef0bd68d038"><div class="ttname"><a href="_insights_8cpp.html#a237d39563de56bf4a3f45ef0bd68d038">gInsightCategory</a></div><div class="ttdeci">static llvm::cl::OptionCategory gInsightCategory(&quot;Insights&quot;sv)</div></div>
-<div class="ttc" id="a_insights_8cpp_html_a5a71d19a17aa6666b81bd98c67262160"><div class="ttname"><a href="_insights_8cpp.html#a5a71d19a17aa6666b81bd98c67262160">GetGlobalCI</a></div><div class="ttdeci">const CompilerInstance &amp; GetGlobalCI()</div><div class="ttdoc">Get access to the CompilerInstance.</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00088">Insights.cpp:88</a></div></div>
-<div class="ttc" id="a_insights_8cpp_html_a77f2bef86bff505682aa180dde089a4d"><div class="ttname"><a href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a></div><div class="ttdeci">const ASTContext &amp; GetGlobalAST()</div><div class="ttdoc">Get access to the ASTContext.</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00081">Insights.cpp:81</a></div></div>
-<div class="ttc" id="a_insights_8cpp_html_a873648e2b11ba9164e749d4977592e49"><div class="ttname"><a href="_insights_8cpp.html#a873648e2b11ba9164e749d4977592e49">gAST</a></div><div class="ttdeci">static const ASTContext * gAST</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00080">Insights.cpp:80</a></div></div>
+<div class="ttc" id="a_insights_8cpp_html_a5a71d19a17aa6666b81bd98c67262160"><div class="ttname"><a href="_insights_8cpp.html#a5a71d19a17aa6666b81bd98c67262160">GetGlobalCI</a></div><div class="ttdeci">const CompilerInstance &amp; GetGlobalCI()</div><div class="ttdoc">Get access to the CompilerInstance.</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00078">Insights.cpp:78</a></div></div>
+<div class="ttc" id="a_insights_8cpp_html_a77f2bef86bff505682aa180dde089a4d"><div class="ttname"><a href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a></div><div class="ttdeci">const ASTContext &amp; GetGlobalAST()</div><div class="ttdoc">Get access to the ASTContext.</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00071">Insights.cpp:71</a></div></div>
+<div class="ttc" id="a_insights_8cpp_html_a873648e2b11ba9164e749d4977592e49"><div class="ttname"><a href="_insights_8cpp.html#a873648e2b11ba9164e749d4977592e49">gAST</a></div><div class="ttdeci">static const ASTContext * gAST</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00070">Insights.cpp:70</a></div></div>
 <div class="ttc" id="a_insights_8cpp_html_a94807dbb47cca18c1f57972e0c117317"><div class="ttname"><a href="_insights_8cpp.html#a94807dbb47cca18c1f57972e0c117317">gInsightsOptions</a></div><div class="ttdeci">static InsightsOptions gInsightsOptions</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00034">Insights.cpp:34</a></div></div>
-<div class="ttc" id="a_insights_8cpp_html_a9e893556f2e1b3c7759876211821ce4a"><div class="ttname"><a href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">PrintVersion</a></div><div class="ttdeci">static void PrintVersion(raw_ostream &amp;ostream)</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00335">Insights.cpp:335</a></div></div>
+<div class="ttc" id="a_insights_8cpp_html_a9e893556f2e1b3c7759876211821ce4a"><div class="ttname"><a href="_insights_8cpp.html#a9e893556f2e1b3c7759876211821ce4a">PrintVersion</a></div><div class="ttdeci">static void PrintVersion(raw_ostream &amp;ostream)</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00325">Insights.cpp:325</a></div></div>
 <div class="ttc" id="a_insights_8cpp_html_ab6d8b25d0bbaca8570845e7f6aa1e9ea"><div class="ttname"><a href="_insights_8cpp.html#ab6d8b25d0bbaca8570845e7f6aa1e9ea">gInsightEduCategory</a></div><div class="ttdeci">static llvm::cl::OptionCategory gInsightEduCategory(&quot;Insights-Educational&quot;sv, &quot;This transformations are only for education purposes. The resulting code most likely does not compile.&quot;sv)</div></div>
 <div class="ttc" id="a_insights_8cpp_html_ab847e54177ea8d558198c2727e33fa29"><div class="ttname"><a href="_insights_8cpp.html#ab847e54177ea8d558198c2727e33fa29">GetInsightsOptionsRW</a></div><div class="ttdeci">InsightsOptions &amp; GetInsightsOptionsRW()</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00043">Insights.cpp:43</a></div></div>
-<div class="ttc" id="a_insights_8cpp_html_ad8c03bb5b78fa9d5dea6ca193b2a7d32"><div class="ttname"><a href="_insights_8cpp.html#ad8c03bb5b78fa9d5dea6ca193b2a7d32">gCI</a></div><div class="ttdeci">static const CompilerInstance * gCI</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00087">Insights.cpp:87</a></div></div>
-<div class="ttc" id="a_insights_8cpp_html_adac6abf0a72adb36dbf763e4d3579f3f"><div class="ttname"><a href="_insights_8cpp.html#adac6abf0a72adb36dbf763e4d3579f3f">gUseLibCpp</a></div><div class="ttdeci">static llvm::cl::opt&lt; bool &gt; gUseLibCpp(&quot;use-libc++&quot;, llvm::cl::desc(&quot;Use libc++.&quot;sv), llvm::cl::init(false), llvm::cl::cat(gInsightCategory))</div></div>
+<div class="ttc" id="a_insights_8cpp_html_ad8c03bb5b78fa9d5dea6ca193b2a7d32"><div class="ttname"><a href="_insights_8cpp.html#ad8c03bb5b78fa9d5dea6ca193b2a7d32">gCI</a></div><div class="ttdeci">static const CompilerInstance * gCI</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00077">Insights.cpp:77</a></div></div>
 <div class="ttc" id="a_insights_8h_html"><div class="ttname"><a href="_insights_8h.html">Insights.h</a></div></div>
 <div class="ttc" id="a_insights_static_strings_8h_html_a338c74357a2b2d3983dcee59a27e9892"><div class="ttname"><a href="_insights_static_strings_8h.html#a338c74357a2b2d3983dcee59a27e9892">cxaStart</a></div><div class="ttdeci">constexpr std::string_view cxaStart</div><div class="ttdef"><b>Definition</b> <a href="_insights_static_strings_8h_source.html#l00193">InsightsStaticStrings.h:193</a></div></div>
 <div class="ttc" id="a_option_documentation_generator_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="_option_documentation_generator_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition</b> <a href="_option_documentation_generator_8cpp_source.html#l00046">OptionDocumentationGenerator.cpp:46</a></div></div>
 <div class="ttc" id="aclass_a_s_t_consumer_html"><div class="ttname"><a href="class_a_s_t_consumer.html">ASTConsumer</a></div></div>
 <div class="ttc" id="aclass_a_s_t_frontend_action_html"><div class="ttname"><a href="class_a_s_t_frontend_action.html">ASTFrontendAction</a></div></div>
-<div class="ttc" id="aclass_cpp_insight_a_s_t_consumer_html"><div class="ttname"><a href="class_cpp_insight_a_s_t_consumer.html">CppInsightASTConsumer</a></div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00174">Insights.cpp:175</a></div></div>
-<div class="ttc" id="aclass_cpp_insight_a_s_t_consumer_html_ad64dcd8af6d6ac4a7f81fb5211baa11b"><div class="ttname"><a href="class_cpp_insight_a_s_t_consumer.html#ad64dcd8af6d6ac4a7f81fb5211baa11b">CppInsightASTConsumer::HandleTranslationUnit</a></div><div class="ttdeci">void HandleTranslationUnit(ASTContext &amp;context) override</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00198">Insights.cpp:198</a></div></div>
-<div class="ttc" id="aclass_cpp_insight_a_s_t_consumer_html_ae0bb0e9acf4ca5c1ce7e31d4b62247e6"><div class="ttname"><a href="class_cpp_insight_a_s_t_consumer.html#ae0bb0e9acf4ca5c1ce7e31d4b62247e6">CppInsightASTConsumer::CppInsightASTConsumer</a></div><div class="ttdeci">CppInsightASTConsumer(Rewriter &amp;rewriter, std::vector&lt; IncludeData &gt; &amp;includes)</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00180">Insights.cpp:180</a></div></div>
-<div class="ttc" id="aclass_cpp_insight_frontend_action_html"><div class="ttname"><a href="class_cpp_insight_frontend_action.html">CppInsightFrontendAction</a></div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00308">Insights.cpp:309</a></div></div>
-<div class="ttc" id="aclass_cpp_insight_frontend_action_html_a009755f0aea443a3bda8083cea390493"><div class="ttname"><a href="class_cpp_insight_frontend_action.html#a009755f0aea443a3bda8083cea390493">CppInsightFrontendAction::CreateASTConsumer</a></div><div class="ttdeci">std::unique_ptr&lt; ASTConsumer &gt; CreateASTConsumer(CompilerInstance &amp;CI, StringRef) override</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00320">Insights.cpp:320</a></div></div>
+<div class="ttc" id="aclass_cpp_insight_a_s_t_consumer_html"><div class="ttname"><a href="class_cpp_insight_a_s_t_consumer.html">CppInsightASTConsumer</a></div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00164">Insights.cpp:165</a></div></div>
+<div class="ttc" id="aclass_cpp_insight_a_s_t_consumer_html_ad64dcd8af6d6ac4a7f81fb5211baa11b"><div class="ttname"><a href="class_cpp_insight_a_s_t_consumer.html#ad64dcd8af6d6ac4a7f81fb5211baa11b">CppInsightASTConsumer::HandleTranslationUnit</a></div><div class="ttdeci">void HandleTranslationUnit(ASTContext &amp;context) override</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00188">Insights.cpp:188</a></div></div>
+<div class="ttc" id="aclass_cpp_insight_a_s_t_consumer_html_ae0bb0e9acf4ca5c1ce7e31d4b62247e6"><div class="ttname"><a href="class_cpp_insight_a_s_t_consumer.html#ae0bb0e9acf4ca5c1ce7e31d4b62247e6">CppInsightASTConsumer::CppInsightASTConsumer</a></div><div class="ttdeci">CppInsightASTConsumer(Rewriter &amp;rewriter, std::vector&lt; IncludeData &gt; &amp;includes)</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00170">Insights.cpp:170</a></div></div>
+<div class="ttc" id="aclass_cpp_insight_frontend_action_html"><div class="ttname"><a href="class_cpp_insight_frontend_action.html">CppInsightFrontendAction</a></div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00298">Insights.cpp:299</a></div></div>
+<div class="ttc" id="aclass_cpp_insight_frontend_action_html_a009755f0aea443a3bda8083cea390493"><div class="ttname"><a href="class_cpp_insight_frontend_action.html#a009755f0aea443a3bda8083cea390493">CppInsightFrontendAction::CreateASTConsumer</a></div><div class="ttdeci">std::unique_ptr&lt; ASTConsumer &gt; CreateASTConsumer(CompilerInstance &amp;CI, StringRef) override</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00310">Insights.cpp:310</a></div></div>
 <div class="ttc" id="aclass_cpp_insight_frontend_action_html_a0aa779e3d1b82c598a99445b987ef948"><div class="ttname"><a href="class_cpp_insight_frontend_action.html#a0aa779e3d1b82c598a99445b987ef948">CppInsightFrontendAction::CppInsightFrontendAction</a></div><div class="ttdeci">CppInsightFrontendAction()=default</div></div>
-<div class="ttc" id="aclass_cpp_insight_frontend_action_html_a522c660ac54a92bcb01b4f20b3abe4e7"><div class="ttname"><a href="class_cpp_insight_frontend_action.html#a522c660ac54a92bcb01b4f20b3abe4e7">CppInsightFrontendAction::EndSourceFileAction</a></div><div class="ttdeci">void EndSourceFileAction() override</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00315">Insights.cpp:315</a></div></div>
-<div class="ttc" id="aclass_find_includes_html"><div class="ttname"><a href="class_find_includes.html">FindIncludes</a></div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00115">Insights.cpp:116</a></div></div>
-<div class="ttc" id="aclass_find_includes_html_a6accb714f5180399d2286662ea1e1467"><div class="ttname"><a href="class_find_includes.html#a6accb714f5180399d2286662ea1e1467">FindIncludes::MacroDefined</a></div><div class="ttdeci">void MacroDefined(const Token &amp;macroNameTok, const MacroDirective *md) override</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00157">Insights.cpp:157</a></div></div>
-<div class="ttc" id="aclass_find_includes_html_abaf0caf8b91a834128a1cd8f982e8516"><div class="ttname"><a href="class_find_includes.html#abaf0caf8b91a834128a1cd8f982e8516">FindIncludes::FindIncludes</a></div><div class="ttdeci">FindIncludes(SourceManager &amp;sm, Preprocessor &amp;pp, std::vector&lt; IncludeData &gt; &amp;incData)</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00122">Insights.cpp:122</a></div></div>
-<div class="ttc" id="aclass_find_includes_html_ada78dfbb7c45af2178779bbcc6812b14"><div class="ttname"><a href="class_find_includes.html#ada78dfbb7c45af2178779bbcc6812b14">FindIncludes::InclusionDirective</a></div><div class="ttdeci">void InclusionDirective(SourceLocation hashLoc, const Token &amp;, StringRef fileName, bool isAngled, CharSourceRange, OptionalFileEntryRef, StringRef, StringRef, const Module *, bool, SrcMgr::CharacteristicKind) override</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00130">Insights.cpp:130</a></div></div>
+<div class="ttc" id="aclass_cpp_insight_frontend_action_html_a522c660ac54a92bcb01b4f20b3abe4e7"><div class="ttname"><a href="class_cpp_insight_frontend_action.html#a522c660ac54a92bcb01b4f20b3abe4e7">CppInsightFrontendAction::EndSourceFileAction</a></div><div class="ttdeci">void EndSourceFileAction() override</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00305">Insights.cpp:305</a></div></div>
+<div class="ttc" id="aclass_find_includes_html"><div class="ttname"><a href="class_find_includes.html">FindIncludes</a></div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00105">Insights.cpp:106</a></div></div>
+<div class="ttc" id="aclass_find_includes_html_a6accb714f5180399d2286662ea1e1467"><div class="ttname"><a href="class_find_includes.html#a6accb714f5180399d2286662ea1e1467">FindIncludes::MacroDefined</a></div><div class="ttdeci">void MacroDefined(const Token &amp;macroNameTok, const MacroDirective *md) override</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00147">Insights.cpp:147</a></div></div>
+<div class="ttc" id="aclass_find_includes_html_abaf0caf8b91a834128a1cd8f982e8516"><div class="ttname"><a href="class_find_includes.html#abaf0caf8b91a834128a1cd8f982e8516">FindIncludes::FindIncludes</a></div><div class="ttdeci">FindIncludes(SourceManager &amp;sm, Preprocessor &amp;pp, std::vector&lt; IncludeData &gt; &amp;incData)</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00112">Insights.cpp:112</a></div></div>
+<div class="ttc" id="aclass_find_includes_html_ada78dfbb7c45af2178779bbcc6812b14"><div class="ttname"><a href="class_find_includes.html#ada78dfbb7c45af2178779bbcc6812b14">FindIncludes::InclusionDirective</a></div><div class="ttdeci">void InclusionDirective(SourceLocation hashLoc, const Token &amp;, StringRef fileName, bool isAngled, CharSourceRange, OptionalFileEntryRef, StringRef, StringRef, const Module *, bool, SrcMgr::CharacteristicKind) override</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00120">Insights.cpp:120</a></div></div>
 <div class="ttc" id="aclass_p_p_callbacks_html"><div class="ttname"><a href="class_p_p_callbacks.html">PPCallbacks</a></div></div>
 <div class="ttc" id="aclassclang_1_1insights_1_1_code_generator_variant_html"><div class="ttname"><a href="classclang_1_1insights_1_1_code_generator_variant.html">clang::insights::CodeGeneratorVariant</a></div><div class="ttdoc">A special container which creates either a CodeGenerator or a CfrontCodeGenerator depending on the co...</div><div class="ttdef"><b>Definition</b> <a href="_code_generator_8h_source.html#l00672">CodeGenerator.h:673</a></div></div>
 <div class="ttc" id="aclassclang_1_1insights_1_1_output_format_helper_html"><div class="ttname"><a href="classclang_1_1insights_1_1_output_format_helper.html">clang::insights::OutputFormatHelper</a></div><div class="ttdoc">The C++ Insights formatter.</div><div class="ttdef"><b>Definition</b> <a href="_output_format_helper_8h_source.html#l00027">OutputFormatHelper.h:28</a></div></div>
@@ -606,10 +604,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="anamespaceclang_1_1insights_html_a0eef181bbadf18b97fd315f240d8add0ae5a76987b3c90ff03a5d3e01ac1f159f"><div class="ttname"><a href="namespaceclang_1_1insights.html#a0eef181bbadf18b97fd315f240d8add0ae5a76987b3c90ff03a5d3e01ac1f159f">clang::insights::GlobalInserts::FuncCxaStart</a></div><div class="ttdeci">@ FuncCxaStart</div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_html_a3209764729b45373c063975b9c398eae"><div class="ttname"><a href="namespaceclang_1_1insights.html#a3209764729b45373c063975b9c398eae">clang::insights::Error</a></div><div class="ttdeci">void Error(const char *fmt, const auto &amp;... args)</div><div class="ttdoc">Log an error.</div><div class="ttdef"><b>Definition</b> <a href="_d_print_8h_source.html#l00080">DPrint.h:80</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_html_a4d6e96a9f77039bc7fe3bbf364f34fe6"><div class="ttname"><a href="namespaceclang_1_1insights.html#a4d6e96a9f77039bc7fe3bbf364f34fe6">clang::insights::EmitGlobalVariableCtors</a></div><div class="ttdeci">std::string EmitGlobalVariableCtors()</div><div class="ttdef"><b>Definition</b> <a href="_code_generator_8cpp_source.html#l01128">CodeGenerator.cpp:1128</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_html_a53d5c5520bd3fa9a5a6d50128def753e"><div class="ttname"><a href="namespaceclang_1_1insights.html#a53d5c5520bd3fa9a5a6d50128def753e">clang::insights::gGlobalInserts</a></div><div class="ttdeci">static constinit std::array&lt; GlobalInsertMap, static_cast&lt; size_t &gt;(GlobalInserts::MAX)&gt; gGlobalInserts</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00099">Insights.cpp:99</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_html_ac932baa3707f00cbfb7c380ddf6f7cbd"><div class="ttname"><a href="namespaceclang_1_1insights.html#ac932baa3707f00cbfb7c380ddf6f7cbd">clang::insights::GlobalInsertMap</a></div><div class="ttdeci">std::pair&lt; bool, std::string_view &gt; GlobalInsertMap</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00097">Insights.cpp:97</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_html_aceb59bb4a7d40d9c8af9b8566f2324af"><div class="ttname"><a href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">clang::insights::AddGLobalInsertMapEntry</a></div><div class="ttdeci">void AddGLobalInsertMapEntry(GlobalInserts idx, std::string_view value)</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00101">Insights.cpp:101</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_html_adc69f8a322d3b1776643f38b18b2185a"><div class="ttname"><a href="namespaceclang_1_1insights.html#adc69f8a322d3b1776643f38b18b2185a">clang::insights::EnableGlobalInsert</a></div><div class="ttdeci">void EnableGlobalInsert(GlobalInserts idx)</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00106">Insights.cpp:106</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_html_a53d5c5520bd3fa9a5a6d50128def753e"><div class="ttname"><a href="namespaceclang_1_1insights.html#a53d5c5520bd3fa9a5a6d50128def753e">clang::insights::gGlobalInserts</a></div><div class="ttdeci">static constinit std::array&lt; GlobalInsertMap, static_cast&lt; size_t &gt;(GlobalInserts::MAX)&gt; gGlobalInserts</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00089">Insights.cpp:89</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_html_ac932baa3707f00cbfb7c380ddf6f7cbd"><div class="ttname"><a href="namespaceclang_1_1insights.html#ac932baa3707f00cbfb7c380ddf6f7cbd">clang::insights::GlobalInsertMap</a></div><div class="ttdeci">std::pair&lt; bool, std::string_view &gt; GlobalInsertMap</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00087">Insights.cpp:87</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_html_aceb59bb4a7d40d9c8af9b8566f2324af"><div class="ttname"><a href="namespaceclang_1_1insights.html#aceb59bb4a7d40d9c8af9b8566f2324af">clang::insights::AddGLobalInsertMapEntry</a></div><div class="ttdeci">void AddGLobalInsertMapEntry(GlobalInserts idx, std::string_view value)</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00091">Insights.cpp:91</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_html_adc69f8a322d3b1776643f38b18b2185a"><div class="ttname"><a href="namespaceclang_1_1insights.html#adc69f8a322d3b1776643f38b18b2185a">clang::insights::EnableGlobalInsert</a></div><div class="ttdeci">void EnableGlobalInsert(GlobalInserts idx)</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00096">Insights.cpp:96</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_html_af1547a2577846066c0e306b2123be616"><div class="ttname"><a href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">clang::insights::StrCat</a></div><div class="ttdeci">std::string StrCat(const auto &amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="_insights_str_cat_8h_source.html#l00123">InsightsStrCat.h:123</a></div></div>
 <div class="ttc" id="anamespaceclang_html"><div class="ttname"><a href="namespaceclang.html">clang</a></div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00020">ASTHelpers.cpp:20</a></div></div>
 <div class="ttc" id="astruct_insights_options_html"><div class="ttname"><a href="struct_insights_options.html">InsightsOptions</a></div><div class="ttdoc">Global C++ Insights command line options.</div><div class="ttdef"><b>Definition</b> <a href="_insights_8h_source.html#l00019">Insights.h:20</a></div></div>

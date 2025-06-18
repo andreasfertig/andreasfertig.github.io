@@ -42,21 +42,11 @@ $(function() {
 <div class="textblock"><p>Show transformations of coroutines.</p>
 <p><b>Default:</b> Off</p>
 <p><b>Examples:</b></p>
-<div class="fragment"><div class="line"><span class="preprocessor">#if __has_include(&lt;coroutine&gt;)</span></div>
-<div class="line"><span class="preprocessor">#include &lt;coroutine&gt;</span></div>
-<div class="line"><span class="preprocessor">#elif __has_include(&lt;experimental/coroutine&gt;)</span></div>
-<div class="line"><span class="preprocessor">#include &lt;experimental/coroutine&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>std {</div>
-<div class="line"><span class="keyword">using namespace </span>std::experimental;</div>
-<div class="line">}</div>
-<div class="line"><span class="preprocessor">#else</span></div>
-<div class="line"><span class="preprocessor">#error &quot;No coroutine header&quot;</span></div>
-<div class="line"><span class="preprocessor">#endif</span></div>
-<div class="line"> </div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;coroutine&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;exception&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;new&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;utility&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">struct </span>generator</div>
 <div class="line">{</div>
@@ -79,7 +69,7 @@ $(function() {
 <div class="line"> </div>
 <div class="line">    generator(generator <span class="keyword">const</span>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line">    generator(generator&amp;&amp; rhs)</div>
-<div class="line">    : p{std::exchange(rhs.p, nullptr)}</div>
+<div class="line">    : handle{std::exchange(rhs.handle, nullptr)}</div>
 <div class="line">    {</div>
 <div class="line">    }</div>
 <div class="line"> </div>
@@ -138,10 +128,10 @@ $(function() {
 <div class="line"><span class="comment"> *       Most of it is _not_ present in the AST. What you see is an approximation.   *</span></div>
 <div class="line"><span class="comment"> *************************************************************************************/</span></div>
 <div class="line"><span class="preprocessor">#include &lt;coroutine&gt;</span></div>
-<div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;exception&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;new&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;utility&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">struct </span>generator</div>
 <div class="line">{</div>
