@@ -519,441 +519,451 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>        <span class="keyword">false</span>,</div>
 <div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>        <span class="keyword">false</span>,</div>
 <div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>        ConstexprSpecKind::Unspecified,</div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>        <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>    fdd-&gt;setImplicit(<span class="keyword">true</span>);</div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span> </div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>    SmallVector&lt;ParmVarDecl*, 8&gt; paramVarDecls{};</div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span> </div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [name, type] : parameters) {</div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>        ParmVarDecl* param = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#aefdb647034d4b696f302debff0142726">Parameter</a>(fdd, name, type);</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>        param-&gt;setScopeInfo(0, 0);</div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>        paramVarDecls.push_back(param);</div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    }</div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span> </div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>    fdd-&gt;setParams(paramVarDecls);</div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span> </div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>    <span class="keywordflow">return</span> fdd;</div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>}</div>
-</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>#<span class="keywordflow">if</span> <a class="code hl_define" href="_clang_compat_8h.html#a90b4207557ef1835854e0d04c8cd6515">IS_CLANG_NEWER_THAN</a>(20)</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>        AssociatedConstraint {}</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>        <span class="keyword">nullptr</span></div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>    );</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    fdd-&gt;setImplicit(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span> </div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    SmallVector&lt;ParmVarDecl*, 8&gt; paramVarDecls{};</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span> </div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [name, type] : parameters) {</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>        ParmVarDecl* param = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#aefdb647034d4b696f302debff0142726">Parameter</a>(fdd, name, type);</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>        param-&gt;setScopeInfo(0, 0);</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>        paramVarDecls.push_back(param);</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    }</div>
 <div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span> </div>
-<div class="foldopen" id="foldopen00404" data-start="{" data-end="}">
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#adba86b8ac1e70d673420ad8601017875">  404</a></span>FunctionDecl* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#adba86b8ac1e70d673420ad8601017875">Function</a>(std::string_view name, QualType returnType, <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a>&amp; parameters)</div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>{</div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#aa514ec6f592ec21025c51a892fe57953">FunctionBase</a>(name, returnType, parameters, <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>().getTranslationUnitDecl());</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>    fdd-&gt;setParams(paramVarDecls);</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>    <span class="keywordflow">return</span> fdd;</div>
 <div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>}</div>
 </div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span> </div>
-<div class="foldopen" id="foldopen00410" data-start="{" data-end="}">
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a0592deaa2f73804435ad3d3dfb8e6124">  410</a></span><span class="keyword">auto</span>* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a0592deaa2f73804435ad3d3dfb8e6124">mkStdFunctionDecl</a>(std::string_view name, QualType returnType, <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a>&amp; parameters)</div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>{</div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    <span class="keyword">auto</span>&amp;          ctx   = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>();</div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>    NamespaceDecl* stdNs = NamespaceDecl::Create(<span class="keyword">const_cast&lt;</span>ASTContext&amp;<span class="keyword">&gt;</span>(ctx),</div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>                                                 ctx.getTranslationUnitDecl(),</div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>                                                 <span class="keyword">false</span>,</div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>                                                 {},</div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>                                                 {},</div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>                                                 &amp;ctx.Idents.get(<span class="stringliteral">&quot;std&quot;</span>),</div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>                                                 <span class="keyword">nullptr</span>,</div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>                                                 <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span> </div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#aa514ec6f592ec21025c51a892fe57953">FunctionBase</a>(name, returnType, parameters, stdNs);</div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>}</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span> </div>
+<div class="foldopen" id="foldopen00409" data-start="{" data-end="}">
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#adba86b8ac1e70d673420ad8601017875">  409</a></span>FunctionDecl* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#adba86b8ac1e70d673420ad8601017875">Function</a>(std::string_view name, QualType returnType, <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a>&amp; parameters)</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>{</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#aa514ec6f592ec21025c51a892fe57953">FunctionBase</a>(name, returnType, parameters, <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>().getTranslationUnitDecl());</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>}</div>
 </div>
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span> </div>
-<div class="foldopen" id="foldopen00426" data-start="{" data-end="}">
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">  426</a></span>DeclRefExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">mkDeclRefExpr</a>(<span class="keyword">const</span> ValueDecl* vd)</div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>{</div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>    <span class="keywordflow">return</span> DeclRefExpr::Create(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>(),</div>
-<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>                               NestedNameSpecifierLoc{},</div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>                               SourceLocation{},</div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>                               <span class="keyword">const_cast&lt;</span>ValueDecl*<span class="keyword">&gt;</span>(vd),</div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>                               <span class="keyword">false</span>,</div>
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>                               SourceLocation{},</div>
-<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>                               vd-&gt;getType(),</div>
-<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>                               VK_LValue,</div>
-<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>                               <span class="keyword">nullptr</span>,</div>
-<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>                               <span class="keyword">nullptr</span>,</div>
-<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>                               NOUR_None);</div>
-<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>}</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span> </div>
+<div class="foldopen" id="foldopen00415" data-start="{" data-end="}">
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a0592deaa2f73804435ad3d3dfb8e6124">  415</a></span><span class="keyword">auto</span>* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a0592deaa2f73804435ad3d3dfb8e6124">mkStdFunctionDecl</a>(std::string_view name, QualType returnType, <span class="keyword">const</span> <a class="code hl_typedef" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a>&amp; parameters)</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>{</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    <span class="keyword">auto</span>&amp;          ctx   = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>();</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>    NamespaceDecl* stdNs = NamespaceDecl::Create(<span class="keyword">const_cast&lt;</span>ASTContext&amp;<span class="keyword">&gt;</span>(ctx),</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>                                                 ctx.getTranslationUnitDecl(),</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>                                                 <span class="keyword">false</span>,</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>                                                 {},</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>                                                 {},</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>                                                 &amp;ctx.Idents.get(<span class="stringliteral">&quot;std&quot;</span>),</div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>                                                 <span class="keyword">nullptr</span>,</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>                                                 <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span> </div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#aa514ec6f592ec21025c51a892fe57953">FunctionBase</a>(name, returnType, parameters, stdNs);</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>}</div>
 </div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span> </div>
-<div class="foldopen" id="foldopen00442" data-start="{" data-end="}">
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#aece324f96b4e1c067dd03457ad0ae795">  442</a></span>ImplicitCastExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#aece324f96b4e1c067dd03457ad0ae795">CastLToRValue</a>(<span class="keyword">const</span> VarDecl* vd)</div>
-<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>{</div>
-<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>    <span class="keywordflow">return</span> ImplicitCastExpr::Create(</div>
-<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>        <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>(), vd-&gt;getType(), CK_LValueToRValue, <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">mkDeclRefExpr</a>(vd), {}, VK_LValue, {});</div>
-<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>}</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span> </div>
+<div class="foldopen" id="foldopen00431" data-start="{" data-end="}">
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">  431</a></span>DeclRefExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">mkDeclRefExpr</a>(<span class="keyword">const</span> ValueDecl* vd)</div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>{</div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>    <span class="keywordflow">return</span> DeclRefExpr::Create(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>(),</div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>                               NestedNameSpecifierLoc{},</div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>                               SourceLocation{},</div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>                               <span class="keyword">const_cast&lt;</span>ValueDecl*<span class="keyword">&gt;</span>(vd),</div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>                               <span class="keyword">false</span>,</div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>                               SourceLocation{},</div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>                               vd-&gt;getType(),</div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>                               VK_LValue,</div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>                               <span class="keyword">nullptr</span>,</div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>                               <span class="keyword">nullptr</span>,</div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>                               NOUR_None);</div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>}</div>
 </div>
-<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span> </div>
-<div class="foldopen" id="foldopen00449" data-start="{" data-end="}">
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#afcfe000266b8240d47825203181e817a">  449</a></span>CXXMemberCallExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#afcfe000266b8240d47825203181e817a">CallMemberFun</a>(Expr* memExpr, QualType retType <span class="comment">/*, const std::vector&lt;Expr*&gt;&amp; params*/</span>)</div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>{</div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>    <span class="keywordflow">return</span> CXXMemberCallExpr::Create(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>(), memExpr, <span class="comment">/*params*/</span> {}, retType, VK_LValue, {}, {});</div>
-<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>}</div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span> </div>
+<div class="foldopen" id="foldopen00447" data-start="{" data-end="}">
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#aece324f96b4e1c067dd03457ad0ae795">  447</a></span>ImplicitCastExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#aece324f96b4e1c067dd03457ad0ae795">CastLToRValue</a>(<span class="keyword">const</span> VarDecl* vd)</div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>{</div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>    <span class="keywordflow">return</span> ImplicitCastExpr::Create(</div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>        <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>(), vd-&gt;getType(), CK_LValueToRValue, <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">mkDeclRefExpr</a>(vd), {}, VK_LValue, {});</div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>}</div>
 </div>
-<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span> </div>
-<div class="foldopen" id="foldopen00455" data-start="{" data-end="}">
-<div class="line"><a id="l00455" name="l00455"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a770b41401ec718ccdd44baa001fcaadb">  455</a></span>ReturnStmt* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a770b41401ec718ccdd44baa001fcaadb">Return</a>(Expr* stmt)</div>
-<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>{</div>
-<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>    <span class="keywordflow">return</span> ReturnStmt::Create(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>(), {}, stmt, <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>}</div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span> </div>
+<div class="foldopen" id="foldopen00454" data-start="{" data-end="}">
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#afcfe000266b8240d47825203181e817a">  454</a></span>CXXMemberCallExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#afcfe000266b8240d47825203181e817a">CallMemberFun</a>(Expr* memExpr, QualType retType <span class="comment">/*, const std::vector&lt;Expr*&gt;&amp; params*/</span>)</div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>{</div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>    <span class="keywordflow">return</span> CXXMemberCallExpr::Create(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>(), memExpr, <span class="comment">/*params*/</span> {}, retType, VK_LValue, {}, {});</div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>}</div>
 </div>
-<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span> </div>
-<div class="foldopen" id="foldopen00461" data-start="{" data-end="}">
-<div class="line"><a id="l00461" name="l00461"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#ac8bbffd40d0d6727d73883029062a972">  461</a></span>ReturnStmt* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a770b41401ec718ccdd44baa001fcaadb">Return</a>(<span class="keyword">const</span> ValueDecl* stmt)</div>
-<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>{</div>
-<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a770b41401ec718ccdd44baa001fcaadb">Return</a>(<a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">mkDeclRefExpr</a>(stmt));</div>
-<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span>}</div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span> </div>
+<div class="foldopen" id="foldopen00460" data-start="{" data-end="}">
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a770b41401ec718ccdd44baa001fcaadb">  460</a></span>ReturnStmt* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a770b41401ec718ccdd44baa001fcaadb">Return</a>(Expr* stmt)</div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>{</div>
+<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>    <span class="keywordflow">return</span> ReturnStmt::Create(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>(), {}, stmt, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span>}</div>
 </div>
-<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span> </div>
-<div class="foldopen" id="foldopen00467" data-start="{" data-end="}">
-<div class="line"><a id="l00467" name="l00467"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#ae4a11bc238a5761be1e4d72d692007d8">  467</a></span>SwitchStmt* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#ae4a11bc238a5761be1e4d72d692007d8">Switch</a>(Expr* stmt)</div>
-<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span>{</div>
-<div class="line"><a id="l00469" name="l00469"></a><span class="lineno">  469</span>    <span class="keywordflow">return</span> SwitchStmt::Create(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>(), <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, stmt, {}, {});</div>
-<div class="line"><a id="l00470" name="l00470"></a><span class="lineno">  470</span>}</div>
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span> </div>
+<div class="foldopen" id="foldopen00466" data-start="{" data-end="}">
+<div class="line"><a id="l00466" name="l00466"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#ac8bbffd40d0d6727d73883029062a972">  466</a></span>ReturnStmt* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a770b41401ec718ccdd44baa001fcaadb">Return</a>(<span class="keyword">const</span> ValueDecl* stmt)</div>
+<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span>{</div>
+<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a770b41401ec718ccdd44baa001fcaadb">Return</a>(<a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">mkDeclRefExpr</a>(stmt));</div>
+<div class="line"><a id="l00469" name="l00469"></a><span class="lineno">  469</span>}</div>
 </div>
-<div class="line"><a id="l00471" name="l00471"></a><span class="lineno">  471</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00472" name="l00472"></a><span class="lineno">  472</span> </div>
-<div class="foldopen" id="foldopen00473" data-start="{" data-end="}">
-<div class="line"><a id="l00473" name="l00473"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a49c378ab01073608a675dcc8b8a5c850">  473</a></span>BreakStmt* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a49c378ab01073608a675dcc8b8a5c850">Break</a>()</div>
-<div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span>{</div>
-<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>()) BreakStmt(SourceLocation{});</div>
-<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span>}</div>
+<div class="line"><a id="l00470" name="l00470"></a><span class="lineno">  470</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00471" name="l00471"></a><span class="lineno">  471</span> </div>
+<div class="foldopen" id="foldopen00472" data-start="{" data-end="}">
+<div class="line"><a id="l00472" name="l00472"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#ae4a11bc238a5761be1e4d72d692007d8">  472</a></span>SwitchStmt* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#ae4a11bc238a5761be1e4d72d692007d8">Switch</a>(Expr* stmt)</div>
+<div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span>{</div>
+<div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span>    <span class="keywordflow">return</span> SwitchStmt::Create(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>(), <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, stmt, {}, {});</div>
+<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span>}</div>
 </div>
-<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span> </div>
-<div class="foldopen" id="foldopen00479" data-start="{" data-end="}">
-<div class="line"><a id="l00479" name="l00479"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a7c2f9d793d7af2e3b636bc3a365f7c0b">  479</a></span>CaseStmt* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a7c2f9d793d7af2e3b636bc3a365f7c0b">Case</a>(<span class="keywordtype">int</span> value, <a class="code hl_class" href="class_stmt.html">Stmt</a>* stmt)</div>
-<div class="line"><a id="l00480" name="l00480"></a><span class="lineno">  480</span>{</div>
-<div class="line"><a id="l00481" name="l00481"></a><span class="lineno">  481</span>    <span class="keyword">auto</span>* caseStmt = CaseStmt::Create(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>(), <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#ae89f7aee5c31e06e95088536e3c36ce1">Int32</a>(value), <span class="keyword">nullptr</span>, {}, {}, {});</div>
-<div class="line"><a id="l00482" name="l00482"></a><span class="lineno">  482</span>    caseStmt-&gt;setSubStmt(stmt);</div>
+<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span> </div>
+<div class="foldopen" id="foldopen00478" data-start="{" data-end="}">
+<div class="line"><a id="l00478" name="l00478"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a49c378ab01073608a675dcc8b8a5c850">  478</a></span>BreakStmt* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a49c378ab01073608a675dcc8b8a5c850">Break</a>()</div>
+<div class="line"><a id="l00479" name="l00479"></a><span class="lineno">  479</span>{</div>
+<div class="line"><a id="l00480" name="l00480"></a><span class="lineno">  480</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>()) BreakStmt(SourceLocation{});</div>
+<div class="line"><a id="l00481" name="l00481"></a><span class="lineno">  481</span>}</div>
+</div>
+<div class="line"><a id="l00482" name="l00482"></a><span class="lineno">  482</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00483" name="l00483"></a><span class="lineno">  483</span> </div>
-<div class="line"><a id="l00484" name="l00484"></a><span class="lineno">  484</span>    <span class="keywordflow">return</span> caseStmt;</div>
-<div class="line"><a id="l00485" name="l00485"></a><span class="lineno">  485</span>}</div>
+<div class="foldopen" id="foldopen00484" data-start="{" data-end="}">
+<div class="line"><a id="l00484" name="l00484"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a7c2f9d793d7af2e3b636bc3a365f7c0b">  484</a></span>CaseStmt* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a7c2f9d793d7af2e3b636bc3a365f7c0b">Case</a>(<span class="keywordtype">int</span> value, <a class="code hl_class" href="class_stmt.html">Stmt</a>* stmt)</div>
+<div class="line"><a id="l00485" name="l00485"></a><span class="lineno">  485</span>{</div>
+<div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span>    <span class="keyword">auto</span>* caseStmt = CaseStmt::Create(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>(), <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#ae89f7aee5c31e06e95088536e3c36ce1">Int32</a>(value), <span class="keyword">nullptr</span>, {}, {}, {});</div>
+<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span>    caseStmt-&gt;setSubStmt(stmt);</div>
+<div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span> </div>
+<div class="line"><a id="l00489" name="l00489"></a><span class="lineno">  489</span>    <span class="keywordflow">return</span> caseStmt;</div>
+<div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span>}</div>
 </div>
-<div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span> </div>
-<div class="foldopen" id="foldopen00488" data-start="{" data-end="}">
-<div class="line"><a id="l00488" name="l00488"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a5cfb143b9ab54ea300b1fc27694b267d">  488</a></span>VarDecl* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a5cfb143b9ab54ea300b1fc27694b267d">Variable</a>(std::string_view name, QualType type, DeclContext* dc)</div>
-<div class="line"><a id="l00489" name="l00489"></a><span class="lineno">  489</span>{</div>
-<div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span>    <span class="keyword">auto</span>&amp; ctx = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>();</div>
-<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span> </div>
-<div class="line"><a id="l00492" name="l00492"></a><span class="lineno">  492</span>    <span class="keywordflow">if</span>(<span class="keyword">nullptr</span> == dc) {</div>
-<div class="line"><a id="l00493" name="l00493"></a><span class="lineno">  493</span>        dc = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>().getTranslationUnitDecl();</div>
-<div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span>    }</div>
-<div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span> </div>
-<div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span>    <span class="keywordflow">return</span> VarDecl::Create(<span class="keyword">const_cast&lt;</span>ASTContext&amp;<span class="keyword">&gt;</span>(ctx), dc, {}, {}, &amp;ctx.Idents.get(name), type, <span class="keyword">nullptr</span>, SC_None);</div>
-<div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span>}</div>
+<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00492" name="l00492"></a><span class="lineno">  492</span> </div>
+<div class="foldopen" id="foldopen00493" data-start="{" data-end="}">
+<div class="line"><a id="l00493" name="l00493"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a5cfb143b9ab54ea300b1fc27694b267d">  493</a></span>VarDecl* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a5cfb143b9ab54ea300b1fc27694b267d">Variable</a>(std::string_view name, QualType type, DeclContext* dc)</div>
+<div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span>{</div>
+<div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span>    <span class="keyword">auto</span>&amp; ctx = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>();</div>
+<div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span> </div>
+<div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span>    <span class="keywordflow">if</span>(<span class="keyword">nullptr</span> == dc) {</div>
+<div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>        dc = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>().getTranslationUnitDecl();</div>
+<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>    }</div>
+<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span> </div>
+<div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>    <span class="keywordflow">return</span> VarDecl::Create(<span class="keyword">const_cast&lt;</span>ASTContext&amp;<span class="keyword">&gt;</span>(ctx), dc, {}, {}, &amp;ctx.Idents.get(name), type, <span class="keyword">nullptr</span>, SC_None);</div>
+<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>}</div>
 </div>
-<div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span> </div>
-<div class="foldopen" id="foldopen00500" data-start="{" data-end="}">
-<div class="line"><a id="l00500" name="l00500"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a41dbaab5ec5bfaafda9126fedc0c9797">  500</a></span>NullStmt* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a41dbaab5ec5bfaafda9126fedc0c9797">mkNullStmt</a>()</div>
-<div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>{</div>
-<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>    <span class="keyword">static</span> <span class="keyword">auto</span>* nstmt = <span class="keyword">new</span>(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>()) NullStmt({}, <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>    <span class="keywordflow">return</span> nstmt;</div>
-<div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span>}</div>
+<div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span> </div>
+<div class="foldopen" id="foldopen00505" data-start="{" data-end="}">
+<div class="line"><a id="l00505" name="l00505"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a41dbaab5ec5bfaafda9126fedc0c9797">  505</a></span>NullStmt* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a41dbaab5ec5bfaafda9126fedc0c9797">mkNullStmt</a>()</div>
+<div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span>{</div>
+<div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span>    <span class="keyword">static</span> <span class="keyword">auto</span>* nstmt = <span class="keyword">new</span>(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>()) NullStmt({}, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>    <span class="keywordflow">return</span> nstmt;</div>
+<div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span>}</div>
 </div>
-<div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span> </div>
-<div class="foldopen" id="foldopen00507" data-start="{" data-end="}">
-<div class="line"><a id="l00507" name="l00507"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a85cb26e9f1583857ef0dd33eae3c0b35">  507</a></span><a class="code hl_class" href="class_stmt.html">Stmt</a>* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a85cb26e9f1583857ef0dd33eae3c0b35">Comment</a>(std::string_view comment)</div>
-<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span>{</div>
-<div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>()) <a class="code hl_class" href="classclang_1_1insights_1_1_cpp_insights_comment_stmt.html">CppInsightsCommentStmt</a>{comment};</div>
-<div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span>}</div>
+<div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span> </div>
+<div class="foldopen" id="foldopen00512" data-start="{" data-end="}">
+<div class="line"><a id="l00512" name="l00512"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a85cb26e9f1583857ef0dd33eae3c0b35">  512</a></span><a class="code hl_class" href="class_stmt.html">Stmt</a>* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a85cb26e9f1583857ef0dd33eae3c0b35">Comment</a>(std::string_view comment)</div>
+<div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span>{</div>
+<div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>()) <a class="code hl_class" href="classclang_1_1insights_1_1_cpp_insights_comment_stmt.html">CppInsightsCommentStmt</a>{comment};</div>
+<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>}</div>
 </div>
-<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span> </div>
-<div class="foldopen" id="foldopen00513" data-start="{" data-end="}">
-<div class="line"><a id="l00513" name="l00513"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a1b79e1f462192ae5a58b5745a038dd48">  513</a></span>CXXRecordDecl* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a1b79e1f462192ae5a58b5745a038dd48">Struct</a>(std::string_view name)</div>
-<div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span>{</div>
-<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>    <span class="keyword">auto</span> getRecord = [&amp;] {</div>
-<div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>        <span class="keyword">auto</span>&amp; ctx = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>();</div>
+<div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span> </div>
-<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>        <span class="keywordflow">return</span> CXXRecordDecl::Create(</div>
-<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>            ctx, TagTypeKind::Struct, ctx.getTranslationUnitDecl(), {}, {}, &amp;ctx.Idents.get(name), <span class="keyword">nullptr</span>, <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>    };</div>
-<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span> </div>
-<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span>    <span class="keyword">auto</span>* rd = getRecord();</div>
-<div class="line"><a id="l00523" name="l00523"></a><span class="lineno">  523</span>    rd-&gt;startDefinition();</div>
-<div class="line"><a id="l00524" name="l00524"></a><span class="lineno">  524</span> </div>
-<div class="line"><a id="l00525" name="l00525"></a><span class="lineno">  525</span>    <span class="comment">// A &quot;normal&quot; struct has itself attached as a Decl. To make everything work do the same thing here</span></div>
-<div class="line"><a id="l00526" name="l00526"></a><span class="lineno">  526</span>    <span class="keyword">auto</span>* selfDecl = getRecord();</div>
-<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>    selfDecl-&gt;setAccess(AS_public);</div>
-<div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>    rd-&gt;addDecl(selfDecl);</div>
+<div class="foldopen" id="foldopen00518" data-start="{" data-end="}">
+<div class="line"><a id="l00518" name="l00518"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a1b79e1f462192ae5a58b5745a038dd48">  518</a></span>CXXRecordDecl* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a1b79e1f462192ae5a58b5745a038dd48">Struct</a>(std::string_view name)</div>
+<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>{</div>
+<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>    <span class="keyword">auto</span> getRecord = [&amp;] {</div>
+<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span>        <span class="keyword">auto</span>&amp; ctx = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>();</div>
+<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span> </div>
+<div class="line"><a id="l00523" name="l00523"></a><span class="lineno">  523</span>        <span class="keywordflow">return</span> CXXRecordDecl::Create(</div>
+<div class="line"><a id="l00524" name="l00524"></a><span class="lineno">  524</span>            ctx, TagTypeKind::Struct, ctx.getTranslationUnitDecl(), {}, {}, &amp;ctx.Idents.get(name), <span class="keyword">nullptr</span>, <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00525" name="l00525"></a><span class="lineno">  525</span>    };</div>
+<div class="line"><a id="l00526" name="l00526"></a><span class="lineno">  526</span> </div>
+<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>    <span class="keyword">auto</span>* rd = getRecord();</div>
+<div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>    rd-&gt;startDefinition();</div>
 <div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span> </div>
-<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>    <span class="keywordflow">return</span> rd;</div>
-<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span>}</div>
+<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>    <span class="comment">// A &quot;normal&quot; struct has itself attached as a Decl. To make everything work do the same thing here</span></div>
+<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span>    <span class="keyword">auto</span>* selfDecl = getRecord();</div>
+<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span>    selfDecl-&gt;setAccess(AS_public);</div>
+<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>    rd-&gt;addDecl(selfDecl);</div>
+<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span> </div>
+<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span>    <span class="keywordflow">return</span> rd;</div>
+<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span>}</div>
 </div>
-<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span> </div>
-<div class="foldopen" id="foldopen00534" data-start="{" data-end="}">
-<div class="line"><a id="l00534" name="l00534"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a20cd9e503e099ec18aa0294df02803d5">  534</a></span>FieldDecl* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a20cd9e503e099ec18aa0294df02803d5">mkFieldDecl</a>(DeclContext* dc, std::string_view name, QualType type)</div>
-<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span>{</div>
-<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span>    <span class="keyword">auto</span>&amp; ctx = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>();</div>
-<div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span>    <span class="keyword">auto</span>* fieldDecl =</div>
-<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span>        FieldDecl::Create(ctx, dc, {}, {}, &amp;ctx.Idents.get(name), type, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">false</span>, ICIS_NoInit);</div>
-<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>    fieldDecl-&gt;setAccess(AS_public);</div>
-<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span> </div>
-<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>    <span class="keywordflow">return</span> fieldDecl;</div>
-<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>}</div>
+<div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span> </div>
+<div class="foldopen" id="foldopen00539" data-start="{" data-end="}">
+<div class="line"><a id="l00539" name="l00539"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a20cd9e503e099ec18aa0294df02803d5">  539</a></span>FieldDecl* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a20cd9e503e099ec18aa0294df02803d5">mkFieldDecl</a>(DeclContext* dc, std::string_view name, QualType type)</div>
+<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span>{</div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>    <span class="keyword">auto</span>&amp; ctx = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>();</div>
+<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>    <span class="keyword">auto</span>* fieldDecl =</div>
+<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span>        FieldDecl::Create(ctx, dc, {}, {}, &amp;ctx.Idents.get(name), type, <span class="keyword">nullptr</span>, <span class="keyword">nullptr</span>, <span class="keyword">false</span>, ICIS_NoInit);</div>
+<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span>    fieldDecl-&gt;setAccess(AS_public);</div>
+<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span> </div>
+<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>    <span class="keywordflow">return</span> fieldDecl;</div>
+<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>}</div>
 </div>
-<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span> </div>
-<div class="foldopen" id="foldopen00545" data-start="{" data-end="}">
-<div class="line"><a id="l00545" name="l00545"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#aa4d9fa1dca3872606fbfdc5b406d0705">  545</a></span>InitListExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#aa4d9fa1dca3872606fbfdc5b406d0705">InitList</a>(ArrayRef&lt;Expr*&gt; initExprs, QualType t)</div>
-<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>{</div>
-<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>    <span class="keyword">auto</span>* initList = <span class="keyword">new</span>(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>()) InitListExpr(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>(), SourceLocation{}, initExprs, SourceLocation{});</div>
-<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>    initList-&gt;setType(t);</div>
+<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span> </div>
-<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>    <span class="keywordflow">return</span> initList;</div>
-<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>}</div>
+<div class="foldopen" id="foldopen00550" data-start="{" data-end="}">
+<div class="line"><a id="l00550" name="l00550"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#aa4d9fa1dca3872606fbfdc5b406d0705">  550</a></span>InitListExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#aa4d9fa1dca3872606fbfdc5b406d0705">InitList</a>(ArrayRef&lt;Expr*&gt; initExprs, QualType t)</div>
+<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>{</div>
+<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>    <span class="keyword">auto</span>* initList = <span class="keyword">new</span>(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>()) InitListExpr(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>(), SourceLocation{}, initExprs, SourceLocation{});</div>
+<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>    initList-&gt;setType(t);</div>
+<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span> </div>
+<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>    <span class="keywordflow">return</span> initList;</div>
+<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>}</div>
 </div>
-<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span> </div>
-<div class="foldopen" id="foldopen00554" data-start="{" data-end="}">
-<div class="line"><a id="l00554" name="l00554"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a68c13104130240f3eca5aa4b689b6725">  554</a></span>ArraySubscriptExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a68c13104130240f3eca5aa4b689b6725">ArraySubscript</a>(<span class="keyword">const</span> Expr* lhs, uint64_t index, QualType type)</div>
-<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>{</div>
-<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>()) ArraySubscriptExpr(</div>
-<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>        <span class="keyword">const_cast&lt;</span>Expr*<span class="keyword">&gt;</span>(lhs), <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#ae89f7aee5c31e06e95088536e3c36ce1">Int32</a>(index), type, ExprValueKind::VK_LValue, ExprObjectKind::OK_Ordinary, {});</div>
-<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span>}</div>
+<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span> </div>
+<div class="foldopen" id="foldopen00559" data-start="{" data-end="}">
+<div class="line"><a id="l00559" name="l00559"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a68c13104130240f3eca5aa4b689b6725">  559</a></span>ArraySubscriptExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a68c13104130240f3eca5aa4b689b6725">ArraySubscript</a>(<span class="keyword">const</span> Expr* lhs, uint64_t index, QualType type)</div>
+<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span>{</div>
+<div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>(<a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>()) ArraySubscriptExpr(</div>
+<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>        <span class="keyword">const_cast&lt;</span>Expr*<span class="keyword">&gt;</span>(lhs), <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#ae89f7aee5c31e06e95088536e3c36ce1">Int32</a>(index), type, ExprValueKind::VK_LValue, ExprObjectKind::OK_Ordinary, {});</div>
+<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span>}</div>
 </div>
-<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span> </div>
-<div class="foldopen" id="foldopen00561" data-start="{" data-end="}">
-<div class="line"><a id="l00561" name="l00561"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a248c0c60ccd924e6909315ee09acd7c2">  561</a></span><a class="code hl_typedef" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a248c0c60ccd924e6909315ee09acd7c2">to_params_view</a>(<a class="code hl_typedef" href="namespaceclang_1_1insights_1_1asthelpers.html#ad293ff2b0364e1ee761750e2ee67b939">params_store</a>&amp; params)</div>
-<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>{</div>
-<div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span>    <a class="code hl_typedef" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a> ret{};</div>
-<div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>    ret.reserve(params.size());</div>
+<div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span> </div>
-<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span>    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [name, type] : params) {</div>
-<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>        ret.emplace_back(name, type);</div>
-<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>    }</div>
-<div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span> </div>
-<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span>    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span>}</div>
+<div class="foldopen" id="foldopen00566" data-start="{" data-end="}">
+<div class="line"><a id="l00566" name="l00566"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a248c0c60ccd924e6909315ee09acd7c2">  566</a></span><a class="code hl_typedef" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a248c0c60ccd924e6909315ee09acd7c2">to_params_view</a>(<a class="code hl_typedef" href="namespaceclang_1_1insights_1_1asthelpers.html#ad293ff2b0364e1ee761750e2ee67b939">params_store</a>&amp; params)</div>
+<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>{</div>
+<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>    <a class="code hl_typedef" href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">params_vector</a> ret{};</div>
+<div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span>    ret.reserve(params.size());</div>
+<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span> </div>
+<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span>    <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [name, type] : params) {</div>
+<div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span>        ret.emplace_back(name, type);</div>
+<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span>    }</div>
+<div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span> </div>
+<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span>    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span>}</div>
 </div>
-<div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span> </div>
-<div class="foldopen" id="foldopen00574" data-start="{" data-end="}">
-<div class="line"><a id="l00574" name="l00574"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a5f7a602024e1bbb5b68fcb1742b9bb15">  574</a></span>DeclRefExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a5f7a602024e1bbb5b68fcb1742b9bb15">mkVarDeclRefExpr</a>(std::string_view name, QualType type)</div>
-<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span>{</div>
-<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span>    <span class="keyword">auto</span>* internalThisVar = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a5cfb143b9ab54ea300b1fc27694b267d">Variable</a>(name, type);</div>
-<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span>    <span class="keyword">auto</span>* declRef         = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">mkDeclRefExpr</a>(internalThisVar);</div>
+<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span> </div>
-<div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span>    <span class="keywordflow">return</span> declRef;</div>
-<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span>}</div>
+<div class="foldopen" id="foldopen00579" data-start="{" data-end="}">
+<div class="line"><a id="l00579" name="l00579"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a5f7a602024e1bbb5b68fcb1742b9bb15">  579</a></span>DeclRefExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a5f7a602024e1bbb5b68fcb1742b9bb15">mkVarDeclRefExpr</a>(std::string_view name, QualType type)</div>
+<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span>{</div>
+<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span>    <span class="keyword">auto</span>* internalThisVar = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a5cfb143b9ab54ea300b1fc27694b267d">Variable</a>(name, type);</div>
+<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span>    <span class="keyword">auto</span>* declRef         = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">mkDeclRefExpr</a>(internalThisVar);</div>
+<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span> </div>
+<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>    <span class="keywordflow">return</span> declRef;</div>
+<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span>}</div>
 </div>
-<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span> </div>
-<div class="foldopen" id="foldopen00583" data-start="{" data-end="}">
-<div class="line"><a id="l00583" name="l00583"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a6131dde13e90e8b80cbb78c71f4c3587">  583</a></span><span class="keyword">static</span> CallExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a6131dde13e90e8b80cbb78c71f4c3587">CallConstructor</a>(QualType        ctorType,</div>
-<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>                                 DeclRefExpr*    lhsDeclRef,</div>
-<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span>                                 Expr*           lhsMemberExpr,</div>
-<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span>                                 ArrayRef&lt;Expr*&gt; callParams,</div>
-<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span>                                 DoCast          doCast,</div>
-<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span>                                 AsReference     asReference)</div>
-<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span>{</div>
-<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span>    <span class="keywordflow">if</span>(<span class="keyword">nullptr</span> == lhsMemberExpr) {</div>
-<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>        lhsMemberExpr = lhsDeclRef;</div>
-<div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span>    }</div>
-<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span> </div>
-<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>    <span class="keyword">auto</span>* callCtor =</div>
-<div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span>        <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a0c7a09731d6f3202cc1b04d513b33743">CreateFunctionDecl</a>(<a class="code hl_function" href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">StrCat</a>(<span class="stringliteral">&quot;Constructor_&quot;</span>sv, <a class="code hl_function" href="namespaceclang_1_1insights.html#a48f28e34f3abfc59c28aa3ba788fc08e">GetName</a>(ctorType)), {{<a class="code hl_variable" href="_insights_static_strings_8h.html#aba250ab7cd90f77f9e04e5b5d869c80f">kwInternalThis</a>, lhsDeclRef-&gt;getType()}});</div>
-<div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span> </div>
-<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span>    SmallVector&lt;Expr*, 8&gt; modCallParams{};</div>
+<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span> </div>
+<div class="foldopen" id="foldopen00588" data-start="{" data-end="}">
+<div class="line"><a id="l00588" name="l00588"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a6131dde13e90e8b80cbb78c71f4c3587">  588</a></span><span class="keyword">static</span> CallExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a6131dde13e90e8b80cbb78c71f4c3587">CallConstructor</a>(QualType        ctorType,</div>
+<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span>                                 DeclRefExpr*    lhsDeclRef,</div>
+<div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span>                                 Expr*           lhsMemberExpr,</div>
+<div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>                                 ArrayRef&lt;Expr*&gt; callParams,</div>
+<div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span>                                 DoCast          doCast,</div>
+<div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>                                 AsReference     asReference)</div>
+<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>{</div>
+<div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span>    <span class="keywordflow">if</span>(<span class="keyword">nullptr</span> == lhsMemberExpr) {</div>
+<div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span>        lhsMemberExpr = lhsDeclRef;</div>
+<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span>    }</div>
 <div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span> </div>
-<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>    <span class="keywordflow">if</span>(DoCast::Yes == doCast) {</div>
-<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>        modCallParams.push_back(<a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#af5a0195b03a7fabaad32b20465d64fee">StaticCast</a>(lhsDeclRef-&gt;getType(), lhsDeclRef, <span class="keyword">false</span>));</div>
+<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>    <span class="keyword">auto</span>* callCtor =</div>
+<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>        <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a0c7a09731d6f3202cc1b04d513b33743">CreateFunctionDecl</a>(<a class="code hl_function" href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">StrCat</a>(<span class="stringliteral">&quot;Constructor_&quot;</span>sv, <a class="code hl_function" href="namespaceclang_1_1insights.html#a48f28e34f3abfc59c28aa3ba788fc08e">GetName</a>(ctorType)), {{<a class="code hl_variable" href="_insights_static_strings_8h.html#aba250ab7cd90f77f9e04e5b5d869c80f">kwInternalThis</a>, lhsDeclRef-&gt;getType()}});</div>
 <div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span> </div>
-<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>        <span class="keywordflow">if</span>(AsReference::Yes == asReference) {</div>
-<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>            modCallParams.push_back(<a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a580dad58dc6951103d6431da42625af0">Ref</a>(lhsMemberExpr));</div>
-<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>            modCallParams.push_back(lhsMemberExpr);</div>
-<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>        }</div>
-<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>    }</div>
-<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span> </div>
-<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>    modCallParams.append(callParams.begin(), callParams.end());</div>
-<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span> </div>
-<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a4b016eb63027bce5854b67a482eead43">Call</a>(callCtor, modCallParams);</div>
-<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>}</div>
+<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>    SmallVector&lt;Expr*, 8&gt; modCallParams{};</div>
+<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span> </div>
+<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>    <span class="keywordflow">if</span>(DoCast::Yes == doCast) {</div>
+<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>        modCallParams.push_back(<a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#af5a0195b03a7fabaad32b20465d64fee">StaticCast</a>(lhsDeclRef-&gt;getType(), lhsDeclRef, <span class="keyword">false</span>));</div>
+<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span> </div>
+<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>        <span class="keywordflow">if</span>(AsReference::Yes == asReference) {</div>
+<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>            modCallParams.push_back(<a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a580dad58dc6951103d6431da42625af0">Ref</a>(lhsMemberExpr));</div>
+<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>            modCallParams.push_back(lhsMemberExpr);</div>
+<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>        }</div>
+<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>    }</div>
+<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span> </div>
+<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>    modCallParams.append(callParams.begin(), callParams.end());</div>
+<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span> </div>
+<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a4b016eb63027bce5854b67a482eead43">Call</a>(callCtor, modCallParams);</div>
+<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>}</div>
 </div>
-<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span> </div>
-<div class="foldopen" id="foldopen00616" data-start="{" data-end="}">
-<div class="line"><a id="l00616" name="l00616"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a2698b1e80679b55ceee1f423ae65b6a5">  616</a></span>CallExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a6131dde13e90e8b80cbb78c71f4c3587">CallConstructor</a>(QualType         ctorType,</div>
-<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>                          QualType         lhsType,</div>
-<div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span>                          <span class="keyword">const</span> FieldDecl* fieldDecl,</div>
-<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>                          ArrayRef&lt;Expr*&gt;  callParams,</div>
-<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>                          DoCast           doCast,</div>
-<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span>                          AsReference      asReference)</div>
-<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span>{</div>
-<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span>    <span class="keyword">auto</span>* lhsDeclRef = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a5f7a602024e1bbb5b68fcb1742b9bb15">mkVarDeclRefExpr</a>(<a class="code hl_variable" href="_insights_static_strings_8h.html#aba250ab7cd90f77f9e04e5b5d869c80f">kwInternalThis</a>, lhsType);</div>
-<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>    Expr* lhsMemberExpr{};</div>
-<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span> </div>
-<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span>    <span class="keywordflow">if</span>(DoCast::No == doCast) {</div>
-<div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span>        lhsMemberExpr = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a5e9e8e8c823d79dd0d681c3f0046fae2">AccessMember</a>(lhsDeclRef, fieldDecl);</div>
-<div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span>    }</div>
-<div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span> </div>
-<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a6131dde13e90e8b80cbb78c71f4c3587">CallConstructor</a>(ctorType, lhsDeclRef, lhsMemberExpr, callParams, doCast, asReference);</div>
-<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span>}</div>
+<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span> </div>
+<div class="foldopen" id="foldopen00621" data-start="{" data-end="}">
+<div class="line"><a id="l00621" name="l00621"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a2698b1e80679b55ceee1f423ae65b6a5">  621</a></span>CallExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a6131dde13e90e8b80cbb78c71f4c3587">CallConstructor</a>(QualType         ctorType,</div>
+<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span>                          QualType         lhsType,</div>
+<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span>                          <span class="keyword">const</span> FieldDecl* fieldDecl,</div>
+<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>                          ArrayRef&lt;Expr*&gt;  callParams,</div>
+<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span>                          DoCast           doCast,</div>
+<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span>                          AsReference      asReference)</div>
+<div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span>{</div>
+<div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span>    <span class="keyword">auto</span>* lhsDeclRef = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a5f7a602024e1bbb5b68fcb1742b9bb15">mkVarDeclRefExpr</a>(<a class="code hl_variable" href="_insights_static_strings_8h.html#aba250ab7cd90f77f9e04e5b5d869c80f">kwInternalThis</a>, lhsType);</div>
+<div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span>    Expr* lhsMemberExpr{};</div>
+<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span> </div>
+<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span>    <span class="keywordflow">if</span>(DoCast::No == doCast) {</div>
+<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span>        lhsMemberExpr = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a5e9e8e8c823d79dd0d681c3f0046fae2">AccessMember</a>(lhsDeclRef, fieldDecl);</div>
+<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span>    }</div>
+<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span> </div>
+<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a6131dde13e90e8b80cbb78c71f4c3587">CallConstructor</a>(ctorType, lhsDeclRef, lhsMemberExpr, callParams, doCast, asReference);</div>
+<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span>}</div>
 </div>
-<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span> </div>
-<div class="foldopen" id="foldopen00634" data-start="{" data-end="}">
-<div class="line"><a id="l00634" name="l00634"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a493aa55d9c2749d0272a03ed519aeed0">  634</a></span>CallExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a6131dde13e90e8b80cbb78c71f4c3587">CallConstructor</a>(QualType        ctorType,</div>
-<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span>                          <span class="keyword">const</span> VarDecl*  varDecl,</div>
-<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span>                          ArrayRef&lt;Expr*&gt; callParams,</div>
-<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>                          DoCast          doCast,</div>
-<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>                          AsReference     asReference)</div>
-<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span>{</div>
-<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>    <span class="keyword">auto</span>* lhsDeclRef = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">mkDeclRefExpr</a>(varDecl);</div>
-<div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span> </div>
-<div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a6131dde13e90e8b80cbb78c71f4c3587">CallConstructor</a>(ctorType, lhsDeclRef, <span class="keyword">nullptr</span>, callParams, doCast, asReference);</div>
-<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span>}</div>
+<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span> </div>
+<div class="foldopen" id="foldopen00639" data-start="{" data-end="}">
+<div class="line"><a id="l00639" name="l00639"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a493aa55d9c2749d0272a03ed519aeed0">  639</a></span>CallExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a6131dde13e90e8b80cbb78c71f4c3587">CallConstructor</a>(QualType        ctorType,</div>
+<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>                          <span class="keyword">const</span> VarDecl*  varDecl,</div>
+<div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span>                          ArrayRef&lt;Expr*&gt; callParams,</div>
+<div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span>                          DoCast          doCast,</div>
+<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span>                          AsReference     asReference)</div>
+<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span>{</div>
+<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>    <span class="keyword">auto</span>* lhsDeclRef = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">mkDeclRefExpr</a>(varDecl);</div>
+<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span> </div>
+<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a6131dde13e90e8b80cbb78c71f4c3587">CallConstructor</a>(ctorType, lhsDeclRef, <span class="keyword">nullptr</span>, callParams, doCast, asReference);</div>
+<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span>}</div>
 </div>
-<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span> </div>
-<div class="foldopen" id="foldopen00646" data-start="{" data-end="}">
-<div class="line"><a id="l00646" name="l00646"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#ad74ad0818bf5789eab79251a9f457777">  646</a></span>CXXBoolLiteralExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#ad74ad0818bf5789eab79251a9f457777">Bool</a>(<span class="keywordtype">bool</span> b)</div>
-<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>{</div>
-<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span>    <span class="keyword">auto</span>&amp; ctx = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>();</div>
-<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>(ctx) CXXBoolLiteralExpr(b, ctx.BoolTy, {});</div>
-<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span>}</div>
+<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span> </div>
+<div class="foldopen" id="foldopen00651" data-start="{" data-end="}">
+<div class="line"><a id="l00651" name="l00651"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#ad74ad0818bf5789eab79251a9f457777">  651</a></span>CXXBoolLiteralExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#ad74ad0818bf5789eab79251a9f457777">Bool</a>(<span class="keywordtype">bool</span> b)</div>
+<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>{</div>
+<div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span>    <span class="keyword">auto</span>&amp; ctx = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>();</div>
+<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>    <span class="keywordflow">return</span> <span class="keyword">new</span>(ctx) CXXBoolLiteralExpr(b, ctx.BoolTy, {});</div>
+<div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>}</div>
 </div>
-<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span> </div>
-<div class="foldopen" id="foldopen00653" data-start="{" data-end="}">
-<div class="line"><a id="l00653" name="l00653"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#aff57f99697eaf07eb9b92532f3d38963">  653</a></span>CallExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#aff57f99697eaf07eb9b92532f3d38963">CallDestructor</a>(<span class="keyword">const</span> VarDecl* varDecl)</div>
-<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>{</div>
-<div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>    <span class="keyword">auto</span>* lhsDeclRef = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">mkDeclRefExpr</a>(varDecl);</div>
-<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span> </div>
-<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span>    <span class="keyword">auto</span>* callDtor = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a0c7a09731d6f3202cc1b04d513b33743">CreateFunctionDecl</a>(StrCat(<span class="stringliteral">&quot;Destructor_&quot;</span>sv, <a class="code hl_function" href="namespaceclang_1_1insights.html#a48f28e34f3abfc59c28aa3ba788fc08e">GetName</a>(varDecl-&gt;getType())),</div>
-<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>                                        {{kwInternalThis, lhsDeclRef-&gt;getType()}});</div>
-<div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span> </div>
-<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a4b016eb63027bce5854b67a482eead43">Call</a>(callDtor, {<a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a580dad58dc6951103d6431da42625af0">Ref</a>(lhsDeclRef)});</div>
-<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span>}</div>
+<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span> </div>
+<div class="foldopen" id="foldopen00658" data-start="{" data-end="}">
+<div class="line"><a id="l00658" name="l00658"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#aff57f99697eaf07eb9b92532f3d38963">  658</a></span>CallExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#aff57f99697eaf07eb9b92532f3d38963">CallDestructor</a>(<span class="keyword">const</span> VarDecl* varDecl)</div>
+<div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span>{</div>
+<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>    <span class="keyword">auto</span>* lhsDeclRef = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">mkDeclRefExpr</a>(varDecl);</div>
+<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span> </div>
+<div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span>    <span class="keyword">auto</span>* callDtor = <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a0c7a09731d6f3202cc1b04d513b33743">CreateFunctionDecl</a>(StrCat(<span class="stringliteral">&quot;Destructor_&quot;</span>sv, <a class="code hl_function" href="namespaceclang_1_1insights.html#a48f28e34f3abfc59c28aa3ba788fc08e">GetName</a>(varDecl-&gt;getType())),</div>
+<div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span>                                        {{kwInternalThis, lhsDeclRef-&gt;getType()}});</div>
+<div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span> </div>
+<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a4b016eb63027bce5854b67a482eead43">Call</a>(callDtor, {<a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a580dad58dc6951103d6431da42625af0">Ref</a>(lhsDeclRef)});</div>
+<div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span>}</div>
 </div>
-<div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span> </div>
-<div class="foldopen" id="foldopen00664" data-start="{" data-end="}">
-<div class="line"><a id="l00664" name="l00664"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a27bc3a61d39ff0e88865f6d04323f9fc">  664</a></span>QualType <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a27bc3a61d39ff0e88865f6d04323f9fc">Typedef</a>(std::string_view name, QualType underlayingType)</div>
-<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>{</div>
-<div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span>    <span class="keyword">auto</span>&amp; ctx  = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>();</div>
-<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>    <span class="keyword">auto</span>* type = TypedefDecl::Create(<span class="keyword">const_cast&lt;</span>ASTContext&amp;<span class="keyword">&gt;</span>(ctx),</div>
-<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span>                                     ctx.getTranslationUnitDecl(),</div>
-<div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span>                                     {},</div>
-<div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span>                                     {},</div>
-<div class="line"><a id="l00671" name="l00671"></a><span class="lineno">  671</span>                                     &amp;ctx.Idents.get(name),</div>
-<div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span>                                     ctx.getTrivialTypeSourceInfo(underlayingType));</div>
-<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span> </div>
-<div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>    <span class="keywordflow">return</span> ctx.getTypeDeclType(type);</div>
-<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>}</div>
+<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span> </div>
+<div class="foldopen" id="foldopen00669" data-start="{" data-end="}">
+<div class="line"><a id="l00669" name="l00669"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a27bc3a61d39ff0e88865f6d04323f9fc">  669</a></span>QualType <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a27bc3a61d39ff0e88865f6d04323f9fc">Typedef</a>(std::string_view name, QualType underlayingType)</div>
+<div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span>{</div>
+<div class="line"><a id="l00671" name="l00671"></a><span class="lineno">  671</span>    <span class="keyword">auto</span>&amp; ctx  = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>();</div>
+<div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span>    <span class="keyword">auto</span>* type = TypedefDecl::Create(<span class="keyword">const_cast&lt;</span>ASTContext&amp;<span class="keyword">&gt;</span>(ctx),</div>
+<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span>                                     ctx.getTranslationUnitDecl(),</div>
+<div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>                                     {},</div>
+<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>                                     {},</div>
+<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span>                                     &amp;ctx.Idents.get(name),</div>
+<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span>                                     ctx.getTrivialTypeSourceInfo(underlayingType));</div>
+<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span> </div>
+<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span>    <span class="keywordflow">return</span> ctx.getTypeDeclType(type);</div>
+<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span>}</div>
 </div>
-<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span> </div>
-<div class="foldopen" id="foldopen00678" data-start="{" data-end="}">
-<div class="line"><a id="l00678" name="l00678"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#ac2167b4c219428e6fca1fd20af5039b4">  678</a></span>QualType <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#ac2167b4c219428e6fca1fd20af5039b4">GetRecordDeclType</a>(<span class="keyword">const</span> CXXMethodDecl* md)</div>
-<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span>{</div>
-<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span>    <span class="keywordflow">return</span> QualType(md-&gt;getParent()-&gt;getTypeForDecl(), 0);</div>
-<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span>}</div>
+<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span> </div>
+<div class="foldopen" id="foldopen00683" data-start="{" data-end="}">
+<div class="line"><a id="l00683" name="l00683"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#ac2167b4c219428e6fca1fd20af5039b4">  683</a></span>QualType <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#ac2167b4c219428e6fca1fd20af5039b4">GetRecordDeclType</a>(<span class="keyword">const</span> CXXMethodDecl* md)</div>
+<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span>{</div>
+<div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span>    <span class="keywordflow">return</span> QualType(md-&gt;getParent()-&gt;getTypeForDecl(), 0);</div>
+<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span>}</div>
 </div>
-<div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span> </div>
-<div class="foldopen" id="foldopen00684" data-start="{" data-end="}">
-<div class="line"><a id="l00684" name="l00684"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a5061f3cf9163b9d776ff87778485f30e">  684</a></span>QualType <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#ac2167b4c219428e6fca1fd20af5039b4">GetRecordDeclType</a>(<span class="keyword">const</span> RecordDecl* rd)</div>
-<div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span>{</div>
-<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span>    <span class="keywordflow">return</span> QualType(rd-&gt;getTypeForDecl(), 0);</div>
-<div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span>}</div>
+<div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span> </div>
+<div class="foldopen" id="foldopen00689" data-start="{" data-end="}">
+<div class="line"><a id="l00689" name="l00689"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a5061f3cf9163b9d776ff87778485f30e">  689</a></span>QualType <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#ac2167b4c219428e6fca1fd20af5039b4">GetRecordDeclType</a>(<span class="keyword">const</span> RecordDecl* rd)</div>
+<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span>{</div>
+<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span>    <span class="keywordflow">return</span> QualType(rd-&gt;getTypeForDecl(), 0);</div>
+<div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span>}</div>
 </div>
-<div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span> </div>
-<div class="foldopen" id="foldopen00690" data-start="{" data-end="}">
-<div class="line"><a id="l00690" name="l00690"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a2a1fecd05ff0c111bed1a89afcd7e1db">  690</a></span>CXXNewExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2a1fecd05ff0c111bed1a89afcd7e1db">New</a>(ArrayRef&lt;Expr*&gt; placementArgs, <span class="keyword">const</span> Expr* expr, QualType t)</div>
-<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span>{</div>
-<div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span>    <span class="keyword">auto</span>&amp; ctx = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>();</div>
-<div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span> </div>
-<div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span>    <span class="keywordflow">return</span> CXXNewExpr::Create(ctx,</div>
-<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>                              <span class="keyword">false</span>,</div>
-<div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span>                              <span class="keyword">nullptr</span>,</div>
-<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>                              <span class="keyword">nullptr</span>,</div>
-<div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>                              <span class="keyword">true</span>,</div>
-<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>                              <span class="keyword">false</span>,</div>
-<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>                              placementArgs,</div>
-<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>                              SourceRange{},</div>
-<div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span>                              std::optional&lt;Expr*&gt;{},</div>
-<div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>                              CXXNewInitializationStyle::Parens,</div>
-<div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span>                              <span class="keyword">const_cast&lt;</span>Expr*<span class="keyword">&gt;</span>(expr),</div>
-<div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span>                              <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#af1f00432784bdd2f1f990bd0db95b850">Ptr</a>(t),</div>
-<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span>                              ctx.getTrivialTypeSourceInfo(t),</div>
-<div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span>                              SourceRange{},</div>
-<div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span>                              SourceRange{});</div>
-<div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span>}</div>
+<div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span> </div>
+<div class="foldopen" id="foldopen00695" data-start="{" data-end="}">
+<div class="line"><a id="l00695" name="l00695"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a2a1fecd05ff0c111bed1a89afcd7e1db">  695</a></span>CXXNewExpr* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2a1fecd05ff0c111bed1a89afcd7e1db">New</a>(ArrayRef&lt;Expr*&gt; placementArgs, <span class="keyword">const</span> Expr* expr, QualType t)</div>
+<div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span>{</div>
+<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>    <span class="keyword">auto</span>&amp; ctx = <a class="code hl_function" href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a>();</div>
+<div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span> </div>
+<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>    <span class="keywordflow">return</span> CXXNewExpr::Create(ctx,</div>
+<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>                              <span class="keyword">false</span>,</div>
+<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>                              <span class="keyword">nullptr</span>,</div>
+<div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span>                              <span class="keyword">nullptr</span>,</div>
+<div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>#<span class="keywordflow">if</span> <a class="code hl_define" href="_clang_compat_8h.html#a90b4207557ef1835854e0d04c8cd6515">IS_CLANG_NEWER_THAN</a>(20)</div>
+<div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span>                              ImplicitAllocationParameters{AlignedAllocationMode::Yes},</div>
+<div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span>                              <span class="keyword">true</span>,</div>
+<div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span>                              <span class="keyword">false</span>,</div>
+<div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span>                              placementArgs,</div>
+<div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span>                              SourceRange{},</div>
+<div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span>                              std::optional&lt;Expr*&gt;{},</div>
+<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span>                              CXXNewInitializationStyle::Parens,</div>
+<div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span>                              <span class="keyword">const_cast&lt;</span>Expr*<span class="keyword">&gt;</span>(expr),</div>
+<div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span>                              <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#af1f00432784bdd2f1f990bd0db95b850">Ptr</a>(t),</div>
+<div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span>                              ctx.getTrivialTypeSourceInfo(t),</div>
+<div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span>                              SourceRange{},</div>
+<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span>                              SourceRange{});</div>
+<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span>}</div>
 </div>
-<div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span> </div>
-<div class="foldopen" id="foldopen00712" data-start="{" data-end="}">
-<div class="line"><a id="l00712" name="l00712"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a998d9005b3543ca1ef42fdafa972d765">  712</a></span>BinaryOperator* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a998d9005b3543ca1ef42fdafa972d765">Mul</a>(Expr* lhs, Expr* rhs)</div>
-<div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span>{</div>
-<div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a1f914612ef8f14d8e83ac0dd5e2b69f3">mkBinaryOperator</a>(lhs, rhs, BinaryOperator::Opcode::BO_Mul, lhs-&gt;getType());</div>
-<div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span>}</div>
+<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span> </div>
+<div class="foldopen" id="foldopen00721" data-start="{" data-end="}">
+<div class="line"><a id="l00721" name="l00721"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a998d9005b3543ca1ef42fdafa972d765">  721</a></span>BinaryOperator* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a998d9005b3543ca1ef42fdafa972d765">Mul</a>(Expr* lhs, Expr* rhs)</div>
+<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span>{</div>
+<div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a1f914612ef8f14d8e83ac0dd5e2b69f3">mkBinaryOperator</a>(lhs, rhs, BinaryOperator::Opcode::BO_Mul, lhs-&gt;getType());</div>
+<div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>}</div>
 </div>
-<div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span> </div>
-<div class="foldopen" id="foldopen00718" data-start="{" data-end="}">
-<div class="line"><a id="l00718" name="l00718"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a98732b6e69c4826f305306604a7ee792">  718</a></span>BinaryOperator* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a98732b6e69c4826f305306604a7ee792">And</a>(VarDecl* lhs, Expr* rhs)</div>
-<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span>{</div>
-<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a1f914612ef8f14d8e83ac0dd5e2b69f3">mkBinaryOperator</a>(<a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">mkDeclRefExpr</a>(lhs), rhs, BinaryOperator::Opcode::BO_And, lhs-&gt;getType());</div>
-<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span>}</div>
+<div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span> </div>
+<div class="foldopen" id="foldopen00727" data-start="{" data-end="}">
+<div class="line"><a id="l00727" name="l00727"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a98732b6e69c4826f305306604a7ee792">  727</a></span>BinaryOperator* <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a98732b6e69c4826f305306604a7ee792">And</a>(VarDecl* lhs, Expr* rhs)</div>
+<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span>{</div>
+<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a1f914612ef8f14d8e83ac0dd5e2b69f3">mkBinaryOperator</a>(<a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">mkDeclRefExpr</a>(lhs), rhs, BinaryOperator::Opcode::BO_And, lhs-&gt;getType());</div>
+<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>}</div>
 </div>
-<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span> </div>
-<div class="foldopen" id="foldopen00724" data-start="{" data-end="}">
-<div class="line"><a id="l00724" name="l00724"></a><span class="lineno"><a class="line" href="structclang_1_1insights_1_1asthelpers_1_1_stmts_container.html#afd657ad17aaedd3de4349dfb070fa5aa">  724</a></span><span class="keywordtype">void</span> StmtsContainer::AddBodyStmts(<a class="code hl_class" href="class_stmt.html">Stmt</a>* body)</div>
-<div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span>{</div>
-<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span>    <span class="keywordflow">if</span>(<span class="keyword">auto</span>* b = dyn_cast_or_null&lt;CompoundStmt&gt;(body)) {</div>
-<div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span>        <span class="keyword">auto</span> children = b-&gt;children();</div>
-<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span>        mStmts.append(children.begin(), children.end());</div>
-<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(not isa&lt;NullStmt&gt;(body)) {</div>
-<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>        mStmts.push_back(body);</div>
-<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>    }</div>
-<div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span>}</div>
+<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span> </div>
+<div class="foldopen" id="foldopen00733" data-start="{" data-end="}">
+<div class="line"><a id="l00733" name="l00733"></a><span class="lineno"><a class="line" href="structclang_1_1insights_1_1asthelpers_1_1_stmts_container.html#afd657ad17aaedd3de4349dfb070fa5aa">  733</a></span><span class="keywordtype">void</span> StmtsContainer::AddBodyStmts(<a class="code hl_class" href="class_stmt.html">Stmt</a>* body)</div>
+<div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span>{</div>
+<div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span>    <span class="keywordflow">if</span>(<span class="keyword">auto</span>* b = dyn_cast_or_null&lt;CompoundStmt&gt;(body)) {</div>
+<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>        <span class="keyword">auto</span> children = b-&gt;children();</div>
+<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>        mStmts.append(children.begin(), children.end());</div>
+<div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span>    } <span class="keywordflow">else</span> <span class="keywordflow">if</span>(not isa&lt;NullStmt&gt;(body)) {</div>
+<div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span>        mStmts.push_back(body);</div>
+<div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span>    }</div>
+<div class="line"><a id="l00741" name="l00741"></a><span class="lineno">  741</span>}</div>
 </div>
-<div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span> </div>
-<div class="foldopen" id="foldopen00735" data-start="{" data-end="}">
-<div class="line"><a id="l00735" name="l00735"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#ab6922e471ac9e89dcd7e6c81e9aa6adc">  735</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#ab6922e471ac9e89dcd7e6c81e9aa6adc">ReplaceNode</a>(<a class="code hl_class" href="class_stmt.html">Stmt</a>* parent, <a class="code hl_class" href="class_stmt.html">Stmt</a>* oldNode, <a class="code hl_class" href="class_stmt.html">Stmt</a>* newNode)</div>
-<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>{</div>
-<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>    std::replace(parent-&gt;child_begin(), parent-&gt;child_end(), oldNode, newNode);</div>
-<div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span>}</div>
+<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span> </div>
+<div class="foldopen" id="foldopen00744" data-start="{" data-end="}">
+<div class="line"><a id="l00744" name="l00744"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#ab6922e471ac9e89dcd7e6c81e9aa6adc">  744</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#ab6922e471ac9e89dcd7e6c81e9aa6adc">ReplaceNode</a>(<a class="code hl_class" href="class_stmt.html">Stmt</a>* parent, <a class="code hl_class" href="class_stmt.html">Stmt</a>* oldNode, <a class="code hl_class" href="class_stmt.html">Stmt</a>* newNode)</div>
+<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span>{</div>
+<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span>    std::replace(parent-&gt;child_begin(), parent-&gt;child_end(), oldNode, newNode);</div>
+<div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span>}</div>
 </div>
-<div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span> </div>
-<div class="foldopen" id="foldopen00741" data-start="{" data-end="}">
-<div class="line"><a id="l00741" name="l00741"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a68303ab559188d305094536a119eb22d">  741</a></span>SmallVector&lt;Expr*, 5&gt; <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a68303ab559188d305094536a119eb22d">ArgsToExprVector</a>(<span class="keyword">const</span> Expr* expr)</div>
-<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span>{</div>
-<div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span>    <span class="keywordflow">if</span>(<span class="keyword">const</span> <span class="keyword">auto</span>* ctorExpr = dyn_cast_or_null&lt;CXXConstructExpr&gt;(expr)) {</div>
-<div class="line"><a id="l00744" name="l00744"></a><span class="lineno">  744</span>        <span class="keyword">auto</span> mutableCtorExpr = <span class="keyword">const_cast&lt;</span>CXXConstructExpr*<span class="keyword">&gt;</span>(ctorExpr);</div>
-<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span> </div>
-<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span>        <span class="keywordflow">return</span> {mutableCtorExpr-&gt;arg_begin(), mutableCtorExpr-&gt;arg_end()};</div>
-<div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span>    }</div>
-<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span> </div>
-<div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span>    <span class="keywordflow">return</span> {};</div>
-<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>}</div>
+<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span> </div>
+<div class="foldopen" id="foldopen00750" data-start="{" data-end="}">
+<div class="line"><a id="l00750" name="l00750"></a><span class="lineno"><a class="line" href="namespaceclang_1_1insights_1_1asthelpers.html#a68303ab559188d305094536a119eb22d">  750</a></span>SmallVector&lt;Expr*, 5&gt; <a class="code hl_function" href="namespaceclang_1_1insights_1_1asthelpers.html#a68303ab559188d305094536a119eb22d">ArgsToExprVector</a>(<span class="keyword">const</span> Expr* expr)</div>
+<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>{</div>
+<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span>    <span class="keywordflow">if</span>(<span class="keyword">const</span> <span class="keyword">auto</span>* ctorExpr = dyn_cast_or_null&lt;CXXConstructExpr&gt;(expr)) {</div>
+<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>        <span class="keyword">auto</span> mutableCtorExpr = <span class="keyword">const_cast&lt;</span>CXXConstructExpr*<span class="keyword">&gt;</span>(ctorExpr);</div>
+<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span> </div>
+<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span>        <span class="keywordflow">return</span> {mutableCtorExpr-&gt;arg_begin(), mutableCtorExpr-&gt;arg_end()};</div>
+<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span>    }</div>
+<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span> </div>
+<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span>    <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span>}</div>
 </div>
-<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span> </div>
-<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>}  <span class="comment">// namespace clang::insights::asthelpers</span></div>
+<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span> </div>
+<div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span>}  <span class="comment">// namespace clang::insights::asthelpers</span></div>
 </div>
 <div class="ttc" id="a_a_s_t_helpers_8h_html"><div class="ttname"><a href="_a_s_t_helpers_8h.html">ASTHelpers.h</a></div></div>
+<div class="ttc" id="a_clang_compat_8h_html_a90b4207557ef1835854e0d04c8cd6515"><div class="ttname"><a href="_clang_compat_8h.html#a90b4207557ef1835854e0d04c8cd6515">IS_CLANG_NEWER_THAN</a></div><div class="ttdeci">#define IS_CLANG_NEWER_THAN(major)</div><div class="ttdef"><b>Definition</b> <a href="_clang_compat_8h_source.html#l00016">ClangCompat.h:16</a></div></div>
 <div class="ttc" id="a_code_generator_8h_html"><div class="ttname"><a href="_code_generator_8h.html">CodeGenerator.h</a></div></div>
 <div class="ttc" id="a_insights_8cpp_html_a77f2bef86bff505682aa180dde089a4d"><div class="ttname"><a href="_insights_8cpp.html#a77f2bef86bff505682aa180dde089a4d">GetGlobalAST</a></div><div class="ttdeci">const ASTContext &amp; GetGlobalAST()</div><div class="ttdoc">Get access to the ASTContext.</div><div class="ttdef"><b>Definition</b> <a href="_insights_8cpp_source.html#l00071">Insights.cpp:71</a></div></div>
 <div class="ttc" id="a_insights_8h_html"><div class="ttname"><a href="_insights_8h.html">Insights.h</a></div></div>
@@ -965,71 +975,71 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="aclassclang_1_1insights_1_1_cpp_insights_comment_stmt_html"><div class="ttname"><a href="classclang_1_1insights_1_1_cpp_insights_comment_stmt.html">clang::insights::CppInsightsCommentStmt</a></div><div class="ttdef"><b>Definition</b> <a href="_code_generator_8h_source.html#l00030">CodeGenerator.h:31</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html">clang::insights::asthelpers</a></div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00020">ASTHelpers.cpp:20</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a0252d6c93fa1b82e04248e367278c818"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a0252d6c93fa1b82e04248e367278c818">clang::insights::asthelpers::Equal</a></div><div class="ttdeci">BinaryOperator * Equal(Expr *var, Expr *assignExpr)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00331">ASTHelpers.cpp:331</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a0592deaa2f73804435ad3d3dfb8e6124"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a0592deaa2f73804435ad3d3dfb8e6124">clang::insights::asthelpers::mkStdFunctionDecl</a></div><div class="ttdeci">auto * mkStdFunctionDecl(std::string_view name, QualType returnType, const params_vector &amp;parameters)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00410">ASTHelpers.cpp:410</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a0592deaa2f73804435ad3d3dfb8e6124"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a0592deaa2f73804435ad3d3dfb8e6124">clang::insights::asthelpers::mkStdFunctionDecl</a></div><div class="ttdeci">auto * mkStdFunctionDecl(std::string_view name, QualType returnType, const params_vector &amp;parameters)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00415">ASTHelpers.cpp:415</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a07da9b00d166a90653800c010430b96b"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a07da9b00d166a90653800c010430b96b">clang::insights::asthelpers::AddrOf</a></div><div class="ttdeci">UnaryOperator * AddrOf(const Expr *stmt)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00111">ASTHelpers.cpp:111</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a0c7a09731d6f3202cc1b04d513b33743"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a0c7a09731d6f3202cc1b04d513b33743">clang::insights::asthelpers::CreateFunctionDecl</a></div><div class="ttdeci">static FunctionDecl * CreateFunctionDecl(std::string_view funcName, params_vector params)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00222">ASTHelpers.cpp:222</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a1388de708d50b582ee1658ce29d236af"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a1388de708d50b582ee1658ce29d236af">clang::insights::asthelpers::Plus</a></div><div class="ttdeci">BinaryOperator * Plus(Expr *var, Expr *assignExpr)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00337">ASTHelpers.cpp:337</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a1a155614fda73526c307ed06edad8699"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a1a155614fda73526c307ed06edad8699">clang::insights::asthelpers::ReinterpretCast</a></div><div class="ttdeci">CXXReinterpretCastExpr * ReinterpretCast(QualType toType, const Expr *toExpr, bool makePointer)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00234">ASTHelpers.cpp:234</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a1b79e1f462192ae5a58b5745a038dd48"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a1b79e1f462192ae5a58b5745a038dd48">clang::insights::asthelpers::Struct</a></div><div class="ttdeci">CXXRecordDecl * Struct(std::string_view name)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00513">ASTHelpers.cpp:513</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a1b79e1f462192ae5a58b5745a038dd48"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a1b79e1f462192ae5a58b5745a038dd48">clang::insights::asthelpers::Struct</a></div><div class="ttdeci">CXXRecordDecl * Struct(std::string_view name)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00518">ASTHelpers.cpp:518</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a1f914612ef8f14d8e83ac0dd5e2b69f3"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a1f914612ef8f14d8e83ac0dd5e2b69f3">clang::insights::asthelpers::mkBinaryOperator</a></div><div class="ttdeci">static BinaryOperator * mkBinaryOperator(Expr *lhs, Expr *rhs, BinaryOperator::Opcode opc, QualType resType)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00037">ASTHelpers.cpp:37</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a20cd9e503e099ec18aa0294df02803d5"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a20cd9e503e099ec18aa0294df02803d5">clang::insights::asthelpers::mkFieldDecl</a></div><div class="ttdeci">FieldDecl * mkFieldDecl(DeclContext *dc, std::string_view name, QualType type)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00534">ASTHelpers.cpp:534</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a20cd9e503e099ec18aa0294df02803d5"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a20cd9e503e099ec18aa0294df02803d5">clang::insights::asthelpers::mkFieldDecl</a></div><div class="ttdeci">FieldDecl * mkFieldDecl(DeclContext *dc, std::string_view name, QualType type)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00539">ASTHelpers.cpp:539</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a24023a5c2ab48898019fbe188af0057a"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a24023a5c2ab48898019fbe188af0057a">clang::insights::asthelpers::mkAnonVoidFunctionPointer</a></div><div class="ttdeci">static QualType mkAnonVoidFunctionPointer()</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00212">ASTHelpers.cpp:212</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a248c0c60ccd924e6909315ee09acd7c2"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a248c0c60ccd924e6909315ee09acd7c2">clang::insights::asthelpers::to_params_view</a></div><div class="ttdeci">params_vector to_params_view(params_store &amp;params)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00561">ASTHelpers.cpp:561</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a2794621199a0822f2cbecdcae68e948b"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">clang::insights::asthelpers::mkDeclRefExpr</a></div><div class="ttdeci">DeclRefExpr * mkDeclRefExpr(const ValueDecl *vd)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00426">ASTHelpers.cpp:426</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a27bc3a61d39ff0e88865f6d04323f9fc"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a27bc3a61d39ff0e88865f6d04323f9fc">clang::insights::asthelpers::Typedef</a></div><div class="ttdeci">QualType Typedef(std::string_view name, QualType underlayingType)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00664">ASTHelpers.cpp:664</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a2a1fecd05ff0c111bed1a89afcd7e1db"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a2a1fecd05ff0c111bed1a89afcd7e1db">clang::insights::asthelpers::New</a></div><div class="ttdeci">CXXNewExpr * New(ArrayRef&lt; Expr * &gt; placementArgs, const Expr *expr, QualType t)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00690">ASTHelpers.cpp:690</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a248c0c60ccd924e6909315ee09acd7c2"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a248c0c60ccd924e6909315ee09acd7c2">clang::insights::asthelpers::to_params_view</a></div><div class="ttdeci">params_vector to_params_view(params_store &amp;params)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00566">ASTHelpers.cpp:566</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a2794621199a0822f2cbecdcae68e948b"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a2794621199a0822f2cbecdcae68e948b">clang::insights::asthelpers::mkDeclRefExpr</a></div><div class="ttdeci">DeclRefExpr * mkDeclRefExpr(const ValueDecl *vd)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00431">ASTHelpers.cpp:431</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a27bc3a61d39ff0e88865f6d04323f9fc"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a27bc3a61d39ff0e88865f6d04323f9fc">clang::insights::asthelpers::Typedef</a></div><div class="ttdeci">QualType Typedef(std::string_view name, QualType underlayingType)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00669">ASTHelpers.cpp:669</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a2a1fecd05ff0c111bed1a89afcd7e1db"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a2a1fecd05ff0c111bed1a89afcd7e1db">clang::insights::asthelpers::New</a></div><div class="ttdeci">CXXNewExpr * New(ArrayRef&lt; Expr * &gt; placementArgs, const Expr *expr, QualType t)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00695">ASTHelpers.cpp:695</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a38dd5887bd08be8d8b287cc2a61b3d30"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a38dd5887bd08be8d8b287cc2a61b3d30">clang::insights::asthelpers::VoidTy</a></div><div class="ttdeci">CanQualType VoidTy()</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00190">ASTHelpers.cpp:190</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a38df7885ae95cee3556ee655e768fcac"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a38df7885ae95cee3556ee655e768fcac">clang::insights::asthelpers::params_vector</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; std::string_view, QualType &gt; &gt; params_vector</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8h_source.html#l00027">ASTHelpers.h:27</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a3eb8183c78c93039341d58ca847c3545"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a3eb8183c78c93039341d58ca847c3545">clang::insights::asthelpers::_mkDeclStmt</a></div><div class="ttdeci">DeclStmt * _mkDeclStmt(std::span&lt; Decl * &gt; decls)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00021">ASTHelpers.cpp:21</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a41dbaab5ec5bfaafda9126fedc0c9797"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a41dbaab5ec5bfaafda9126fedc0c9797">clang::insights::asthelpers::mkNullStmt</a></div><div class="ttdeci">NullStmt * mkNullStmt()</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00500">ASTHelpers.cpp:500</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a49c378ab01073608a675dcc8b8a5c850"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a49c378ab01073608a675dcc8b8a5c850">clang::insights::asthelpers::Break</a></div><div class="ttdeci">BreakStmt * Break()</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00473">ASTHelpers.cpp:473</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a41dbaab5ec5bfaafda9126fedc0c9797"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a41dbaab5ec5bfaafda9126fedc0c9797">clang::insights::asthelpers::mkNullStmt</a></div><div class="ttdeci">NullStmt * mkNullStmt()</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00505">ASTHelpers.cpp:505</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a49c378ab01073608a675dcc8b8a5c850"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a49c378ab01073608a675dcc8b8a5c850">clang::insights::asthelpers::Break</a></div><div class="ttdeci">BreakStmt * Break()</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00478">ASTHelpers.cpp:478</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a4b016eb63027bce5854b67a482eead43"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a4b016eb63027bce5854b67a482eead43">clang::insights::asthelpers::Call</a></div><div class="ttdeci">CallExpr * Call(const FunctionDecl *fd, ArrayRef&lt; Expr * &gt; params)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00117">ASTHelpers.cpp:117</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a4c2db487750b988bbd537de3b50b32cb"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a4c2db487750b988bbd537de3b50b32cb">clang::insights::asthelpers::mkLabelDecl</a></div><div class="ttdeci">auto * mkLabelDecl(std::string_view name)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00274">ASTHelpers.cpp:274</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a580dad58dc6951103d6431da42625af0"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a580dad58dc6951103d6431da42625af0">clang::insights::asthelpers::Ref</a></div><div class="ttdeci">UnaryOperator * Ref(const Expr *e)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00093">ASTHelpers.cpp:93</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a5cfb143b9ab54ea300b1fc27694b267d"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a5cfb143b9ab54ea300b1fc27694b267d">clang::insights::asthelpers::Variable</a></div><div class="ttdeci">VarDecl * Variable(std::string_view name, QualType type, DeclContext *dc)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00488">ASTHelpers.cpp:488</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a5cfb143b9ab54ea300b1fc27694b267d"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a5cfb143b9ab54ea300b1fc27694b267d">clang::insights::asthelpers::Variable</a></div><div class="ttdeci">VarDecl * Variable(std::string_view name, QualType type, DeclContext *dc)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00493">ASTHelpers.cpp:493</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a5e9e8e8c823d79dd0d681c3f0046fae2"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a5e9e8e8c823d79dd0d681c3f0046fae2">clang::insights::asthelpers::AccessMember</a></div><div class="ttdeci">MemberExpr * AccessMember(const Expr *expr, const ValueDecl *vd, bool isArrow)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00319">ASTHelpers.cpp:319</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a5f7a602024e1bbb5b68fcb1742b9bb15"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a5f7a602024e1bbb5b68fcb1742b9bb15">clang::insights::asthelpers::mkVarDeclRefExpr</a></div><div class="ttdeci">DeclRefExpr * mkVarDeclRefExpr(std::string_view name, QualType type)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00574">ASTHelpers.cpp:574</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a6131dde13e90e8b80cbb78c71f4c3587"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a6131dde13e90e8b80cbb78c71f4c3587">clang::insights::asthelpers::CallConstructor</a></div><div class="ttdeci">static CallExpr * CallConstructor(QualType ctorType, DeclRefExpr *lhsDeclRef, Expr *lhsMemberExpr, ArrayRef&lt; Expr * &gt; callParams, DoCast doCast, AsReference asReference)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00583">ASTHelpers.cpp:583</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a68303ab559188d305094536a119eb22d"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a68303ab559188d305094536a119eb22d">clang::insights::asthelpers::ArgsToExprVector</a></div><div class="ttdeci">SmallVector&lt; Expr *, 5 &gt; ArgsToExprVector(const Expr *expr)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00741">ASTHelpers.cpp:741</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a68c13104130240f3eca5aa4b689b6725"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a68c13104130240f3eca5aa4b689b6725">clang::insights::asthelpers::ArraySubscript</a></div><div class="ttdeci">ArraySubscriptExpr * ArraySubscript(const Expr *lhs, uint64_t index, QualType type)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00554">ASTHelpers.cpp:554</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a770b41401ec718ccdd44baa001fcaadb"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a770b41401ec718ccdd44baa001fcaadb">clang::insights::asthelpers::Return</a></div><div class="ttdeci">ReturnStmt * Return(Expr *stmt)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00455">ASTHelpers.cpp:455</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a5f7a602024e1bbb5b68fcb1742b9bb15"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a5f7a602024e1bbb5b68fcb1742b9bb15">clang::insights::asthelpers::mkVarDeclRefExpr</a></div><div class="ttdeci">DeclRefExpr * mkVarDeclRefExpr(std::string_view name, QualType type)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00579">ASTHelpers.cpp:579</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a6131dde13e90e8b80cbb78c71f4c3587"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a6131dde13e90e8b80cbb78c71f4c3587">clang::insights::asthelpers::CallConstructor</a></div><div class="ttdeci">static CallExpr * CallConstructor(QualType ctorType, DeclRefExpr *lhsDeclRef, Expr *lhsMemberExpr, ArrayRef&lt; Expr * &gt; callParams, DoCast doCast, AsReference asReference)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00588">ASTHelpers.cpp:588</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a68303ab559188d305094536a119eb22d"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a68303ab559188d305094536a119eb22d">clang::insights::asthelpers::ArgsToExprVector</a></div><div class="ttdeci">SmallVector&lt; Expr *, 5 &gt; ArgsToExprVector(const Expr *expr)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00750">ASTHelpers.cpp:750</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a68c13104130240f3eca5aa4b689b6725"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a68c13104130240f3eca5aa4b689b6725">clang::insights::asthelpers::ArraySubscript</a></div><div class="ttdeci">ArraySubscriptExpr * ArraySubscript(const Expr *lhs, uint64_t index, QualType type)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00559">ASTHelpers.cpp:559</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a770b41401ec718ccdd44baa001fcaadb"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a770b41401ec718ccdd44baa001fcaadb">clang::insights::asthelpers::Return</a></div><div class="ttdeci">ReturnStmt * Return(Expr *stmt)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00460">ASTHelpers.cpp:460</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a794f4649c8d38db9650f1fe5654d8115"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a794f4649c8d38db9650f1fe5654d8115">clang::insights::asthelpers::Cast</a></div><div class="ttdeci">CXXStaticCastExpr * Cast(const Expr *toExpr, QualType toType)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00178">ASTHelpers.cpp:178</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a797ef113917b3be11d7bac83712ae9cb"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a797ef113917b3be11d7bac83712ae9cb">clang::insights::asthelpers::CastToVoidFunPtr</a></div><div class="ttdeci">CXXStaticCastExpr * CastToVoidFunPtr(std::string_view name)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00228">ASTHelpers.cpp:228</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a7c2f9d793d7af2e3b636bc3a365f7c0b"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a7c2f9d793d7af2e3b636bc3a365f7c0b">clang::insights::asthelpers::Case</a></div><div class="ttdeci">CaseStmt * Case(int value, Stmt *stmt)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00479">ASTHelpers.cpp:479</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a85cb26e9f1583857ef0dd33eae3c0b35"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a85cb26e9f1583857ef0dd33eae3c0b35">clang::insights::asthelpers::Comment</a></div><div class="ttdeci">Stmt * Comment(std::string_view comment)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00507">ASTHelpers.cpp:507</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a7c2f9d793d7af2e3b636bc3a365f7c0b"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a7c2f9d793d7af2e3b636bc3a365f7c0b">clang::insights::asthelpers::Case</a></div><div class="ttdeci">CaseStmt * Case(int value, Stmt *stmt)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00484">ASTHelpers.cpp:484</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a85cb26e9f1583857ef0dd33eae3c0b35"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a85cb26e9f1583857ef0dd33eae3c0b35">clang::insights::asthelpers::Comment</a></div><div class="ttdeci">Stmt * Comment(std::string_view comment)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00512">ASTHelpers.cpp:512</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a879ceedc0c13d1307e0bca3f37cb20d0"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a879ceedc0c13d1307e0bca3f37cb20d0">clang::insights::asthelpers::Paren</a></div><div class="ttdeci">ParenExpr * Paren(Expr *expr)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00196">ASTHelpers.cpp:196</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a951cd0eeec7328699d650cc131361cbf"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a951cd0eeec7328699d650cc131361cbf">clang::insights::asthelpers::If</a></div><div class="ttdeci">IfStmt * If(const Expr *condition, ArrayRef&lt; Stmt * &gt; bodyStmts)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00294">ASTHelpers.cpp:294</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a98732b6e69c4826f305306604a7ee792"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a98732b6e69c4826f305306604a7ee792">clang::insights::asthelpers::And</a></div><div class="ttdeci">BinaryOperator * And(VarDecl *lhs, Expr *rhs)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00718">ASTHelpers.cpp:718</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a998d9005b3543ca1ef42fdafa972d765"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a998d9005b3543ca1ef42fdafa972d765">clang::insights::asthelpers::Mul</a></div><div class="ttdeci">BinaryOperator * Mul(Expr *lhs, Expr *rhs)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00712">ASTHelpers.cpp:712</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a98732b6e69c4826f305306604a7ee792"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a98732b6e69c4826f305306604a7ee792">clang::insights::asthelpers::And</a></div><div class="ttdeci">BinaryOperator * And(VarDecl *lhs, Expr *rhs)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00727">ASTHelpers.cpp:727</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_a998d9005b3543ca1ef42fdafa972d765"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#a998d9005b3543ca1ef42fdafa972d765">clang::insights::asthelpers::Mul</a></div><div class="ttdeci">BinaryOperator * Mul(Expr *lhs, Expr *rhs)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00721">ASTHelpers.cpp:721</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_aa377a2c10f5602d96e8167bb3ab43cd6"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#aa377a2c10f5602d96e8167bb3ab43cd6">clang::insights::asthelpers::mkUnaryOperator</a></div><div class="ttdeci">static UnaryOperator * mkUnaryOperator(const Expr *stmt, UnaryOperatorKind kind, QualType type)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00074">ASTHelpers.cpp:74</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_aa499abed5326bca73e79d8526bdfb31d"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#aa499abed5326bca73e79d8526bdfb31d">clang::insights::asthelpers::Goto</a></div><div class="ttdeci">GotoStmt * Goto(std::string_view labelName)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00343">ASTHelpers.cpp:343</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_aa4d9fa1dca3872606fbfdc5b406d0705"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#aa4d9fa1dca3872606fbfdc5b406d0705">clang::insights::asthelpers::InitList</a></div><div class="ttdeci">InitListExpr * InitList(ArrayRef&lt; Expr * &gt; initExprs, QualType t)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00545">ASTHelpers.cpp:545</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_aa4d9fa1dca3872606fbfdc5b406d0705"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#aa4d9fa1dca3872606fbfdc5b406d0705">clang::insights::asthelpers::InitList</a></div><div class="ttdeci">InitListExpr * InitList(ArrayRef&lt; Expr * &gt; initExprs, QualType t)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00550">ASTHelpers.cpp:550</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_aa514ec6f592ec21025c51a892fe57953"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#aa514ec6f592ec21025c51a892fe57953">clang::insights::asthelpers::FunctionBase</a></div><div class="ttdeci">static auto * FunctionBase(std::string_view name, QualType returnType, const params_vector &amp;parameters, DeclContext *declCtx)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00366">ASTHelpers.cpp:366</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_aa90ea498c09025eaea3f6b358bd9412c"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#aa90ea498c09025eaea3f6b358bd9412c">clang::insights::asthelpers::Catch</a></div><div class="ttdeci">CXXCatchStmt * Catch(ArrayRef&lt; Stmt * &gt; body)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00151">ASTHelpers.cpp:151</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_ab689fad0a6b070a47090384db0f25407"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#ab689fad0a6b070a47090384db0f25407">clang::insights::asthelpers::Throw</a></div><div class="ttdeci">CXXThrowExpr * Throw(const Expr *expr)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00165">ASTHelpers.cpp:165</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_ab6922e471ac9e89dcd7e6c81e9aa6adc"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#ab6922e471ac9e89dcd7e6c81e9aa6adc">clang::insights::asthelpers::ReplaceNode</a></div><div class="ttdeci">void ReplaceNode(Stmt *parent, Stmt *oldNode, Stmt *newNode)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00735">ASTHelpers.cpp:735</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_ab6922e471ac9e89dcd7e6c81e9aa6adc"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#ab6922e471ac9e89dcd7e6c81e9aa6adc">clang::insights::asthelpers::ReplaceNode</a></div><div class="ttdeci">void ReplaceNode(Stmt *parent, Stmt *oldNode, Stmt *newNode)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00744">ASTHelpers.cpp:744</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_ab72f464e8cb636ecd387a9fa576c2a9d"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#ab72f464e8cb636ecd387a9fa576c2a9d">clang::insights::asthelpers::Sizeof</a></div><div class="ttdeci">UnaryExprOrTypeTraitExpr * Sizeof(QualType toType)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00171">ASTHelpers.cpp:171</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_ac2167b4c219428e6fca1fd20af5039b4"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#ac2167b4c219428e6fca1fd20af5039b4">clang::insights::asthelpers::GetRecordDeclType</a></div><div class="ttdeci">QualType GetRecordDeclType(const CXXMethodDecl *md)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00678">ASTHelpers.cpp:678</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_ac2167b4c219428e6fca1fd20af5039b4"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#ac2167b4c219428e6fca1fd20af5039b4">clang::insights::asthelpers::GetRecordDeclType</a></div><div class="ttdeci">QualType GetRecordDeclType(const CXXMethodDecl *md)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00683">ASTHelpers.cpp:683</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_ace7a8d8c960c363af986bef27efcea44"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#ace7a8d8c960c363af986bef27efcea44">clang::insights::asthelpers::Label</a></div><div class="ttdeci">LabelStmt * Label(std::string_view name)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00282">ASTHelpers.cpp:282</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_ad293ff2b0364e1ee761750e2ee67b939"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#ad293ff2b0364e1ee761750e2ee67b939">clang::insights::asthelpers::params_store</a></div><div class="ttdeci">std::vector&lt; std::pair&lt; std::string, QualType &gt; &gt; params_store</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8h_source.html#l00028">ASTHelpers.h:28</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_ad5ee2405b5e79c432d8e62d99215facc"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#ad5ee2405b5e79c432d8e62d99215facc">clang::insights::asthelpers::Not</a></div><div class="ttdeci">UnaryOperator * Not(const Expr *stmt)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00081">ASTHelpers.cpp:81</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_ad74ad0818bf5789eab79251a9f457777"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#ad74ad0818bf5789eab79251a9f457777">clang::insights::asthelpers::Bool</a></div><div class="ttdeci">CXXBoolLiteralExpr * Bool(bool b)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00646">ASTHelpers.cpp:646</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_adba86b8ac1e70d673420ad8601017875"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#adba86b8ac1e70d673420ad8601017875">clang::insights::asthelpers::Function</a></div><div class="ttdeci">FunctionDecl * Function(std::string_view name, QualType returnType, const params_vector &amp;parameters)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00404">ASTHelpers.cpp:404</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_ad74ad0818bf5789eab79251a9f457777"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#ad74ad0818bf5789eab79251a9f457777">clang::insights::asthelpers::Bool</a></div><div class="ttdeci">CXXBoolLiteralExpr * Bool(bool b)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00651">ASTHelpers.cpp:651</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_adba86b8ac1e70d673420ad8601017875"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#adba86b8ac1e70d673420ad8601017875">clang::insights::asthelpers::Function</a></div><div class="ttdeci">FunctionDecl * Function(std::string_view name, QualType returnType, const params_vector &amp;parameters)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00409">ASTHelpers.cpp:409</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_adf362489ef458fc60ef6f9388a586d7d"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#adf362489ef458fc60ef6f9388a586d7d">clang::insights::asthelpers::mkCompoundStmt</a></div><div class="ttdeci">CompoundStmt * mkCompoundStmt(ArrayRef&lt; Stmt * &gt; bodyStmts, SourceLocation beginLoc, SourceLocation endLoc)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00288">ASTHelpers.cpp:288</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_ae4a11bc238a5761be1e4d72d692007d8"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#ae4a11bc238a5761be1e4d72d692007d8">clang::insights::asthelpers::Switch</a></div><div class="ttdeci">SwitchStmt * Switch(Expr *stmt)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00467">ASTHelpers.cpp:467</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_ae4a11bc238a5761be1e4d72d692007d8"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#ae4a11bc238a5761be1e4d72d692007d8">clang::insights::asthelpers::Switch</a></div><div class="ttdeci">SwitchStmt * Switch(Expr *stmt)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00472">ASTHelpers.cpp:472</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_ae89f7aee5c31e06e95088536e3c36ce1"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#ae89f7aee5c31e06e95088536e3c36ce1">clang::insights::asthelpers::Int32</a></div><div class="ttdeci">IntegerLiteral * Int32(uint64_t value)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00310">ASTHelpers.cpp:310</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_aec0ffd083c1a5e0f50325a8087bd2b59"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#aec0ffd083c1a5e0f50325a8087bd2b59">clang::insights::asthelpers::ContantArrayTy</a></div><div class="ttdeci">QualType ContantArrayTy(QualType t, int size)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00202">ASTHelpers.cpp:202</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_aece324f96b4e1c067dd03457ad0ae795"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#aece324f96b4e1c067dd03457ad0ae795">clang::insights::asthelpers::CastLToRValue</a></div><div class="ttdeci">ImplicitCastExpr * CastLToRValue(const VarDecl *vd)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00442">ASTHelpers.cpp:442</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_aece324f96b4e1c067dd03457ad0ae795"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#aece324f96b4e1c067dd03457ad0ae795">clang::insights::asthelpers::CastLToRValue</a></div><div class="ttdeci">ImplicitCastExpr * CastLToRValue(const VarDecl *vd)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00447">ASTHelpers.cpp:447</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_aefdb647034d4b696f302debff0142726"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#aefdb647034d4b696f302debff0142726">clang::insights::asthelpers::Parameter</a></div><div class="ttdeci">ParmVarDecl * Parameter(const FunctionDecl *fd, std::string_view name, QualType type)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00349">ASTHelpers.cpp:349</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_af046d0a157e17382dab2b8d2078d13a7"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#af046d0a157e17382dab2b8d2078d13a7">clang::insights::asthelpers::Dref</a></div><div class="ttdeci">UnaryOperator * Dref(const Expr *stmt)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00105">ASTHelpers.cpp:105</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_af1f00432784bdd2f1f990bd0db95b850"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#af1f00432784bdd2f1f990bd0db95b850">clang::insights::asthelpers::Ptr</a></div><div class="ttdeci">QualType Ptr(QualType srcType)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00184">ASTHelpers.cpp:184</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_af26b1d36455f93db7b827be7a68ec5d7"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#af26b1d36455f93db7b827be7a68ec5d7">clang::insights::asthelpers::mkReference</a></div><div class="ttdeci">static UnaryOperator * mkReference(Expr *e, QualType t)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00087">ASTHelpers.cpp:87</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_af5a0195b03a7fabaad32b20465d64fee"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#af5a0195b03a7fabaad32b20465d64fee">clang::insights::asthelpers::StaticCast</a></div><div class="ttdeci">CXXStaticCastExpr * StaticCast(QualType toType, const Expr *toExpr, bool makePointer)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00253">ASTHelpers.cpp:253</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_afcfe000266b8240d47825203181e817a"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#afcfe000266b8240d47825203181e817a">clang::insights::asthelpers::CallMemberFun</a></div><div class="ttdeci">CXXMemberCallExpr * CallMemberFun(Expr *memExpr, QualType retType)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00449">ASTHelpers.cpp:449</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_afcfe000266b8240d47825203181e817a"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#afcfe000266b8240d47825203181e817a">clang::insights::asthelpers::CallMemberFun</a></div><div class="ttdeci">CXXMemberCallExpr * CallMemberFun(Expr *memExpr, QualType retType)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00454">ASTHelpers.cpp:454</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_afde001f9d25f3f0926adddffdfc2990c"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#afde001f9d25f3f0926adddffdfc2990c">clang::insights::asthelpers::Assign</a></div><div class="ttdeci">BinaryOperator * Assign(const VarDecl *var, Expr *assignExpr)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00031">ASTHelpers.cpp:31</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_afeeafe7e1eb195f4d1ca8f151678b128"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#afeeafe7e1eb195f4d1ca8f151678b128">clang::insights::asthelpers::Try</a></div><div class="ttdeci">CXXTryStmt * Try(const Stmt *tryBody, CXXCatchStmt *catchAllBody)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00144">ASTHelpers.cpp:144</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_aff57f99697eaf07eb9b92532f3d38963"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#aff57f99697eaf07eb9b92532f3d38963">clang::insights::asthelpers::CallDestructor</a></div><div class="ttdeci">CallExpr * CallDestructor(const VarDecl *varDecl)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00653">ASTHelpers.cpp:653</a></div></div>
-<div class="ttc" id="anamespaceclang_1_1insights_html_a48f28e34f3abfc59c28aa3ba788fc08e"><div class="ttname"><a href="namespaceclang_1_1insights.html#a48f28e34f3abfc59c28aa3ba788fc08e">clang::insights::GetName</a></div><div class="ttdeci">std::string GetName(const NamedDecl &amp;nd, const QualifiedName qualifiedName)</div><div class="ttdef"><b>Definition</b> <a href="_insights_helpers_8cpp_source.html#l01095">InsightsHelpers.cpp:1095</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_1_1asthelpers_html_aff57f99697eaf07eb9b92532f3d38963"><div class="ttname"><a href="namespaceclang_1_1insights_1_1asthelpers.html#aff57f99697eaf07eb9b92532f3d38963">clang::insights::asthelpers::CallDestructor</a></div><div class="ttdeci">CallExpr * CallDestructor(const VarDecl *varDecl)</div><div class="ttdef"><b>Definition</b> <a href="_a_s_t_helpers_8cpp_source.html#l00658">ASTHelpers.cpp:658</a></div></div>
+<div class="ttc" id="anamespaceclang_1_1insights_html_a48f28e34f3abfc59c28aa3ba788fc08e"><div class="ttname"><a href="namespaceclang_1_1insights.html#a48f28e34f3abfc59c28aa3ba788fc08e">clang::insights::GetName</a></div><div class="ttdeci">std::string GetName(const NamedDecl &amp;nd, const QualifiedName qualifiedName)</div><div class="ttdef"><b>Definition</b> <a href="_insights_helpers_8cpp_source.html#l01150">InsightsHelpers.cpp:1150</a></div></div>
 <div class="ttc" id="anamespaceclang_1_1insights_html_af1547a2577846066c0e306b2123be616"><div class="ttname"><a href="namespaceclang_1_1insights.html#af1547a2577846066c0e306b2123be616">clang::insights::StrCat</a></div><div class="ttdeci">std::string StrCat(const auto &amp;... args)</div><div class="ttdef"><b>Definition</b> <a href="_insights_str_cat_8h_source.html#l00123">InsightsStrCat.h:123</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.11-->
