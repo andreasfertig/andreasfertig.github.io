@@ -207,8 +207,17 @@ C++ Insights @ brew</h3>
 <p>At least for macOS, you can install C++ Insights via Homebrew thanks to <a target="_blank" href="https://formulae.brew.sh/formula/cppinsights">this formular</a>:</p>
 <div class="fragment"><div class="line">brew install cppinsights</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md43"></a>
-Bash autocomplete</h2>
-<p>There is a bash autocomplete script. It autocompletes the C++ Insights options as well as the Clang options provided after <code>--</code>. You can download it with the following commands:</p>
+Shell autocomplete</h2>
+<p>There are completion scripts for bash, zsh and fish. They autocomplete the C++ Insights options (including their descriptions) as well as the Clang options provided after <code>--</code>.</p>
+<p>When building from source, the completion scripts are installed automatically into the shell-specific directories under <code>share/</code> (configurable via <code>CMAKE_INSTALL_PREFIX</code>):</p>
+<div class="fragment"><div class="line">cmake --install build</div>
+</div><!-- fragment --><p>This places the scripts at:</p>
+<ul>
+<li>bash: <code>share/bash-completion/completions/insights</code></li>
+<li>zsh: <code>share/zsh/site-functions/_insights</code></li>
+<li>fish: <code>share/fish/vendor_completions.d/insights.fish</code></li>
+</ul>
+<p>If you install C++ Insights yourself (or just want the script), you can download them individually:</p>
 <div class="fragment"><div class="line">cd &lt;YOUR_BASH_COMPLETION.D&gt;</div>
 <div class="line">curl -o insights https://github.com/andreasfertig/cppinsights/tree/main/scripts/bash-autocomplete.sh</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md44"></a>
